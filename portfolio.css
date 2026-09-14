@@ -2,24 +2,28 @@
    confident — distinct from the warm client-demo templates below it. */
 
 :root {
-  /* Brand palette — exactly four colors, everything else is a mix of these. */
-  --nod-cream: #fdeb9e;
-  --nod-mint: #7ae2cf;
-  --nod-teal: #077a7d;
-  --nod-navy: #06202b;
+  /* Brand palette — exactly five colors, everything else is a mix of these. */
+  --nod-pale: #afdde5;
+  --nod-cyan: #0fa4af;
+  --nod-rust: #964734;
+  --nod-deep: #024950;
+  --nod-ink: #003135;
 
-  --color-bg: var(--nod-navy);
-  --color-bg-alt: color-mix(in srgb, var(--nod-teal) 14%, var(--nod-navy) 86%);
-  --color-surface: color-mix(in srgb, var(--nod-teal) 22%, var(--nod-navy) 78%);
-  --color-border: color-mix(in srgb, var(--nod-mint) 22%, var(--nod-navy) 78%);
-  --color-text: var(--nod-cream);
-  --color-text-muted: color-mix(in srgb, var(--nod-cream) 55%, var(--nod-navy) 45%);
-  --color-accent: var(--nod-mint);
-  --color-accent-hover: color-mix(in srgb, var(--nod-mint) 75%, var(--nod-cream) 25%);
-  --color-accent-contrast: var(--nod-navy);
+  /* Same proportion logic as before: the palest tone dominates as the
+     background, the mid tones do secondary/accent duty, and the darkest
+     tone is used sparingly — mainly for text. */
+  --color-bg: var(--nod-pale);
+  --color-bg-alt: color-mix(in srgb, var(--nod-cyan) 55%, var(--nod-pale) 45%);
+  --color-surface: color-mix(in srgb, var(--nod-cyan) 20%, var(--nod-pale) 80%);
+  --color-border: color-mix(in srgb, var(--nod-rust) 35%, var(--nod-pale) 65%);
+  --color-text: var(--nod-ink);
+  --color-text-muted: color-mix(in srgb, var(--nod-ink) 60%, var(--nod-pale) 40%);
+  --color-accent: var(--nod-rust);
+  --color-accent-hover: color-mix(in srgb, var(--nod-rust) 75%, var(--nod-ink) 25%);
+  --color-accent-contrast: var(--nod-pale);
   --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
   --font-body: "JetBrains Mono", "Segoe UI", monospace;
-  --gradient-signature: linear-gradient(100deg, var(--nod-mint) 0%, var(--nod-teal) 55%, var(--nod-cream) 100%);
+  --gradient-signature: linear-gradient(100deg, var(--nod-rust) 0%, var(--nod-ink) 100%);
 }
 
 body {
@@ -101,7 +105,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
   padding: var(--space-2) var(--space-5);
   border-radius: 999px;
   border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.03);
+  background: color-mix(in srgb, var(--nod-ink) 4%, transparent);
   backdrop-filter: blur(6px);
   font-family: "JetBrains Mono", monospace;
   font-size: var(--text-sm);
@@ -115,7 +119,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
 .hero-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
 .hero .btn--primary {
   background: var(--gradient-signature);
-  color: #0b0e1f;
+  color: var(--nod-pale);
   border: none;
 }
 .hero .btn--primary:hover { filter: brightness(1.08); }
@@ -141,9 +145,9 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
   pointer-events: none;
   z-index: 0;
 }
-.hero-glow--a { width: 480px; height: 480px; top: -140px; right: -80px; background: rgba(122, 226, 207, 0.30); }
-.hero-glow--b { width: 420px; height: 420px; bottom: -160px; left: -100px; background: rgba(7, 122, 125, 0.40); }
-.hero-glow--c { width: 380px; height: 380px; bottom: -120px; right: 10%; background: rgba(253, 235, 158, 0.16); }
+.hero-glow--a { width: 480px; height: 480px; top: -140px; right: -80px; background: rgba(15, 164, 175, 0.55); }
+.hero-glow--b { width: 420px; height: 420px; bottom: -160px; left: -100px; background: rgba(2, 73, 80, 0.25); }
+.hero-glow--c { width: 380px; height: 380px; bottom: -120px; right: 10%; background: rgba(0, 49, 53, 0.08); }
 .hero .container { position: relative; z-index: 1; }
 .hero-node-mark { z-index: 1; }
 
