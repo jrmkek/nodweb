@@ -149,6 +149,7 @@
           used only as a placeholder.
         -->
         <model-viewer
+          id="architecture-model"
           class="reveal model-viewer-frame"
           src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
           alt="Interactive 3D preview model — replace with the client's architectural model"
@@ -165,6 +166,14 @@
           <div class="model-viewer-loading" slot="progress-bar"></div>
         </model-viewer>
       </div>
+
+      <script>
+        // The progress bar above is a custom slot, so model-viewer won't
+        // hide it on its own — do it ourselves once the model has loaded.
+        document.getElementById("architecture-model").addEventListener("load", (event) => {
+          event.target.querySelector(".model-viewer-loading")?.classList.add("is-loaded");
+        });
+      </script>
     </div>
   </section>
 
