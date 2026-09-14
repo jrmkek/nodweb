@@ -2,28 +2,48 @@
    confident — distinct from the warm client-demo templates below it. */
 
 :root {
-  --color-bg: #0f1326;
-  --color-bg-alt: #141833;
-  --color-surface: #161b38;
-  --color-border: #2b3160;
-  --color-text: #eef0fb;
-  --color-text-muted: #9aa1c9;
-  --color-accent: #6d87ff;
-  --color-accent-hover: #8ea0ff;
-  --color-accent-contrast: #0b0e1f;
+  /* Brand palette — exactly four colors, everything else is a mix of these. */
+  --nod-cream: #fdeb9e;
+  --nod-mint: #7ae2cf;
+  --nod-teal: #077a7d;
+  --nod-navy: #06202b;
+
+  --color-bg: var(--nod-navy);
+  --color-bg-alt: color-mix(in srgb, var(--nod-teal) 14%, var(--nod-navy) 86%);
+  --color-surface: color-mix(in srgb, var(--nod-teal) 22%, var(--nod-navy) 78%);
+  --color-border: color-mix(in srgb, var(--nod-mint) 22%, var(--nod-navy) 78%);
+  --color-text: var(--nod-cream);
+  --color-text-muted: color-mix(in srgb, var(--nod-cream) 55%, var(--nod-navy) 45%);
+  --color-accent: var(--nod-mint);
+  --color-accent-hover: color-mix(in srgb, var(--nod-mint) 75%, var(--nod-cream) 25%);
+  --color-accent-contrast: var(--nod-navy);
   --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
   --font-body: "JetBrains Mono", "Segoe UI", monospace;
-  --gradient-signature: linear-gradient(100deg, #2dd4bf 0%, #ec4899 52%, #f59e0b 100%);
+  --gradient-signature: linear-gradient(100deg, var(--nod-mint) 0%, var(--nod-teal) 55%, var(--nod-cream) 100%);
 }
 
 body {
   background: var(--color-bg);
 }
 
-h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
 .eyebrow, .badge, .site-nav__brand, .btn { font-family: "JetBrains Mono", monospace; }
 .eyebrow, .badge { letter-spacing: 0.06em; }
 .site-nav__brand { letter-spacing: -0.02em; font-weight: 700; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 500;
+}
+.eyebrow::before,
+.eyebrow::after {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+.eyebrow::before { content: "["; }
+.eyebrow::after { content: "]"; }
 
 .gradient-text {
   background: var(--gradient-signature);
@@ -89,8 +109,8 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
 }
 
 .hero { padding-block: var(--space-12) var(--space-10); text-align: center; position: relative; overflow: hidden; }
-.hero .container { max-width: 860px; }
-.hero h1 { font-size: var(--text-3xl); line-height: 1.08; }
+.hero .container { max-width: 900px; }
+.hero h1 { font-size: clamp(var(--text-3xl), 5vw + 1rem, 4.25rem); line-height: 1.02; letter-spacing: -0.04em; }
 .hero__intro { font-size: var(--text-lg); max-width: 56ch; margin-inline: auto; }
 .hero-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
 .hero .btn--primary {
@@ -121,9 +141,9 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
   pointer-events: none;
   z-index: 0;
 }
-.hero-glow--a { width: 480px; height: 480px; top: -140px; right: -80px; background: rgba(45, 212, 191, 0.30); }
-.hero-glow--b { width: 420px; height: 420px; bottom: -160px; left: -100px; background: rgba(236, 72, 153, 0.24); }
-.hero-glow--c { width: 380px; height: 380px; bottom: -120px; right: 10%; background: rgba(245, 158, 11, 0.18); }
+.hero-glow--a { width: 480px; height: 480px; top: -140px; right: -80px; background: rgba(122, 226, 207, 0.30); }
+.hero-glow--b { width: 420px; height: 420px; bottom: -160px; left: -100px; background: rgba(7, 122, 125, 0.40); }
+.hero-glow--c { width: 380px; height: 380px; bottom: -120px; right: 10%; background: rgba(253, 235, 158, 0.16); }
 .hero .container { position: relative; z-index: 1; }
 .hero-node-mark { z-index: 1; }
 
