@@ -32,6 +32,48 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
   color: transparent;
 }
 
+/* ---------- Language switcher ---------- */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.lang-switch__flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: var(--radius-sm);
+  font-size: 1.2rem;
+  line-height: 1;
+  text-decoration: none;
+  filter: grayscale(65%);
+  opacity: 0.55;
+  transition: opacity var(--duration-fast) var(--ease), filter var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease);
+}
+.lang-switch__flag:hover { opacity: 0.85; filter: grayscale(20%); }
+.lang-switch__flag.is-current {
+  opacity: 1;
+  filter: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  cursor: default;
+}
+@media (max-width: 780px) {
+  .site-nav__links .lang-switch {
+    width: auto;
+    justify-content: center;
+    border-bottom: none;
+    padding-block: var(--space-3);
+  }
+  .site-nav__links .lang-switch__flag {
+    width: auto;
+    min-height: 44px;
+    border-bottom: none;
+  }
+}
+
 .badge-pill {
   display: inline-flex;
   align-items: center;
