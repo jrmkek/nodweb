@@ -33,10 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = form.querySelector("button[type=submit]");
     const original = button.textContent;
 
-    // Forms marked data-netlify actually submit, via Netlify Forms.
+    // Forms with a `name` submit for real, via Netlify Forms. (Netlify
+    // strips the data-netlify/netlify-honeypot attributes from the served
+    // HTML once it has registered the form at build time, so checking for
+    // those at runtime never works — `name` is the one thing that survives,
+    // since Netlify Forms needs it to identify the submission.)
     // Everything else (the demo templates) has no backend to send to,
     // so it just simulates success for preview purposes.
-    if (form.hasAttribute("data-netlify")) {
+    if (form.name) {
       button.disabled = true;
       button.textContent = "Sending…";
       fetch("/", {
