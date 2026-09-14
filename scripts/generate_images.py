@@ -4,10 +4,12 @@ images, and abstract content placeholders for the two template sites.
 Not part of the deployed site — run once, commit the outputs, delete
 or ignore this script's dependency on Pillow afterward if you like.
 """
+import io
 import math
 import random
 from pathlib import Path
 
+from fontTools.ttLib import TTFont
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -15,15 +17,72 @@ ICONS = ROOT / "assets" / "icons"
 OG = ROOT / "assets" / "og"
 IMAGES = ROOT / "assets" / "images"
 FONT_DIR = Path(r"C:\Windows\Fonts")
+BRAND_FONTS_DIR = ROOT / "shared" / "fonts"
 
 GEORGIA_BOLD = str(FONT_DIR / "georgiab.ttf")
 SEGOE = str(FONT_DIR / "segoeui.ttf")
 SEGOE_BOLD = str(FONT_DIR / "segoeuib.ttf")
 
-# ---- Brand palettes -------------------------------------------------
-NODWEB = {"bg": (15, 19, 38), "bg2": (23, 29, 56), "accent": (58, 92, 235), "text": (245, 246, 250)}
-ARCH = {"bg": (39, 33, 28), "bg2": (58, 46, 36), "accent": (181, 80, 47), "text": (250, 247, 243)}
-CAFE = {"bg": (43, 34, 25), "bg2": (61, 47, 33), "accent": (181, 80, 47), "text": (250, 247, 243)}
+_ttf_cache = {}
+
+
+def brand_font_bytes(woff2_name):
+    """Convert one of the site's self-hosted woff2 files (see
+    self_host_fonts.py) to ttf in memory, so ImageFont can load it —
+    Pillow/FreeType can't read woff2 directly. Cached per run."""
+    if woff2_name not in _ttf_cache:
+        font = TTFont(str(BRAND_FONTS_DIR / woff2_name))
+        font.flavor = None
+        buf = io.BytesIO()
+        font.save(buf)
+        _ttf_cache[woff2_name] = buf.getvalue()
+    return _ttf_cache[woff2_name]
+
+
+def load_font(woff2_name, size, weight=None, opsz=None):
+    """Load a brand woff2 as a PIL font, pinning variable-font axes
+    (weight, optical size) to a specific value instead of silently using
+    the font's default instance — several of these brand fonts default
+    to Thin, not the weight the site's CSS renders via font-weight ranges."""
+    font = ImageFont.truetype(io.BytesIO(brand_font_bytes(woff2_name)), size)
+    try:
+        axes = font.get_variation_axes()
+    except OSError:
+        return font  # not a variable font
+    wanted = {"weight": weight, "optical size": opsz}
+    values = []
+    for axis in axes:
+        name = axis["name"].decode().lower() if isinstance(axis["name"], bytes) else axis["name"].lower()
+        values.append(wanted.get(name) if wanted.get(name) is not None else axis["default"])
+    font.set_variation_by_axes(values)
+    return font
+
+
+# Real brand fonts — filenames from shared/fonts/, see self_host_fonts.py —
+# so OG cards match each page's actual typography.
+BRICOLAGE = "bricolage-grotesque-800-normal-2.woff2"
+JETBRAINS_MONO = "jetbrains-mono-700-normal-2.woff2"
+BIG_SHOULDERS = "big-shoulders-display-800-normal-2.woff2"
+IBM_PLEX_MONO = "ibm-plex-mono-600-normal-2.woff2"
+FRAUNCES = "fraunces-700-normal-2.woff2"
+KARLA = "karla-500-normal-2.woff2"
+
+# ---- Brand palettes (colors match each site's actual --color-accent) ----
+NODWEB = {
+    "bg": (15, 19, 38), "bg2": (23, 29, 56), "accent": (109, 135, 255), "text": (245, 246, 250),
+    "title_font": BRICOLAGE, "title_weight": 800, "title_opsz": 96,
+    "label_font": JETBRAINS_MONO, "label_weight": 700,
+}
+ARCH = {
+    "bg": (39, 33, 28), "bg2": (58, 46, 36), "accent": (168, 70, 31), "text": (250, 247, 243),
+    "title_font": BIG_SHOULDERS, "title_weight": 800, "title_opsz": None,
+    "label_font": IBM_PLEX_MONO, "label_weight": None,
+}
+CAFE = {
+    "bg": (43, 34, 25), "bg2": (61, 47, 33), "accent": (189, 91, 44), "text": (250, 247, 243),
+    "title_font": FRAUNCES, "title_weight": 700, "title_opsz": 144,
+    "label_font": KARLA, "label_weight": 500,
+}
 
 
 def lerp(a, b, t):
@@ -108,30 +167,41 @@ def wrap_text(draw, text, font, max_width):
     return lines
 
 
+def centered_text(draw, cy, text, font, fill, canvas_w=1200):
+    w = draw.textlength(text, font=font)
+    draw.text(((canvas_w - w) / 2, cy), text, font=font, fill=fill)
+
+
 def make_og(filename, palette, eyebrow, title, subtitle):
+    # Everything is horizontally centered and kept within the middle ~630px
+    # column: WhatsApp (and some other apps) crop link-preview images to a
+    # roughly square thumbnail from the center, so anything living near the
+    # left/right edges — like a left-aligned wordmark — gets cut off.
     size = (1200, 630)
     img = gradient(size, palette["bg"], palette["bg2"], angle=25)
     img = add_grain(img, amount=5)
     draw = ImageDraw.Draw(img)
 
-    node_mark(draw, 1030, 150, 62, tuple(min(255, c + 30) for c in palette["accent"]), palette["text"], 5)
+    eyebrow_font = load_font(palette["label_font"], 26, weight=palette["label_weight"])
+    title_font = load_font(palette["title_font"], 72, weight=palette["title_weight"], opsz=palette["title_opsz"])
+    sub_font = ImageFont.truetype(SEGOE, 28)
 
-    eyebrow_font = ImageFont.truetype(SEGOE_BOLD, 28)
-    title_font = ImageFont.truetype(GEORGIA_BOLD, 64)
-    sub_font = ImageFont.truetype(SEGOE, 30)
+    mark_accent = tuple(min(255, c + 30) for c in palette["accent"])
+    node_mark(draw, 600, 110, 40, mark_accent, palette["text"], 4)
 
-    draw.text((80, 90), eyebrow.upper(), font=eyebrow_font, fill=palette["accent"])
+    centered_text(draw, 180, eyebrow.upper(), eyebrow_font, palette["accent"])
 
-    lines = wrap_text(draw, title, title_font, 1000)
-    y = 150
-    for line in lines:
-        draw.text((80, y), line, font=title_font, fill=palette["text"])
-        y += 76
+    title_lines = wrap_text(draw, title, title_font, 1000)
+    y = 225
+    for line in title_lines:
+        centered_text(draw, y, line, title_font, palette["text"])
+        y += 84
 
-    y += 20
-    for line in wrap_text(draw, subtitle, sub_font, 900):
-        draw.text((80, y), line, font=sub_font, fill=tuple(int(c * 0.85) for c in palette["text"]))
-        y += 42
+    y += 16
+    sub_lines = wrap_text(draw, subtitle, sub_font, 820)
+    for line in sub_lines:
+        centered_text(draw, y, line, sub_font, tuple(int(c * 0.85) for c in palette["text"]))
+        y += 40
 
     img.save(OG / filename, quality=90)
 

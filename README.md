@@ -61,9 +61,15 @@ templates/
                           Linked from the homepage as "The Copper Kettle Café".
 
 scripts/
-  generate_images.py       One-off Pillow script that generated the placeholder
+  generate_images.py       One-off script that generated the placeholder
                             icons/OG images/content images. Not part of the
-                            deployed site (requires `pip install Pillow`).
+                            deployed site (requires `pip install Pillow fonttools`).
+                            OG card text uses the real per-site brand fonts,
+                            converted at runtime from shared/fonts/*.woff2 —
+                            watch for variable-font axes defaulting to an
+                            unwanted weight (e.g. Big Shoulders Display
+                            defaults to Thin); load_font() pins weight/opsz
+                            explicitly rather than trusting the default.
   self_host_fonts.py       One-off script that downloaded the self-hosted font
                             files from Google Fonts and wrote the fonts-*.css
                             files above. Rerun it if a site's font stack changes.
