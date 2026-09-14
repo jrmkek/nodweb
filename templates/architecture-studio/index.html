@@ -25,6 +25,10 @@
   <meta name="twitter:description" content="An architecture studio template with an interactive 3D model viewer." />
   <meta name="twitter:image" content="https://nodweb.org/assets/og/architecture-studio.jpg" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="../../shared/css/tokens.css" />
   <link rel="stylesheet" href="../../shared/css/base.css" />
   <link rel="stylesheet" href="./architecture.css" />
@@ -91,11 +95,12 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="section hero" id="top">
-    <div class="container stack">
-      <span class="eyebrow reveal">Architecture Studio — Template Example</span>
-      <h1 class="reveal">Buildings that belong to their place.</h1>
-      <p class="hero__intro reveal">We design homes, workplaces, and public spaces guided by light, material, and site — not trend.</p>
-      <div class="reveal">
+    <div class="blueprint-grid" aria-hidden="true"></div>
+    <div class="container stack load-stagger">
+      <span class="eyebrow">01 — Architecture Studio · Template Example</span>
+      <h1>Buildings that belong to their place.</h1>
+      <p class="hero__intro">We design homes, workplaces, and public spaces guided by light, material, and site — not trend.</p>
+      <div class="hero-actions">
         <a class="btn btn--primary" href="#contact">Book a consultation</a>
         <a class="btn btn--secondary" href="#work">See our work</a>
       </div>
@@ -127,7 +132,7 @@
     <div class="container">
       <div class="model-showcase">
         <div class="model-showcase__copy stack">
-          <span class="eyebrow reveal">Signature feature</span>
+          <span class="eyebrow reveal">02 — Signature feature</span>
           <h2 class="reveal">Explore a project in 3D</h2>
           <p class="reveal">Drag to rotate, scroll to zoom, and view any model in AR directly on a phone. This is the same viewer we hand every client for their own project.</p>
           <div class="reveal model-hint">
@@ -167,7 +172,7 @@
   <section class="section section--alt" id="work">
     <div class="container stack">
       <div>
-        <span class="eyebrow reveal">Selected work</span>
+        <span class="eyebrow reveal">03 — Selected work</span>
         <h2 class="reveal">Recent projects</h2>
       </div>
       <div class="grid grid--4">
@@ -209,7 +214,7 @@
     <div class="container">
       <div class="studio-grid">
         <div class="stack">
-          <span class="eyebrow reveal">Studio</span>
+          <span class="eyebrow reveal">04 — Studio</span>
           <h2 class="reveal">A small studio, deliberately.</h2>
           <p class="reveal">We keep our roster short so every project gets partner-level attention from first sketch to final walkthrough. Founded 2024.</p>
         </div>
@@ -226,7 +231,7 @@
   <section class="section section--alt" id="contact">
     <div class="container contact-grid">
       <div class="stack">
-        <span class="eyebrow reveal">Get in touch</span>
+        <span class="eyebrow reveal">05 — Get in touch</span>
         <h2 class="reveal">Start a conversation</h2>
         <p class="reveal">Tell us about your site and what you're imagining. We reply within one business day.</p>
         <!-- EDIT: contact details -->

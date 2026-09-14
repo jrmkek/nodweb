@@ -1,8 +1,46 @@
-/* Template-specific layout for the architecture studio site. */
+/* Template-specific theme + layout for the architecture studio site:
+   editorial, structural, blueprint-referencing. */
 
-.hero { padding-block: var(--space-12) var(--space-10); }
+:root {
+  --color-bg: #f3efe6;
+  --color-bg-alt: #ece5d7;
+  --color-surface: #faf7f0;
+  --color-border: #ddd3bf;
+  --color-text: #211c15;
+  --color-text-muted: #6b6255;
+  --color-accent: #a8461f;
+  --color-accent-hover: #8a381a;
+  --color-accent-contrast: #faf7f0;
+  --font-display: "Big Shoulders Display", "Georgia", serif;
+  --font-body: "Spectral", Georgia, serif;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+.eyebrow, .badge, .site-nav__brand, .btn, .breadcrumbs {
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.04em;
+}
+.site-nav__brand { text-transform: none; font-weight: 600; }
+
+.hero { padding-block: var(--space-12) var(--space-10); position: relative; overflow: hidden; }
 .hero h1 { max-width: 16ch; }
-.hero__intro { max-width: 52ch; font-size: var(--text-lg); }
+.hero__intro { max-width: 52ch; font-size: var(--text-lg); font-style: italic; }
+.hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+/* Faint blueprint grid behind the hero — the studio's structural motif */
+.blueprint-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(168, 70, 31, 0.10) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(90deg, rgba(168, 70, 31, 0.10) 0 1px, transparent 1px 64px);
+  mask-image: radial-gradient(ellipse at 30% 20%, black 0%, transparent 70%);
+}
 
 .model-showcase {
   display: grid;
@@ -63,7 +101,7 @@
   border-radius: var(--radius-md);
 }
 .stats strong { font-size: var(--text-2xl); font-family: var(--font-display); }
-.stats span { font-size: var(--text-sm); color: var(--color-text-muted); }
+.stats span { font-size: var(--text-sm); color: var(--color-text-muted); font-family: "IBM Plex Mono", monospace; }
 @media (max-width: 860px) {
   .studio-grid { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; }

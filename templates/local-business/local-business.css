@@ -1,4 +1,43 @@
-/* Template-specific layout for the local-business site. */
+/* Template-specific theme + layout for the local-business site:
+   warm, artisanal, hand-crafted — cream, espresso, and copper. */
+
+:root {
+  --color-bg: #fbf2e4;
+  --color-bg-alt: #f3e5d0;
+  --color-surface: #fffaf1;
+  --color-border: #e6d3b3;
+  --color-text: #3a2617;
+  --color-text-muted: #7a624c;
+  --color-accent: #bd5b2c;
+  --color-accent-hover: #9c4a22;
+  --color-accent-contrast: #fffaf1;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Karla", "Segoe UI", sans-serif;
+}
+
+/* Warm paper-grain atmosphere instead of a flat background */
+body {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(189, 91, 44, 0.10), transparent 40%),
+    radial-gradient(circle at 95% 30%, rgba(212, 160, 23, 0.12), transparent 45%),
+    var(--color-bg);
+}
+
+h1, h2, h3 { font-optical-sizing: auto; }
+h1 { font-weight: 500; }
+.eyebrow--script {
+  font-family: "Caveat", cursive;
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.price {
+  font-family: "Caveat", cursive;
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+  margin-top: -0.25rem;
+}
 
 .hero { padding-block: var(--space-10); }
 .hero-grid {
@@ -7,7 +46,7 @@
   gap: var(--space-8);
   align-items: center;
 }
-.hero h1 { max-width: 14ch; }
+.hero h1 { max-width: 14ch; font-style: italic; }
 .hero__intro { max-width: 40ch; font-size: var(--text-lg); }
 .hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 .hero-media {
@@ -41,8 +80,8 @@
   display: flex;
   justify-content: space-between;
   padding: var(--space-3) 0;
-  border-bottom: 1px solid var(--color-border);
-  font-weight: 500;
+  border-bottom: 1px dashed var(--color-border);
+  font-weight: 600;
 }
 .map-placeholder { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); }
 @media (max-width: 860px) {
