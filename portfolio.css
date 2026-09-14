@@ -2,28 +2,28 @@
    confident — distinct from the warm client-demo templates below it. */
 
 :root {
-  /* Brand palette — exactly five colors, everything else is a mix of these. */
-  --nod-pale: #afdde5;
-  --nod-cyan: #0fa4af;
-  --nod-rust: #964734;
-  --nod-deep: #024950;
-  --nod-ink: #003135;
+  /* Brand palette — exactly four colors, everything else is a mix of these.
+     This swatch had equal-width bars (no single dominant color like past
+     palettes), so white anchors the background for legibility, and the
+     three saturated colors split accent/secondary/text duty — teal is the
+     darkest of the four, so it carries text even though it's not truly dark. */
+  --nod-white: #ffffff;
+  --nod-pink: #ff69b4;
+  --nod-cyan: #00f0ff;
+  --nod-teal: #069494;
 
-  /* Same proportion logic as before: the palest tone dominates as the
-     background, the mid tones do secondary/accent duty, and the darkest
-     tone is used sparingly — mainly for text. */
-  --color-bg: var(--nod-pale);
-  --color-bg-alt: color-mix(in srgb, var(--nod-cyan) 55%, var(--nod-pale) 45%);
-  --color-surface: color-mix(in srgb, var(--nod-cyan) 20%, var(--nod-pale) 80%);
-  --color-border: color-mix(in srgb, var(--nod-rust) 35%, var(--nod-pale) 65%);
-  --color-text: var(--nod-ink);
-  --color-text-muted: color-mix(in srgb, var(--nod-ink) 60%, var(--nod-pale) 40%);
-  --color-accent: var(--nod-rust);
-  --color-accent-hover: color-mix(in srgb, var(--nod-rust) 75%, var(--nod-ink) 25%);
-  --color-accent-contrast: var(--nod-pale);
+  --color-bg: var(--nod-white);
+  --color-bg-alt: color-mix(in srgb, var(--nod-cyan) 35%, var(--nod-white) 65%);
+  --color-surface: color-mix(in srgb, var(--nod-cyan) 18%, var(--nod-white) 82%);
+  --color-border: color-mix(in srgb, var(--nod-pink) 40%, var(--nod-white) 60%);
+  --color-text: var(--nod-teal);
+  --color-text-muted: color-mix(in srgb, var(--nod-teal) 65%, var(--nod-white) 35%);
+  --color-accent: var(--nod-pink);
+  --color-accent-hover: color-mix(in srgb, var(--nod-pink) 75%, var(--nod-teal) 25%);
+  --color-accent-contrast: var(--nod-white);
   --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
   --font-body: "JetBrains Mono", "Segoe UI", monospace;
-  --gradient-signature: linear-gradient(100deg, var(--nod-rust) 0%, var(--nod-ink) 100%);
+  --gradient-signature: linear-gradient(100deg, var(--nod-pink) 0%, var(--nod-teal) 100%);
 }
 
 body {
@@ -105,7 +105,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
   padding: var(--space-2) var(--space-5);
   border-radius: 999px;
   border: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--nod-ink) 4%, transparent);
+  background: color-mix(in srgb, var(--nod-teal) 4%, transparent);
   backdrop-filter: blur(6px);
   font-family: "JetBrains Mono", monospace;
   font-size: var(--text-sm);
@@ -119,7 +119,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
 .hero-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
 .hero .btn--primary {
   background: var(--gradient-signature);
-  color: var(--nod-pale);
+  color: var(--nod-white);
   border: none;
 }
 .hero .btn--primary:hover { filter: brightness(1.08); }
@@ -145,9 +145,9 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
   pointer-events: none;
   z-index: 0;
 }
-.hero-glow--a { width: 480px; height: 480px; top: -140px; right: -80px; background: rgba(15, 164, 175, 0.55); }
-.hero-glow--b { width: 420px; height: 420px; bottom: -160px; left: -100px; background: rgba(2, 73, 80, 0.25); }
-.hero-glow--c { width: 380px; height: 380px; bottom: -120px; right: 10%; background: rgba(0, 49, 53, 0.08); }
+.hero-glow--a { width: 480px; height: 480px; top: -140px; right: -80px; background: rgba(0, 240, 255, 0.45); }
+.hero-glow--b { width: 420px; height: 420px; bottom: -160px; left: -100px; background: rgba(255, 105, 180, 0.35); }
+.hero-glow--c { width: 380px; height: 380px; bottom: -120px; right: 10%; background: rgba(6, 148, 148, 0.12); }
 .hero .container { position: relative; z-index: 1; }
 .hero-node-mark { z-index: 1; }
 
