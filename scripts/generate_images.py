@@ -270,9 +270,13 @@ def build_placeholders():
     make_placeholder("cafe-about.jpg", 4 / 3, CAFE, seed=40)
     make_placeholder("cafe-map.jpg", 4 / 3, CAFE, seed=50)
 
-    # home page work-preview thumbnails (16:10)
-    make_placeholder("home-work-architecture.jpg", 16 / 10, ARCH, seed=60)
-    make_placeholder("home-work-cafe.jpg", 16 / 10, CAFE, seed=61)
+    # home-work-architecture.jpg / home-work-cafe.jpg (16:10) are NOT
+    # generated here on purpose: the homepage's "Live example sites" cards
+    # now use real screenshots of the two templates (captured via headless
+    # Chrome) instead of abstract gradient placeholders, so they read as
+    # actual product rather than filler art. Re-run this function and
+    # they'll stay untouched; recapture them manually if the templates
+    # change enough to need a fresh screenshot.
     print("placeholders done")
 
 
