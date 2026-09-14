@@ -1,0 +1,201 @@
+<!doctype html>
+<!--
+  Domain placeholder: this project isn't deployed to a registered domain
+  yet. Every absolute URL below uses https://nodweb.org as a placeholder —
+  once a real domain is registered, find-and-replace "nodweb.org" across
+  the project (index.html, templates/**/index.html, 404.html, sitemap.xml,
+  robots.txt, llms.txt).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NodWeb — Websites for Local Businesses in Bucharest</title>
+  <meta name="description" content="NodWeb designs and builds fast, modern websites for cafés, contractors, salons, and studios in Bucharest — including interactive 3D showcases for architecture and design studios." />
+  <link rel="canonical" href="https://nodweb.org/" />
+
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./assets/icons/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="NodWeb — Websites for Local Businesses in Bucharest" />
+  <meta property="og:description" content="Fast, modern websites for cafés, contractors, salons, and studios in Bucharest — including interactive 3D showcases for architecture studios." />
+  <meta property="og:url" content="https://nodweb.org/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/home.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NodWeb — Websites for Local Businesses in Bucharest" />
+  <meta name="twitter:description" content="Fast, modern websites for cafés, contractors, salons, and studios in Bucharest." />
+  <meta name="twitter:image" content="https://nodweb.org/assets/og/home.jpg" />
+
+  <link rel="stylesheet" href="./shared/css/tokens.css" />
+  <link rel="stylesheet" href="./shared/css/base.css" />
+  <link rel="stylesheet" href="./portfolio.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "NodWeb",
+    "url": "https://nodweb.org/",
+    "image": "https://nodweb.org/assets/og/home.jpg",
+    "description": "NodWeb designs and builds fast, modern websites for local businesses in Bucharest, Romania, including interactive 3D model showcases for architecture and design studios.",
+    "email": "ierostanescu@gmail.com",
+    "telephone": "+40731431633",
+    "areaServed": {
+      "@type": "City",
+      "name": "Bucharest"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bucharest",
+      "addressCountry": "RO"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="site-nav__brand" href="#top">NodWeb</a>
+      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <ul class="site-nav__links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a class="btn btn--primary" href="#contact">Get a quote</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="section hero" id="top">
+    <div class="container stack">
+      <span class="eyebrow reveal">Websites for local businesses in Bucharest</span>
+      <h1 class="reveal">A great website shouldn't be the hardest part of running your business.</h1>
+      <p class="hero__intro reveal">I design and build fast, modern, easy-to-find websites for cafés, contractors, salons, and studios — launched in days, not months.</p>
+      <div class="reveal hero-actions">
+        <a class="btn btn--primary" href="#contact">Get a free quote</a>
+        <a class="btn btn--secondary" href="#work">See example sites</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORK / TEMPLATE SHOWCASE ===================== -->
+  <section class="section section--alt" id="work">
+    <div class="container stack">
+      <div>
+        <span class="eyebrow reveal">See it in action</span>
+        <h2 class="reveal">Live example sites</h2>
+        <p class="reveal">These are fully working templates — the same quality and speed every client site starts from. NodWeb has no delivered client projects yet; these examples show the standard of work you'd receive.</p>
+      </div>
+      <div class="grid grid--2">
+        <a class="card card--link reveal" href="./templates/architecture-studio/index.html">
+          <div class="card__media work-media">
+            <img src="./assets/images/home-work-architecture.jpg" alt="Preview of the Atlas & Vine Architecture template example, featuring an interactive 3D model viewer" loading="lazy" width="1200" height="750" />
+          </div>
+          <span class="badge">Architecture &amp; design studios</span>
+          <h3>Atlas &amp; Vine Architecture</h3>
+          <p>Includes an interactive 3D model viewer — upload a building model, let visitors explore it in the browser or in AR on their phone.</p>
+        </a>
+        <a class="card card--link reveal" href="./templates/local-business/index.html">
+          <div class="card__media work-media">
+            <img src="./assets/images/home-work-cafe.jpg" alt="Preview of the Copper Kettle Café template example, featuring a menu grid and reservation form" loading="lazy" width="1200" height="750" />
+          </div>
+          <span class="badge">Cafés, salons, contractors, shops</span>
+          <h3>The Copper Kettle Café</h3>
+          <p>A clean, fast template for any local business — menu or service grid, hours, location, and a reservation/contact form.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="grid grid--3">
+        <div class="card reveal">
+          <h3>Website design &amp; build</h3>
+          <p>A custom-fitted site using your photos, copy, and branding — live in days.</p>
+        </div>
+        <div class="card reveal">
+          <h3>3D model showcases</h3>
+          <p>For architects, builders, and designers: upload a 3D model and let clients explore it interactively.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Ongoing updates</h3>
+          <p>Menu changes, new photos, seasonal hours — simple update requests, handled quickly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section class="section section--alt" id="process">
+    <div class="container stack">
+      <div>
+        <span class="eyebrow reveal">How it works</span>
+        <h2 class="reveal">Four steps, start to launch</h2>
+      </div>
+      <ol class="process-list">
+        <li class="reveal"><span class="process-step">1</span><div><h3>Quick call</h3><p>15 minutes to understand your business and what the site needs to do.</p></div></li>
+        <li class="reveal"><span class="process-step">2</span><div><h3>Content collected</h3><p>You send photos, text, and any details — I handle the rest.</p></div></li>
+        <li class="reveal"><span class="process-step">3</span><div><h3>Draft &amp; review</h3><p>You see a working preview and request changes before anything goes live.</p></div></li>
+        <li class="reveal"><span class="process-step">4</span><div><h3>Launch</h3><p>Site goes live on your domain, with a short walkthrough of how to request updates.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container contact-grid">
+      <div class="stack">
+        <span class="eyebrow reveal">Get a quote</span>
+        <h2 class="reveal">Tell me about your business</h2>
+        <p class="reveal">Fill out the form or reach out directly — I reply within one business day.</p>
+        <p class="reveal"><strong>Email:</strong> <a href="mailto:ierostanescu@gmail.com">ierostanescu@gmail.com</a><br /><strong>Phone:</strong> <a href="tel:+40731431633">+40 731 431 633</a><br /><strong>Based in:</strong> Bucharest, Romania</p>
+      </div>
+
+      <form class="card stack reveal" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+          <span class="field__error">Please enter your name.</span>
+        </div>
+        <div class="field">
+          <label for="business">Business name</label>
+          <input id="business" name="business" type="text" required />
+          <span class="field__error">Please enter your business name.</span>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+          <span class="field__error">Please enter a valid email address.</span>
+        </div>
+        <div class="field">
+          <label for="message">What do you need?</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <span class="field__error">Please add a short message.</span>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Request a quote</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 NodWeb. Based in Bucharest, Romania. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./shared/js/site.js"></script>
+  <script src="./shared/js/form-validation.js"></script>
+</body>
+</html>

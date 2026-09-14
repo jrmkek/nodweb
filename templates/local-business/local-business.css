@@ -1,0 +1,60 @@
+/* Template-specific layout for the local-business site. */
+
+.hero { padding-block: var(--space-10); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+.hero h1 { max-width: 14ch; }
+.hero__intro { max-width: 40ch; font-size: var(--text-lg); }
+.hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.hero-media {
+  aspect-ratio: 5 / 4;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+.about-grid .card__media { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); }
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+.hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+.hours-list { list-style: none; margin: 0; padding: 0; }
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 500;
+}
+.map-placeholder { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); }
+@media (max-width: 860px) {
+  .hours-grid { grid-template-columns: 1fr; }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}

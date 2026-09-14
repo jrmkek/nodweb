@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas & Vine Architecture — Template Example by NodWeb</title>
+  <meta name="description" content="A NodWeb template example: an architecture studio website with an interactive 3D model viewer visitors can rotate, zoom, and view in AR." />
+  <link rel="canonical" href="https://nodweb.org/templates/architecture-studio/" />
+
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../../assets/icons/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Atlas & Vine Architecture — Template Example by NodWeb" />
+  <meta property="og:description" content="An architecture studio template with an interactive 3D model viewer visitors can rotate, zoom, and view in AR." />
+  <meta property="og:url" content="https://nodweb.org/templates/architecture-studio/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/architecture-studio.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Atlas & Vine Architecture — Template Example by NodWeb" />
+  <meta name="twitter:description" content="An architecture studio template with an interactive 3D model viewer." />
+  <meta name="twitter:image" content="https://nodweb.org/assets/og/architecture-studio.jpg" />
+
+  <link rel="stylesheet" href="../../shared/css/tokens.css" />
+  <link rel="stylesheet" href="../../shared/css/base.css" />
+  <link rel="stylesheet" href="./architecture.css" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nodweb.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Example Sites", "item": "https://nodweb.org/#work" },
+      { "@type": "ListItem", "position": 3, "name": "Atlas & Vine Architecture", "item": "https://nodweb.org/templates/architecture-studio/" }
+    ]
+  }
+  </script>
+  <!--
+    EXAMPLE structured data for this template demo, using the same
+    fictional studio as the rest of the page. When this template is
+    customized for a real architecture client, replace every field below
+    (name, address, phone, url, image) with that client's real details.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Atlas & Vine Architecture",
+    "description": "A small architecture studio designing homes, workplaces, and public spaces.",
+    "image": "https://nodweb.org/assets/og/architecture-studio.jpg",
+    "url": "https://nodweb.org/templates/architecture-studio/",
+    "telephone": "+1-555-010-1234",
+    "email": "hello@example.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Your Town"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="site-nav__brand" href="#top">Atlas & Vine</a>
+      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <ul class="site-nav__links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#model">3D Viewer</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a class="btn btn--primary" href="#contact">Book a consultation</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================== BREADCRUMBS ===================== -->
+  <nav class="breadcrumbs container" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../index.html#work">Example sites</a></li>
+      <li aria-current="page">Atlas &amp; Vine Architecture</li>
+    </ol>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="section hero" id="top">
+    <div class="container stack">
+      <span class="eyebrow reveal">Architecture Studio — Template Example</span>
+      <h1 class="reveal">Buildings that belong to their place.</h1>
+      <p class="hero__intro reveal">We design homes, workplaces, and public spaces guided by light, material, and site — not trend.</p>
+      <div class="reveal">
+        <a class="btn btn--primary" href="#contact">Book a consultation</a>
+        <a class="btn btn--secondary" href="#work">See our work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CAPABILITIES ===================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--3">
+        <div class="card reveal">
+          <h3>Residential design</h3>
+          <p>From single-family homes to multi-unit infill, tailored to how a family actually lives.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Commercial &amp; workplace</h3>
+          <p>Offices, retail, and mixed-use projects designed around daylight, flow, and brand.</p>
+        </div>
+        <div class="card reveal">
+          <h3>3D walkthroughs</h3>
+          <p>Every project ships with an interactive 3D model clients can explore before ground breaks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3D MODEL SHOWCASE ===================== -->
+  <section class="section" id="model">
+    <div class="container">
+      <div class="model-showcase">
+        <div class="model-showcase__copy stack">
+          <span class="eyebrow reveal">Signature feature</span>
+          <h2 class="reveal">Explore a project in 3D</h2>
+          <p class="reveal">Drag to rotate, scroll to zoom, and view any model in AR directly on a phone. This is the same viewer we hand every client for their own project.</p>
+          <div class="reveal model-hint">
+            <span class="badge">Drag to rotate</span>
+            <span class="badge">Scroll to zoom</span>
+            <span class="badge">Tap AR on mobile</span>
+          </div>
+        </div>
+
+        <!--
+          REPLACE model-viewer's src/ios-src below with the client's own
+          exported .glb (Android/web/AR) and .usdz (iOS AR) files, placed in
+          ./assets/models/. The demo model below is a public sample asset
+          used only as a placeholder.
+        -->
+        <model-viewer
+          class="reveal model-viewer-frame"
+          src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+          alt="Interactive 3D preview model — replace with the client's architectural model"
+          camera-controls
+          auto-rotate
+          auto-rotate-delay="1500"
+          shadow-intensity="1"
+          exposure="1"
+          ar
+          ar-modes="webxr scene-viewer quick-look"
+          loading="eager"
+          poster=""
+        >
+          <div class="model-viewer-loading" slot="progress-bar"></div>
+        </model-viewer>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECT GALLERY ===================== -->
+  <section class="section section--alt" id="work">
+    <div class="container stack">
+      <div>
+        <span class="eyebrow reveal">Selected work</span>
+        <h2 class="reveal">Recent projects</h2>
+      </div>
+      <div class="grid grid--4">
+        <!-- EDIT: duplicate this card per project, swap image + title + tag -->
+        <a class="card card--link reveal" href="#">
+          <div class="card__media">
+            <img src="../../assets/images/arch-birchwood-residence.jpg" alt="Birchwood Residence, a single-family residential project" loading="lazy" width="1200" height="900" />
+          </div>
+          <span class="badge">Residential</span>
+          <h3>Birchwood Residence</h3>
+        </a>
+        <a class="card card--link reveal" href="#">
+          <div class="card__media">
+            <img src="../../assets/images/arch-harbor-line-offices.jpg" alt="Harbor Line Offices, a commercial workplace project" loading="lazy" width="1200" height="900" />
+          </div>
+          <span class="badge">Commercial</span>
+          <h3>Harbor Line Offices</h3>
+        </a>
+        <a class="card card--link reveal" href="#">
+          <div class="card__media">
+            <img src="../../assets/images/arch-kestrel-community-center.jpg" alt="Kestrel Community Center, a public building project" loading="lazy" width="1200" height="900" />
+          </div>
+          <span class="badge">Public</span>
+          <h3>Kestrel Community Center</h3>
+        </a>
+        <a class="card card--link reveal" href="#">
+          <div class="card__media">
+            <img src="../../assets/images/arch-maple-9th-infill.jpg" alt="Maple & 9th Infill, a multi-unit residential infill project" loading="lazy" width="1200" height="900" />
+          </div>
+          <span class="badge">Residential</span>
+          <h3>Maple &amp; 9th Infill</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STUDIO / ABOUT ===================== -->
+  <section class="section" id="studio">
+    <div class="container">
+      <div class="studio-grid">
+        <div class="stack">
+          <span class="eyebrow reveal">Studio</span>
+          <h2 class="reveal">A small studio, deliberately.</h2>
+          <p class="reveal">We keep our roster short so every project gets partner-level attention from first sketch to final walkthrough. Founded 2024.</p>
+        </div>
+        <div class="stats reveal">
+          <div><strong>12</strong><span>Projects completed</span></div>
+          <div><strong>6</strong><span>Years combined experience</span></div>
+          <div><strong>100%</strong><span>Delivered with a 3D walkthrough</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section section--alt" id="contact">
+    <div class="container contact-grid">
+      <div class="stack">
+        <span class="eyebrow reveal">Get in touch</span>
+        <h2 class="reveal">Start a conversation</h2>
+        <p class="reveal">Tell us about your site and what you're imagining. We reply within one business day.</p>
+        <!-- EDIT: contact details -->
+        <p class="reveal"><strong>Email:</strong> hello@example.com<br /><strong>Phone:</strong> (555) 010-1234</p>
+      </div>
+
+      <form class="card stack reveal" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+          <span class="field__error">Please enter your name.</span>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+          <span class="field__hint">We'll only use this to reply to you.</span>
+          <span class="field__error">Please enter a valid email address.</span>
+        </div>
+        <div class="field">
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <span class="field__error">Please add a short message.</span>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- EDIT: footer text -->
+      <p>© 2026 Atlas &amp; Vine Architecture. All rights reserved. &middot; Template by <a href="../../index.html">NodWeb</a></p>
+    </div>
+  </footer>
+
+  <script src="../../shared/js/site.js"></script>
+  <script src="../../shared/js/form-validation.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# NodWeb
+
+> NodWeb designs and builds fast, modern websites for local businesses in Bucharest, Romania — including interactive 3D model showcases for architecture and design studios.
+
+NodWeb is a freelance web design practice based in Bucharest. This site includes live, fully-functional template examples that demonstrate the kind of site a client would receive; NodWeb has not yet delivered a real client project.
+
+## Pages
+
+- [Home](https://nodweb.org/): Services, process, and how to request a quote.
+- [Architecture Studio template example](https://nodweb.org/templates/architecture-studio/): A demo site for an architecture studio, featuring an interactive 3D model viewer (rotate, zoom, and view in AR).
+- [Local Business template example](https://nodweb.org/templates/local-business/): A demo site for a café or similar local business, featuring a menu grid, hours & location, and a reservation form.
+
+## Contact
+
+- Email: ierostanescu@gmail.com
+- Phone: +40 731 431 633
+- Location: Bucharest, Romania

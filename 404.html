@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found — NodWeb</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./assets/icons/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./shared/css/tokens.css" />
+  <link rel="stylesheet" href="./shared/css/base.css" />
+  <style>
+    .not-found { text-align: center; padding-block: var(--space-12); }
+    .not-found .container { max-width: 560px; }
+    .not-found .eyebrow { display: block; }
+    .not-found-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="site-nav__brand" href="./index.html">NodWeb</a>
+    </div>
+  </header>
+
+  <section class="section not-found">
+    <div class="container stack">
+      <span class="eyebrow">404</span>
+      <h1>This page doesn't exist.</h1>
+      <p>The link may be outdated, or the page may have moved. Here are some good places to head instead:</p>
+      <div class="not-found-actions">
+        <a class="btn btn--primary" href="./index.html">Go to homepage</a>
+        <a class="btn btn--secondary" href="./templates/architecture-studio/index.html">View architecture template</a>
+        <a class="btn btn--secondary" href="./templates/local-business/index.html">View local-business template</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 NodWeb. Based in Bucharest, Romania. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

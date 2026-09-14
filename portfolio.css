@@ -1,0 +1,51 @@
+/* Layout for your own business/portfolio site. */
+
+/* NodWeb's own brand accent — distinct from the warm accent used by the
+   demo client templates, so the studio's own site doesn't look like just
+   another client site. */
+:root {
+  --color-accent: #3a5ceb;
+  --color-accent-hover: #2c48c2;
+}
+
+.hero { padding-block: var(--space-12) var(--space-10); text-align: center; }
+.hero .container { max-width: 780px; }
+.hero h1 { font-size: var(--text-3xl); }
+.hero__intro { font-size: var(--text-lg); max-width: 56ch; margin-inline: auto; }
+.hero-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+
+.work-media { aspect-ratio: 16 / 10; }
+
+.process-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+.process-list li { display: flex; flex-direction: column; gap: var(--space-3); }
+.process-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-weight: 700;
+}
+@media (max-width: 860px) {
+  .process-list { grid-template-columns: 1fr; }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
