@@ -1,0 +1,53 @@
+/* Layout for the blog/guides section — reuses NodWeb's tokens.css,
+   base.css, and portfolio.css (dark theme, Bricolage + JetBrains Mono). */
+
+.blog-hero { padding-block: var(--space-10) var(--space-6); }
+.blog-hero .container { max-width: 760px; }
+
+.article-list {
+  display: grid;
+  gap: var(--space-5);
+}
+.article-card { display: block; }
+.article-card__meta {
+  display: flex;
+  gap: var(--space-3);
+  font-family: "JetBrains Mono", monospace;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.article {
+  padding-block: var(--space-8) var(--space-12);
+}
+.article .container {
+  max-width: 720px;
+}
+.article h1 { font-size: var(--text-2xl); }
+.article__meta {
+  display: flex;
+  gap: var(--space-3);
+  font-family: "JetBrains Mono", monospace;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+.article__body h2 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-8);
+}
+.article__body p { color: var(--color-text); font-size: var(--text-base); }
+.article__body ul, .article__body ol {
+  color: var(--color-text);
+  padding-left: 1.25em;
+  margin: 0 0 var(--space-4);
+}
+.article__body li { margin-bottom: var(--space-2); }
+.article__cta {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
