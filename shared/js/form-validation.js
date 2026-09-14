@@ -30,10 +30,41 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // No backend wired up yet — replace this with a real submit
-    // (e.g. POST to Formspree, Netlify Forms, or your own endpoint).
     const button = form.querySelector("button[type=submit]");
     const original = button.textContent;
+
+    // Forms marked data-netlify actually submit, via Netlify Forms.
+    // Everything else (the demo templates) has no backend to send to,
+    // so it just simulates success for preview purposes.
+    if (form.hasAttribute("data-netlify")) {
+      button.disabled = true;
+      button.textContent = "Sending…";
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
+        })
+        .then(() => {
+          button.textContent = "Message sent";
+          form.reset();
+          setTimeout(() => {
+            button.textContent = original;
+            button.disabled = false;
+          }, 3000);
+        })
+        .catch(() => {
+          button.textContent = "Couldn't send — try again";
+          button.disabled = false;
+          setTimeout(() => {
+            button.textContent = original;
+          }, 3000);
+        });
+      return;
+    }
+
     button.textContent = "Message sent";
     button.disabled = true;
     setTimeout(() => {
