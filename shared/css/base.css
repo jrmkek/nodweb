@@ -73,6 +73,10 @@ p { margin: 0 0 var(--space-4); color: var(--color-text-muted); }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
 }
+/* Wraps .site-nav__links in a <nav> landmark for screen readers without
+   affecting layout — display:contents removes the wrapper itself from
+   the box tree, so .site-nav__links' positioning is unchanged. */
+.site-nav__nav { display: contents; }
 .site-nav__inner {
   width: 100%;
   display: flex;

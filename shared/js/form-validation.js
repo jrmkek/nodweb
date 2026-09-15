@@ -4,11 +4,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   if (!form) return;
 
+  // Announce submit-button status changes ("Sending…", "Message sent", …)
+  // to screen readers, since updating textContent alone is silent.
+  form.querySelector("button[type=submit]")?.setAttribute("aria-live", "polite");
+
   const validateField = (field) => {
     const wrapper = field.closest(".field");
     if (!wrapper) return true;
     const valid = field.checkValidity();
     wrapper.classList.toggle("field--invalid", !valid);
+    field.setAttribute("aria-invalid", String(!valid));
     return valid;
   };
 

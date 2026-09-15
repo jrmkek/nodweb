@@ -75,13 +75,15 @@
   <header class="site-nav">
     <div class="container site-nav__inner">
       <a class="site-nav__brand" href="#top">Atlas & Vine</a>
-      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      <ul class="site-nav__links">
+      <button class="site-nav__toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
+      <nav class="site-nav__nav" aria-label="Primary">
+      <ul class="site-nav__links" id="site-nav-links">
         <li><a href="#work">Work</a></li>
         <li><a href="#model">3D Viewer</a></li>
         <li><a href="#studio">Studio</a></li>
         <li><a class="btn btn--primary" href="#contact">Book a consultation</a></li>
       </ul>
+      </nav>
     </div>
   </header>
 
@@ -254,19 +256,19 @@
       <form class="card stack reveal" novalidate>
         <div class="field">
           <label for="name">Name</label>
-          <input id="name" name="name" type="text" required autocomplete="name" />
-          <span class="field__error">Please enter your name.</span>
+          <input id="name" name="name" type="text" required autocomplete="name" aria-describedby="name-error" />
+          <span class="field__error" id="name-error" role="alert">Please enter your name.</span>
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" required autocomplete="email" />
-          <span class="field__hint">We'll only use this to reply to you.</span>
-          <span class="field__error">Please enter a valid email address.</span>
+          <input id="email" name="email" type="email" required autocomplete="email" aria-describedby="email-hint email-error" />
+          <span class="field__hint" id="email-hint">We'll only use this to reply to you.</span>
+          <span class="field__error" id="email-error" role="alert">Please enter a valid email address.</span>
         </div>
         <div class="field">
           <label for="message">Tell us about your project</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-          <span class="field__error">Please add a short message.</span>
+          <textarea id="message" name="message" rows="4" required aria-describedby="message-error"></textarea>
+          <span class="field__error" id="message-error" role="alert">Please add a short message.</span>
         </div>
         <button class="btn btn--primary btn--block" type="submit">Send message</button>
       </form>
