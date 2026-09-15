@@ -80,7 +80,13 @@
   <header class="site-nav">
     <div class="container site-nav__inner">
       <a class="site-nav__brand" href="#top">NodWeb</a>
-      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <div class="nav-mobile-utility">
+        <div class="lang-switch">
+          <a class="lang-switch__flag is-current" href="./index.html" aria-current="page" title="English" lang="en">en<span class="visually-hidden">English (current)</span></a>
+          <a class="lang-switch__flag" href="./ro/index.html" title="Română" lang="ro" hreflang="ro">ro<span class="visually-hidden">Română</span></a>
+        </div>
+        <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
       <ul class="site-nav__links">
         <li><a href="#work">Work</a></li>
         <li><a href="#services">Services</a></li>

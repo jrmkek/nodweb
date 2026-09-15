@@ -63,7 +63,13 @@
   <header class="site-nav">
     <div class="container site-nav__inner">
       <a class="site-nav__brand" href="#top">NodWeb</a>
-      <button class="site-nav__toggle" aria-label="Comută meniul" aria-expanded="false">☰</button>
+      <div class="nav-mobile-utility">
+        <div class="lang-switch">
+          <a class="lang-switch__flag" href="../index.html" title="English" lang="en" hreflang="en">en<span class="visually-hidden">English</span></a>
+          <a class="lang-switch__flag is-current" href="./index.html" aria-current="page" title="Română" lang="ro">ro<span class="visually-hidden">Română (curent)</span></a>
+        </div>
+        <button class="site-nav__toggle" aria-label="Comută meniul" aria-expanded="false">☰</button>
+      </div>
       <ul class="site-nav__links">
         <li><a href="#work">Lucrări</a></li>
         <li><a href="#services">Servicii</a></li>
