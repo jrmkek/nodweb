@@ -1,0 +1,233 @@
+<!doctype html>
+<!--
+  Experimental draft: same content as index.html, restyled in a dark/
+  editorial/motion-heavy language inspired by magnitudeweb.ro (see the
+  reference doc that produced this page). Not linked from navigation,
+  not in sitemap.xml, marked noindex — this is a side-by-side comparison
+  page, not a published one. If it wins, its content replaces index.html
+  and this file goes away.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NodWeb — Presentation Draft (Dark)</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0b0b0c" />
+
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./assets/icons/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="./shared/css/fonts-nodweb.css" />
+  <link rel="stylesheet" href="./shared/css/tokens.css" />
+  <link rel="stylesheet" href="./shared/css/base.css" />
+  <link rel="stylesheet" href="./presentation.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="site-nav" data-scrolled="false">
+    <div class="container site-nav__inner">
+      <a class="site-nav__brand" href="#top">NodWeb</a>
+      <div class="nav-mobile-utility">
+        <div class="lang-switch">
+          <a class="lang-switch__flag is-current" href="./presentation.html" aria-current="page" title="English" lang="en">en<span class="visually-hidden">English (current)</span></a>
+        </div>
+        <button class="site-nav__toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
+      </div>
+      <nav class="site-nav__nav" aria-label="Primary">
+      <ul class="site-nav__links" id="site-nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a class="btn btn--primary" href="#contact">Get a quote</a></li>
+      </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="section hero" id="top">
+    <canvas class="matrix-canvas" aria-hidden="true"></canvas>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <button class="hero__toggle" aria-label="Pause background animation">❙❙</button>
+    <div class="container stack load-stagger">
+      <h1>A great website shouldn't be<br />the hardest part of <span class="gradient-text">running your business</span></h1>
+      <p class="hero__intro">We design and build fast, modern, easy-to-find websites for cafés, contractors, salons, and studios — launched in days, not months.</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="#contact">Get a free quote</a>
+        <a class="btn btn--secondary" href="#work">See example sites</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORK / TEMPLATE SHOWCASE ===================== -->
+  <section class="section section--alt" id="work">
+    <div class="container stack">
+      <div>
+        <span class="eyebrow reveal">See it in action</span>
+        <div class="stacked-heading">
+          <h2 class="stacked-heading__back reveal" aria-hidden="true">Live example sites</h2>
+          <h2 class="stacked-heading__front reveal">Live example sites</h2>
+        </div>
+        <p class="reveal">These are fully working example sites — the same quality and speed every client site starts from. These examples show the minimum standard of work you'd receive.</p>
+      </div>
+      <div class="grid grid--2">
+        <a class="card card--link reveal" href="./templates/architecture-studio/index.html">
+          <div class="card__media work-media">
+            <img src="./assets/images/home-work-architecture.jpg" alt="Preview of the Atlas & Vine Architecture template example, featuring an interactive 3D model viewer" loading="lazy" width="1200" height="750" />
+          </div>
+          <span class="badge">Architecture &amp; design studios</span>
+          <h3>Atlas &amp; Vine Architecture</h3>
+          <p>Includes an interactive 3D model viewer — upload a building model, let visitors explore it in the browser or in AR on their phone.</p>
+        </a>
+        <a class="card card--link reveal" href="./templates/local-business/index.html">
+          <div class="card__media work-media">
+            <img src="./assets/images/home-work-cafe.jpg" alt="Preview of the Copper Kettle Café template example, featuring a menu grid and reservation form" loading="lazy" width="1200" height="750" />
+          </div>
+          <span class="badge">Cafés, salons, contractors, shops</span>
+          <h3>The Copper Kettle Café</h3>
+          <p>A clean, fast template for any local business — menu or service grid, hours, location, and a reservation/contact form.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section" id="services">
+    <div class="container stack">
+      <div>
+        <span class="eyebrow reveal">How we build</span>
+        <h2 class="reveal">Not every business needs the same website</h2>
+        <p class="reveal">A café and an architecture studio are selling very different things — so the build changes to match, instead of forcing everyone through the same template.</p>
+      </div>
+      <div class="service-grid" data-reveal-group>
+        <div class="card reveal">
+          <h3>Fast, template-based builds</h3>
+          <p>For cafés, salons, contractors, and shops: a proven template fitted with your real photos, copy, and branding. Live in days, not months, and no less polished for it.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Fully custom, interactive 3D</h3>
+          <p>For architecture, engineering, and design studios where the work itself is the pitch: a bespoke, hand-coded site (no template) built around an interactive 3D showcase visitors can rotate, zoom, and explore.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Ongoing care, not a handoff</h3>
+          <p>Menu changes, new photos, seasonal hours, small fixes — a quick message away, not a fresh invoice for a five-minute favor. Ask about a simple monthly plan if you'd rather not think about it at all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS — pinned scroll panel stack ===================== -->
+  <section class="section--tight" id="process">
+    <div class="container stack" style="padding-block-end: var(--space-6);">
+      <span class="eyebrow reveal">How it works</span>
+      <h2 class="reveal">Four steps, start to launch</h2>
+      <p class="reveal">Scroll to step through it.</p>
+    </div>
+
+    <div class="panel-stack" id="panel-stack">
+      <div class="panel-stack__bg-texture" aria-hidden="true"></div>
+
+      <div class="panel">
+        <div class="panel__word-stack" aria-hidden="true">
+          <span class="w">Quick call</span>
+          <span class="w">Content collected</span>
+          <span class="w">Draft &amp; review</span>
+          <span class="w">Launch</span>
+        </div>
+        <p class="panel__index">Step 01 of 04</p>
+        <h3 class="panel__title">Quick call</h3>
+        <p class="panel__body">15 minutes to understand your business and what the site needs to do.</p>
+        <a class="btn btn--primary" href="#contact">Get a free quote</a>
+      </div>
+
+      <div class="panel">
+        <p class="panel__index">Step 02 of 04</p>
+        <h3 class="panel__title">Content collected</h3>
+        <p class="panel__body">You send photos, text, and any details — we handle the rest.</p>
+        <a class="btn btn--primary" href="#contact">Get a free quote</a>
+      </div>
+
+      <div class="panel">
+        <p class="panel__index">Step 03 of 04</p>
+        <h3 class="panel__title">Draft &amp; review</h3>
+        <p class="panel__body">You see a working preview and request changes before anything goes live.</p>
+        <a class="btn btn--primary" href="#contact">Get a free quote</a>
+      </div>
+
+      <div class="panel">
+        <p class="panel__index">Step 04 of 04</p>
+        <h3 class="panel__title">Launch</h3>
+        <p class="panel__body">Site goes live on your domain, with a short walkthrough of how to request updates.</p>
+        <a class="btn btn--primary" href="#contact">Get a free quote</a>
+      </div>
+
+      <div class="panel-stack__progress" aria-hidden="true">
+        <span class="panel-stack__counter">01 / 04</span>
+        <div class="panel-stack__bar"><div class="panel-stack__bar-fill"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container contact-grid">
+      <div class="stack">
+        <span class="eyebrow reveal">Get a quote</span>
+        <h2 class="reveal">Tell us about your business</h2>
+        <p class="reveal">Fill out the form or reach out directly — We reply within one business day.</p>
+        <p class="reveal"><strong>Email:</strong> <a href="mailto:ierostanescu@gmail.com">ierostanescu@gmail.com</a><br /><strong>Phone:</strong> <a href="tel:+40731431633">+40 731 431 633</a><br /><strong>Based in:</strong> Bucharest, Romania</p>
+      </div>
+
+      <form class="card stack reveal" novalidate>
+        <p class="visually-hidden" aria-hidden="true">
+          <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" aria-describedby="name-error" />
+          <span class="field__error" id="name-error" role="alert">Please enter your name.</span>
+        </div>
+        <div class="field">
+          <label for="business">Business name</label>
+          <input id="business" name="business" type="text" required aria-describedby="business-error" />
+          <span class="field__error" id="business-error" role="alert">Please enter your business name.</span>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" aria-describedby="email-error" />
+          <span class="field__error" id="email-error" role="alert">Please enter a valid email address.</span>
+        </div>
+        <div class="field">
+          <label for="message">What do you need?</label>
+          <textarea id="message" name="message" rows="4" required aria-describedby="message-error"></textarea>
+          <span class="field__error" id="message-error" role="alert">Please add a short message.</span>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Request a quote</button>
+      </form>
+    </div>
+  </section>
+
+  </main>
+
+  <a class="quote-fab" href="#contact" aria-label="Get a quote">✦</a>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 NodWeb. Based in Bucharest, Romania. All rights reserved. Draft presentation page — <a href="./index.html">back to the live site</a>.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./shared/js/site.js"></script>
+  <script src="./shared/js/form-validation.js"></script>
+  <script src="./shared/js/presentation.js"></script>
+</body>
+</html>

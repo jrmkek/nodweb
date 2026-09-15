@@ -1,0 +1,268 @@
+/* Experimental dark/editorial theme for presentation.html, inspired by
+   magnitudeweb.ro's design language (see the reference doc that produced
+   this). Layers on top of tokens.css + base.css exactly like portfolio.css
+   does for the live homepage — same structural primitives (.card, .field,
+   .btn, .site-nav, .reveal…), new palette + new one-off components
+   (matrix canvas, pinned panel stack, stacked heading) that base.css has
+   no equivalent for. Not linked from anywhere public yet — this is a
+   side-by-side draft to compare against the live page.
+*/
+
+:root {
+  --color-bg: #0b0b0c;
+  --color-bg-alt: #131315;
+  --color-surface: #17171a;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-text: #f5f5f4;
+  --color-text-muted: #a3a3a1;
+  --color-accent: #d4ff4f;
+  --color-accent-hover: #c2ec3f;
+  --color-accent-contrast: #0b0b0c;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --font-body: "JetBrains Mono", "Segoe UI", monospace;
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 800ms;
+}
+
+body { background: var(--color-bg); }
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
+.eyebrow, .badge, .site-nav__brand, .btn { font-family: "JetBrains Mono", monospace; }
+.eyebrow { letter-spacing: 0.08em; color: var(--color-accent); }
+
+/* ---------- 2. Header: transparent -> solid on scroll ---------- */
+.site-nav {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+  transition: background var(--duration-base) var(--ease-standard),
+              backdrop-filter var(--duration-base) var(--ease-standard),
+              border-color var(--duration-base) var(--ease-standard);
+}
+.site-nav[data-scrolled="true"] {
+  background: rgba(11, 11, 12, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--color-border);
+}
+.badge-pill { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* ---------- 3. Hero: matrix-rain canvas instead of video ----------
+   The reference doc's hero uses a background video; we have no video
+   asset for this site, so the canvas "digital rain" texture (section 12
+   of the doc) doubles as the hero visual instead — same full-bleed
+   treatment, same toggle-button idea (repurposed to pause/resume the
+   canvas animation rather than video playback). */
+.hero { padding-block: var(--space-12) var(--space-10); min-height: 92vh; display: flex; align-items: flex-end; text-align: left; overflow: hidden; }
+.matrix-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 11, 12, 0.2) 0%, rgba(11, 11, 12, 0.88) 100%);
+  z-index: 1;
+}
+.hero .container { position: relative; z-index: 2; max-width: 900px; margin-inline: 0; padding-inline: var(--gutter, var(--container-pad)); }
+.hero h1 { font-size: clamp(var(--text-3xl), 5vw + 1rem, 4.25rem); line-height: 1.02; letter-spacing: -0.03em; }
+.hero__intro { font-size: var(--text-lg); max-width: 56ch; }
+.hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.gradient-text { background: linear-gradient(100deg, var(--color-accent) 0%, #ffffff 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+
+.hero__toggle {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--nav-height) + var(--space-5));
+  right: var(--space-5);
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+.hero__toggle:hover { background: rgba(0, 0, 0, 0.6); transform: scale(1.06); }
+
+/* ---------- Buttons: filled pill + arrow-nudge text link ---------- */
+.btn--primary { background: var(--color-accent); color: var(--color-accent-contrast); border-radius: 999px; }
+.btn--primary:hover { background: var(--color-accent-hover); transform: translateY(-2px); }
+.btn--secondary { border-radius: 999px; border-color: var(--color-border); color: var(--color-text); }
+.btn--secondary:hover { border-color: var(--color-text); }
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.link-arrow .arrow { transition: transform var(--duration-fast) var(--ease-standard); }
+.link-arrow:hover .arrow { transform: translateX(4px); }
+
+/* ---------- 5 / 7. Service + work cards: hairline grid, hover lift ---------- */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.service-grid .card {
+  background: var(--color-bg);
+  border: none;
+  border-radius: 0;
+}
+.service-grid .card:hover { background: var(--color-bg-alt); transform: translateY(-4px); }
+@media (max-width: 860px) {
+  .service-grid { grid-template-columns: 1fr; }
+}
+
+.card--link .card__media img { transition: transform var(--duration-slow) var(--ease-out-expo); }
+.card--link:hover .card__media img { transform: scale(1.05); }
+.card--link:hover { transform: none; box-shadow: none; border-color: var(--color-accent); }
+
+/* ---------- 6. Stacked/duplicate heading flourish ---------- */
+.stacked-heading { position: relative; line-height: 1; }
+.stacked-heading__back {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border);
+  z-index: 0;
+  transform: translate(6px, 6px);
+  margin: 0;
+}
+.stacked-heading__front { position: relative; z-index: 1; margin: 0; }
+
+/* ---------- 10. Section rhythm ---------- */
+.section { padding-block: clamp(4rem, 10vw, 8rem); }
+.section-title { font-family: var(--font-display); letter-spacing: -0.02em; }
+
+/* ---------- 11. Pinned scroll-driven panel stack (Process) ---------- */
+.panel-stack {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.panel-stack__bg-texture {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--container-pad);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.panel.is-active { opacity: 1; visibility: visible; }
+
+.panel__word-stack {
+  position: absolute;
+  top: 10%;
+  left: var(--container-pad);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  text-align: left;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.panel__word-stack .w { opacity: 0.12; transition: opacity var(--duration-base) var(--ease-standard); }
+.panel__word-stack .w.is-current { opacity: 1; color: var(--color-accent); }
+
+.panel__index { font-family: var(--font-body); color: var(--color-accent); letter-spacing: 0.08em; margin-bottom: var(--space-3); }
+.panel__title { font-size: clamp(1.75rem, 4vw, 3rem); max-width: 20ch; margin-bottom: var(--space-4); }
+.panel__body { max-width: 55ch; color: var(--color-text-muted); margin-bottom: var(--space-5); }
+
+.panel-stack__progress {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  z-index: 2;
+}
+.panel-stack__bar { width: 140px; height: 2px; background: var(--color-border); }
+.panel-stack__bar-fill { height: 100%; width: 0%; background: var(--color-accent); transition: width var(--duration-base) var(--ease-standard); }
+
+/* Fallback (no-JS / GSAP failed to load): stack panels normally so
+   content is still fully reachable, just without the pin/snap effect. */
+.panel-stack.no-scrolltrigger {
+  height: auto;
+}
+.panel-stack.no-scrolltrigger .panel {
+  position: relative;
+  inset: auto;
+  opacity: 1;
+  visibility: visible;
+  min-height: 60vh;
+}
+.panel-stack.no-scrolltrigger .panel-stack__progress { display: none; }
+
+/* ---------- Floating quote CTA ---------- */
+.quote-fab {
+  position: fixed;
+  bottom: var(--space-5);
+  right: var(--space-5);
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  display: grid;
+  place-items: center;
+  z-index: 40;
+  text-decoration: none;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+.quote-fab:hover { transform: scale(1.08); }
+
+/* ---------- Reveal timing (reuse .reveal from base.css, new easing) ---------- */
+.reveal {
+  transform: translateY(32px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo), transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.site-footer { border-top-color: var(--color-border); }
+
+.badge { background: var(--color-bg-alt); border-color: var(--color-border); }
