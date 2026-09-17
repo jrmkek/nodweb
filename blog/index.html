@@ -6,6 +6,9 @@
   <title>Blog — Website Advice for Local Businesses | NodWeb</title>
   <meta name="description" content="Practical, no-nonsense advice on websites for cafés, contractors, salons, and studios — written by NodWeb, based in Bucharest." />
   <link rel="canonical" href="https://nodweb.org/blog/" />
+  <link rel="alternate" hreflang="en" href="https://nodweb.org/blog/" />
+  <link rel="alternate" hreflang="ro" href="https://nodweb.org/ro/blog/" />
+  <link rel="alternate" hreflang="x-default" href="https://nodweb.org/blog/" />
   <meta name="theme-color" content="#0f1326" />
 
   <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
@@ -48,13 +51,27 @@
   <header class="site-nav">
     <div class="container site-nav__inner">
       <a class="site-nav__brand" href="../index.html">NodWeb</a>
-      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      <ul class="site-nav__links">
+      <div class="nav-mobile-utility">
+        <div class="lang-switch">
+          <a class="lang-switch__flag is-current" href="./index.html" aria-current="page" title="English" lang="en">en<span class="visually-hidden">English (current)</span></a>
+          <a class="lang-switch__flag" href="../ro/blog/index.html" title="Română" lang="ro" hreflang="ro">ro<span class="visually-hidden">Română</span></a>
+        </div>
+        <button class="site-nav__toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
+      </div>
+      <nav class="site-nav__nav" aria-label="Primary">
+      <ul class="site-nav__links" id="site-nav-links">
         <li><a href="../index.html#work">Work</a></li>
         <li><a href="../index.html#services">Services</a></li>
-        <li><a href="./index.html">Blog</a></li>
+        <li><a href="../index.html#process">Process</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="./index.html" aria-current="page">Blog</a></li>
+        <li class="lang-switch">
+          <a class="lang-switch__flag is-current" href="./index.html" aria-current="page" title="English" lang="en">en<span class="visually-hidden">English (current)</span></a>
+          <a class="lang-switch__flag" href="../ro/blog/index.html" title="Română" lang="ro" hreflang="ro">ro<span class="visually-hidden">Română</span></a>
+        </li>
         <li><a class="btn btn--primary" href="../index.html#contact">Get a quote</a></li>
       </ul>
+      </nav>
     </div>
   </header>
 

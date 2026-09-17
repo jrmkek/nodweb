@@ -9,8 +9,8 @@
   --nod-slate: #1c1f26;
   --nod-slate-light: #2b2f38;
   --nod-off-white: #f4f5f7;
-  --nod-blue: #2563eb;
-  --nod-cyan: #38bdf8;
+  --nod-blue: #ca3282;
+  --nod-cyan: #f472b6;
 
   --color-bg: var(--nod-black);
   --color-bg-alt: color-mix(in srgb, var(--nod-slate) 70%, var(--nod-black) 30%);
@@ -34,6 +34,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
 .eyebrow, .badge, .site-nav__brand, .btn { font-family: "JetBrains Mono", monospace; }
 .eyebrow, .badge { letter-spacing: 0.06em; }
 .site-nav__brand { letter-spacing: -0.02em; font-weight: 700; }
+.site-nav__links a[aria-current="page"] { color: var(--color-accent); }
 
 .eyebrow {
   display: inline-flex;
@@ -48,6 +49,11 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
 }
 .eyebrow::before { content: "["; }
 .eyebrow::after { content: "]"; }
+
+/* Reference style pass (clanofcreators.com): pill buttons + rounder cards,
+   scoped here so the client-demo templates (own CSS files) are untouched. */
+.btn { border-radius: 999px; }
+.card { border-radius: var(--radius-lg); }
 
 .gradient-text {
   background: var(--gradient-signature);
@@ -140,8 +146,6 @@ body.js-motion-ready .reveal { transition: none; }
   border: none;
 }
 .hero .btn--primary:hover { filter: brightness(1.08); }
-.hero .btn--secondary { border-radius: 999px; }
-.hero .btn--primary { border-radius: 999px; }
 
 .hero-node-mark {
   position: absolute;
@@ -162,8 +166,8 @@ body.js-motion-ready .reveal { transition: none; }
   pointer-events: none;
   z-index: 0;
 }
-.hero-glow--a { width: 480px; height: 480px; top: -140px; right: -80px; background: rgba(37, 99, 235, 0.35); }
-.hero-glow--b { width: 420px; height: 420px; bottom: -160px; left: -100px; background: rgba(56, 189, 248, 0.22); }
+.hero-glow--a { width: 480px; height: 480px; top: -140px; right: -80px; background: rgba(202, 50, 130, 0.35); }
+.hero-glow--b { width: 420px; height: 420px; bottom: -160px; left: -100px; background: rgba(244, 114, 182, 0.22); }
 .hero-glow--c { width: 380px; height: 380px; bottom: -120px; right: 10%; background: rgba(43, 47, 56, 0.45); }
 .hero .container { position: relative; z-index: 1; }
 .hero-node-mark { z-index: 1; }
@@ -204,3 +208,23 @@ body.js-motion-ready .reveal { transition: none; }
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Pricing page ---------- */
+.pricing-card { display: flex; flex-direction: column; gap: var(--space-4); }
+.pricing-card__price { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 800; color: var(--color-text); margin: 0; }
+.pricing-card__price-alt { display: block; font-family: var(--font-body); font-size: var(--text-sm); font-weight: 400; text-transform: none; letter-spacing: normal; color: var(--color-text-muted); margin-top: var(--space-1); }
+.pricing-card__addon { font-size: var(--text-sm); color: var(--color-text-muted); border-top: 1px solid var(--color-border); padding-top: var(--space-4); margin: 0; }
+.pricing-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); flex-grow: 1; }
+.pricing-list li { padding-left: var(--space-6); position: relative; color: var(--color-text-muted); }
+.pricing-list li::before { content: "→"; position: absolute; left: 0; color: var(--color-accent); font-weight: 700; }
+.pricing-card .btn { margin-top: var(--space-2); }
+
+.care-plan-card { max-width: 640px; margin-inline: auto; text-align: center; }
+
+.faq-item { border-bottom: 1px solid var(--color-border); padding-block: var(--space-5); }
+.faq-item:first-child { border-top: 1px solid var(--color-border); }
+.faq-item h3 { margin-bottom: var(--space-2); font-size: var(--text-base); text-transform: none; letter-spacing: normal; }
+.faq-item p { margin: 0; }
+
+.final-cta { text-align: center; }
+.final-cta p { max-width: 56ch; margin-inline: auto; }
