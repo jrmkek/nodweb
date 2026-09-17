@@ -195,10 +195,12 @@
         <p class="reveal"><strong>Email:</strong> <a href="mailto:ierostanescu@gmail.com">ierostanescu@gmail.com</a><br /><strong>Telefon:</strong> <a href="tel:+40731431633">+40 731 431 633</a><br /><strong>Bazat în:</strong> București, România</p>
       </div>
 
-      <form class="card stack reveal" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-        <input type="hidden" name="form-name" value="quote-request" />
+      <form class="card stack reveal" name="quote-request" method="POST" novalidate>
+        <!-- Web3Forms: replace with your own access key from https://web3forms.com/ (free, no signup wall). -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="Cerere ofertă nouă — NodWeb" />
         <p class="visually-hidden" aria-hidden="true">
-          <label>Lasă acest câmp gol: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          <label>Lasă acest câmp gol: <input name="botcheck" tabindex="-1" autocomplete="off" /></label>
         </p>
         <div class="field">
           <label for="name">Nume</label>

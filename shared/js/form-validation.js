@@ -38,23 +38,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = form.querySelector("button[type=submit]");
     const original = button.textContent;
 
-    // Forms with a `name` submit for real, via Netlify Forms. (Netlify
-    // strips the data-netlify/netlify-honeypot attributes from the served
-    // HTML once it has registered the form at build time, so checking for
-    // those at runtime never works — `name` is the one thing that survives,
-    // since Netlify Forms needs it to identify the submission.)
+    // Forms with a `name` submit for real, via Web3Forms (api.web3forms.com).
     // Everything else (the demo templates) has no backend to send to,
     // so it just simulates success for preview purposes.
     if (form.name) {
       button.disabled = true;
       button.textContent = "Sending…";
-      fetch("/", {
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString(),
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
       })
-        .then((response) => {
-          if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
+        .then((response) => response.json().then((data) => ({ ok: response.ok && data.success, data })))
+        .then(({ ok, data }) => {
+          if (!ok) throw new Error(data?.message || "Form submission failed");
         })
         .then(() => {
           button.textContent = "Message sent";

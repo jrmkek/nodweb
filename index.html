@@ -1,11 +1,4 @@
 <!doctype html>
-<!--
-  Domain placeholder: this project isn't deployed to a registered domain
-  yet. Every absolute URL below uses https://nodweb.org as a placeholder —
-  once a real domain is registered, find-and-replace "nodweb.org" across
-  the project (index.html, templates/**/index.html, 404.html, sitemap.xml,
-  robots.txt, llms.txt).
--->
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -212,10 +205,12 @@
         <p class="reveal"><strong>Email:</strong> <a href="mailto:ierostanescu@gmail.com">ierostanescu@gmail.com</a><br /><strong>Phone:</strong> <a href="tel:+40731431633">+40 731 431 633</a><br /><strong>Based in:</strong> Bucharest, Romania</p>
       </div>
 
-      <form class="card stack reveal" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-        <input type="hidden" name="form-name" value="quote-request" />
+      <form class="card stack reveal" name="quote-request" method="POST" novalidate>
+        <!-- Web3Forms: replace with your own access key from https://web3forms.com/ (free, no signup wall). -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New quote request — NodWeb" />
         <p class="visually-hidden" aria-hidden="true">
-          <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          <label>Leave this field blank: <input name="botcheck" tabindex="-1" autocomplete="off" /></label>
         </p>
         <div class="field">
           <label for="name">Name</label>
