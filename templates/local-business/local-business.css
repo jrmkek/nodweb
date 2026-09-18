@@ -1,44 +1,111 @@
-/* Template-specific theme + layout for the local-business site:
-   warm, artisanal, hand-crafted — cream, espresso, and copper. */
+/* Template-specific theme + layout for the local-business site: a
+   neighborhood brunch café, illustrated and hand-tagged like a corkboard —
+   thick ink outlines, hard offset shadows, pinned-note rotation. */
 
 :root {
-  --color-bg: #fbf2e4;
-  --color-bg-alt: #f3e5d0;
-  --color-surface: #fffaf1;
-  --color-border: #e6d3b3;
-  --color-text: #3a2617;
-  --color-text-muted: #7a624c;
-  --color-accent: #bd5b2c;
-  --color-accent-hover: #9c4a22;
-  --color-accent-contrast: #fffaf1;
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Karla", "Segoe UI", sans-serif;
+  --ink: #241c15;
+  --color-bg: #fff6e9;
+  --color-bg-alt: #ffe8b8;
+  --color-surface: #fffaf0;
+  --color-border: var(--ink);
+  --color-text: var(--ink);
+  --color-text-muted: #6b5f4f;
+  --color-accent: #ff6b56;
+  --color-accent-hover: #ff8570;
+  --color-accent-contrast: var(--ink);
+  --color-teal: #57c4c0;
+
+  --font-display: "Bricolage Grotesque", "Karla", sans-serif;
+  --font-body: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  /* Hard, un-blurred offset shadows instead of soft SaaS drop-shadows */
+  --shadow-sm: 3px 3px 0 var(--ink);
+  --shadow-md: 5px 5px 0 var(--ink);
+  --shadow-lg: 7px 7px 0 var(--ink);
+
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 26px;
 }
 
-/* Warm paper-grain atmosphere instead of a flat background */
-body {
-  background:
-    radial-gradient(circle at 8% 8%, rgba(189, 91, 44, 0.10), transparent 40%),
-    radial-gradient(circle at 95% 30%, rgba(212, 160, 23, 0.12), transparent 45%),
-    var(--color-bg);
-}
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.01em; }
 
-h1, h2, h3 { font-optical-sizing: auto; }
-h1 { font-weight: 500; }
-.eyebrow--script {
-  font-family: "Caveat", cursive;
-  font-size: var(--text-xl);
-  color: var(--color-accent);
+/* ---------- Hand-tagged section markers, in place of caps eyebrows ---------- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  font-weight: 600;
   text-transform: none;
-  letter-spacing: 0;
-}
-.price {
-  font-family: "Caveat", cursive;
-  font-size: var(--text-xl);
+  letter-spacing: normal;
   color: var(--color-accent);
-  margin-top: -0.25rem;
+  transform: rotate(-3deg);
+  margin-bottom: var(--space-2);
 }
 
+.badge {
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* ---------- Nav ---------- */
+.site-nav {
+  background: var(--color-bg);
+  border-bottom: 3px solid var(--ink);
+  backdrop-filter: none;
+}
+.site-nav__brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-xl);
+}
+.site-nav__links a { font-weight: 700; }
+
+/* ---------- Buttons: sticker pills that lift on hover, press on click ---------- */
+.btn {
+  border-radius: 999px;
+  border-width: 3px;
+  border-color: var(--ink);
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-base) var(--ease), box-shadow var(--duration-base) var(--ease);
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-md); }
+.btn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--ink); }
+.btn--primary { background: var(--color-accent); color: var(--ink); }
+.btn--primary:hover { background: var(--color-accent-hover); }
+.btn--secondary { background: var(--color-surface); color: var(--ink); }
+
+/* ---------- Cards: pinned-note panels with a gentle jitter ---------- */
+.card {
+  border-width: 3px;
+  border-color: var(--ink);
+  background: var(--color-surface);
+}
+.grid--3 > .card:nth-child(1) { transform: rotate(-1.4deg); }
+.grid--3 > .card:nth-child(2) { transform: rotate(1deg); }
+.grid--3 > .card:nth-child(3) { transform: rotate(-0.8deg); }
+.grid--4 > .card:nth-child(odd) { transform: rotate(-1.2deg); }
+.grid--4 > .card:nth-child(even) { transform: rotate(1.3deg); }
+.card:hover { transform: none; box-shadow: var(--shadow-md); }
+
+/* ---------- Photo frames: polaroid, taped, slightly askew ---------- */
+.card__media {
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--space-2);
+  aspect-ratio: auto;
+}
+.card__media svg { display: block; width: 100%; height: auto; border-radius: calc(var(--radius-md) - 8px); }
+.card .card__media { padding: var(--space-2); margin-bottom: var(--space-3); }
+.card__media img { border-radius: calc(var(--radius-md) - 8px); }
+
+/* ---------- Hero ---------- */
 .hero { padding-block: var(--space-10); }
 .hero-grid {
   display: grid;
@@ -46,16 +113,43 @@ h1 { font-weight: 500; }
   gap: var(--space-8);
   align-items: center;
 }
-.hero h1 { max-width: 14ch; font-style: italic; }
-.hero__intro { max-width: 40ch; font-size: var(--text-lg); }
-.hero-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.hero h1 { font-size: clamp(2.4rem, 4vw + 1rem, 3.6rem); max-width: 15ch; }
+.hero__intro { max-width: 46ch; font-size: var(--text-lg); }
+.hero-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; }
 .hero-media {
-  aspect-ratio: 5 / 4;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  position: relative;
+  transform: rotate(2.5deg);
+}
+.hero-media .tag {
+  position: absolute;
+  top: -18px;
+  right: -14px;
+  background: var(--color-bg-alt);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  transform: rotate(-8deg);
+  box-shadow: var(--shadow-sm);
 }
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr; }
+  .hero-media { transform: rotate(1deg); max-width: 380px; margin-inline: auto; }
+}
+
+/* ---------- Menu items: price on a little string tag ---------- */
+.price {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--color-text);
+  background: var(--color-teal);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px;
+  padding: 0 var(--space-3);
+  transform: rotate(-2deg);
+  margin: 0;
 }
 
 .about-grid {
@@ -64,36 +158,86 @@ h1 { font-weight: 500; }
   gap: var(--space-8);
   align-items: center;
 }
-.about-grid .card__media { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); }
+.about-grid .card__media { transform: rotate(-2deg); }
 @media (max-width: 860px) {
   .about-grid { grid-template-columns: 1fr; }
 }
 
+/* ---------- Visit us: the one section that flips to the teal accent ---------- */
+#hours {
+  background: var(--color-teal);
+}
+#hours .eyebrow { color: var(--ink); }
 .hours-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-8);
   align-items: center;
 }
-.hours-list { list-style: none; margin: 0; padding: 0; }
+.hours-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transform: rotate(-1deg);
+}
 .hours-list li {
   display: flex;
   justify-content: space-between;
-  padding: var(--space-3) 0;
-  border-bottom: 1px dashed var(--color-border);
-  font-weight: 600;
+  gap: var(--space-4);
+  font-weight: 700;
 }
-.map-placeholder { aspect-ratio: 4 / 3; border-radius: var(--radius-lg); }
+.hours-list li + li { margin-top: var(--space-3); padding-top: var(--space-3); border-top: 2px dashed var(--ink); }
+.map-placeholder { transform: rotate(1.5deg); }
 @media (max-width: 860px) {
   .hours-grid { grid-template-columns: 1fr; }
 }
 
+/* ---------- Contact / reserve ---------- */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-8);
   align-items: start;
 }
+.contact-grid form.card { transform: rotate(0.6deg); }
+.field input,
+.field textarea,
+.field select {
+  border-width: 3px;
+  border-color: var(--ink);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  border-color: var(--color-accent);
+}
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Footer: the one place the mascot shows up ---------- */
+.site-footer {
+  background: var(--ink);
+  color: #f3e9d6;
+  border-top: 3px solid var(--ink);
+  position: relative;
+}
+.site-footer a { text-decoration: underline; }
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+.footer-mascot { width: 84px; height: auto; flex-shrink: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .footer-mascot { animation: wave 2.4s ease-in-out infinite; transform-origin: 70% 90%; }
+}
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-4deg); }
 }

@@ -79,8 +79,8 @@ ARCH = {
     "label_font": IBM_PLEX_MONO, "label_weight": None,
 }
 CAFE = {
-    "bg": (43, 34, 25), "bg2": (61, 47, 33), "accent": (189, 91, 44), "text": (250, 247, 243),
-    "title_font": FRAUNCES, "title_weight": 700, "title_opsz": 144,
+    "bg": (36, 28, 21), "bg2": (54, 42, 30), "accent": (255, 107, 86), "text": (255, 246, 233),
+    "title_font": BRICOLAGE, "title_weight": 800, "title_opsz": 96,
     "label_font": KARLA, "label_weight": 500,
 }
 
@@ -226,7 +226,7 @@ def build_og():
         "local-business.jpg",
         CAFE,
         "Template example \u2014 by NodWeb",
-        "The Copper Kettle Cafe",
+        "Sunny Side Up",
         "A local-business template for cafes, salons, contractors, and shops.",
     )
     print("og images done")

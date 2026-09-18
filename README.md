@@ -58,7 +58,7 @@ templates/
                           as "Atlas & Vine Architecture", with breadcrumbs back
                           to Home.
   local-business/         Generic template for cafés, salons, contractors, shops.
-                          Linked from the homepage as "The Copper Kettle Café".
+                          Linked from the homepage as "Sunny Side Up".
 
 scripts/
   generate_images.py       One-off script that generated the placeholder

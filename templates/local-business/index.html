@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Copper Kettle Café — Example by NodWeb</title>
-  <meta name="description" content="A NodWeb example: a local-business site with a menu grid, hours &amp; location, and a reservation form — for cafés, salons, contractors, and shops." />
+  <title>Sunny Side Up — Example by NodWeb</title>
+  <meta name="description" content="A NodWeb example: an illustrated, hand-tagged local-business site with a menu grid, hours &amp; location, and a reservation form — for cafés, salons, contractors, and shops." />
   <link rel="canonical" href="https://nodweb.org/templates/local-business/" />
-  <meta name="theme-color" content="#fbf2e4" />
+  <meta name="theme-color" content="#fff6e9" />
 
   <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="../../assets/icons/favicon.ico" sizes="any" />
@@ -15,19 +15,20 @@
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NodWeb" />
-  <meta property="og:title" content="The Copper Kettle Café — Example by NodWeb" />
+  <meta property="og:title" content="Sunny Side Up — Example by NodWeb" />
   <meta property="og:description" content="A local-business example with a menu grid, hours &amp; location, and a reservation form." />
   <meta property="og:url" content="https://nodweb.org/templates/local-business/" />
-  <meta property="og:image" content="https://nodweb.org/assets/og/local-business.jpg?v=2" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/local-business.jpg?v=3" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Copper Kettle Café — Example by NodWeb" />
+  <meta name="twitter:title" content="Sunny Side Up — Example by NodWeb" />
   <meta name="twitter:description" content="A local-business example with a menu grid, hours & location, and a reservation form." />
-  <meta name="twitter:image" content="https://nodweb.org/assets/og/local-business.jpg?v=2" />
+  <meta name="twitter:image" content="https://nodweb.org/assets/og/local-business.jpg?v=3" />
 
   <link rel="stylesheet" href="../../shared/css/fonts-cafe.css" />
+  <link rel="stylesheet" href="../../shared/css/fonts-nodweb.css" />
 
   <link rel="stylesheet" href="../../shared/css/tokens.css" />
   <link rel="stylesheet" href="../../shared/css/base.css" />
@@ -40,7 +41,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nodweb.org/" },
       { "@type": "ListItem", "position": 2, "name": "Example Sites", "item": "https://nodweb.org/#work" },
-      { "@type": "ListItem", "position": 3, "name": "The Copper Kettle Café", "item": "https://nodweb.org/templates/local-business/" }
+      { "@type": "ListItem", "position": 3, "name": "Sunny Side Up", "item": "https://nodweb.org/templates/local-business/" }
     ]
   }
   </script>
@@ -54,9 +55,9 @@
   {
     "@context": "https://schema.org",
     "@type": "CafeOrCoffeeShop",
-    "name": "The Copper Kettle Café",
-    "description": "A neighborhood café serving locally roasted coffee and fresh-baked pastries.",
-    "image": "https://nodweb.org/assets/og/local-business.jpg?v=2",
+    "name": "Sunny Side Up",
+    "description": "A neighborhood brunch café serving proper coffee and eggs cooked to order.",
+    "image": "https://nodweb.org/assets/og/local-business.jpg?v=3",
     "url": "https://nodweb.org/templates/local-business/",
     "telephone": "+1-555-010-1234",
     "address": {
@@ -65,7 +66,7 @@
       "addressLocality": "Your Town"
     },
     "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "15:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "08:00", "closes": "16:00" }
     ]
   }
@@ -77,14 +78,14 @@
   <!-- ===================== NAV ===================== -->
   <header class="site-nav">
     <div class="container site-nav__inner">
-      <a class="site-nav__brand" href="#top">The Copper Kettle</a>
+      <a class="site-nav__brand" href="#top">Sunny Side Up</a>
       <button class="site-nav__toggle" aria-label="Toggle menu" aria-controls="site-nav-links" aria-expanded="false">☰</button>
       <nav class="site-nav__nav" aria-label="Primary">
       <ul class="site-nav__links" id="site-nav-links">
         <li><a href="#menu">Menu</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#hours">Hours &amp; Location</a></li>
-        <li><a class="btn btn--primary" href="#contact">Reserve a table</a></li>
+        <li><a href="#hours">Visit</a></li>
+        <li><a class="btn btn--primary" href="#contact">Book a table</a></li>
       </ul>
       </nav>
     </div>
@@ -97,7 +98,7 @@
     <ol>
       <li><a href="../../index.html">Home</a></li>
       <li><a href="../../index.html#work">Example sites</a></li>
-      <li aria-current="page">The Copper Kettle Café</li>
+      <li aria-current="page">Sunny Side Up</li>
     </ol>
   </nav>
 
@@ -105,18 +106,30 @@
   <section class="section hero" id="top">
     <div class="container hero-grid">
       <div class="stack load-stagger">
-        <span class="eyebrow eyebrow--script">Neighborhood café — Example</span>
         <!-- EDIT: headline -->
-        <h1>Coffee, pastries, and a place to slow down.</h1>
+        <h1>Coffee, eggs, and nowhere to be.</h1>
         <!-- EDIT: subhead -->
-        <p class="hero__intro">Open daily on Main Street. Locally roasted, baked fresh every morning.</p>
+        <p class="hero__intro">Sunny Side Up is a neighborhood brunch spot doing proper coffee, eggs cooked exactly how you order them, and a patio built for lingering.</p>
         <div class="hero-actions">
-          <a class="btn btn--primary" href="#contact">Reserve a table</a>
-          <a class="btn btn--secondary" href="#menu">View menu</a>
+          <a class="btn btn--primary" href="#contact">Book a table</a>
+          <a class="btn btn--secondary" href="#menu">See the menu</a>
         </div>
       </div>
       <div class="card__media hero-media reveal">
-        <img src="../../assets/images/cafe-hero.webp" alt="Interior of The Copper Kettle Café with the espresso bar and seating area" loading="eager" fetchpriority="high" width="1000" height="800" />
+        <span class="tag" aria-hidden="true">still warm!</span>
+        <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a fried egg on a plate next to a steaming mug of coffee">
+          <rect width="400" height="300" fill="#fff6e9" />
+          <ellipse cx="150" cy="210" rx="118" ry="62" fill="#fffaf0" stroke="#241c15" stroke-width="5" />
+          <path d="M92,200 C92,165 118,150 150,150 C182,150 208,165 208,200 C208,222 182,232 150,232 C118,232 92,222 92,200 Z" fill="#fffefb" stroke="#241c15" stroke-width="5" />
+          <circle cx="150" cy="198" r="27" fill="#ffc94a" stroke="#241c15" stroke-width="5" />
+          <rect x="252" y="118" width="92" height="82" rx="16" fill="#ff6b56" stroke="#241c15" stroke-width="5" />
+          <path d="M344 138 q34 2 34 32 q0 30 -34 32" fill="none" stroke="#241c15" stroke-width="5" stroke-linecap="round" />
+          <g stroke="#241c15" stroke-width="4" fill="none" stroke-linecap="round">
+            <path d="M270 104 q8 -16 0 -30" />
+            <path d="M293 104 q8 -16 0 -30" />
+            <path d="M316 104 q8 -16 0 -30" />
+          </g>
+        </svg>
       </div>
     </div>
   </section>
@@ -127,16 +140,16 @@
       <h2 class="visually-hidden">Why visit</h2>
       <div class="grid grid--3">
         <div class="card reveal">
-          <h3>Locally roasted</h3>
-          <p>Beans roasted three miles away, ground to order every day.</p>
+          <h3>Eggs, actually good</h3>
+          <p>Free-range, cooked to order, no exceptions. Ask for runny — we won't judge.</p>
         </div>
         <div class="card reveal">
-          <h3>Baked fresh</h3>
-          <p>Pastries made from scratch each morning — nothing frozen, nothing shipped in.</p>
+          <h3>Coffee taken seriously</h3>
+          <p>Beans from a roaster two streets over, pulled by people who care about the shot.</p>
         </div>
         <div class="card reveal">
-          <h3>Dog friendly patio</h3>
-          <p>Bring the whole crew. Water bowls always out.</p>
+          <h3>Bring the dog</h3>
+          <p>Water bowl by the door, treats behind the counter, a patio built for lingering.</p>
         </div>
       </div>
     </div>
@@ -146,38 +159,55 @@
   <section class="section" id="menu">
     <div class="container stack">
       <div>
-        <span class="eyebrow reveal">Menu</span>
+        <span class="eyebrow reveal">the menu</span>
         <h2 class="reveal">A few favorites</h2>
       </div>
+      <!-- EDIT: duplicate this card per menu item -->
       <div class="grid grid--4">
-        <!-- EDIT: duplicate this card per menu item -->
         <div class="card reveal">
           <div class="card__media">
-            <img src="../../assets/images/cafe-menu-espresso.webp" alt="House espresso in a small ceramic cup" loading="lazy" width="1200" height="900" />
+            <svg viewBox="0 0 200 160" role="img" aria-label="Illustration of loaded hash browns">
+              <rect width="200" height="160" fill="#fff6e9" />
+              <ellipse cx="72" cy="96" rx="46" ry="30" fill="#ffc94a" stroke="#241c15" stroke-width="5" />
+              <ellipse cx="118" cy="70" rx="40" ry="26" fill="#f6b83a" stroke="#241c15" stroke-width="5" />
+              <ellipse cx="128" cy="112" rx="38" ry="24" fill="#ffc94a" stroke="#241c15" stroke-width="5" />
+            </svg>
           </div>
-          <h3>House Espresso</h3>
-          <p class="price">$4.00</p>
+          <h3>Loaded Hash Browns</h3>
+          <p class="price">$8</p>
         </div>
         <div class="card reveal">
           <div class="card__media">
-            <img src="../../assets/images/cafe-menu-croissant.webp" alt="Freshly baked almond croissant" loading="lazy" width="1200" height="900" />
+            <svg viewBox="0 0 200 160" role="img" aria-label="Illustration of a flat white with latte art">
+              <rect width="200" height="160" fill="#fff6e9" />
+              <circle cx="100" cy="88" r="52" fill="#ffe8b8" stroke="#241c15" stroke-width="5" />
+              <path d="M100 60 C112 78 112 98 100 116 C88 98 88 78 100 60 Z" fill="#fffaf0" stroke="#241c15" stroke-width="4" />
+            </svg>
           </div>
-          <h3>Almond Croissant</h3>
-          <p class="price">$5.50</p>
+          <h3>Flat White</h3>
+          <p class="price">$4.50</p>
         </div>
         <div class="card reveal">
           <div class="card__media">
-            <img src="../../assets/images/cafe-menu-matcha-latte.webp" alt="Matcha latte with latte art" loading="lazy" width="1200" height="900" />
+            <svg viewBox="0 0 200 160" role="img" aria-label="Illustration of a fried egg">
+              <rect width="200" height="160" fill="#fff6e9" />
+              <path d="M46,96 C46,66 70,50 100,50 C130,50 154,66 154,96 C154,118 130,128 100,128 C70,128 46,118 46,96 Z" fill="#fffefb" stroke="#241c15" stroke-width="5" />
+              <circle cx="100" cy="94" r="26" fill="#ff6b56" stroke="#241c15" stroke-width="5" />
+            </svg>
           </div>
-          <h3>Matcha Latte</h3>
-          <p class="price">$5.00</p>
+          <h3>Eggs Your Way</h3>
+          <p class="price">$9</p>
         </div>
         <div class="card reveal">
           <div class="card__media">
-            <img src="../../assets/images/cafe-menu-sourdough-toast.webp" alt="Sourdough toast plated with toppings" loading="lazy" width="1200" height="900" />
+            <svg viewBox="0 0 200 160" role="img" aria-label="Illustration of a sticky cinnamon bun">
+              <rect width="200" height="160" fill="#fff6e9" />
+              <circle cx="100" cy="88" r="50" fill="#f0b96a" stroke="#241c15" stroke-width="5" />
+              <path d="M100 88 m0 -34 a34 34 0 0 1 0 68 a20 20 0 0 1 0 -40 a8 8 0 0 1 0 16" fill="none" stroke="#241c15" stroke-width="4" stroke-linecap="round" />
+            </svg>
           </div>
-          <h3>Sourdough Toast</h3>
-          <p class="price">$7.00</p>
+          <h3>Sticky Bun</h3>
+          <p class="price">$5</p>
         </div>
       </div>
     </div>
@@ -187,13 +217,18 @@
   <section class="section section--alt" id="about">
     <div class="container about-grid">
       <div class="card__media reveal">
-        <img src="../../assets/images/cafe-about.webp" alt="The café's founders behind the counter" loading="lazy" width="1200" height="900" />
+        <svg viewBox="0 0 300 260" role="img" aria-label="Illustration of two mugs of coffee clinking together over a counter">
+          <rect width="300" height="260" fill="#fff6e9" />
+          <rect x="20" y="180" width="260" height="16" fill="#241c15" />
+          <rect x="90" y="90" width="60" height="90" rx="12" fill="#57c4c0" stroke="#241c15" stroke-width="5" transform="rotate(-8 120 135)" />
+          <rect x="150" y="90" width="60" height="90" rx="12" fill="#ff6b56" stroke="#241c15" stroke-width="5" transform="rotate(8 180 135)" />
+        </svg>
       </div>
       <div class="stack">
-        <span class="eyebrow reveal">Our story</span>
+        <span class="eyebrow reveal">our story</span>
         <!-- EDIT: about copy -->
-        <h2 class="reveal">Family-run since 2019.</h2>
-        <p class="reveal">We started with one espresso machine and a folding table. Six years later, we're still doing things the same slow, careful way — just with better chairs.</p>
+        <h2 class="reveal">Two mates, one griddle.</h2>
+        <p class="reveal">We opened Sunny Side Up with a single griddle and a folding sign. These days we've got real chairs, but the eggs are still cooked exactly the same way — patiently, one order at a time.</p>
       </div>
     </div>
   </section>
@@ -202,11 +237,11 @@
   <section class="section" id="hours">
     <div class="container hours-grid">
       <div class="stack">
-        <span class="eyebrow reveal">Visit us</span>
+        <span class="eyebrow reveal">find us</span>
         <h2 class="reveal">Hours &amp; location</h2>
         <ul class="hours-list reveal">
           <!-- EDIT: hours -->
-          <li><span>Mon–Fri</span><span>7:00 AM – 6:00 PM</span></li>
+          <li><span>Mon–Fri</span><span>7:00 AM – 3:00 PM</span></li>
           <li><span>Sat–Sun</span><span>8:00 AM – 4:00 PM</span></li>
         </ul>
         <!-- EDIT: address -->
@@ -218,7 +253,12 @@
         this template is customized for a real client.
       -->
       <div class="card__media map-placeholder reveal">
-        <img src="../../assets/images/cafe-map.webp" alt="Map placeholder — replace with an embedded map for the real address" loading="lazy" width="1200" height="900" />
+        <svg viewBox="0 0 300 240" role="img" aria-label="Stylized map placeholder with a location pin">
+          <rect width="300" height="240" fill="#fffaf0" />
+          <path d="M0 60 H300 M0 130 H300 M70 0 V240 M210 0 V240" stroke="#e7dcc4" stroke-width="6" />
+          <path d="M150 70 C170 70 186 86 186 106 C186 132 150 168 150 168 C150 168 114 132 114 106 C114 86 130 70 150 70 Z" fill="#ff6b56" stroke="#241c15" stroke-width="5" />
+          <circle cx="150" cy="106" r="14" fill="#fffaf0" stroke="#241c15" stroke-width="4" />
+        </svg>
       </div>
     </div>
   </section>
@@ -227,9 +267,9 @@
   <section class="section section--alt" id="contact">
     <div class="container contact-grid">
       <div class="stack">
-        <span class="eyebrow reveal">Reserve a table</span>
-        <h2 class="reveal">We'd love to have you</h2>
-        <p class="reveal">Walk-ins always welcome — reserve ahead for groups of 4 or more.</p>
+        <span class="eyebrow reveal">say hello</span>
+        <h2 class="reveal">Save us a seat</h2>
+        <p class="reveal">Walk-ins always welcome — book ahead for groups of 4 or more.</p>
       </div>
 
       <form class="card stack reveal" novalidate>
@@ -251,7 +291,7 @@
             <option>5+</option>
           </select>
         </div>
-        <button class="btn btn--primary btn--block" type="submit">Request reservation</button>
+        <button class="btn btn--primary btn--block" type="submit">Book a table</button>
       </form>
     </div>
   </section>
@@ -260,9 +300,19 @@
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
+      <svg class="footer-mascot" viewBox="0 0 120 150" role="img" aria-label="Illustration of a waving sun character">
+        <g stroke="#f3e9d6" stroke-width="4" stroke-linecap="round">
+          <path d="M60 12 V2 M92 24 L99 17 M28 24 L21 17 M104 56 H114 M6 56 H16" />
+        </g>
+        <circle cx="60" cy="60" r="32" fill="#ffc94a" stroke="#f3e9d6" stroke-width="4" />
+        <circle cx="50" cy="56" r="4" fill="#241c15" />
+        <circle cx="70" cy="56" r="4" fill="#241c15" />
+        <path d="M48 70 Q60 80 72 70" fill="none" stroke="#241c15" stroke-width="4" stroke-linecap="round" />
+        <path d="M60 92 V126 M60 104 L38 96 M60 112 L82 122" fill="none" stroke="#f3e9d6" stroke-width="6" stroke-linecap="round" />
+      </svg>
       <!-- EDIT: footer text -->
-      <p>© 2026 The Copper Kettle Café. All rights reserved. &middot; Website by <a href="../../index.html">NodWeb</a> &middot; See another example: <a href="../architecture-studio/index.html">Atlas &amp; Vine Architecture</a></p>
+      <p>© 2026 Sunny Side Up. All rights reserved. &middot; Website by <a href="../../index.html">NodWeb</a> &middot; See another example: <a href="../architecture-studio/index.html">Atlas &amp; Vine Architecture</a></p>
     </div>
   </footer>
 
