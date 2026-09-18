@@ -6,7 +6,7 @@
   <title>Atlas & Vine Architecture — Example by NodWeb</title>
   <meta name="description" content="A NodWeb example: an architecture studio website with an interactive 3D model viewer visitors can rotate, zoom, and view in AR." />
   <link rel="canonical" href="https://nodweb.org/templates/architecture-studio/" />
-  <meta name="theme-color" content="#f3efe6" />
+  <meta name="theme-color" content="#0c0c0b" />
 
   <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="../../assets/icons/favicon.ico" sizes="any" />
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="An architecture studio website with an interactive 3D model viewer." />
   <meta name="twitter:image" content="https://nodweb.org/assets/og/architecture-studio.jpg?v=2" />
 
-  <link rel="stylesheet" href="../../shared/css/fonts-architecture.css" />
+  <link rel="stylesheet" href="../../shared/css/fonts-cafe.css" />
 
   <link rel="stylesheet" href="../../shared/css/tokens.css" />
   <link rel="stylesheet" href="../../shared/css/base.css" />
@@ -100,9 +100,8 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="section hero" id="top">
-    <div class="blueprint-grid" aria-hidden="true"></div>
     <div class="container stack load-stagger">
-      <span class="eyebrow">01 — Architecture Studio · Example</span>
+      <span class="eyebrow" data-num="01">Example site</span>
       <h1>Buildings that belong to their place.</h1>
       <p class="hero__intro">We design homes, workplaces, and public spaces guided by light, material, and site — not trend.</p>
       <div class="hero-actions">
@@ -138,7 +137,7 @@
     <div class="container">
       <div class="model-showcase">
         <div class="model-showcase__copy stack">
-          <span class="eyebrow reveal">02 — Signature feature</span>
+          <span class="eyebrow reveal" data-num="02">Signature feature</span>
           <h2 class="reveal">Explore a project in 3D</h2>
           <p class="reveal">Drag to rotate, scroll to zoom, and view any model in AR directly on a phone. This is the same viewer we hand every client for their own project.</p>
           <div class="reveal model-hint">
@@ -151,14 +150,15 @@
         <!--
           REPLACE model-viewer's src/ios-src below with the client's own
           exported .glb (Android/web/AR) and .usdz (iOS AR) files, placed in
-          ./assets/models/. The demo model below is a public sample asset
-          used only as a placeholder.
+          ./assets/models/. The demo model below — a simple massing study of
+          the fictional Atlas & Vine studio's own building — is placeholder
+          content for this example, not a real client deliverable.
         -->
         <model-viewer
           id="architecture-model"
           class="reveal model-viewer-frame"
-          src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-          alt="Interactive 3D preview model — replace with the client's architectural model"
+          src="../../assets/models/atlas-vine-massing.glb"
+          alt="A massing model of a two-volume modern house, with a concrete ground floor and a cantilevered glazed upper level"
           camera-controls
           auto-rotate
           auto-rotate-delay="1500"
@@ -187,38 +187,34 @@
   <section class="section section--alt" id="work">
     <div class="container stack">
       <div>
-        <span class="eyebrow reveal">03 — Selected work</span>
+        <span class="eyebrow reveal" data-num="03">Selected work</span>
         <h2 class="reveal">Recent projects</h2>
       </div>
-      <div class="grid grid--4">
-        <!-- EDIT: duplicate this card per project, swap image + title + tag -->
-        <a class="card card--link reveal" href="#">
-          <div class="card__media">
-            <img src="../../assets/images/arch-birchwood-residence.webp" alt="Birchwood Residence, a single-family residential project" loading="lazy" width="1200" height="900" />
-          </div>
-          <span class="badge">Residential</span>
-          <h3>Birchwood Residence</h3>
+      <!-- EDIT: duplicate this row per project, swap image + title + tag -->
+      <div class="project-list">
+        <a class="project-row reveal" href="#">
+          <span class="project-row__index">01</span>
+          <span class="project-row__media"><img src="../../assets/images/arch-birchwood-residence.webp" alt="Birchwood Residence, a single-family residential project" loading="lazy" width="1200" height="900" /></span>
+          <span class="project-row__title">Birchwood Residence</span>
+          <span class="project-row__tag">Residential</span>
         </a>
-        <a class="card card--link reveal" href="#">
-          <div class="card__media">
-            <img src="../../assets/images/arch-harbor-line-offices.webp" alt="Harbor Line Offices, a commercial workplace project" loading="lazy" width="1200" height="900" />
-          </div>
-          <span class="badge">Commercial</span>
-          <h3>Harbor Line Offices</h3>
+        <a class="project-row reveal" href="#">
+          <span class="project-row__index">02</span>
+          <span class="project-row__media"><img src="../../assets/images/arch-harbor-line-offices.webp" alt="Harbor Line Offices, a commercial workplace project" loading="lazy" width="1200" height="900" /></span>
+          <span class="project-row__title">Harbor Line Offices</span>
+          <span class="project-row__tag">Commercial</span>
         </a>
-        <a class="card card--link reveal" href="#">
-          <div class="card__media">
-            <img src="../../assets/images/arch-kestrel-community-center.webp" alt="Kestrel Community Center, a public building project" loading="lazy" width="1200" height="900" />
-          </div>
-          <span class="badge">Public</span>
-          <h3>Kestrel Community Center</h3>
+        <a class="project-row reveal" href="#">
+          <span class="project-row__index">03</span>
+          <span class="project-row__media"><img src="../../assets/images/arch-kestrel-community-center.webp" alt="Kestrel Community Center, a public building project" loading="lazy" width="1200" height="900" /></span>
+          <span class="project-row__title">Kestrel Community Center</span>
+          <span class="project-row__tag">Public</span>
         </a>
-        <a class="card card--link reveal" href="#">
-          <div class="card__media">
-            <img src="../../assets/images/arch-maple-9th-infill.webp" alt="Maple & 9th Infill, a multi-unit residential infill project" loading="lazy" width="1200" height="900" />
-          </div>
-          <span class="badge">Residential</span>
-          <h3>Maple &amp; 9th Infill</h3>
+        <a class="project-row reveal" href="#">
+          <span class="project-row__index">04</span>
+          <span class="project-row__media"><img src="../../assets/images/arch-maple-9th-infill.webp" alt="Maple & 9th Infill, a multi-unit residential infill project" loading="lazy" width="1200" height="900" /></span>
+          <span class="project-row__title">Maple &amp; 9th Infill</span>
+          <span class="project-row__tag">Residential</span>
         </a>
       </div>
     </div>
@@ -229,7 +225,7 @@
     <div class="container">
       <div class="studio-grid">
         <div class="stack">
-          <span class="eyebrow reveal">04 — Studio</span>
+          <span class="eyebrow reveal" data-num="04">Studio</span>
           <h2 class="reveal">A small studio, deliberately.</h2>
           <p class="reveal">We keep our roster short so every project gets partner-level attention from first sketch to final walkthrough. Founded 2024.</p>
         </div>
@@ -246,7 +242,7 @@
   <section class="section section--alt" id="contact">
     <div class="container contact-grid">
       <div class="stack">
-        <span class="eyebrow reveal">05 — Get in touch</span>
+        <span class="eyebrow reveal" data-num="05">Get in touch</span>
         <h2 class="reveal">Start a conversation</h2>
         <p class="reveal">Tell us about your site and what you're imagining. We reply within one business day.</p>
         <!-- EDIT: contact details -->
