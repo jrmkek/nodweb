@@ -121,5 +121,16 @@ if (!prefersReducedMotion) {
         );
       });
     }
+  } else {
+    // ---- Touch equivalent of the hover "browser window" preview: the
+    // work card nearest the middle of the screen gets the same spotlight
+    // (chrome bar + open icon + lift) as it scrolls through, since a phone
+    // has no hover to trigger it with. ----
+    document.querySelectorAll("#work .card--link").forEach((card) => {
+      inView(card, () => {
+        card.classList.add("is-active-preview");
+        return () => card.classList.remove("is-active-preview");
+      }, { margin: "-40% 0px -40% 0px" });
+    });
   }
 }

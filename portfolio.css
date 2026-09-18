@@ -176,6 +176,13 @@ body.js-motion-ready .reveal { transition: none; }
    "browser window" (chrome bar + url), the rest of the page dims behind
    it via :has() — no JS. Falls back to a plain lift+shadow hover where
    :has()/backdrop-filter aren't supported. ---------- */
+/* Card copy rhythm: badge sat flush against the title (no gap) while the
+   title had a full space-4 gap to the paragraph below it — backwards from
+   the visual grouping (badge+title are a unit, title+paragraph should be
+   tighter than that). */
+#work .card--link .badge { margin-bottom: var(--space-3); }
+#work .card--link h3 { margin-bottom: var(--space-2); }
+
 .work-media { aspect-ratio: 16 / 10; position: relative; }
 .work-media::before {
   content: "";
@@ -205,8 +212,11 @@ body.js-motion-ready .reveal { transition: none; }
   z-index: 3;
 }
 .card--link:hover .work-media::before,
-.card--link:hover .work-media::after { transform: translateY(0); }
-.card--link:hover .work-media::after { opacity: 0.85; }
+.card--link.is-active-preview .work-media::before,
+.card--link:hover .work-media::after,
+.card--link.is-active-preview .work-media::after { transform: translateY(0); }
+.card--link:hover .work-media::after,
+.card--link.is-active-preview .work-media::after { opacity: 0.85; }
 
 .work-open {
   position: absolute;
@@ -225,19 +235,29 @@ body.js-motion-ready .reveal { transition: none; }
   transition: opacity var(--duration-base) var(--ease), transform var(--duration-base) var(--ease), background-color var(--duration-base) var(--ease);
   z-index: 3;
 }
-.card--link:hover .work-open {
+.card--link:hover .work-open,
+.card--link.is-active-preview .work-open {
   opacity: 1;
   transform: scale(1);
   background: var(--gradient-signature);
 }
 
-#work .card--link { position: relative; z-index: 1; transition: transform var(--duration-slow) var(--ease), box-shadow var(--duration-slow) var(--ease); }
-#work .card--link:hover {
+/* `translate`/`scale` (not `transform`) on purpose: the scroll-reveal
+   entrance and the desktop pointer-tilt effect (motion-effects.js) both
+   drive this element's inline `transform`, and an inline style always beats
+   a stylesheet rule — so a transform set here would just get clobbered.
+   The independent translate/scale/rotate CSS properties compose with
+   `transform` instead of fighting it, on hover, active-tap, or the
+   .is-active-preview class the mobile scroll-spotlight below toggles. */
+#work .card--link { position: relative; z-index: 1; transition: translate var(--duration-slow) var(--ease), scale var(--duration-slow) var(--ease), box-shadow var(--duration-slow) var(--ease); }
+#work .card--link:hover,
+#work .card--link.is-active-preview {
   z-index: 10;
-  transform: scale(1.035) translateY(-6px);
+  translate: 0 -6px;
+  scale: 1.035;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px color-mix(in srgb, var(--nod-blue) 40%, transparent);
 }
-#work .card--link:active { transform: scale(0.985); }
+#work .card--link:active { translate: 0 0; scale: 0.985; }
 
 .work-backdrop {
   position: fixed;
