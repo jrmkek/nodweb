@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ro" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apollo Design — Arhitectură, design interior &amp; execuție integrală</title>
+  <meta name="description" content="Studio de arhitectură, design interior și execuție integrală. Un singur partener, de la idee la cheia în mână. Demo realizat de NodWeb." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#000501" />
+
+  <!-- EDIT: this is the studio's real Instagram profile photo, used as a stand-in favicon — ask them for a proper icon export (SVG/PNG) for production -->
+  <link rel="icon" href="./assets/apollo-logo.jpg" type="image/jpeg" />
+
+  <link rel="stylesheet" href="./fonts-apollo.css" />
+  <link rel="stylesheet" href="./apollo.css" />
+  <script>
+    // Progressive enhancement: content is visible by default (see apollo.css);
+    // this only hides [data-animate] elements when JS will actually animate
+    // them, and skips that if the visitor asked for reduced motion.
+    var html = document.documentElement;
+    html.classList.replace('no-js', 'js');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      html.classList.add('reduced-motion');
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Sari la conținut</a>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="site-nav">
+    <div class="container site-nav__inner">
+      <a class="site-nav__brand" href="#top">
+        <img class="brand-logo" src="./assets/apollo-logo.jpg" alt="Apollo Design" width="42" height="42" />
+      </a>
+      <button class="site-nav__toggle" aria-label="Comută meniul" aria-controls="site-nav-links" aria-expanded="false">☰</button>
+      <nav aria-label="Principal">
+        <ul class="site-nav__links" id="site-nav-links">
+          <li><a href="#pilonii">Ce facem</a></li>
+          <li><a href="#randari-3d">Randări 3D</a></li>
+          <li><a href="#proiecte">Proiecte</a></li>
+          <li><a class="btn btn--primary" href="#contact">Discută cu noi</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <div class="container">
+      <svg class="hero__glyph" data-animate viewBox="0 0 40 34" aria-hidden="true"><rect x="0" y="0" width="10" height="34"/><rect x="14" y="14" width="7" height="20"/><rect x="25" y="7" width="14" height="27"/></svg>
+      <h1 class="hero__triad">
+        <span data-animate>Arhitectură.</span>
+        <span data-animate>Design interior.</span>
+        <span data-animate>Execuție integrală.</span>
+      </h1>
+      <div class="hero__row">
+        <p class="hero__lede" data-animate>Tu semnezi planul. Restul — șantier, meseriași, termene — e treaba noastră, până deschizi ușa la final.</p>
+        <div class="hero__actions" data-animate>
+          <a class="btn btn--primary" href="#contact">Discută cu noi</a>
+          <a class="link-underline" href="#proiecte">Vezi proiectele</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PILONI (three pillars) ===================== -->
+  <section class="panels" id="pilonii">
+    <div class="container panel-grid">
+      <div class="panel" data-animate>
+        <h3>De ce noi</h3>
+        <p>Un singur telefon pentru arhitectură, design de interior și execuție. Nu mai cauți separat un arhitect, un designer și un constructor care să se înțeleagă între ei.</p>
+        <a class="link-underline" href="#contact">Află mai multe</a>
+      </div>
+      <div class="panel" data-animate>
+        <h3>Cum lucrăm</h3>
+        <p>Pornim de la teren și de la buget, nu de la un catalog. Fiecare plan e verificat pentru costuri reale înainte să ajungă pe șantier, ca să nu existe surprize pe parcurs.</p>
+        <a class="link-underline" href="#contact">Află mai multe</a>
+      </div>
+      <div class="panel" data-animate>
+        <h3>Ce livrăm</h3>
+        <p>Proiect tehnic, randare 3D ca să vezi rezultatul înainte de prima cărămidă, și o echipă de execuție care raportează stadiul lucrării săptămânal.</p>
+        <a class="link-underline" href="#contact">Află mai multe</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BIG STATEMENT ===================== -->
+  <section class="statement">
+    <div class="container">
+      <svg class="statement__glyph" data-animate viewBox="0 0 40 34" aria-hidden="true"><rect x="0" y="0" width="10" height="34"/><rect x="14" y="14" width="7" height="20"/><rect x="25" y="7" width="14" height="27"/></svg>
+      <h2 data-animate>Gândim fiecare proiect ca pe un singur sistem — nu trei contracte separate.</h2>
+      <p data-animate>Arhitectura stabilește forma, designul de interior stabilește cum se trăiește în ea, execuția o pune pe teren. Când toate trei sunt sub un singur acoperiș, nimic nu se pierde între etape.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 3D RENDERS ===================== -->
+  <!-- EDIT: swap each render-tile svg for a real exported still (WebP/JPG) once the studio shares renders for this client -->
+  <section class="renders" id="randari-3d">
+    <div class="container">
+      <div class="section-head" data-animate>
+        <h2>Randări 3D</h2>
+        <p>Vezi cum arată casa sau interiorul înainte să se toarne prima fundație — parte din fiecare proiect, nu un serviciu în plus.</p>
+      </div>
+      <div class="render-grid">
+
+        <div class="render-tile" data-animate>
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs><linearGradient id="sky-r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#685f74"/><stop offset="1" stop-color="#99621e"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#sky-r1)"/>
+            <rect x="0" y="235" width="400" height="65" fill="#000501"/>
+            <polygon points="100,235 100,150 200,95 300,150 300,235" fill="#000501"/>
+            <rect x="150" y="180" width="26" height="55" fill="#000000"/>
+            <rect x="120" y="190" width="20" height="20" fill="#c9924f" opacity=".85"/>
+            <rect x="230" y="190" width="20" height="20" fill="#c9924f" opacity=".6"/>
+          </svg>
+          <span class="render-tile__label">Vilă — living dublă înălțime</span>
+        </div>
+
+        <div class="render-tile" data-animate>
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs><linearGradient id="sky-r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#685f74"/><stop offset="1" stop-color="#e6e8e6"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#sky-r2)"/>
+            <rect x="0" y="245" width="400" height="55" fill="#000501"/>
+            <rect x="60" y="170" width="280" height="75" fill="#000501"/>
+            <rect x="60" y="170" width="280" height="10" fill="#000000"/>
+            <rect x="90" y="190" width="220" height="34" fill="#c9924f" opacity=".5"/>
+            <rect x="90" y="190" width="30" height="34" fill="#685f74" opacity=".7"/>
+            <rect x="230" y="190" width="30" height="34" fill="#685f74" opacity=".7"/>
+          </svg>
+          <span class="render-tile__label">Bucătărie — pavilion cu vitraj</span>
+        </div>
+
+        <div class="render-tile" data-animate>
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs><linearGradient id="sky-r3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#685f74"/><stop offset="1" stop-color="#99621e"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#sky-r3)"/>
+            <rect x="0" y="250" width="400" height="50" fill="#000501"/>
+            <rect x="170" y="70" width="70" height="180" fill="#000501"/>
+            <rect x="182" y="90" width="16" height="16" fill="#c9924f" opacity=".8"/>
+            <rect x="212" y="90" width="16" height="16" fill="#c9924f" opacity=".3"/>
+            <rect x="182" y="120" width="16" height="16" fill="#c9924f" opacity=".3"/>
+            <rect x="212" y="120" width="16" height="16" fill="#c9924f" opacity=".8"/>
+            <rect x="182" y="150" width="16" height="16" fill="#c9924f" opacity=".5"/>
+            <rect x="212" y="150" width="16" height="16" fill="#c9924f" opacity=".5"/>
+          </svg>
+          <span class="render-tile__label">Baie — turn de lumină</span>
+        </div>
+
+        <div class="render-tile" data-animate>
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs><linearGradient id="sky-r4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#685f74"/><stop offset="1" stop-color="#e6e8e6"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#sky-r4)"/>
+            <rect x="0" y="240" width="400" height="60" fill="#000501"/>
+            <rect x="60" y="190" width="120" height="60" fill="#000501"/>
+            <rect x="180" y="150" width="120" height="100" fill="#000501"/>
+            <rect x="90" y="205" width="20" height="20" fill="#c9924f" opacity=".7"/>
+            <rect x="205" y="170" width="70" height="26" fill="#c9924f" opacity=".55"/>
+          </svg>
+          <span class="render-tile__label">Living contemporan — volume decalate</span>
+        </div>
+
+        <div class="render-tile" data-animate>
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs><linearGradient id="sky-r5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#685f74"/><stop offset="1" stop-color="#99621e"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#sky-r5)"/>
+            <rect x="0" y="255" width="400" height="45" fill="#000501"/>
+            <rect x="40" y="205" width="320" height="50" fill="#000501"/>
+            <rect x="90" y="160" width="220" height="50" fill="#000501"/>
+            <rect x="140" y="115" width="120" height="50" fill="#000501"/>
+            <rect x="60" y="220" width="60" height="18" fill="#c9924f" opacity=".5"/>
+            <rect x="160" y="130" width="60" height="18" fill="#c9924f" opacity=".75"/>
+          </svg>
+          <span class="render-tile__label">Penthouse — terase suprapuse</span>
+        </div>
+
+        <div class="render-tile" data-animate>
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs><linearGradient id="sky-r6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#685f74"/><stop offset="1" stop-color="#e6e8e6"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#sky-r6)"/>
+            <rect x="0" y="245" width="400" height="55" fill="#000501"/>
+            <polygon points="50,245 50,140 350,140 350,245" fill="#000501"/>
+            <polygon points="50,140 200,90 350,140" fill="#000000"/>
+            <rect x="90" y="175" width="40" height="70" fill="#000000"/>
+            <rect x="150" y="165" width="100" height="30" fill="#c9924f" opacity=".45"/>
+          </svg>
+          <span class="render-tile__label">Vilă — acoperiș în două ape</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROIECTE ===================== -->
+  <!-- EDIT: photos are the studio's own real work, pulled from @apollodesign.studio on
+       Instagram, standing in until they share the matching case-study photos per project;
+       names/descriptions are still placeholder copy for this demo. -->
+  <section class="projects" id="proiecte">
+    <div class="container">
+      <div class="section-head" data-animate>
+        <h2>Proiecte</h2>
+        <p>De la case unifamiliale la spații comerciale — proiecte diferite ca amploare, aceeași grijă pentru detaliu.</p>
+      </div>
+
+      <div class="project-list">
+        <a class="project-row" href="#proiecte" data-animate>
+          <span class="project-row__index">01</span>
+          <span>
+            <span class="project-row__title">Vila Aurora</span>
+            <span class="project-row__desc">Casă unifamilială pe un teren în pantă, cu un living dublă înălțime vitrat spre vale și o scară suspendată din sticlă.</span>
+          </span>
+          <span class="project-row__media">
+            <img src="./assets/project-staircase-loft.jpg" alt="Living dublă înălțime cu scară din sticlă și pereți vitrați spre exterior" width="512" height="640" loading="lazy" />
+          </span>
+        </a>
+
+        <a class="project-row" href="#proiecte" data-animate>
+          <span class="project-row__index">02</span>
+          <span>
+            <span class="project-row__title">Penthouse Nordului</span>
+            <span class="project-row__desc">Renovare completă a unui penthouse din nordul Bucureștiului — arhitectură de interior, mobilier la comandă și execuție cheie în mână.</span>
+          </span>
+          <span class="project-row__media">
+            <img src="./assets/project-penthouse-living.jpg" alt="Living cu candelabru sculptural sferic și perete placat cu piatră travertin" width="512" height="640" loading="lazy" />
+          </span>
+        </a>
+
+        <a class="project-row" href="#proiecte" data-animate>
+          <span class="project-row__index">03</span>
+          <span>
+            <span class="project-row__title">Apartament Cotroceni</span>
+            <span class="project-row__desc">Un apartament interbelic recompartimentat, cu pereți structurali expuși și o bucătărie cu insulă din marmură deschisă spre living.</span>
+          </span>
+          <span class="project-row__media">
+            <img src="./assets/project-kitchen-marble.jpg" alt="Bucătărie cu insulă din marmură și mobilier din lemn, iluminată de pandantive suspendate" width="512" height="640" loading="lazy" />
+          </span>
+        </a>
+
+        <a class="project-row" href="#proiecte" data-animate>
+          <span class="project-row__index">04</span>
+          <span>
+            <span class="project-row__title">Suite Belvedere</span>
+            <span class="project-row__desc">Dormitor principal cu dressing integrat, într-o paletă caldă de lemn și negru mat, cu accente de iluminat ambiental.</span>
+          </span>
+          <span class="project-row__media">
+            <img src="./assets/project-nightstand-detail.jpg" alt="Detaliu noptieră neagră lângă un pat tapițat, cu perete din lemn în fundal" width="512" height="640" loading="lazy" />
+          </span>
+        </a>
+
+        <a class="project-row" href="#proiecte" data-animate>
+          <span class="project-row__index">05</span>
+          <span>
+            <span class="project-row__title">Living Panoramic</span>
+            <span class="project-row__desc">Zonă de zi și dining cu un candelabru sculptural din inele suprapuse și un perete placat integral cu marmură.</span>
+          </span>
+          <span class="project-row__media">
+            <img src="./assets/project-dining-rings.jpg" alt="Zonă de dining cu un candelabru din inele metalice suprapuse și perete din marmură" width="512" height="640" loading="lazy" />
+          </span>
+        </a>
+      </div>
+
+      <div class="projects__foot">
+        <a class="link-underline" href="#proiecte">Toate proiectele</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <h2 data-animate>Hai să vorbim.</h2>
+        <p class="contact__lede" data-animate>Spune-ne despre teren, despre spațiu sau despre ce vrei să schimbi. Răspundem în maximum o zi lucrătoare.</p>
+        <!-- EDIT: real contact details for this client -->
+        <div class="contact__meta" data-animate>
+          <p><strong>Email:</strong> contact@apollodesign.studio</p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/apollodesign.studio/" target="_blank" rel="noopener">@apollodesign.studio</a></p>
+          <p><strong>Zonă:</strong> România &amp; proiecte internaționale</p>
+        </div>
+      </div>
+
+      <form novalidate data-animate>
+        <div class="field">
+          <label for="name">Nume</label>
+          <input id="name" name="name" type="text" required autocomplete="name" aria-describedby="name-error" />
+          <span class="field__error" id="name-error" role="alert">Te rugăm să introduci numele tău.</span>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" aria-describedby="email-hint email-error" />
+          <span class="field__hint" id="email-hint">Îl folosim doar ca să-ți răspundem.</span>
+          <span class="field__error" id="email-error" role="alert">Te rugăm să introduci un email valid.</span>
+        </div>
+        <div class="field">
+          <label for="message">Despre proiectul tău</label>
+          <textarea id="message" name="message" rows="4" required aria-describedby="message-error"></textarea>
+          <span class="field__error" id="message-error" role="alert">Te rugăm să adaugi un scurt mesaj.</span>
+        </div>
+        <button class="btn btn--primary" type="submit" style="width:100%; justify-content:center;">Trimite mesajul</button>
+      </form>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Apollo Design.</p>
+      <p>Demo realizat de <a href="../../index.html">NodWeb</a> — nu este site-ul live al studioului.</p>
+    </div>
+  </footer>
+
+  <script src="../../shared/js/site.js"></script>
+  <script src="../../shared/js/form-validation.js"></script>
+  <script type="module" src="./apollo-motion.js"></script>
+</body>
+</html>
