@@ -172,7 +172,93 @@ body.js-motion-ready .reveal { transition: none; }
 .hero .container { position: relative; z-index: 1; }
 .hero-node-mark { z-index: 1; }
 
-.work-media { aspect-ratio: 16 / 10; }
+/* ---------- Work examples: hover turns the card into a floating
+   "browser window" (chrome bar + url), the rest of the page dims behind
+   it via :has() — no JS. Falls back to a plain lift+shadow hover where
+   :has()/backdrop-filter aren't supported. ---------- */
+.work-media { aspect-ratio: 16 / 10; position: relative; }
+.work-media::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 32px;
+  background:
+    radial-gradient(circle 4px at 16px 16px, #f4726b 100%, transparent 101%),
+    radial-gradient(circle 4px at 30px 16px, #f4c542 100%, transparent 101%),
+    radial-gradient(circle 4px at 44px 16px, #4fc97a 100%, transparent 101%),
+    color-mix(in srgb, var(--nod-black) 90%, transparent);
+  transform: translateY(-100%);
+  transition: transform var(--duration-slow) var(--ease);
+  z-index: 2;
+}
+.work-media::after {
+  content: attr(data-preview-url);
+  position: absolute;
+  top: 8px;
+  left: 60px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: var(--text-xs);
+  color: var(--nod-off-white);
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform var(--duration-slow) var(--ease), opacity var(--duration-fast) var(--ease);
+  z-index: 3;
+}
+.card--link:hover .work-media::before,
+.card--link:hover .work-media::after { transform: translateY(0); }
+.card--link:hover .work-media::after { opacity: 0.85; }
+
+.work-open {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--nod-black) 55%, transparent);
+  color: var(--nod-off-white);
+  opacity: 0.75;
+  transform: scale(0.9);
+  transition: opacity var(--duration-base) var(--ease), transform var(--duration-base) var(--ease), background-color var(--duration-base) var(--ease);
+  z-index: 3;
+}
+.card--link:hover .work-open {
+  opacity: 1;
+  transform: scale(1);
+  background: var(--gradient-signature);
+}
+
+#work .card--link { position: relative; z-index: 1; transition: transform var(--duration-slow) var(--ease), box-shadow var(--duration-slow) var(--ease); }
+#work .card--link:hover {
+  z-index: 10;
+  transform: scale(1.035) translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 0 1px color-mix(in srgb, var(--nod-blue) 40%, transparent);
+}
+#work .card--link:active { transform: scale(0.985); }
+
+.work-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 12, 15, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease);
+  z-index: 5;
+}
+#work .grid--2:has(.card--link:hover) ~ .work-backdrop {
+  opacity: 1;
+  backdrop-filter: blur(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #work .card--link,
+  #work .card--link:hover,
+  #work .card--link:active { transform: none; transition: box-shadow var(--duration-fast) linear; }
+  .work-backdrop { transition: none; }
+}
 
 .process-list {
   list-style: none;
