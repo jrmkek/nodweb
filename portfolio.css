@@ -69,6 +69,10 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercas
    motion), the CSS versions below keep working exactly as before. */
 body.js-motion-ready .load-stagger > * { animation: none; }
 body.js-motion-ready .reveal { transition: none; }
+/* site.js adds .is-visible slightly before Motion's own trigger fires; with
+   transitions off that flashed the element fully visible, then re-faded it.
+   Motion's inline final styles still win once its animation has run. */
+body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px); }
 .btn, .card--link { will-change: transform; }
 
 /* ---------- Language switcher ---------- */
