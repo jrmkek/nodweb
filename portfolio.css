@@ -268,9 +268,13 @@ body.js-motion-ready .reveal { transition: none; }
   transition: opacity var(--duration-slow) var(--ease);
   z-index: 5;
 }
-#work .grid--2:has(.card--link:hover) ~ .work-backdrop {
-  opacity: 1;
-  backdrop-filter: blur(6px);
+/* Only where hover is real: on touch, :hover sticks after a tap and would
+   keep the blur until the next tap instead of clearing on scroll. */
+@media (hover: hover) {
+  #work .grid--2:has(.card--link:hover) ~ .work-backdrop {
+    opacity: 1;
+    backdrop-filter: blur(6px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
