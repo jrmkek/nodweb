@@ -180,7 +180,7 @@
           if (!entries.some((e) => e.isIntersecting)) return;
           io.disconnect();
           import("https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js");
-        }, { rootMargin: "400px" }).observe(viewer);
+        }, { rootMargin: "1500px" }).observe(viewer);
         // The progress bar above is a custom slot, so model-viewer won't
         // hide it on its own — do it ourselves once the model has loaded.
         document.getElementById("architecture-model").addEventListener("load", (event) => {
