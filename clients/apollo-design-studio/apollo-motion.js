@@ -6,7 +6,7 @@
 
 if (!document.documentElement.classList.contains('reduced-motion')) {
   try {
-    const { animate, stagger, inView, scroll } = await import('https://cdn.jsdelivr.net/npm/motion@13.4.0/+esm');
+    const { animate, stagger, inView, scroll } = await import('https://cdn.jsdelivr.net/npm/motion@11/+esm');
 
     const EASE_OUT = [0.16, 1, 0.3, 1];
 
