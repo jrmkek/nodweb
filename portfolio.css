@@ -149,7 +149,7 @@ body.js-motion-ready .reveal { transition: none; }
 
 .hero-node-mark {
   position: absolute;
-  top: 50%;
+  top: 300px; /* fixed, not 50%: hero height changes on font swap and would shift this */
   left: 50%;
   width: 900px;
   height: 900px;
