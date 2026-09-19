@@ -33,7 +33,6 @@
   <link rel="stylesheet" href="../../shared/css/tokens.css" />
   <link rel="stylesheet" href="../../shared/css/base.css" />
   <link rel="stylesheet" href="./architecture.css" />
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
   <script type="application/ld+json">
   {
@@ -167,7 +166,6 @@
           exposure="1"
           ar
           ar-modes="webxr scene-viewer quick-look"
-          loading="eager"
           poster=""
         >
           <div class="model-viewer-loading" slot="progress-bar"></div>
@@ -175,6 +173,14 @@
       </div>
 
       <script>
+        // model-viewer (three.js) is ~1 MB of JS; load it only when the
+        // viewer is about to scroll into view so it doesn't block first paint.
+        const viewer = document.getElementById("architecture-model");
+        new IntersectionObserver((entries, io) => {
+          if (!entries.some((e) => e.isIntersecting)) return;
+          io.disconnect();
+          import("https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js");
+        }, { rootMargin: "400px" }).observe(viewer);
         // The progress bar above is a custom slot, so model-viewer won't
         // hide it on its own — do it ourselves once the model has loaded.
         document.getElementById("architecture-model").addEventListener("load", (event) => {
