@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 3000);
         })
         .catch(() => {
-          button.textContent = "Couldn't send — try again";
+          button.textContent = "Couldn't send, try again";
           button.disabled = false;
           setTimeout(() => {
             button.textContent = original;
