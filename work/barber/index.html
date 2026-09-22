@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frizeria Vasile: Barbershop Example by NodWeb</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="A NodWeb example site for a neighbourhood barbershop in Bucharest: a letter-board price list, live open/closed status, barbers and walk-in info." />
+  <link rel="canonical" href="https://nodweb.org/work/barber/" />
+  <meta name="theme-color" content="#10261d" />
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Frizeria Vasile: Barbershop Example by NodWeb" />
+  <meta property="og:description" content="A neighbourhood barbershop site with a letter-board price list and live open/closed status." />
+  <meta property="og:url" content="https://nodweb.org/work/barber/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/work-barber.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" href="./img/hero.webp" as="image" fetchpriority="high" />
+  <link rel="stylesheet" href="../../shared/css/fonts-barber.css" />
+  <link rel="stylesheet" href="../work.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarberShop",
+    "name": "Frizeria Vasile",
+    "description": "Neighbourhood barbershop near Obor: haircuts, beard trims and hot-towel shaves.",
+    "url": "https://nodweb.org/work/barber/",
+    "image": "https://nodweb.org/work/barber/img/hero.webp",
+    "priceRange": "50-110 RON",
+    "address": { "@type": "PostalAddress", "streetAddress": "Strada Ziduri Moși 14", "addressLocality": "București", "addressCountry": "RO" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="top__name" href="#main">Frizeria Vasile</a>
+    <nav aria-label="Primary">
+      <a href="#prices">Prices</a>
+      <a href="#chairs">Barbers</a>
+      <a href="#visit">Find us</a>
+    </nav>
+    <a class="top__call" href="tel:+40215550142">021 555 0142</a>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <img src="./img/hero.webp" alt="Three green leather barber chairs on a black-and-white tiled floor" width="1800" height="1200" fetchpriority="high" />
+      <div class="hero__text">
+        <h1>Frizeria Vasile</h1>
+        <p>Haircuts, beard trims and hot-towel shaves two streets from Obor market. Same three chairs since 2009.</p>
+        <p class="status" data-status>Mon–Fri 9:00–20:00, Sat 9:00–16:00</p>
+      </div>
+    </section>
+
+    <section class="prices" id="prices" aria-labelledby="prices-title">
+      <div class="prices__intro">
+        <h2 id="prices-title">Prices</h2>
+        <p>Walk in and take a seat, or call ahead if you want a set time. Cash or card.</p>
+      </div>
+      <div class="board" role="table" aria-label="Price list">
+        <div role="row"><span role="cell">Haircut</span><span role="cell">70</span></div>
+        <div role="row"><span role="cell">Clipper cut, one length</span><span role="cell">50</span></div>
+        <div role="row"><span role="cell">Beard trim</span><span role="cell">45</span></div>
+        <div role="row"><span role="cell">Hot towel shave</span><span role="cell">80</span></div>
+        <div role="row"><span role="cell">Cut and beard</span><span role="cell">105</span></div>
+        <div role="row"><span role="cell">Kids under 12</span><span role="cell">55</span></div>
+        <div role="row"><span role="cell">Father and son</span><span role="cell">110</span></div>
+        <p class="board__foot">All prices in lei</p>
+      </div>
+    </section>
+
+    <section class="chairs" id="chairs" aria-labelledby="chairs-title">
+      <h2 id="chairs-title">Three chairs, three barbers</h2>
+      <div class="chairs__grid">
+        <figure class="chairs__photo">
+          <img src="./img/cut.webp" alt="Barber trimming an older client's hair with clippers" width="1000" height="1250" loading="lazy" />
+        </figure>
+        <ul class="chairs__list" role="list">
+          <li>
+            <h3>Vasile</h3>
+            <p>Opened the shop in 2009. Scissor cuts, side partings and the straight-razor shave most people come back for.</p>
+            <p class="days">Monday to Friday</p>
+          </li>
+          <li>
+            <h3>Radu</h3>
+            <p>Skin fades and tapers. Bring a photo and he'll tell you honestly whether it works with your hair.</p>
+            <p class="days">Tuesday to Saturday</p>
+          </li>
+          <li>
+            <h3>Andrei</h3>
+            <p>Beards: shaping, lining up, and getting a long one back under control without losing the length.</p>
+            <p class="days">Wednesday to Saturday</p>
+          </li>
+        </ul>
+        <figure class="chairs__photo chairs__photo--small">
+          <img src="./img/beard.webp" alt="Barber shaping a client's long beard with scissors and comb" width="900" height="1125" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div>
+        <h2 id="visit-title">Find us</h2>
+        <address>
+          Strada Ziduri Moși 14<br />
+          Sector 2, București<br />
+          Two minutes on foot from Piața Obor, M1
+        </address>
+        <p><a class="button" href="tel:+40215550142">Call 021 555 0142</a></p>
+      </div>
+      <dl class="hours">
+        <div><dt>Monday to Friday</dt><dd>9:00–20:00</dd></div>
+        <div><dt>Saturday</dt><dd>9:00–16:00</dd></div>
+        <div><dt>Sunday</dt><dd>Closed</dd></div>
+      </dl>
+      <img class="visit__img" src="./img/tools.webp" alt="Straight razors, combs and a shaving brush laid out on a towel" width="1000" height="667" loading="lazy" />
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Frizeria Vasile, Strada Ziduri Moși 14, București</p>
+    <p>An example site designed and built by <a href="/">NodWeb</a></p>
+  </footer>
+
+  <script type="module">
+    // Live open/closed line, from the same hours shown in the table.
+    const HOURS = { 1: [9, 20], 2: [9, 20], 3: [9, 20], 4: [9, 20], 5: [9, 20], 6: [9, 16] };
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Bucharest" }));
+    const today = HOURS[now.getDay()];
+    const h = now.getHours() + now.getMinutes() / 60;
+    const el = document.querySelector("[data-status]");
+    if (today && h >= today[0] && h < today[1]) {
+      el.textContent = `Open now, until ${today[1]}:00. Walk-ins welcome.`;
+      el.classList.add("is-open");
+    } else {
+      el.textContent = today && h < today[0] ? `Closed. Opens today at ${today[0]}:00.` : "Closed now. Back tomorrow morning.";
+    }
+
+    // One moment: the letters drop onto the board when it scrolls in.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const { animate, inView, stagger } = await import("https://cdn.jsdelivr.net/npm/motion@11/+esm");
+      const rows = document.querySelectorAll(".board [role=row]");
+      rows.forEach((r) => (r.style.opacity = 0));
+      inView(".board", () => {
+        animate(rows, { opacity: [0, 1], transform: ["translateY(-14px) rotate(-0.6deg)", "translateY(0) rotate(0)"] },
+          { delay: stagger(0.07), type: "spring", stiffness: 380, damping: 22 });
+      }, { margin: "0px 0px -20% 0px" });
+    }
+  </script>
+  <script type="module" src="../../shared/js/back-home.js" data-href="/#work" data-label="Back to NodWeb"></script>
+</body>
+</html>

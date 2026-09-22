@@ -58,6 +58,14 @@ templates/
                           as "Atlas & Vine Architecture", with breadcrumbs back
                           to Home.
   local-business/         Generic template for cafés, salons, contractors, shops.
+work/                     Eight more example sites, one per trade (barber, dental,
+                          reno, florist, winebar, pilates, bakery, law). Each is a
+                          self-contained index.html + style.css + img/ with its own
+                          fonts (shared/css/fonts-<slug>.css) and palette; work.css
+                          is only the shared reset. All noindex, listed in the
+                          homepage #work section. Thumbnails: assets/images/work-*.webp,
+                          social images: assets/og/work-*.jpg (both are screenshots
+                          of the live pages; regenerate if a page changes).
                           Linked from the homepage as "Sunny Side Up".
 
 scripts/

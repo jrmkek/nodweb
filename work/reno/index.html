@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Echipa Stanciu: Renovation Contractor Example by NodWeb</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="A NodWeb example site for an apartment renovation crew in Bucharest: a cost estimator by square metre, a week-by-week schedule and a quote request form." />
+  <link rel="canonical" href="https://nodweb.org/work/reno/" />
+  <meta name="theme-color" content="#222222" />
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Echipa Stanciu: Renovation Contractor Example by NodWeb" />
+  <meta property="og:description" content="A renovation contractor site with a cost estimator and a week-by-week schedule." />
+  <meta property="og:url" content="https://nodweb.org/work/reno/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/work-reno.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="../../shared/css/fonts-reno.css" />
+  <link rel="stylesheet" href="../work.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "name": "Echipa Stanciu",
+    "description": "Apartment renovations in Bucharest, from repainting to full rewiring, plumbing, kitchens and bathrooms.",
+    "url": "https://nodweb.org/work/reno/",
+    "image": "https://nodweb.org/work/reno/img/hero.webp",
+    "areaServed": { "@type": "City", "name": "București" },
+    "address": { "@type": "PostalAddress", "streetAddress": "Șoseaua Olteniței 105", "addressLocality": "București", "addressCountry": "RO" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="top__name" href="#main">Echipa Stanciu</a>
+    <nav aria-label="Primary">
+      <a href="#estimate">Estimate</a>
+      <a href="#schedule">How it runs</a>
+      <a href="#quote">Get a quote</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1>We renovate apartments in Bucharest, one at a time.</h1>
+      <div class="hero__row">
+        <img src="./img/hero.webp" alt="Kitchen mid-renovation with new wooden cabinets, dust sheets and tools on the floor" width="1800" height="1200" fetchpriority="high" />
+        <div class="hero__side">
+          <p>Six people, one crew, one site at a time. We don't start your job until the last one is handed over, so nobody disappears to another address halfway through.</p>
+          <dl class="facts">
+            <div><dt>Apartments finished since 2016</dt><dd>112</dd></div>
+            <div><dt>Written warranty on all work</dt><dd>3 years</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="estimate" id="estimate" aria-labelledby="est-title">
+      <div class="estimate__text">
+        <h2 id="est-title">What will it cost?</h2>
+        <p>A rough range from what similar flats cost us last year. You get a fixed price after we've seen the place.</p>
+      </div>
+      <div class="calc" data-calc>
+        <label class="calc__size">
+          <span>Floor area</span>
+          <output data-m2>60 m²</output>
+          <input type="range" min="25" max="160" step="5" value="60" name="m2" />
+        </label>
+        <fieldset class="calc__scope">
+          <legend>What needs doing</legend>
+          <label><input type="radio" name="scope" value="450,650" /> <span><strong>Refresh</strong> Walls, paint, floors, doors</span></label>
+          <label><input type="radio" name="scope" value="1100,1450" checked /> <span><strong>Full</strong> Plus new wiring and plumbing</span></label>
+          <label><input type="radio" name="scope" value="1700,2300" /> <span><strong>Full, with kitchen and bathroom</strong> Tiling, fittings, units installed</span></label>
+        </fieldset>
+        <p class="calc__out" aria-live="polite"><span>Roughly</span> <strong data-range>66,000–87,000 lei</strong><span data-weeks>about 7 weeks on site</span></p>
+      </div>
+    </section>
+
+    <section class="schedule" id="schedule" aria-labelledby="sch-title">
+      <h2 id="sch-title">How a full renovation runs</h2>
+      <ol class="weeks" role="list">
+        <li><span class="weeks__when">Week 1</span><h3>Strip out</h3><p>Old floors, tiles and wiring out. Rubble leaves in bags, the same day, not piled in your stairwell.</p></li>
+        <li><span class="weeks__when">Weeks 2–3</span><h3>Wiring and pipes</h3><p>New circuits and plumbing, photographed before walls close so you have a record of where everything runs.</p></li>
+        <li><span class="weeks__when">Weeks 3–5</span><h3>Walls and screed</h3><p>Plaster, levelling, screed. The slow part, because it has to dry.</p></li>
+        <li><span class="weeks__when">Weeks 5–7</span><h3>Finishes</h3><p>Tiles, floors, paint, doors, then the kitchen and bathroom fittings.</p></li>
+        <li><span class="weeks__when">Last day</span><h3>Handover</h3><p>We walk through it with you, fix the list, clean, and give you the warranty in writing.</p></li>
+      </ol>
+      <div class="schedule__photos">
+        <img src="./img/wiring.webp" alt="Kitchen with new wiring and pipes run along bare white walls" width="1100" height="733" loading="lazy" />
+        <img src="./img/plaster.webp" alt="Worker smoothing fresh plaster on a wall" width="900" height="1125" loading="lazy" />
+        <img src="./img/done.webp" alt="Finished empty apartment with pale wooden floors and a dark accent wall" width="1100" height="733" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="quote" id="quote" aria-labelledby="q-title">
+      <div>
+        <h2 id="q-title">Get a fixed quote</h2>
+        <p>Tell us where the flat is and roughly what you want done. Radu Stanciu comes to see it, usually within the week, and sends a fixed price in writing.</p>
+        <p class="quote__phone"><a href="tel:+40215550163">021 555 0163</a></p>
+      </div>
+      <form class="form" novalidate>
+        <div class="field">
+          <label for="r-name">Name</label>
+          <input id="r-name" type="text" required autocomplete="name" aria-describedby="r-name-err" />
+          <span class="field__error" id="r-name-err">Add your name.</span>
+        </div>
+        <div class="field">
+          <label for="r-phone">Phone</label>
+          <input id="r-phone" type="tel" required autocomplete="tel" aria-describedby="r-phone-err" />
+          <span class="field__error" id="r-phone-err">Add a phone number so Radu can call you.</span>
+        </div>
+        <div class="field">
+          <label for="r-where">Neighbourhood and size</label>
+          <input id="r-where" type="text" required placeholder="e.g. Titan, 2 rooms, 54 m²" aria-describedby="r-where-err" />
+          <span class="field__error" id="r-where-err">Tell us roughly where and how big.</span>
+        </div>
+        <div class="field">
+          <label for="r-what">What do you want done?</label>
+          <textarea id="r-what" rows="4" required aria-describedby="r-what-err"></textarea>
+          <span class="field__error" id="r-what-err">A sentence or two is enough.</span>
+        </div>
+        <button class="btn" type="submit">Ask for a site visit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Echipa Stanciu Renovări SRL, Șoseaua Olteniței 105, București</p>
+    <p>An example site designed and built by <a href="/">NodWeb</a></p>
+  </footer>
+
+  <script defer src="../../shared/js/form-validation.js"></script>
+  <script type="module">
+    const form = document.querySelector("[data-calc]");
+    const out = form.querySelector("[data-range]");
+    const weeksEl = form.querySelector("[data-weeks]");
+    const m2Out = form.querySelector("[data-m2]");
+    const fmt = (n) => (Math.round(n / 1000) * 1000).toLocaleString("en-US");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motion = reduced ? null : await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null);
+    let shown = [66000, 87000];
+
+    const update = () => {
+      const m2 = +form.querySelector("[name=m2]").value;
+      const [lo, hi] = form.querySelector("[name=scope]:checked").value.split(",").map(Number);
+      const next = [lo * m2, hi * m2];
+      m2Out.textContent = `${m2} m²`;
+      // ponytail: weeks is a rule of thumb from past jobs, not a real schedule model
+      const weeks = Math.max(2, Math.round(m2 / (lo < 1000 ? 30 : lo < 1500 ? 9 : 7)));
+      weeksEl.textContent = `about ${weeks} weeks on site`;
+      if (!motion) { out.textContent = `${fmt(next[0])}–${fmt(next[1])} lei`; shown = next; return; }
+      const from = shown;
+      motion.animate(0, 1, { duration: 0.4, easing: [0.16, 1, 0.3, 1], onUpdate: (t) => {
+        out.textContent = `${fmt(from[0] + (next[0] - from[0]) * t)}–${fmt(from[1] + (next[1] - from[1]) * t)} lei`;
+      } }).then(() => (out.textContent = `${fmt(next[0])}–${fmt(next[1])} lei`));
+      shown = next;
+    };
+    form.addEventListener("input", update);
+  </script>
+  <script type="module" src="../../shared/js/back-home.js" data-href="/#work" data-label="Back to NodWeb"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Axa Studio: Pilates Studio Example by NodWeb</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="A NodWeb example site for a reformer Pilates studio in Bucharest: a weekly timetable with spots left, class levels, instructors and passes." />
+  <link rel="canonical" href="https://nodweb.org/work/pilates/" />
+  <meta name="theme-color" content="#dcd6ea" />
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Axa Studio: Pilates Studio Example by NodWeb" />
+  <meta property="og:description" content="A Pilates studio site with a weekly timetable, spots left and class passes." />
+  <meta property="og:url" content="https://nodweb.org/work/pilates/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/work-pilates.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="../../shared/css/fonts-pilates.css" />
+  <link rel="stylesheet" href="../work.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ExerciseGym",
+    "name": "Axa Studio",
+    "description": "Reformer Pilates studio in Floreasca with classes of eight people at most.",
+    "url": "https://nodweb.org/work/pilates/",
+    "image": "https://nodweb.org/work/pilates/img/hero.webp",
+    "address": { "@type": "PostalAddress", "streetAddress": "Strada Glinka 11", "addressLocality": "București", "addressCountry": "RO" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="top__name" href="#main">axa</a>
+    <nav aria-label="Primary">
+      <a href="#timetable">Timetable</a>
+      <a href="#passes">Passes</a>
+      <a class="top__cta" href="#first">First class</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero__text">
+        <h1>Reformer Pilates, eight people at most.</h1>
+        <p>A bright room above Floreasca park with eight reformers and one instructor who knows your name by the second class.</p>
+      </div>
+      <img src="./img/hero.webp" alt="Woman doing a leg exercise on a wooden reformer in a bright studio" width="1800" height="1200" fetchpriority="high" />
+    </section>
+
+    <section class="tt" id="timetable" aria-labelledby="tt-title">
+      <div class="tt__head">
+        <h2 id="tt-title">This week</h2>
+        <div class="days" role="tablist" aria-label="Day of the week">
+          <button role="tab" aria-selected="true" aria-controls="tt-list" data-day="1">Mon</button>
+          <button role="tab" aria-selected="false" aria-controls="tt-list" data-day="2">Tue</button>
+          <button role="tab" aria-selected="false" aria-controls="tt-list" data-day="3">Wed</button>
+          <button role="tab" aria-selected="false" aria-controls="tt-list" data-day="4">Thu</button>
+          <button role="tab" aria-selected="false" aria-controls="tt-list" data-day="5">Fri</button>
+          <button role="tab" aria-selected="false" aria-controls="tt-list" data-day="6">Sat</button>
+          <button role="tab" aria-selected="false" aria-controls="tt-list" data-day="0">Sun</button>
+        </div>
+      </div>
+      <ul class="classes" id="tt-list" role="tabpanel" aria-live="polite">
+        <!-- Filled from the timetable below; the list here is what shows without JavaScript. -->
+        <li><time>07:30</time><div><strong>Reformer foundations</strong><span>Mara</span></div><span class="lvl">Beginner</span><span class="spots">3 of 8 left</span></li>
+        <li><time>12:30</time><div><strong>Lunch 45</strong><span>Alex</span></div><span class="lvl">All levels</span><span class="spots">5 of 8 left</span></li>
+        <li class="is-full"><time>18:00</time><div><strong>Reformer flow</strong><span>Mara</span></div><span class="lvl">Intermediate</span><span class="spots">Full, waitlist open</span></li>
+        <li><time>19:15</time><div><strong>Tower and springs</strong><span>Ilinca</span></div><span class="lvl">Advanced</span><span class="spots">1 of 8 left</span></li>
+      </ul>
+      <p class="tt__note">Book in the app or reply to your welcome email. Cancel up to 8 hours before and the class goes back on your pass.</p>
+    </section>
+
+    <section class="room" aria-label="The studio">
+      <img src="./img/room.webp" alt="Row of reformers in a calm studio with soft light and pale columns" width="1100" height="733" loading="lazy" />
+      <img src="./img/tower.webp" alt="Instructor standing on a reformer with tower frame" width="800" height="1000" loading="lazy" />
+      <p>Floor-to-ceiling windows, no mirrors on every wall, and a changing room with real showers. Mats and grip socks are here if you forget yours.</p>
+    </section>
+
+    <section class="passes" id="passes" aria-labelledby="passes-title">
+      <h2 id="passes-title">Passes</h2>
+      <div class="passes__grid">
+        <div class="pass"><h3>Single class</h3><p class="amt">95 lei</p><p>Drop in when it suits you.</p></div>
+        <div class="pass pass--main"><h3>8 classes</h3><p class="amt">640 lei</p><p>80 lei a class, valid for six weeks. What most people choose.</p></div>
+        <div class="pass"><h3>Unlimited month</h3><p class="amt">890 lei</p><p>For three or more classes a week.</p></div>
+      </div>
+    </section>
+
+    <section class="first" id="first" aria-labelledby="first-title">
+      <h2 id="first-title">Your first class is 60 lei</h2>
+      <p>Come to Reformer foundations on a Monday, Wednesday or Saturday. We'll show you the machine before the class starts, so arrive ten minutes early.</p>
+      <p class="first__contact"><a href="tel:+40215550155">021 555 0155</a> or <a href="mailto:salut@axastudio.example">salut@axastudio.example</a></p>
+      <p class="first__addr">Strada Glinka 11, first floor, Floreasca</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Axa Studio, Strada Glinka 11, București</p>
+    <p>An example site designed and built by <a href="/">NodWeb</a></p>
+  </footer>
+
+  <script type="module">
+    // [time, class, instructor, level, spots left of 8]
+    const WEEK = {
+      1: [["07:30","Reformer foundations","Mara","Beginner",3],["12:30","Lunch 45","Alex","All levels",5],["18:00","Reformer flow","Mara","Intermediate",0],["19:15","Tower and springs","Ilinca","Advanced",1]],
+      2: [["08:00","Slow and strong","Ilinca","All levels",4],["18:30","Reformer flow","Alex","Intermediate",2],["19:45","Jump board","Alex","Intermediate",6]],
+      3: [["07:30","Reformer foundations","Mara","Beginner",5],["12:30","Lunch 45","Ilinca","All levels",7],["18:00","Tower and springs","Mara","Advanced",0],["19:15","Reformer flow","Ilinca","Intermediate",3]],
+      4: [["08:00","Slow and strong","Alex","All levels",2],["18:30","Pre and postnatal","Ilinca","Beginner",4],["19:45","Reformer flow","Alex","Intermediate",1]],
+      5: [["07:30","Reformer flow","Mara","Intermediate",6],["12:30","Lunch 45","Alex","All levels",8],["17:30","Stretch and release","Ilinca","All levels",5]],
+      6: [["09:00","Reformer foundations","Mara","Beginner",2],["10:15","Reformer flow","Mara","Intermediate",0],["11:30","Jump board","Alex","Intermediate",4]],
+      0: [["10:00","Slow and strong","Ilinca","All levels",6],["11:15","Stretch and release","Ilinca","All levels",7]],
+    };
+    const list = document.getElementById("tt-list");
+    const tabs = [...document.querySelectorAll(".days [role=tab]")];
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motion = reduced ? null : await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null);
+
+    const render = (day) => {
+      list.innerHTML = WEEK[day].map(([t, name, who, lvl, left]) => `
+        <li${left ? "" : ' class="is-full"'}><time>${t}</time><div><strong>${name}</strong><span>${who}</span></div>
+        <span class="lvl">${lvl}</span><span class="spots">${left ? `${left} of 8 left` : "Full, waitlist open"}</span></li>`).join("");
+      motion?.animate(list.children, { opacity: [0, 1], transform: ["translateY(10px)", "none"] }, { delay: motion.stagger(0.05), duration: 0.35 });
+    };
+    const select = (tab) => {
+      tabs.forEach((t) => { t.setAttribute("aria-selected", String(t === tab)); t.tabIndex = t === tab ? 0 : -1; });
+      render(tab.dataset.day);
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => select(t));
+      t.addEventListener("keydown", (e) => {
+        const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (d) { const n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); select(n); }
+      });
+    });
+    // Open on today.
+    select(tabs.find((t) => +t.dataset.day === new Date().getDay()));
+  </script>
+  <script type="module" src="../../shared/js/back-home.js" data-href="/#work" data-label="Back to NodWeb"></script>
+</body>
+</html>

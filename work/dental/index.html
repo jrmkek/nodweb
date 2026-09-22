@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clinica Maftei: Dental Clinic Example by NodWeb</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="A NodWeb example site for a dental clinic in Bucharest: every treatment price listed and searchable, the team, and an appointment request form." />
+  <link rel="canonical" href="https://nodweb.org/work/dental/" />
+  <meta name="theme-color" content="#f6f8f7" />
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Clinica Maftei: Dental Clinic Example by NodWeb" />
+  <meta property="og:description" content="A dental clinic site with a searchable price list and an appointment request form." />
+  <meta property="og:url" content="https://nodweb.org/work/dental/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/work-dental.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="../../shared/css/fonts-dental.css" />
+  <link rel="stylesheet" href="../work.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Clinica Maftei",
+    "description": "Family dental clinic in Dorobanți with published prices for every treatment.",
+    "url": "https://nodweb.org/work/dental/",
+    "image": "https://nodweb.org/work/dental/img/hero.webp",
+    "priceRange": "150-4200 RON",
+    "address": { "@type": "PostalAddress", "streetAddress": "Strada Radu Beller 6", "addressLocality": "București", "addressCountry": "RO" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "09:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "15:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="top__name" href="#main"><span class="top__mark" aria-hidden="true"></span>Clinica Maftei</a>
+    <nav aria-label="Primary">
+      <a href="#prices">Prices</a>
+      <a href="#team">Doctors</a>
+      <a class="top__cta" href="#book">Book a visit</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero__text">
+        <h1>Every price is on this page, before you sit in the chair.</h1>
+        <p>Family dentistry in Dorobanți. Your first visit is a 40-minute check-up with a panoramic X-ray and a written treatment plan, for 150 lei.</p>
+        <div class="hero__actions">
+          <a class="btn" href="#book">Book a first visit</a>
+          <a class="link" href="#prices">See all prices</a>
+        </div>
+      </div>
+      <figure class="hero__img">
+        <img src="./img/hero.webp" alt="Bright treatment room with a white dental chair and overhead lamp" width="1600" height="1067" fetchpriority="high" />
+      </figure>
+    </section>
+
+    <section class="prices" id="prices" aria-labelledby="prices-title">
+      <div class="prices__head">
+        <h2 id="prices-title">Prices</h2>
+        <label class="search">
+          <span class="visually-hidden">Search treatments</span>
+          <input type="search" placeholder="Search, e.g. filling, crown, whitening" data-filter autocomplete="off" />
+        </label>
+      </div>
+      <p class="prices__note">Final prices are confirmed in your written plan and don't change once you've accepted it.</p>
+
+      <div class="prices__groups" data-list>
+        <div class="group">
+          <h3>Check-ups and cleaning</h3>
+          <dl>
+            <div><dt>First visit with panoramic X-ray and plan</dt><dd>150</dd></div>
+            <div><dt>Follow-up check-up</dt><dd>100</dd></div>
+            <div><dt>Scaling and polishing</dt><dd>250</dd></div>
+            <div><dt>Airflow stain removal</dt><dd>200</dd></div>
+          </dl>
+        </div>
+        <div class="group">
+          <h3>Fillings and root canals</h3>
+          <dl>
+            <div><dt>Composite filling, small</dt><dd>280</dd></div>
+            <div><dt>Composite filling, large</dt><dd>380</dd></div>
+            <div><dt>Root canal, front tooth</dt><dd>650</dd></div>
+            <div><dt>Root canal, molar, under microscope</dt><dd>1,100</dd></div>
+          </dl>
+        </div>
+        <div class="group">
+          <h3>Crowns and implants</h3>
+          <dl>
+            <div><dt>Zirconia crown</dt><dd>1,600</dd></div>
+            <div><dt>E.max ceramic veneer</dt><dd>1,900</dd></div>
+            <div><dt>Implant with abutment</dt><dd>3,200</dd></div>
+            <div><dt>Implant, crown included</dt><dd>4,200</dd></div>
+          </dl>
+        </div>
+        <div class="group">
+          <h3>Children and whitening</h3>
+          <dl>
+            <div><dt>Children's check-up, under 14</dt><dd>90</dd></div>
+            <div><dt>Fissure sealing, per tooth</dt><dd>120</dd></div>
+            <div><dt>Whitening at home, trays included</dt><dd>900</dd></div>
+            <div><dt>Whitening in the clinic</dt><dd>1,300</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="prices__empty" data-empty hidden>Nothing matches that. Call us on 021 555 0187 and we'll tell you the price over the phone.</p>
+      <p class="prices__unit">All prices in lei, VAT included.</p>
+    </section>
+
+    <section class="team" id="team" aria-labelledby="team-title">
+      <figure>
+        <img src="./img/team.webp" alt="Dr. Irina Maftei and Dr. Dan Maftei standing in their clinic" width="900" height="1125" loading="lazy" />
+      </figure>
+      <div>
+        <h2 id="team-title">Two doctors, one clinic, no chain</h2>
+        <p>Irina and Dan Maftei opened the clinic in 2014 after ten years at the University Hospital. You'll see one of them at every visit, not whoever is on shift.</p>
+        <dl class="team__list">
+          <div><dt>Dr. Irina Maftei</dt><dd>Fillings, root canals, children</dd></div>
+          <div><dt>Dr. Dan Maftei</dt><dd>Implants, crowns and veneers</dd></div>
+        </dl>
+        <img class="team__room" src="./img/doctor.webp" alt="Dr. Irina Maftei examining a patient's teeth" width="1100" height="825" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="book" id="book" aria-labelledby="book-title">
+      <div>
+        <h2 id="book-title">Book a first visit</h2>
+        <p>Leave your number and we'll call you back within the working day to find a time.</p>
+        <dl class="book__info">
+          <div><dt>Address</dt><dd>Strada Radu Beller 6, Sector 1</dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+40215550187">021 555 0187</a></dd></div>
+          <div><dt>Hours</dt><dd>Mon–Thu 9:00–19:00, Fri 9:00–15:00</dd></div>
+        </dl>
+      </div>
+      <form class="form" novalidate>
+        <div class="field">
+          <label for="d-name">Your name</label>
+          <input id="d-name" type="text" required autocomplete="name" aria-describedby="d-name-err" />
+          <span class="field__error" id="d-name-err">Add your name so we know who to ask for.</span>
+        </div>
+        <div class="field">
+          <label for="d-phone">Phone number</label>
+          <input id="d-phone" type="tel" required autocomplete="tel" pattern="[0-9 +]{9,}" aria-describedby="d-phone-err" />
+          <span class="field__error" id="d-phone-err">Enter a phone number, at least 9 digits.</span>
+        </div>
+        <div class="field">
+          <label for="d-note">What's it about? <span class="opt">(optional)</span></label>
+          <textarea id="d-note" rows="3"></textarea>
+        </div>
+        <button class="btn" type="submit">Request a call back</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Clinica Maftei SRL, Strada Radu Beller 6, București</p>
+    <p>An example site designed and built by <a href="/">NodWeb</a></p>
+  </footer>
+
+  <script defer src="../../shared/js/form-validation.js"></script>
+  <script type="module">
+    const input = document.querySelector("[data-filter]");
+    const groups = [...document.querySelectorAll(".group")];
+    const empty = document.querySelector("[data-empty]");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motion = reduced ? null : await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null);
+
+    input.addEventListener("input", () => {
+      const q = input.value.trim().toLowerCase();
+      let shown = 0;
+      for (const g of groups) {
+        let any = false;
+        for (const row of g.querySelectorAll("dl > div")) {
+          const hit = !q || row.textContent.toLowerCase().includes(q);
+          if (hit && row.hidden) motion?.animate(row, { opacity: [0, 1], transform: ["translateX(-8px)", "none"] }, { duration: 0.25 });
+          row.hidden = !hit;
+          any ||= hit;
+        }
+        g.hidden = !any;
+        shown += any;
+      }
+      empty.hidden = shown > 0;
+    });
+
+    // Load moment: the photo opens like a curtain beside the headline.
+    if (motion) {
+      motion.animate(".hero__img", { clipPath: ["inset(0 0 100% 0 round 28px)", "inset(0 0 0% 0 round 28px)"] }, { duration: 1.1, easing: [0.65, 0, 0.35, 1] });
+      motion.animate(".hero__text > *", { opacity: [0, 1], transform: ["translateY(16px)", "none"] }, { delay: motion.stagger(0.1, { start: 0.3 }), duration: 0.6 });
+    }
+  </script>
+  <script type="module" src="../../shared/js/back-home.js" data-href="/#work" data-label="Back to NodWeb"></script>
+</body>
+</html>

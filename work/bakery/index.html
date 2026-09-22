@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brutăria de la Tei: Bakery Example by NodWeb</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="A NodWeb example site for a neighbourhood bakery in Bucharest: a live countdown to the next batch out of the oven, the daily bread list and weekend pre-orders." />
+  <link rel="canonical" href="https://nodweb.org/work/bakery/" />
+  <meta name="theme-color" content="#23427a" />
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Brutăria de la Tei: Bakery Example by NodWeb" />
+  <meta property="og:description" content="A bakery site with a live countdown to the next batch out of the oven." />
+  <meta property="og:url" content="https://nodweb.org/work/bakery/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/work-bakery.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="../../shared/css/fonts-bakery.css" />
+  <link rel="stylesheet" href="../work.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Brutăria de la Tei",
+    "description": "Sourdough bakery by Lacul Tei, baking three times a day.",
+    "url": "https://nodweb.org/work/bakery/",
+    "image": "https://nodweb.org/work/bakery/img/hero.webp",
+    "address": { "@type": "PostalAddress", "streetAddress": "Strada Teiul Doamnei 3", "addressLocality": "București", "addressCountry": "RO" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "07:00", "closes": "19:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="top__name" href="#main">Brutăria de la Tei</a>
+    <nav aria-label="Primary">
+      <a href="#bread">Today's bread</a>
+      <a href="#weekend">Weekend orders</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="sign">
+        <h1 class="visually-hidden">Brutăria de la Tei, sourdough bakery by Lacul Tei</h1>
+        <p class="sign__label" data-label>Next out of the oven</p>
+        <p class="sign__time" data-time>11:00</p>
+        <p class="sign__what" data-what>Rye with walnuts, ciabatta, cheese pies</p>
+        <p class="sign__in" data-in></p>
+      </div>
+      <img src="./img/hero.webp" alt="Round loaves baking on the deck of a professional oven" width="1800" height="1194" fetchpriority="high" />
+    </section>
+
+    <section class="intro">
+      <p>We bake three times a day on Strada Teiul Doamnei, so the bread on the shelf is never older than a few hours. Sourdough only, flour from a mill in Buzău, nothing in the dough you couldn't buy yourself.</p>
+    </section>
+
+    <section class="bread" id="bread" aria-labelledby="bread-title">
+      <h2 id="bread-title">Three bakes a day</h2>
+      <ol class="bakes" role="list">
+        <li data-at="7">
+          <time>7:00</time>
+          <ul role="list"><li>Country loaf <span>18 lei</span></li><li>Half loaf <span>10 lei</span></li><li>Butter croissants <span>9 lei</span></li><li>Poppy seed covrigi <span>4 lei</span></li></ul>
+        </li>
+        <li data-at="11">
+          <time>11:00</time>
+          <ul role="list"><li>Rye with walnuts <span>24 lei</span></li><li>Ciabatta <span>12 lei</span></li><li>Telemea and dill pies <span>11 lei</span></li></ul>
+        </li>
+        <li data-at="16">
+          <time>16:00</time>
+          <ul role="list"><li>Country loaf, second bake <span>18 lei</span></li><li>Seeded spelt <span>22 lei</span></li><li>Cinnamon cozonac slices <span>9 lei</span></li></ul>
+        </li>
+      </ol>
+      <div class="bread__photos">
+        <img src="./img/shelves.webp" alt="Wooden shelves stacked with dark sourdough loaves" width="1100" height="825" loading="lazy" />
+        <img src="./img/crumb.webp" alt="Sliced sourdough showing an open, airy crumb" width="900" height="1125" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="weekend" id="weekend" aria-labelledby="wk-title">
+      <img src="./img/scored.webp" alt="Close-up of a floured, scored sourdough loaf" width="900" height="1125" loading="lazy" />
+      <div>
+        <h2 id="wk-title">Saturday sells out by ten</h2>
+        <p>Order by Thursday evening and we'll keep your bread behind the counter with your name on it. Pay when you pick it up.</p>
+        <p class="weekend__call"><a href="tel:+40215550124">021 555 0124</a></p>
+        <p class="weekend__small">Or tell us at the counter. Cozonac for Easter and Christmas opens for orders three weeks before.</p>
+        <dl class="hours">
+          <div><dt>Monday to Saturday</dt><dd>7:00–19:00</dd></div>
+          <div><dt>Sunday</dt><dd>Closed, we sleep</dd></div>
+          <div><dt>Where</dt><dd>Strada Teiul Doamnei 3, by Lacul Tei</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Brutăria de la Tei, Strada Teiul Doamnei 3, București</p>
+    <p>An example site designed and built by <a href="/">NodWeb</a></p>
+  </footer>
+
+  <script type="module">
+    // Same bakes as the list on the page; the sign shows whichever is next.
+    const BAKES = [...document.querySelectorAll(".bakes > li")].map((li) => ({
+      at: +li.dataset.at, li,
+      what: [...li.querySelectorAll("li")].map((x, i) => { const t = x.firstChild.textContent.trim(); return i ? t[0].toLowerCase() + t.slice(1) : t; }).join(", "),
+    }));
+    const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Bucharest" }));
+    const mins = now.getHours() * 60 + now.getMinutes();
+    const sunday = now.getDay() === 0;
+    const next = sunday ? null : BAKES.find((b) => b.at * 60 > mins);
+    const $ = (s) => document.querySelector(s);
+
+    if (next) {
+      const left = next.at * 60 - mins;
+      $("[data-time]").textContent = `${next.at}:00`;
+      $("[data-what]").textContent = next.what;
+      $("[data-in]").textContent = left < 60 ? `In ${left} minutes` : `In ${Math.floor(left / 60)} h ${left % 60} min`;
+      next.li.classList.add("is-next");
+    } else {
+      const first = BAKES[0];
+      $("[data-label]").textContent = sunday || now.getDay() === 6 ? "First bake on Monday" : "First bake tomorrow";
+      $("[data-time]").textContent = `${first.at}:00`;
+      $("[data-what]").textContent = first.what;
+    }
+
+    // Load moment: the enamel sign swings in on its hook.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const m = await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null);
+      m?.animate(".sign", { transform: ["rotate(-7deg) translateY(-30px)", "rotate(0deg) translateY(0)"], opacity: [0, 1] },
+        { type: "spring", stiffness: 90, damping: 7, mass: 0.8 });
+    }
+  </script>
+  <script type="module" src="../../shared/js/back-home.js" data-href="/#work" data-label="Back to NodWeb"></script>
+</body>
+</html>

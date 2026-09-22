@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ionescu &amp; Radu: Law Office Example by NodWeb</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="A NodWeb example site for a two-partner law office in Bucharest: practice areas explained through the situations clients actually arrive with, fixed consultation fee and contact." />
+  <link rel="canonical" href="https://nodweb.org/work/law/" />
+  <meta name="theme-color" content="#f5f5f2" />
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Ionescu &amp; Radu: Law Office Example by NodWeb" />
+  <meta property="og:description" content="A law office site that explains its work through the situations clients arrive with." />
+  <meta property="og:url" content="https://nodweb.org/work/law/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/work-law.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="../../shared/css/fonts-law.css" />
+  <link rel="stylesheet" href="../work.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Ionescu & Radu, Avocați",
+    "description": "Two-partner law office in Bucharest for property, family, employment and small-business contract matters.",
+    "url": "https://nodweb.org/work/law/",
+    "image": "https://nodweb.org/work/law/img/hero.webp",
+    "address": { "@type": "PostalAddress", "streetAddress": "Bulevardul Lascăr Catargiu 40", "addressLocality": "București", "addressCountry": "RO" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="top__name" href="#main">Ionescu &amp; Radu <span>Avocați</span></a>
+    <nav aria-label="Primary">
+      <a href="#matters">What we handle</a>
+      <a href="#consult">Consultation</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1>Most people come to us after a letter they didn't expect.</h1>
+      <div class="hero__body">
+        <p>A notice from the tax office, a contract the other side stopped honouring, a landlord who won't return the deposit. Tell us what arrived and we'll tell you, in plain Romanian or English, what it means and what it costs to deal with.</p>
+        <a class="btn" href="#consult">Book a consultation</a>
+      </div>
+      <img src="./img/hero.webp" alt="Hand signing a contract with a fountain pen on a wooden desk" width="1600" height="900" fetchpriority="high" />
+    </section>
+
+    <section class="matters" id="matters" aria-labelledby="m-title">
+      <h2 id="m-title">What happened?</h2>
+      <div class="picker">
+        <div class="picker__list" role="tablist" aria-orientation="vertical" aria-label="Situations">
+          <button role="tab" id="t1" aria-controls="p1" aria-selected="true">I'm buying or selling a flat</button>
+          <button role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">A client or supplier won't pay</button>
+          <button role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">I was let go from my job</button>
+          <button role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1">We're separating</button>
+          <button role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1">I got a letter from ANAF</button>
+        </div>
+        <div class="picker__panels">
+          <div role="tabpanel" id="p1" aria-labelledby="t1">
+            <h3>Property purchases and sales</h3>
+            <p>We check the title, the land register extract and any debts on the flat before you sign a pre-contract, and read the pre-contract itself. Most problems with Bucharest flats show up in the paperwork, not the viewing.</p>
+            <p class="fee">Document check before signing: from 1,200 lei, fixed.</p>
+            <p class="who">Andreea Ionescu</p>
+          </div>
+          <div role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+            <h3>Unpaid invoices and contract disputes</h3>
+            <p>First a formal notice, which settles a surprising share of cases. If not, the fast-track payment order procedure, which usually takes months rather than years.</p>
+            <p class="fee">Formal notice: 600 lei. Court work quoted per case.</p>
+            <p class="who">Mihai Radu</p>
+          </div>
+          <div role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+            <h3>Employment</h3>
+            <p>You have 45 days to challenge a dismissal decision. Bring the decision, your contract and any messages about it, and we'll tell you in the first meeting whether it's worth fighting.</p>
+            <p class="fee">Consultation: 400 lei, deducted if you instruct us.</p>
+            <p class="who">Mihai Radu</p>
+          </div>
+          <div role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+            <h3>Divorce and custody</h3>
+            <p>When both of you agree, a divorce at the notary or the civil registry can be done in weeks. When you don't, we handle the court case and push for a custody arrangement the children can actually live with.</p>
+            <p class="fee">Uncontested divorce, all paperwork: from 1,800 lei.</p>
+            <p class="who">Andreea Ionescu</p>
+          </div>
+          <div role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+            <h3>Tax notices and inspections</h3>
+            <p>Deadlines on tax decisions are short, often 45 days for an appeal. Send us a photo of the letter the day it arrives and we'll tell you what it is and what the deadline is, free.</p>
+            <p class="fee">Appeal against a tax decision: from 2,000 lei.</p>
+            <p class="who">Mihai Radu</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners" aria-labelledby="pa-title">
+      <img src="./img/consult.webp" alt="Two lawyers talking a client through documents in a bright office" width="1100" height="733" loading="lazy" />
+      <div>
+        <h2 id="pa-title">Two partners. You'll speak to one of them.</h2>
+        <p>Andreea Ionescu and Mihai Radu have practised in Bucharest since 2011 and are both members of the Bucharest Bar. There's no junior you'll be handed to after the first meeting.</p>
+      </div>
+    </section>
+
+    <section class="consult" id="consult" aria-labelledby="c-title">
+      <h2 id="c-title">Book a consultation</h2>
+      <div class="consult__grid">
+        <p>One hour, in the office or by video, 400 lei. If you then instruct us, it comes off the fee. Bring every document you have, even the ones you think don't matter.</p>
+        <dl>
+          <div><dt>Phone</dt><dd><a href="tel:+40215550108">021 555 0108</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:office@ionescuradu.example">office@ionescuradu.example</a></dd></div>
+          <div><dt>Office</dt><dd>Bulevardul Lascăr Catargiu 40, floor 3, near Piața Romană</dd></div>
+          <div><dt>Hours</dt><dd>Monday to Friday, 9:00–18:00</dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Cabinet de avocat Ionescu &amp; Radu, Baroul București</p>
+    <p>An example site designed and built by <a href="/">NodWeb</a></p>
+  </footer>
+
+  <script type="module">
+    const tabs = [...document.querySelectorAll("[role=tab]")];
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motion = reduced ? null : await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null);
+    const select = (tab) => {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+      const panel = document.getElementById(tab.getAttribute("aria-controls"));
+      motion?.animate(panel.children, { opacity: [0, 1], transform: ["translateX(12px)", "none"] }, { delay: motion.stagger(0.04), duration: 0.3 });
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => select(t));
+      t.addEventListener("keydown", (e) => {
+        const d = { ArrowDown: 1, ArrowUp: -1 }[e.key];
+        if (d) { e.preventDefault(); const n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); select(n); }
+      });
+    });
+  </script>
+  <script type="module" src="../../shared/js/back-home.js" data-href="/#work" data-label="Back to NodWeb"></script>
+</body>
+</html>

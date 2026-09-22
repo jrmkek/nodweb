@@ -12,6 +12,96 @@
         ],
         "createdAt": "2026-09-22T14:55:50.802Z",
         "reason": "Indeterminate loading-bar sweep, not a content marquee: self-terminates within ~1-2s once the model loads (removed via [hidden]), mirrors the same pattern already used in templates/architecture-studio/architecture.css's .model-viewer-loading"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/barber/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:18.180Z",
+        "reason": "Claude: static detector misses the shared padding-inline selector in each style.css; screenshots show 16-56px gutters on every section"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/dental/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:18.569Z",
+        "reason": "Claude: static detector misses the shared padding-inline selector in each style.css; screenshots show 16-56px gutters on every section"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/reno/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:18.937Z",
+        "reason": "Claude: static detector misses the shared padding-inline selector in each style.css; screenshots show 16-56px gutters on every section"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/florist/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:19.301Z",
+        "reason": "Claude: static detector misses the shared padding-inline selector in each style.css; screenshots show 16-56px gutters on every section"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/winebar/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:19.674Z",
+        "reason": "Claude: static detector misses the shared padding-inline selector in each style.css; screenshots show 16-56px gutters on every section"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/pilates/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:20.057Z",
+        "reason": "Claude: static detector misses the shared padding-inline selector in each style.css; screenshots show 16-56px gutters on every section"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/bakery/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:20.434Z",
+        "reason": "Claude: static detector misses the shared padding-inline selector in each style.css; screenshots show 16-56px gutters on every section"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/law/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:20.806Z",
+        "reason": "Claude: static detector misses the shared padding-inline selector in each style.css; screenshots show 16-56px gutters on every section"
+      },
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "work/bakery/style.css"
+        ],
+        "createdAt": "2026-09-22T23:09:21.535Z",
+        "reason": "Claude: line 63 is an underline on an unrounded phone link, not a rounded card"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "work/bakery/index.html"
+        ],
+        "createdAt": "2026-09-22T23:09:21.901Z",
+        "reason": "Claude: h1 is visually hidden (the enamel sign is the hero); visible h2 is 2.2-3.8rem vs 17px body"
       }
     ]
   }

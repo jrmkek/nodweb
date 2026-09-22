@@ -10,6 +10,15 @@ NodWeb is a freelance web design practice based in Bucharest. This site includes
 - [Home (Romanian)](https://nodweb.org/ro/): Romanian-language version of the homepage, for Bucharest-based visitors.
 - [Architecture Studio example](https://nodweb.org/templates/architecture-studio/): A demo site for an architecture studio, featuring an interactive 3D model viewer (rotate, zoom, and view in AR).
 - [Local Business example](https://nodweb.org/templates/local-business/): A demo site for a café or similar local business, featuring a menu grid, hours & location, and a reservation form.
+- More example sites, each in its own visual style for a different trade:
+  - [Frizeria Vasile, barbershop](https://nodweb.org/work/barber/): letter-board price list and live open/closed status.
+  - [Clinica Maftei, dental clinic](https://nodweb.org/work/dental/): searchable price list for every treatment and a call-back form.
+  - [Echipa Stanciu, renovation contractor](https://nodweb.org/work/reno/): cost estimator by square metre and a week-by-week schedule.
+  - [Florăria Iris, florist](https://nodweb.org/work/florist/): weekly bouquets in three sizes with same-day delivery areas.
+  - [Tanin, wine bar](https://nodweb.org/work/winebar/): wines by the glass with tasting notes.
+  - [Axa Studio, Pilates studio](https://nodweb.org/work/pilates/): weekly timetable showing spots left per class.
+  - [Brutăria de la Tei, bakery](https://nodweb.org/work/bakery/): live countdown to the next batch out of the oven.
+  - [Ionescu & Radu, law office](https://nodweb.org/work/law/): services explained through the situations clients arrive with.
 - [Blog](https://nodweb.org/blog/): Practical advice on websites for local businesses — pricing, whether a site is worth it yet, and a pre-launch checklist.
 
 ## Contact

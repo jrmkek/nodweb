@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tanin: Wine Bar Example by NodWeb</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="A NodWeb example site for a wine bar in Bucharest's old town: this week's wines by the glass with tasting notes, small plates and table booking." />
+  <link rel="canonical" href="https://nodweb.org/work/winebar/" />
+  <meta name="theme-color" content="#22111b" />
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Tanin: Wine Bar Example by NodWeb" />
+  <meta property="og:description" content="A wine bar site with this week's wines by the glass, tasting notes and table booking." />
+  <meta property="og:url" content="https://nodweb.org/work/winebar/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/work-winebar.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="../../shared/css/fonts-winebar.css" />
+  <link rel="stylesheet" href="../work.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "Tanin",
+    "description": "Wine bar in Bucharest's old town pouring small Romanian producers by the glass.",
+    "url": "https://nodweb.org/work/winebar/",
+    "image": "https://nodweb.org/work/winebar/img/hero.webp",
+    "servesCuisine": "Small plates",
+    "address": { "@type": "PostalAddress", "streetAddress": "Strada Covaci 9", "addressLocality": "București", "addressCountry": "RO" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Sunday"], "opens": "17:00", "closes": "00:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "17:00", "closes": "02:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a href="#glass">By the glass</a>
+    <a class="top__name" href="#main">Tanin</a>
+    <a href="#table">Book a table</a>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="hero__where">Strada Covaci 9, in the old town. From five in the evening.</p>
+      <h1>Romanian wine from people who make very little of it.</h1>
+      <img src="./img/hero.webp" alt="A glass of red wine on a candlelit bar counter" width="1800" height="1012" fetchpriority="high" />
+    </section>
+
+    <section class="glass" id="glass" aria-labelledby="glass-title">
+      <h2 id="glass-title">By the glass this week</h2>
+      <p class="glass__intro">Eight bottles open, changed every Tuesday. Tap one for what it tastes like.</p>
+      <div class="list">
+        <details>
+          <summary><span class="w">Fetească Albă, unfiltered</span><span class="r">Dealu Mare, 2023</span><span class="p">32</span></summary>
+          <p>Green apple and a little salt. Light, dry, the one to start with.</p>
+        </details>
+        <details>
+          <summary><span class="w">Grasă de Cotnari, skin contact</span><span class="r">Cotnari, 2022</span><span class="p">38</span></summary>
+          <p>Two weeks on the skins, so it comes out amber. Apricot, black tea, grippy finish.</p>
+        </details>
+        <details>
+          <summary><span class="w">Tămâioasă Românească, dry</span><span class="r">Drăgășani, 2023</span><span class="p">34</span></summary>
+          <p>Smells sweet and isn't. Rose petals, lime, a bitter edge that works with the cheese.</p>
+        </details>
+        <details>
+          <summary><span class="w">Rosé of Negru de Drăgășani</span><span class="r">Drăgășani, 2023</span><span class="p">30</span></summary>
+          <p>Pale, sour cherry, served cold. Summer is over and we're still pouring it.</p>
+        </details>
+        <details>
+          <summary><span class="w">Fetească Neagră, amphora</span><span class="r">Dealu Mare, 2021</span><span class="p">42</span></summary>
+          <p>Plum, smoke and clay. Soft tannins. Ask for it slightly chilled.</p>
+        </details>
+        <details>
+          <summary><span class="w">Novac, single vineyard</span><span class="r">Drăgășani, 2021</span><span class="p">40</span></summary>
+          <p>A grape almost nobody plants. Pepper, red currant, light enough for fish.</p>
+        </details>
+        <details>
+          <summary><span class="w">Pinot Noir, estate</span><span class="r">Târnave, 2020</span><span class="p">46</span></summary>
+          <p>From Transylvania's cold hills. Strawberry, forest floor, long.</p>
+        </details>
+        <details>
+          <summary><span class="w">Negru de Drăgășani, old vines</span><span class="r">Drăgășani, 2019</span><span class="p">52</span></summary>
+          <p>The big one. Blackberry, tobacco, needs the lamb.</p>
+        </details>
+      </div>
+      <p class="glass__unit">Prices in lei for 150 ml. Every wine is also sold by the bottle to take home.</p>
+    </section>
+
+    <section class="plates" aria-labelledby="plates-title">
+      <div class="plates__img">
+        <img src="./img/bottles.webp" alt="Several natural wine bottles and glasses on a wooden table" width="900" height="1125" loading="lazy" />
+      </div>
+      <div class="plates__text">
+        <h2 id="plates-title">Something to eat</h2>
+        <ul role="list">
+          <li><span>Telemea from Sibiu, honey, walnuts</span><span>34</span></li>
+          <li><span>Smoked pork neck, pickled green tomatoes</span><span>38</span></li>
+          <li><span>Zacuscă, grilled bread</span><span>22</span></li>
+          <li><span>Lamb pastrami, mustard seeds</span><span>46</span></li>
+          <li><span>Three cheeses, chosen for you</span><span>58</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="table" id="table" aria-labelledby="table-title">
+      <h2 id="table-title">Book a table</h2>
+      <p>We keep half the room for people who walk in. For the other half, call or send a message with the day, time and how many of you.</p>
+      <p class="table__phone"><a href="tel:+40215550171">021 555 0171</a></p>
+      <dl class="table__hours">
+        <div><dt>Tuesday to Thursday, Sunday</dt><dd>17:00–00:00</dd></div>
+        <div><dt>Friday and Saturday</dt><dd>17:00–02:00</dd></div>
+        <div><dt>Monday</dt><dd>Closed</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Tanin, Strada Covaci 9, București</p>
+    <p>An example site designed and built by <a href="/">NodWeb</a></p>
+  </footer>
+
+  <script type="module">
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const m = await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null);
+      if (m) {
+        // Tasting notes pour open instead of snapping.
+        document.querySelectorAll(".list details").forEach((d) => d.addEventListener("toggle", () => {
+          if (d.open) m.animate(d.querySelector("p"), { opacity: [0, 1], transform: ["translateY(-6px)", "none"] }, { duration: 0.35 });
+        }));
+        // Load moment: the room comes up out of the dark.
+        m.animate(".hero img", { opacity: [0, 1], filter: ["brightness(0.2)", "brightness(1)"] }, { duration: 1.8, easing: "ease-out" });
+        m.animate(".hero h1", { opacity: [0, 1], letterSpacing: ["0.02em", "-0.01em"] }, { duration: 1.2, easing: [0.16, 1, 0.3, 1] });
+      }
+    }
+  </script>
+  <script type="module" src="../../shared/js/back-home.js" data-href="/#work" data-label="Back to NodWeb"></script>
+</body>
+</html>

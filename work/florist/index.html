@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Florăria Iris: Florist Example by NodWeb</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="A NodWeb example site for a neighbourhood florist in Bucharest: this week's bouquets with sizes and prices, same-day delivery areas and ordering by phone." />
+  <link rel="canonical" href="https://nodweb.org/work/florist/" />
+  <meta name="theme-color" content="#e7ece2" />
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NodWeb" />
+  <meta property="og:title" content="Florăria Iris: Florist Example by NodWeb" />
+  <meta property="og:description" content="A florist site with this week's bouquets, sizes, prices and same-day delivery areas." />
+  <meta property="og:url" content="https://nodweb.org/work/florist/" />
+  <meta property="og:image" content="https://nodweb.org/assets/og/work-florist.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="../../shared/css/fonts-florist.css" />
+  <link rel="stylesheet" href="../work.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Florist",
+    "name": "Florăria Iris",
+    "description": "Neighbourhood florist in Cotroceni with seasonal bouquets and same-day delivery.",
+    "url": "https://nodweb.org/work/florist/",
+    "image": "https://nodweb.org/work/florist/img/hero.webp",
+    "address": { "@type": "PostalAddress", "streetAddress": "Strada Dr. Lister 22", "addressLocality": "București", "addressCountry": "RO" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:30", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "16:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="top__name" href="#main">Florăria Iris</a>
+    <a class="top__call" href="tel:+40215550119">Order: 021 555 0119</a>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1 class="hero__title">Flowers from the market this morning, at your door this afternoon.</h1>
+      <figure class="hero__img">
+        <img src="./img/hero.webp" alt="Florist smiling as she wraps a bouquet of pink roses in her shop" width="1600" height="1089" fetchpriority="high" />
+      </figure>
+      <div class="hero__aside">
+        <p>A small shop on Strada Dr. Lister in Cotroceni. Ioana buys at the flower market at six, and whatever looks best that day goes into the week's bouquets.</p>
+        <p class="note">Order by 14:00, delivered the same day in sectors 5 and 6.</p>
+      </div>
+    </section>
+
+    <section class="week" aria-labelledby="week-title">
+      <div class="week__head">
+        <h2 id="week-title">This week's bouquets</h2>
+        <p>Pick a size, then call or message us with the name. We'll send you a photo before it leaves the shop.</p>
+      </div>
+      <div class="bouquets">
+        <article class="bq" data-prices="180,260,380">
+          <img src="./img/dark.webp" alt="Bouquet of yellow roses, pale lisianthus and dried grasses in dark brown paper" width="800" height="1067" loading="lazy" />
+          <h3>Late summer</h3>
+          <p>Yellow roses, lisianthus, dried grasses.</p>
+          <div class="bq__row">
+            <div class="sizes" role="radiogroup" aria-label="Size for Late summer">
+              <button type="button" role="radio" aria-checked="false">S</button>
+              <button type="button" role="radio" aria-checked="true">M</button>
+              <button type="button" role="radio" aria-checked="false">L</button>
+            </div>
+            <p class="price" aria-live="polite"><span data-price>260</span> lei</p>
+          </div>
+        </article>
+        <article class="bq" data-prices="150,220,320">
+          <img src="./img/yellow.webp" alt="Round bouquet of yellow gerberas wrapped in white paper with a yellow ribbon" width="800" height="1067" loading="lazy" />
+          <h3>Sunday lunch</h3>
+          <p>Gerberas and chamomile, tied short.</p>
+          <div class="bq__row">
+            <div class="sizes" role="radiogroup" aria-label="Size for Sunday lunch">
+              <button type="button" role="radio" aria-checked="false">S</button>
+              <button type="button" role="radio" aria-checked="true">M</button>
+              <button type="button" role="radio" aria-checked="false">L</button>
+            </div>
+            <p class="price" aria-live="polite"><span data-price>220</span> lei</p>
+          </div>
+        </article>
+        <article class="bq" data-prices="210,290,420">
+          <img src="./img/wild.webp" alt="Loose wild-style bouquet with orange orchids, pale roses and grasses in brown paper" width="800" height="1067" loading="lazy" />
+          <h3>Loose and wild</h3>
+          <p>Orchids, garden roses, whatever's odd and good.</p>
+          <div class="bq__row">
+            <div class="sizes" role="radiogroup" aria-label="Size for Loose and wild">
+              <button type="button" role="radio" aria-checked="false">S</button>
+              <button type="button" role="radio" aria-checked="true">M</button>
+              <button type="button" role="radio" aria-checked="false">L</button>
+            </div>
+            <p class="price" aria-live="polite"><span data-price>290</span> lei</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="deliver" aria-labelledby="del-title">
+      <img src="./img/shop.webp" alt="The shop front at dusk, with buckets of flowers lit up in the window" width="900" height="1125" loading="lazy" />
+      <div>
+        <h2 id="del-title">Delivery</h2>
+        <dl class="zones">
+          <div><dt>Cotroceni, Rahova, Drumul Taberei</dt><dd>Free over 200 lei</dd></div>
+          <div><dt>Rest of sectors 5 and 6</dt><dd>25 lei</dd></div>
+          <div><dt>Anywhere else in Bucharest</dt><dd>45 lei</dd></div>
+        </dl>
+        <p>Weddings, funerals and shop windows: call Ioana and she'll put together a quote the same day.</p>
+        <div class="deliver__cta">
+          <a class="btn" href="tel:+40215550119">Call 021 555 0119</a>
+          <a class="btn btn--ghost" href="https://wa.me/40215550119">Message on WhatsApp</a>
+        </div>
+        <p class="hours">Monday to Saturday 8:30–20:00, Sunday 10:00–16:00<br />Strada Dr. Lister 22, Cotroceni</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Florăria Iris, Strada Dr. Lister 22, București</p>
+    <p>An example site designed and built by <a href="/">NodWeb</a></p>
+  </footer>
+
+  <script type="module">
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motion = reduced ? null : await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null);
+
+    document.querySelectorAll(".bq").forEach((card) => {
+      const prices = card.dataset.prices.split(",");
+      const out = card.querySelector("[data-price]");
+      const buttons = [...card.querySelectorAll(".sizes button")];
+      const img = card.querySelector("img");
+      buttons.forEach((b, i) => b.addEventListener("click", () => {
+        buttons.forEach((x) => x.setAttribute("aria-checked", String(x === b)));
+        out.textContent = prices[i];
+        // The picture grows or shrinks a touch so the size change is visible, not just the number.
+        motion?.animate(img, { transform: `scale(${[0.9, 1, 1.06][i]})` }, { type: "spring", stiffness: 260, damping: 20 });
+        motion?.animate(out, { opacity: [0.2, 1], transform: ["translateY(6px)", "none"] }, { duration: 0.25 });
+      }));
+    });
+
+    // Load moment: the headline sets in line by line, the photo settles.
+    if (motion) {
+      motion.animate(".hero__img img", { transform: ["scale(1.08)", "scale(1)"] }, { duration: 1.4, easing: [0.16, 1, 0.3, 1] });
+      motion.animate(".hero__title", { opacity: [0, 1], transform: ["translateY(24px)", "none"] }, { duration: 0.9, easing: [0.16, 1, 0.3, 1] });
+    }
+  </script>
+  <script type="module" src="../../shared/js/back-home.js" data-href="/#work" data-label="Back to NodWeb"></script>
+</body>
+</html>
