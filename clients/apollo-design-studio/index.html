@@ -97,49 +97,179 @@
   </section>
 
   <!-- ===================== 3D RENDERS ===================== -->
-  <!-- EDIT: stand-in reference photography (Pexels, free-license) approximating each brief until
-       the studio shares its own exported stills for this client; swap the six img src values then. -->
+  <!-- EDIT: the six massing studies in ./assets/models/*.glb are small placeholder volumes
+       standing in for the studio's own exported models; swap each data-model-src (and the
+       matching poster in ./assets/) once the studio shares real per-project exports.
+       Each tile only turns its poster photo into a live 3D viewer on hover/focus/tap — see
+       the script below — so the grid never runs six WebGL contexts at once. -->
   <section class="renders" id="randari-3d">
     <div class="container">
       <div class="section-head" data-animate>
         <h2>Randări 3D</h2>
-        <p>Vezi cum arată casa sau interiorul înainte să se toarne prima fundație, parte din fiecare proiect, nu un serviciu în plus.</p>
+        <p>Atinge un model ca să-l vezi în 3D, trage să-l rotești. Parte din fiecare proiect, nu un serviciu în plus.</p>
       </div>
       <div class="render-grid">
 
-        <div class="render-tile" data-animate>
-          <img src="./assets/render-villa-double-height.webp" alt="Vilă modernă cu perete vitrat pe dublă înălțime spre piscină" width="900" height="675" loading="lazy" />
+        <div class="render-tile" tabindex="0" data-animate>
+          <img class="render-tile__poster" src="./assets/render-villa-double-height.webp" alt="Vilă modernă cu perete vitrat pe dublă înălțime spre piscină" width="900" height="675" loading="lazy" />
+          <div class="model-viewer-loading" hidden></div>
+          <template class="render-tile__model-src" data-src="./assets/models/villa-double-height.glb" data-alt="Vilă modernă cu parter vitrat pe dublă înălțime și etaj retras"></template>
           <span class="render-tile__label">Vilă, living dublă înălțime</span>
         </div>
 
-        <div class="render-tile" data-animate>
-          <img src="./assets/render-kitchen-pavilion.webp" alt="Bucătărie cu insulă din marmură, deschisă spre living printr-un pavilion vitrat" width="900" height="675" loading="lazy" />
+        <div class="render-tile" tabindex="0" data-animate>
+          <img class="render-tile__poster" src="./assets/render-kitchen-pavilion.webp" alt="Bucătărie cu insulă din marmură, deschisă spre living printr-un pavilion vitrat" width="900" height="675" loading="lazy" />
+          <div class="model-viewer-loading" hidden></div>
+          <template class="render-tile__model-src" data-src="./assets/models/kitchen-pavilion.glb" data-alt="Pavilion vitrat cu acoperiș plat în consolă, pentru bucătăria deschisă spre living"></template>
           <span class="render-tile__label">Bucătărie, pavilion cu vitraj</span>
         </div>
 
-        <div class="render-tile" data-animate>
-          <img src="./assets/render-bathroom-light-tower.webp" alt="Baie cu cadă liberă sub un perete vitrat înalt care aduce lumină naturală" width="900" height="675" loading="lazy" />
+        <div class="render-tile" tabindex="0" data-animate>
+          <img class="render-tile__poster" src="./assets/render-bathroom-light-tower.webp" alt="Baie cu cadă liberă sub un perete vitrat înalt care aduce lumină naturală" width="900" height="675" loading="lazy" />
+          <div class="model-viewer-loading" hidden></div>
+          <template class="render-tile__model-src" data-src="./assets/models/bathroom-light-tower.glb" data-alt="Turn îngust cu fâșie vitrată pe toată înălțimea, pentru baia luminată natural"></template>
           <span class="render-tile__label">Baie, turn de lumină</span>
         </div>
 
-        <div class="render-tile" data-animate>
-          <img src="./assets/render-living-staggered.webp" alt="Casă contemporană cu volum etaj în consolă, decalat față de parter" width="900" height="675" loading="lazy" />
+        <div class="render-tile" tabindex="0" data-animate>
+          <img class="render-tile__poster" src="./assets/render-living-staggered.webp" alt="Casă contemporană cu volum etaj în consolă, decalat față de parter" width="900" height="675" loading="lazy" />
+          <div class="model-viewer-loading" hidden></div>
+          <template class="render-tile__model-src" data-src="./assets/models/living-staggered.glb" data-alt="Volum de etaj în consolă, decalat față de parterul casei"></template>
           <span class="render-tile__label">Living contemporan, volume decalate</span>
         </div>
 
-        <div class="render-tile" data-animate>
-          <img src="./assets/render-penthouse-terraces.webp" alt="Clădire cu terase suprapuse în trepte, fiecare nivel retras față de cel de dedesubt" width="900" height="675" loading="lazy" />
+        <div class="render-tile" tabindex="0" data-animate>
+          <img class="render-tile__poster" src="./assets/render-penthouse-terraces.webp" alt="Clădire cu terase suprapuse în trepte, fiecare nivel retras față de cel de dedesubt" width="900" height="675" loading="lazy" />
+          <div class="model-viewer-loading" hidden></div>
+          <template class="render-tile__model-src" data-src="./assets/models/penthouse-terraces.glb" data-alt="Trei volume suprapuse, fiecare retras față de cel de dedesubt, ca niște terase în trepte"></template>
           <span class="render-tile__label">Penthouse, terase suprapuse</span>
         </div>
 
-        <div class="render-tile" data-animate>
-          <img src="./assets/render-villa-gable-roof.webp" alt="Vilă modernă cu două volume cu acoperiș în două ape, placate în lemn închis la culoare" width="900" height="675" loading="lazy" />
+        <div class="render-tile" tabindex="0" data-animate>
+          <img class="render-tile__poster" src="./assets/render-villa-gable-roof.webp" alt="Vilă modernă cu două volume cu acoperiș în două ape, placate în lemn închis la culoare" width="900" height="675" loading="lazy" />
+          <div class="model-viewer-loading" hidden></div>
+          <template class="render-tile__model-src" data-src="./assets/models/villa-gable-roof.glb" data-alt="Vilă cu acoperiș în două ape peste un singur volum din lemn"></template>
           <span class="render-tile__label">Vilă, acoperiș în două ape</span>
         </div>
 
       </div>
+      <div class="render-backdrop" aria-hidden="true"></div>
     </div>
   </section>
+
+  <script>
+    // Each tile starts as a plain photo (cheap, already paid for above the
+    // fold). Only on hover/focus/tap does it turn into a live model-viewer —
+    // capped at one or two WebGL contexts at a time instead of six spinning
+    // permanently, which is what actually made the grid lag, not the model
+    // file sizes (each glb here is under 4 KB). The model-viewer library
+    // itself (~1 MB) is still prefetched once the section nears the
+    // viewport, so that first activation has no network wait.
+    (function () {
+      const section = document.getElementById('randari-3d');
+      if (!section) return;
+      let libraryReady = null;
+      const loadLibrary = () => {
+        if (!libraryReady) {
+          libraryReady = import('https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js');
+        }
+        return libraryReady;
+      };
+      new IntersectionObserver((entries, io) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        loadLibrary();
+      }, { rootMargin: '1500px' }).observe(section);
+
+      const spin = !document.documentElement.classList.contains('reduced-motion');
+
+      section.querySelectorAll('.render-tile').forEach((tile) => {
+        const template = tile.querySelector('.render-tile__model-src');
+        const poster = tile.querySelector('.render-tile__poster');
+        const loading = tile.querySelector('.model-viewer-loading');
+        let activated = false;
+
+        const activate = () => {
+          if (activated) return;
+          activated = true;
+          loading.hidden = false;
+          loadLibrary().then(() => {
+            const viewer = document.createElement('model-viewer');
+            viewer.className = 'render-tile__model';
+            viewer.setAttribute('alt', template.dataset.alt);
+            viewer.setAttribute('poster', poster.src);
+            viewer.setAttribute('camera-controls', '');
+            viewer.setAttribute('disable-zoom', '');
+            viewer.setAttribute('interaction-prompt', 'none');
+            // "eager": we're already creating this element in direct
+            // response to a hover/focus/tap, so there's no visitor intent
+            // left to wait for — model-viewer's default "auto" mode instead
+            // gates loading behind its own IntersectionObserver, which is
+            // redundant here and adds a delay for no benefit.
+            viewer.setAttribute('loading', 'eager');
+            viewer.src = template.dataset.src;
+            // No shadow-intensity/environment-image: generating a shadow
+            // plane or a PMREM-filtered environment map is real GPU work,
+            // and on a software-rendered GPU it was enough to stall the
+            // whole tab. Model-viewer's default lighting is flatter but
+            // stays smooth everywhere, which matters more for six tiles.
+            if (spin) viewer.setAttribute('auto-rotate', '');
+            viewer.setAttribute('auto-rotate-delay', '0');
+            // Belt and suspenders: these models are a few KB, so the "load"
+            // event tends to fire before there's been a chance to see the
+            // bar at all — poll viewer.loaded too in case the event and a
+            // cached/instant load race each other and the event is missed.
+            const hideLoadingBar = () => { loading.hidden = true; };
+            viewer.addEventListener('load', hideLoadingBar);
+            tile.insertBefore(viewer, poster);
+            poster.hidden = true;
+            const pollLoaded = setInterval(() => {
+              if (!viewer.loaded) return;
+              hideLoadingBar();
+              clearInterval(pollLoaded);
+            }, 100);
+          });
+        };
+
+        tile.addEventListener('mouseenter', activate);
+        tile.addEventListener('focusin', activate);
+        tile.addEventListener('touchstart', activate, { passive: true });
+      });
+    })();
+  </script>
+
+  <script>
+    // model-viewer (three.js) is ~1 MB of JS; load it only once the render
+    // section is about to scroll into view, same lazy pattern as the
+    // architecture-studio template's single viewer.
+    (function () {
+      const section = document.getElementById('randari-3d');
+      const viewers = section.querySelectorAll('model-viewer');
+      new IntersectionObserver((entries, io) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        import('https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js').then(() => {
+          const spin = !document.documentElement.classList.contains('reduced-motion');
+          viewers.forEach((viewer) => {
+            viewer.setAttribute('auto-rotate-delay', '0');
+            viewer.addEventListener('load', () => {
+              viewer.querySelector('.model-viewer-loading')?.classList.add('is-loaded');
+            });
+            // Only the hovered/focused tile spins — six models auto-rotating
+            // at once is six permanent render loops for no reason, so each
+            // one is idle (but still orbit-draggable) until it's the one
+            // the visitor is actually looking at.
+            if (!spin) return;
+            const tile = viewer.closest('.render-tile');
+            tile.addEventListener('mouseenter', () => viewer.setAttribute('auto-rotate', ''));
+            tile.addEventListener('mouseleave', () => viewer.removeAttribute('auto-rotate'));
+            tile.addEventListener('focusin', () => viewer.setAttribute('auto-rotate', ''));
+            tile.addEventListener('focusout', () => viewer.removeAttribute('auto-rotate'));
+          });
+        });
+      }, { rootMargin: '1500px' }).observe(section);
+    })();
+  </script>
 
   <!-- ===================== PROIECTE ===================== -->
   <!-- EDIT: photos are the studio's own real work, pulled from @apollodesign.studio on

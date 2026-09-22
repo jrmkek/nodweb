@@ -1,0 +1,18 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "clients/apollo-design-studio/index.html"
+        ],
+        "createdAt": "2026-09-22T14:55:50.802Z",
+        "reason": "Indeterminate loading-bar sweep, not a content marquee: self-terminates within ~1-2s once the model loads (removed via [hidden]), mirrors the same pattern already used in templates/architecture-studio/architecture.css's .model-viewer-loading"
+      }
+    ]
+  }
+}

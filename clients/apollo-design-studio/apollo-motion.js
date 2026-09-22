@@ -48,8 +48,11 @@ if (!document.documentElement.classList.contains('reduced-motion')) {
       );
     }
 
-    // ---- Render tile hover: a small architectural "lift" -----------------
-    document.querySelectorAll('.render-tile, .project-row__media').forEach((el) => {
+    // ---- Project photo hover: a small architectural "lift" -----------------
+    // (render-tile's hover/focus zoom is handled in CSS now — see apollo.css —
+    // since it needs to work with :focus-within for keyboard/model-viewer
+    // interaction, not just mouseenter/mouseleave.)
+    document.querySelectorAll('.project-row__media').forEach((el) => {
       const target = el.querySelector('svg, img') || el;
       el.addEventListener('mouseenter', () => animate(target, { scale: 1.045 }, { duration: 0.35, easing: EASE_OUT }));
       el.addEventListener('mouseleave', () => animate(target, { scale: 1 }, { duration: 0.35, easing: EASE_OUT }));
