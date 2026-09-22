@@ -96,6 +96,9 @@ if (!prefersReducedMotion) {
     document.querySelectorAll(".card--link").forEach((card) => {
       card.style.perspective = "800px";
       card.addEventListener("pointermove", (event) => {
+        // In the work carousel only the centred card tilts; the blurred
+        // side cards just wait to be clicked into focus.
+        if (card.classList.contains("work-slide") && !card.classList.contains("is-active-preview")) return;
         const rect = card.getBoundingClientRect();
         const px = (event.clientX - rect.left) / rect.width - 0.5;
         const py = (event.clientY - rect.top) / rect.height - 0.5;
@@ -121,16 +124,5 @@ if (!prefersReducedMotion) {
         );
       });
     }
-  } else {
-    // ---- Touch equivalent of the hover "browser window" preview: the
-    // work card nearest the middle of the screen gets the same spotlight
-    // (chrome bar + open icon + lift) as it scrolls through, since a phone
-    // has no hover to trigger it with. ----
-    document.querySelectorAll("#work .card--link").forEach((card) => {
-      inView(card, () => {
-        card.classList.add("is-active-preview");
-        return () => card.classList.remove("is-active-preview");
-      }, { margin: "-40% 0px -40% 0px" });
-    });
   }
 }

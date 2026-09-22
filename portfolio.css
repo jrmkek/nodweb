@@ -162,10 +162,9 @@ body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px
 .hero .container { position: relative; z-index: 1; }
 .hero-node-mark { z-index: 1; }
 
-/* ---------- Work examples: hover turns the card into a floating
-   "browser window" (chrome bar + url), the rest of the page dims behind
-   it via :has() — no JS. Falls back to a plain lift+shadow hover where
-   :has()/backdrop-filter aren't supported. ---------- */
+/* ---------- Work examples: the focused card (hover, or the centred slide
+   in the carousel below) turns into a floating "browser window" with a
+   chrome bar and url. ---------- */
 /* Card copy rhythm: badge sat flush against the title (no gap) while the
    title had a full space-4 gap to the paragraph below it — backwards from
    the visual grouping (badge+title are a unit, title+paragraph should be
@@ -249,59 +248,51 @@ body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px
 }
 #work .card--link:active { translate: 0 0; scale: 0.985; }
 
-.work-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(11, 12, 15, 0.6);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--duration-slow) var(--ease);
-  z-index: 5;
-}
-/* Only where hover is real: on touch, :hover sticks after a tap and would
-   keep the blur until the next tap instead of clearing on scroll. */
-@media (hover: hover) {
-  #work .grid--2:has(.card--link:hover) ~ .work-backdrop {
-    opacity: 1;
-    backdrop-filter: blur(6px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   #work .card--link,
   #work .card--link:hover,
   #work .card--link:active { transform: none; transition: box-shadow var(--duration-fast) linear; }
-  .work-backdrop { transition: none; }
 }
 
-/* ---------- More example sites: a denser index under the two featured
-   cards. Screenshot, trade, name, one line on what that site does that the
-   others don't. No card boxes, so the two featured examples stay the heroes. */
-.more-work { margin-top: var(--space-10); }
-.more-work h3 { font-size: var(--text-xl); }
-.more-work__intro { color: var(--color-text-muted); max-width: 60ch; margin-top: var(--space-3); }
-.more-work__grid {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-8) var(--space-5);
-  margin-top: var(--space-8); padding: 0; list-style: none;
+/* ---------- Work carousel: every example in one row. Native scroll-snap
+   does the swiping (work-carousel.js only marks the centred card), the
+   centred card gets the browser-window .is-active-preview treatment above,
+   and everything else drops back out of focus. ---------- */
+#work { overflow-x: clip; }
+.work-carousel { width: 100vw; margin-inline: calc(50% - 50vw); }
+.work-carousel__track {
+  --slide: min(560px, 76vw);
+  position: relative;
+  display: flex; gap: var(--space-6);
+  padding: var(--space-8) calc(50% - var(--slide) / 2);
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
 }
-.more-work__item { display: block; color: inherit; text-decoration: none; }
-.more-work__item img {
-  width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
-  border-radius: var(--radius-md); outline: 1px solid var(--color-border);
-  transition: translate var(--duration-slow) var(--ease), outline-color var(--duration-base) var(--ease);
+.work-carousel__track::-webkit-scrollbar { display: none; }
+#work .work-slide { flex: 0 0 var(--slide); scroll-snap-align: center; transition: filter var(--duration-slow) var(--ease), opacity var(--duration-slow) var(--ease), translate var(--duration-slow) var(--ease), scale var(--duration-slow) var(--ease), box-shadow var(--duration-slow) var(--ease); }
+#work .work-carousel .card--link:not(.is-active-preview) { filter: blur(5px) saturate(0.6); opacity: 0.4; scale: 0.9; translate: 0 0; box-shadow: none; }
+@media (hover: hover) {
+  #work .work-carousel .card--link:not(.is-active-preview):hover { filter: blur(2px) saturate(0.8); opacity: 0.65; }
 }
-.more-work__item:hover img, .more-work__item:focus-visible img { translate: 0 -4px; outline: 2px solid var(--color-accent); }
-.more-work__trade { display: block; margin-top: var(--space-4); font-size: var(--text-xs); color: var(--nod-cyan); }
-.more-work__item h4 { margin: var(--space-1) 0 var(--space-2); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 800; letter-spacing: -0.02em; }
-.more-work__item p { font-size: var(--text-sm); color: var(--color-text-muted); }
-@media (max-width: 999px) { .more-work__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 599px) {
-  .more-work__grid { grid-template-columns: 1fr; gap: var(--space-6); }
-  .more-work__item { display: grid; grid-template-columns: 40% 1fr; column-gap: var(--space-4); align-items: start; }
-  .more-work__item img { grid-row: span 3; }
-  .more-work__trade { margin-top: 0; }
+  .work-carousel__track { --slide: 72vw; gap: var(--space-3); }
+  #work .work-carousel .card--link:not(.is-active-preview) { opacity: 0.6; scale: 0.94; }
 }
-@media (prefers-reduced-motion: reduce) { .more-work__item img { transition: none; } }
+.work-carousel__controls { display: flex; align-items: center; justify-content: center; gap: var(--space-5); }
+.work-carousel__btn {
+  width: 48px; height: 48px; display: inline-grid; place-items: center; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text);
+  transition: background-color var(--duration-base) var(--ease), border-color var(--duration-base) var(--ease);
+}
+@media (hover: hover) {
+  .work-carousel__btn:hover:not(:disabled) { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-contrast); }
+}
+.work-carousel__btn:disabled { opacity: 0.35; cursor: default; }
+.work-carousel__count { margin: 0; line-height: 1; min-width: 5ch; text-align: center; font-variant-numeric: tabular-nums; color: var(--color-text-muted); font-size: var(--text-sm); }
+@media (prefers-reduced-motion: reduce) {
+  #work .work-slide { transition: none; }
+  #work .work-carousel .card--link:not(.is-active-preview) { scale: 1; }
+}
 
 .process-list {
   list-style: none;
