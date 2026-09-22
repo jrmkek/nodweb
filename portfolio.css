@@ -31,24 +31,10 @@ body {
 }
 
 h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
-.eyebrow, .badge, .site-nav__brand, .btn { font-family: "JetBrains Mono", monospace; }
-.eyebrow, .badge { letter-spacing: 0.06em; }
+.badge, .site-nav__brand, .btn { font-family: "JetBrains Mono", monospace; }
+.badge { letter-spacing: 0.06em; }
 .site-nav__brand { letter-spacing: -0.02em; font-weight: 700; }
 .site-nav__links a[aria-current="page"] { color: var(--color-accent); }
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  font-weight: 500;
-}
-.eyebrow::before,
-.eyebrow::after {
-  color: var(--color-text-muted);
-  font-weight: 400;
-}
-.eyebrow::before { content: "["; }
-.eyebrow::after { content: "]"; }
 
 /* Reference style pass (clanofcreators.com): pill buttons + rounder cards,
    scoped here so the client-demo templates (own CSS files) are untouched. */
