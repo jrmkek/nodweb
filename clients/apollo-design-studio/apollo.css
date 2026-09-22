@@ -320,7 +320,7 @@ body.is-scrolled .site-nav { border-bottom-color: var(--line); }
   aspect-ratio: 4 / 3;
   background: var(--surface);
 }
-.render-tile svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.render-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .render-tile__label {
   position: absolute;
   left: 0.9rem;
