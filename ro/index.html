@@ -31,6 +31,8 @@
 
   <link rel="preload" href="../shared/fonts/bricolage-grotesque-800-normal-2.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="../shared/fonts/jetbrains-mono-400-normal-2.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/motion@11/+esm" />
     <link rel="stylesheet" href="../shared/css/fonts-nodweb.css" />
   <link rel="stylesheet" href="../shared/css/tokens.css" />
   <link rel="stylesheet" href="../shared/css/base.css" />
@@ -122,14 +124,13 @@
   <section class="section section--alt" id="work">
     <div class="container stack">
       <div>
-        <span class="eyebrow reveal">Vezi cum arată</span>
         <h2 class="reveal">Exemple de site-uri live</h2>
         <p class="reveal">Sunt site-uri exemplu complet funcționale, aceeași calitate și viteză cu care pornește fiecare proiect de client. Îți arată standardul minim pe care îl primești.</p>
       </div>
       <div class="grid grid--2">
         <a class="card card--link reveal" href="/templates/architecture-studio/">
           <div class="card__media work-media" data-preview-url="atlasvine.studio">
-            <img src="../assets/images/home-work-architecture.jpg" alt="Previzualizare a exemplului Atlas & Vine Architecture, cu vizualizator 3D interactiv" loading="lazy" width="1200" height="750" />
+            <img src="../assets/images/home-work-architecture.webp" srcset="../assets/images/home-work-architecture-640.webp 640w, ../assets/images/home-work-architecture.webp 1200w" sizes="(min-width: 800px) 480px, 92vw" alt="Previzualizare a exemplului Atlas & Vine Architecture, cu vizualizator 3D interactiv" loading="lazy" width="1200" height="750" />
             <span class="work-open" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg></span>
           </div>
           <span class="badge">Studiouri de arhitectură și design</span>
@@ -138,7 +139,7 @@
         </a>
         <a class="card card--link reveal" href="/templates/local-business/">
           <div class="card__media work-media" data-preview-url="sunnysideup.cafe">
-            <img src="../assets/images/home-work-cafe.jpg" alt="Previzualizare a exemplului Sunny Side Up, cu grilă de meniu și formular de rezervare" loading="lazy" width="1200" height="750" />
+            <img src="../assets/images/home-work-cafe.webp" srcset="../assets/images/home-work-cafe-640.webp 640w, ../assets/images/home-work-cafe.webp 1200w" sizes="(min-width: 800px) 480px, 92vw" alt="Previzualizare a exemplului Sunny Side Up, cu grilă de meniu și formular de rezervare" loading="lazy" width="1200" height="750" />
             <span class="work-open" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7" /><path d="M7 7h10v10" /></svg></span>
           </div>
           <span class="badge">Cafenele, saloane, contractori, magazine</span>
@@ -154,7 +155,6 @@
   <section class="section" id="services">
     <div class="container stack">
       <div>
-        <span class="eyebrow reveal">Cum construim</span>
         <h2 class="reveal">Nu orice afacere are nevoie de același site</h2>
         <p class="reveal">O cafenea și un studio de arhitectură vând lucruri foarte diferite, așa că abordarea se schimbă în consecință, în loc să forțăm pe toată lumea prin același calapod.</p>
       </div>
@@ -179,7 +179,6 @@
   <section class="section section--alt" id="process">
     <div class="container stack">
       <div>
-        <span class="eyebrow reveal">Cum funcționează</span>
         <h2 class="reveal">Patru pași, de la început până la lansare</h2>
       </div>
       <ol class="process-list">
@@ -195,7 +194,6 @@
   <section class="section" id="contact">
     <div class="container contact-grid">
       <div class="stack">
-        <span class="eyebrow reveal">Cere o ofertă</span>
         <h2 class="reveal">Spune-ne despre afacerea ta</h2>
         <p class="reveal">Completează formularul sau scrie-ne direct. Răspundem în cel mult o zi lucrătoare.</p>
         <p class="reveal"><strong>Email:</strong> <a href="mailto:ierostanescu@gmail.com">ierostanescu@gmail.com</a><br /><strong>Telefon:</strong> <a href="tel:+40731431633">+40 731 431 633</a><br /><strong>Bazat în:</strong> București, România</p>

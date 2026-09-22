@@ -5,7 +5,7 @@ design system and NodWeb's own business site. No build step — open any
 `index.html` directly, or serve the repo root with any static file server.
 
 **This is the deploy root**, live at **https://nodweb.org** (hosted on
-Netlify, DNS on Netlify DNS, form submissions via Netlify Forms).
+Cloudflare Pages, DNS on Cloudflare, form submissions via Web3Forms).
 
 ## Structure
 
@@ -24,7 +24,7 @@ sitemap.xml               Lists every real page (home, ro, both demo
                           templates, blog index + 3 posts).
 robots.txt                Allows all crawlers, points to sitemap.xml.
 llms.txt                  Plain-language site summary for LLM crawlers.
-_headers                  Netlify headers: caching for static assets/fonts,
+_headers                  Cloudflare Pages headers: caching for static assets/fonts,
                           basic security headers (X-Frame-Options, etc.).
 
 assets/
@@ -48,7 +48,7 @@ shared/
                           covers English and Romanian diacritics).
   js/site.js              Mobile nav toggle + scroll-reveal animation.
   js/form-validation.js   Inline validation for every form; forms with a
-                          `name` attribute submit for real via Netlify Forms,
+                          `name` attribute submit for real via Web3Forms,
                           everything else (the demo templates) fakes success.
 
 templates/
@@ -94,10 +94,11 @@ scripts/
 7. Update the page's `<title>`, meta description, canonical URL, and
    `sitemap.xml`/`robots.txt` for the client's real domain.
 8. If the form should actually submit somewhere, give the `<form>` a real
-   `name` attribute and (if deploying to Netlify) `data-netlify="true"` +
-   a honeypot field — see the homepage's contact form for the pattern. The
-   shared JS submits for real for any form with a `name`; the two demo
-   templates deliberately have no `name` so they only fake success.
+   `name` attribute, a hidden `access_key` input with your own Web3Forms
+   access key, and a `botcheck` honeypot field — see the homepage's contact
+   form for the pattern. The shared JS submits for real for any form with a
+   `name`; the two demo templates deliberately have no `name` so they only
+   fake success.
 
 ## Design rules these templates follow
 
@@ -161,8 +162,9 @@ Then open `http://localhost:8080/` (or `/ro/`, `/blog/`,
 
 ## Deploying
 
-Live on Netlify, connected to this repo's `main` branch — every push
-auto-deploys. Netlify serves `folder/index.html` at `/folder/` automatically,
-so URLs come out clean (`/blog/`, `/ro/`, `/templates/architecture-studio/`)
-with no `.html` needed, and picks up `404.html` at the root as the custom
+Live on Cloudflare Pages, connected to this repo's `main` branch — every push
+auto-deploys. Cloudflare Pages serves `folder/index.html` at `/folder/`
+automatically, so URLs come out clean (`/blog/`, `/ro/`,
+`/templates/architecture-studio/`) with no `.html` needed, and picks up
+`404.html` at the root as the custom
 error page automatically.

@@ -19,7 +19,7 @@
   --color-text: var(--nod-off-white);
   --color-text-muted: color-mix(in srgb, var(--nod-off-white) 55%, var(--nod-slate-light) 45%);
   --color-accent: var(--nod-blue);
-  --color-accent-hover: color-mix(in srgb, var(--nod-blue) 80%, white 20%);
+  --color-accent-hover: color-mix(in srgb, var(--nod-blue) 85%, black 15%);
   --color-accent-contrast: #ffffff;
   --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
   --font-body: "JetBrains Mono", "Segoe UI", monospace;

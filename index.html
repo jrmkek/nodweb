@@ -38,6 +38,8 @@
 
     <link rel="preload" href="./shared/fonts/bricolage-grotesque-800-normal-2.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="./shared/fonts/jetbrains-mono-400-normal-2.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/motion@11/+esm" />
     <link rel="stylesheet" href="./shared/css/fonts-nodweb.css" />
 
     <link rel="stylesheet" href="./shared/css/tokens.css" />
@@ -151,7 +153,6 @@
       <section class="section section--alt" id="work">
         <div class="container stack">
           <div>
-            <span class="eyebrow reveal">See it in action</span>
             <h2 class="reveal">Live example sites</h2>
             <p class="reveal">These are fully working example sites, the same
               quality and speed every client site starts from. These examples
@@ -162,7 +163,7 @@
               href="/templates/architecture-studio/">
               <div class="card__media work-media"
                 data-preview-url="atlasvine.studio">
-                <img src="./assets/images/home-work-architecture.jpg"
+                <img src="./assets/images/home-work-architecture.webp" srcset="./assets/images/home-work-architecture-640.webp 640w, ./assets/images/home-work-architecture.webp 1200w" sizes="(min-width: 800px) 480px, 92vw"
                   alt="Preview of the Atlas & Vine Architecture example, featuring an interactive 3D model viewer"
                   loading="lazy" width="1200" height="750" />
                 <span class="work-open" aria-hidden="true"><svg width="14"
@@ -181,7 +182,7 @@
               href="/templates/local-business/">
               <div class="card__media work-media"
                 data-preview-url="sunnysideup.cafe">
-                <img src="./assets/images/home-work-cafe.jpg"
+                <img src="./assets/images/home-work-cafe.webp" srcset="./assets/images/home-work-cafe-640.webp 640w, ./assets/images/home-work-cafe.webp 1200w" sizes="(min-width: 800px) 480px, 92vw"
                   alt="Preview of the Sunny Side Up example, featuring a menu grid and reservation form"
                   loading="lazy" width="1200" height="750" />
                 <span class="work-open" aria-hidden="true"><svg width="14"
@@ -204,7 +205,6 @@
       <section class="section" id="services">
         <div class="container stack">
           <div>
-            <span class="eyebrow reveal">How we build</span>
             <h2 class="reveal">Not every business needs the same website</h2>
             <p class="reveal">A café and an architecture studio are selling very
               different things, so the build changes to match, instead of
@@ -240,7 +240,6 @@
       <section class="section section--alt" id="process">
         <div class="container stack">
           <div>
-            <span class="eyebrow reveal">How it works</span>
             <h2 class="reveal">Four steps, start to launch</h2>
           </div>
           <ol class="process-list">
@@ -266,7 +265,6 @@
       <section class="section" id="contact">
         <div class="container contact-grid">
           <div class="stack">
-            <span class="eyebrow reveal">Get a quote</span>
             <h2 class="reveal">Tell us about your business</h2>
             <p class="reveal">Fill out the form or reach out directly. We reply
               within one business day.</p>
