@@ -21,28 +21,61 @@ document.addEventListener("DOMContentLoaded", () => {
     track.scrollTo({ left: s.offsetLeft - (track.clientWidth - s.offsetWidth) / 2, behavior });
   };
 
-  const update = () => {
+  // Which card is nearest the middle, and how far off-centre it is (px).
+  const nearest = () => {
     const mid = track.scrollLeft + track.clientWidth / 2;
     let best = 0;
+    let dist = Infinity;
     slides.forEach((s, i) => {
-      const d = (el) => Math.abs(el.offsetLeft + el.offsetWidth / 2 - mid);
-      if (d(s) < d(slides[best])) best = i;
+      const d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - mid);
+      if (d < dist) { dist = d; best = i; }
     });
-    target = best;
-    if (best === current) return;
-    current = best;
-    slides.forEach((s, i) => s.classList.toggle("is-active-preview", i === best));
-    count.textContent = `${best + 1} / ${slides.length}`;
-    prev.disabled = best === 0;
-    next.disabled = best === slides.length - 1;
+    return { i: best, dist };
   };
 
-  // Only move focus once the scroll comes to rest. Updating every frame made
-  // each card flash sharp and back to blurred as a fast swipe flew past it.
+  const focusOn = (i) => {
+    if (i === current) return;
+    current = i;
+    slides.forEach((s, n) => s.classList.toggle("is-active-preview", n === i));
+    count.textContent = `${i + 1} / ${slides.length}`;
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+  };
+
+  const update = () => {
+    target = nearest().i;
+    focusOn(target);
+  };
+
+  // Focus must not follow every frame (a fast swipe made each card flash
+  // sharp and back to blurred as it flew past), but it also shouldn't wait
+  // for the snap animation to finish, which felt laggy on phones. So:
+  // 1. Where the browser reports the snap target it's heading for
+  //    (scrollsnapchanging, Chromium), focus it the moment the finger lifts.
+  // 2. Otherwise, focus as soon as a card is centred and the scroll has
+  //    slowed right down, with a short timeout as the backstop.
+  const predicts = "onscrollsnapchanging" in window;
+  let touching = false;
+  let pending = null;
+  const applyPending = () => {
+    const i = slides.indexOf(pending);
+    if (i > -1) { target = i; focusOn(i); }
+  };
+  track.addEventListener("touchstart", () => (touching = true), { passive: true });
+  track.addEventListener("touchend", () => { touching = false; applyPending(); }, { passive: true });
+  track.addEventListener("scrollsnapchanging", (e) => {
+    pending = e.snapTargetInline;
+    if (!touching) applyPending();
+  });
+
   let settle;
+  let lastLeft = track.scrollLeft;
   track.addEventListener("scroll", () => {
+    const moved = Math.abs(track.scrollLeft - lastLeft);
+    lastLeft = track.scrollLeft;
     clearTimeout(settle);
-    settle = setTimeout(update, 120);
+    if (!predicts && !touching && moved < 6 && nearest().dist < 12) update();
+    else settle = setTimeout(update, 80);
   }, { passive: true });
   track.addEventListener("scrollend", () => { clearTimeout(settle); update(); });
 
@@ -72,5 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (d && slides[target + d]) { e.preventDefault(); slides[target + d].focus(); }
   });
 
-  update();
+  // Open on the second card so there are blurred neighbours on both sides.
+  const start = slides[1] ?? slides[0];
+  track.scrollTo({ left: start.offsetLeft - (track.clientWidth - start.offsetWidth) / 2, behavior: "instant" });
+  target = slides.indexOf(start);
+  focusOn(target);
 });
