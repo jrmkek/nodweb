@@ -232,12 +232,13 @@ if (stairHere && steps.length) {
   watch(steps, (s) => place(Number(s.dataset.step)));
 }
 
-// Services: the row you point at takes the dark cube; "3D" holds it at rest.
+// Services: exactly one row holds the dark cube: the one crossing the middle
+// of the screen, or the one under the mouse (touch taps don't count, so no
+// sticky hover leaves a second cube dark on phones).
 const svc = [...document.querySelectorAll(".svc li")];
-svc.forEach((li) => {
-  li.addEventListener("pointerenter", () => svc.forEach((o) => o.classList.toggle("is-here", o === li)));
-});
-document.querySelector(".svc")?.addEventListener("pointerleave", () => svc.forEach((o) => o.classList.toggle("is-here", o.classList.contains("spice"))));
+const markRow = (li) => svc.forEach((o) => o.classList.toggle("is-here", o === li));
+watch(svc, markRow);
+svc.forEach((li) => li.addEventListener("pointerenter", (e) => e.pointerType === "mouse" && markRow(li)));
 
 // Work photos rise into place once, the first time the grid scrolls in.
 motionReady.then((m) => {
