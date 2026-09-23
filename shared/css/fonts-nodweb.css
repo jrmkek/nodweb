@@ -10,13 +10,19 @@
 
 /* Nohemi (Rajesh Rajput, freeware, commercial use allowed): everything
    else on the NodWeb pages. The EULA forbids modifying the files, so these
-   are the author's own woff2 files, renamed only, never subset. */
+   are the author's own woff2 files, renamed only, never subset.
+   Its stock metrics (ascent 2960, descent 758, cap 2860 per 4000 em) leave
+   capitals ~0.08em above centre in any box; the overrides keep the same
+   total height but centre it on the cap height. */
 @font-face {
   font-family: 'Nohemi';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url('../fonts/nohemi-400.woff2') format('woff2');
+  ascent-override: 82.2%;
+  descent-override: 10.7%;
+  line-gap-override: 7.5%;
 }
 
 @font-face {
@@ -25,6 +31,9 @@
   font-weight: 500;
   font-display: swap;
   src: url('../fonts/nohemi-500.woff2') format('woff2');
+  ascent-override: 82.2%;
+  descent-override: 10.7%;
+  line-gap-override: 7.5%;
 }
 
 @font-face {
@@ -33,6 +42,9 @@
   font-weight: 600;
   font-display: swap;
   src: url('../fonts/nohemi-600.woff2') format('woff2');
+  ascent-override: 82.2%;
+  descent-override: 10.7%;
+  line-gap-override: 7.5%;
 }
 
 @font-face {
@@ -41,6 +53,9 @@
   font-weight: 700;
   font-display: swap;
   src: url('../fonts/nohemi-700.woff2') format('woff2');
+  ascent-override: 82.2%;
+  descent-override: 10.7%;
+  line-gap-override: 7.5%;
 }
 
 @font-face {
@@ -49,4 +64,7 @@
   font-weight: 800;
   font-display: swap;
   src: url('../fonts/nohemi-800.woff2') format('woff2');
+  ascent-override: 82.2%;
+  descent-override: 10.7%;
+  line-gap-override: 7.5%;
 }
