@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Est Rise Architecture: birou de arhitectură în București</title>
+  <meta name="description" content="Proiectăm case, renovări și interioare în București, ne ocupăm de avize și autorizație, iar fiecare proiect îl vezi întâi în 3D. Propunere de site realizată de NodWeb." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f3f3ef" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316191d'/%3E%3Cpath d='M7 24V8h9M7 16h7M7 24h9M20 24V8h3a4 4 0 010 8h-3m3 0l4 8' fill='none' stroke='%23f3f3ef' stroke-width='2.2'/%3E%3C/svg%3E" />
+  <link rel="preload" href="./fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="./est-rise.css" />
+</head>
+<body>
+  <a class="skip" href="#continut">Sari la conținut</a>
+
+  <div class="sheet">
+    <!-- Zone references along the frame edges, as on a plotted drawing sheet -->
+    <div class="zones zones--t" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="zones zones--b" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="zones zones--l" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <div class="zones zones--r" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <!-- Title block: the drawing sheet's ruled corner, used as the site's navigation -->
+    <header class="tb">
+      <a class="tb__brand" href="#sus" aria-label="Est Rise Architecture, începutul paginii">
+        <svg class="tb__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 24V8h9M7 16h7M7 24h9M20 24V8h3a4 4 0 010 8h-3m3 0l4 8" /></svg>
+        <span class="tb__name">Est Rise<br />Architecture</span>
+      </a>
+      <div class="tb__cell tb__sheet" aria-hidden="true">
+        <span class="tb__k">Planșa</span>
+        <span class="tb__v" data-sheet-no>A-01</span>
+      </div>
+      <div class="tb__cell tb__title" aria-hidden="true">
+        <span class="tb__k">Titlu</span>
+        <span class="tb__v" data-sheet-title>Model 3D</span>
+      </div>
+      <button class="tb__menu" popovertarget="nav" aria-label="Meniu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" /></svg>
+      </button>
+      <nav id="nav" class="tb__nav" popover aria-label="Principal">
+        <a href="#servicii">Servicii</a>
+        <a href="#proiecte">Proiecte</a>
+        <a href="#proces">Cum lucrăm</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="tb__call" href="tel:+40731835383">
+        <span class="tb__k">Sună</span>
+        <span class="tb__v">0731 835 383</span>
+      </a>
+    </header>
+
+    <main id="continut">
+
+      <!-- A-01 · Hero: headline + the 3D focus carousel as the drawing field -->
+      <section class="hero" id="sus" data-sheet="A-01" data-title="Model 3D">
+        <div class="hero__copy">
+          <h1 class="hero__title">Vezi casa înainte de prima cărămidă.</h1>
+          <p class="hero__lede">Proiectăm case, renovări și interioare în București și ne ocupăm de avize și autorizație. Fiecare proiect îl vezi întâi în 3D: rotești casa, o privești din orice unghi și schimbi ce <span class="nw">nu-ți</span> place cât încă e doar un desen.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#contact">Programează o discuție</a>
+            <a class="hero__phone" href="tel:+40731835383">sau sună la <b>0731 835 383</b></a>
+            <a class="hero__rating" href="https://www.google.com/maps/search/?api=1&amp;query=Est+Rise+Architecture+Bucure%C8%99ti" target="_blank" rel="noopener">
+              <span class="hero__score">5,0</span> pe Google, din 3 recenzii
+            </a>
+          </div>
+        </div>
+
+        <!-- EDIT: the six models and posters are demonstration material borrowed from the
+             Apollo demo (small massing volumes + stand-in renders). Swap each data-model /
+             poster for Est Rise's own exported models and renders, and add data-real to a card
+             whose model is exported to scale: only then do its dimension lines print metres. -->
+        <div class="field" data-carousel aria-roledescription="carusel" aria-label="Modele 3D">
+          <div class="field__bar">
+            <span class="field__hint"><span class="field__drag">Studiu de volum, trage ca să îl rotești · </span>modele demonstrative</span>
+            <span class="field__count" aria-live="polite"><span data-count>01</span> / 06</span>
+          </div>
+
+          <div class="field__track" tabindex="0" aria-label="Modele 3D, folosește săgețile stânga și dreapta">
+            <article class="card" data-n="06" data-model="./assets/models/villa-gable-roof.glb" data-name="Casă cu acoperiș în două ape" data-type="Casă nouă" data-scale="1:100" aria-label="Casă cu acoperiș în două ape">
+              <div class="card__stage">
+                <img class="card__poster" src="./assets/render-villa-gable-roof.webp" alt="Randare: casă cu două volume cu acoperiș în două ape, placate în lemn închis" width="900" height="675" loading="lazy" />
+              </div>
+            </article>
+            <article class="card" data-n="01" data-model="./assets/models/villa-double-height.glb" data-name="Vilă cu living pe dublă înălțime" data-type="Casă nouă" data-scale="1:100" aria-label="Vilă cu living pe dublă înălțime">
+              <div class="card__stage">
+                <img class="card__poster" src="./assets/render-villa-double-height.webp" alt="Randare: vilă albă cu perete vitrat pe dublă înălțime spre piscină" width="900" height="675" fetchpriority="high" />
+              </div>
+            </article>
+            <article class="card" data-n="02" data-model="./assets/models/living-staggered.glb" data-name="Casă cu etaj în consolă" data-type="Casă nouă" data-scale="1:100" aria-label="Casă cu etaj în consolă">
+              <div class="card__stage">
+                <img class="card__poster" src="./assets/render-living-staggered.webp" alt="Randare: casă contemporană cu etajul decalat în consolă față de parter" width="900" height="675" />
+              </div>
+            </article>
+            <article class="card" data-n="03" data-model="./assets/models/kitchen-pavilion.glb" data-name="Pavilion vitrat pentru bucătărie" data-type="Extindere" data-scale="1:50" aria-label="Pavilion vitrat pentru bucătărie">
+              <div class="card__stage">
+                <img class="card__poster" src="./assets/render-kitchen-pavilion.webp" alt="Randare: bucătărie cu insulă de marmură într-un pavilion vitrat" width="900" height="675" loading="lazy" />
+              </div>
+            </article>
+            <article class="card" data-n="04" data-model="./assets/models/penthouse-terraces.glb" data-name="Terase în trepte" data-type="Locuințe colective" data-scale="1:200" aria-label="Terase în trepte">
+              <div class="card__stage">
+                <img class="card__poster" src="./assets/render-penthouse-terraces.webp" alt="Randare: clădire cu terase suprapuse, fiecare nivel retras față de cel de dedesubt" width="900" height="675" loading="lazy" />
+              </div>
+            </article>
+            <article class="card" data-n="05" data-model="./assets/models/bathroom-light-tower.glb" data-name="Baie sub turnul de lumină" data-type="Renovare" data-scale="1:50" aria-label="Baie sub turnul de lumină">
+              <div class="card__stage">
+                <img class="card__poster" src="./assets/render-bathroom-light-tower.webp" alt="Randare: baie cu cadă liberă sub un perete vitrat înalt" width="900" height="675" loading="lazy" />
+              </div>
+            </article>
+          </div>
+
+          <!-- Dimension overlay: est-rise.js moves it to the focused card and draws the
+               witness lines on the live model's bounding box, measured from the model -->
+          <div class="dims" aria-hidden="true" hidden>
+            <svg><path class="dims__line" data-dim-line="w" /><path class="dims__line" data-dim-line="h" /></svg>
+            <span data-dim="w"></span>
+            <span data-dim="h"></span>
+          </div>
+
+          <div class="field__foot">
+            <dl class="spec">
+              <div><dt>Proiect</dt><dd data-spec="name">Vilă cu living pe dublă înălțime</dd></div>
+              <div><dt>Tip</dt><dd data-spec="type">Casă nouă</dd></div>
+              <div><dt>Scara</dt><dd data-spec="scale">Fără scară</dd></div>
+              <div><dt>Stadiu</dt><dd>Studiu de volum</dd></div>
+            </dl>
+            <div class="field__nav">
+              <button class="arrow" data-dir="-1" aria-label="Modelul anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg></button>
+              <button class="arrow" data-dir="1" aria-label="Modelul următor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- A-02 · Services as a drawing legend -->
+      <section class="plate" id="servicii" data-sheet="A-02" data-title="Servicii">
+        <div class="plate__head">
+          <h2>Tot drumul, de la teren la cheie.</h2>
+          <p>Un singur birou pentru proiect, acte și șantier. Nu mai alergi între arhitect, inginer și primărie.</p>
+        </div>
+        <table class="legend">
+          <caption class="sr-only">Servicii Est Rise Architecture</caption>
+          <thead>
+            <tr><th scope="col">Cod</th><th scope="col">Serviciu</th><th scope="col">Ce include</th></tr>
+          </thead>
+          <tbody>
+            <tr data-row><td>ARH</td><th scope="row">Proiectare de arhitectură</th><td>Case construite de la zero, gândite pentru terenul, bugetul și felul în care trăiești, plus inginerie și coordonarea specialităților.</td></tr>
+            <tr data-row><td>3D</td><th scope="row">Randări și modele 3D</th><td>Casa în 3D înainte de autorizație, ca să decizi pe imagine, nu pe planuri greu de citit.</td></tr>
+            <tr data-row><td>AUT</td><th scope="row">Avize și autorizație</th><td>Certificat de urbanism, avize, verificarea codurilor de construcție, documentația pentru autorizație și urbanism (PUZ, PUD).</td></tr>
+            <tr data-row><td>REN</td><th scope="row">Renovare și clădiri vechi</th><td>Renovări de locuințe, reabilitarea clădirilor istorice și schimbarea funcțiunii pentru clădiri care merită păstrate.</td></tr>
+            <tr data-row><td>INT</td><th scope="row">Design interior</th><td>Compartimentare, finisaje, mobilier și lumină, cu aceeași grijă ca pentru fațadă.</td></tr>
+            <tr data-row><td>MAN</td><th scope="row">Consultanță și management</th><td>Consultanță înainte să cumperi terenul și coordonarea lucrării până la recepție.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- A-03 · Project photos as detail callouts -->
+      <!-- EDIT: these photos are borrowed from the Apollo demo so the draft has real
+           interiors to show. Replace every one with Est Rise's own projects before launch. -->
+      <section class="plate" id="proiecte" data-sheet="A-03" data-title="Proiecte">
+        <div class="plate__head">
+          <h2>Detalii care se văd din prima.</h2>
+          <p>Aici vor sta proiectele Est Rise. Până atunci, imaginile de mai jos sunt demonstrative și arată cum va arăta secțiunea.</p>
+        </div>
+        <div class="details">
+          <figure class="detail detail--tall" data-detail>
+            <img src="./assets/project-staircase-loft.jpg" alt="Living pe dublă înălțime cu scară din sticlă și pereți vitrați" width="512" height="640" loading="lazy" />
+            <figcaption><span class="bubble" aria-hidden="true"><b>1</b><i>A-03</i></span>Living pe dublă înălțime, scară din sticlă</figcaption>
+          </figure>
+          <figure class="detail" data-detail>
+            <img src="./assets/project-kitchen-marble.jpg" alt="Bucătărie cu insulă din marmură și mobilier din lemn" width="512" height="640" loading="lazy" />
+            <figcaption><span class="bubble" aria-hidden="true"><b>2</b><i>A-03</i></span>Bucătărie deschisă, insulă din marmură</figcaption>
+          </figure>
+          <figure class="detail" data-detail>
+            <img src="./assets/project-penthouse-living.jpg" alt="Living cu candelabru sferic și perete placat cu travertin" width="512" height="640" loading="lazy" />
+            <figcaption><span class="bubble" aria-hidden="true"><b>3</b><i>A-03</i></span>Living cu perete din travertin</figcaption>
+          </figure>
+          <figure class="detail" data-detail>
+            <img src="./assets/project-dining-rings.jpg" alt="Zonă de dining cu candelabru din inele metalice și perete din marmură" width="512" height="640" loading="lazy" />
+            <figcaption><span class="bubble" aria-hidden="true"><b>4</b><i>A-03</i></span>Dining sub un candelabru din inele</figcaption>
+          </figure>
+          <figure class="detail" data-detail>
+            <img src="./assets/project-nightstand-detail.jpg" alt="Noptieră neagră lângă un pat tapițat, cu perete din lemn" width="512" height="640" loading="lazy" />
+            <figcaption><span class="bubble" aria-hidden="true"><b>5</b><i>A-03</i></span>Dormitor în lemn și negru mat</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- A-04 · Process as a revision table -->
+      <section class="plate" id="proces" data-sheet="A-04" data-title="Cum lucrăm">
+        <div class="plate__head">
+          <h2>Fiecare etapă are o revizie.</h2>
+          <p>Știi mereu unde e proiectul și ce urmează. Nimic nu trece mai departe până <span class="nw">nu-l</span> aprobi.</p>
+        </div>
+        <ol class="revs">
+          <li data-row><span class="revs__code">A</span><h3>Discuție și vizită pe teren</h3><p>Ne spui ce vrei și cât vrei să cheltui. Vedem terenul sau clădirea și îți spunem sincer ce se poate face.</p></li>
+          <li data-row><span class="revs__code">B</span><h3>Concept și model 3D</h3><p>Primești casa în 3D. O rotești, o comentezi, o schimbăm până arată cum <span class="nw">ți-ai</span> <span class="nw">imaginat-o</span>.</p></li>
+          <li data-row><span class="revs__code">C</span><h3>Avize și autorizație</h3><p>Pregătim documentația, obținem avizele și depunem dosarul pentru autorizația de construire.</p></li>
+          <li data-row><span class="revs__code">D</span><h3>Proiect tehnic</h3><p>Planuri și detalii după care constructorul poate lucra fără să ghicească.</p></li>
+          <li data-row><span class="revs__code">E</span><h3>Pe șantier</h3><p>Venim pe șantier și urmărim ca ce se construiește să fie ce <span class="nw">s-a</span> desenat.</p></li>
+        </ol>
+      </section>
+
+      <!-- A-05 · Contact -->
+      <section class="plate contact" id="contact" data-sheet="A-05" data-title="Contact">
+        <div class="contact__info">
+          <h2>Hai să ne uităm pe teren.</h2>
+          <p class="contact__lede">Spune-ne ce ai în minte: o casă nouă, o renovare sau doar o întrebare despre autorizație. Prima discuție e fără obligații.</p>
+          <dl class="spec spec--stack">
+            <div><dt>Telefon</dt><dd><a href="tel:+40731835383">0731 835 383</a></dd></div>
+            <div><dt>Birou</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Intrarea+Roma+3+011772+Bucure%C8%99ti" target="_blank" rel="noopener">Intrarea Roma 3, 011772 București</a></dd></div>
+            <div><dt>Program</dt><dd>Până la ora 17:00</dd></div>
+          </dl>
+        </div>
+
+        <form class="form" novalidate>
+          <div class="form__row">
+            <label for="f-name">Nume</label>
+            <input id="f-name" type="text" required autocomplete="name" aria-describedby="f-name-err" />
+            <span class="form__err" id="f-name-err">Scrie-ne cum te cheamă.</span>
+          </div>
+          <div class="form__row">
+            <label for="f-contact">Telefon sau email</label>
+            <input id="f-contact" type="text" required autocomplete="tel" aria-describedby="f-contact-err" />
+            <span class="form__err" id="f-contact-err">Lasă-ne un telefon sau un email ca să te putem contacta.</span>
+          </div>
+          <div class="form__row">
+            <label for="f-type">Despre ce e vorba</label>
+            <select id="f-type">
+              <option>Casă nouă</option>
+              <option>Renovare</option>
+              <option>Design interior</option>
+              <option>Avize și autorizație</option>
+              <option>Altceva</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label for="f-msg">Câteva detalii</label>
+            <textarea id="f-msg" rows="4" required aria-describedby="f-msg-err"></textarea>
+            <span class="form__err" id="f-msg-err">Adaugă măcar o frază despre proiect.</span>
+          </div>
+          <button class="btn btn--full" type="submit">Trimite mesajul</button>
+          <p class="form__status" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p class="foot__name" aria-hidden="true">Est Rise Architecture</p>
+      <div class="foot__row">
+        <p>© 2026 Est Rise Architecture SRL</p>
+        <p>Propunere de site realizată de <a href="https://nodweb.org" target="_blank" rel="noopener">NodWeb</a>. Nu este <span class="nw">site-ul</span> oficial al firmei.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="./est-rise.js"></script>
+</body>
+</html>

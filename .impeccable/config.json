@@ -102,6 +102,15 @@
         ],
         "createdAt": "2026-09-22T23:09:21.901Z",
         "reason": "Claude: h1 is visually hidden (the enamel sign is the hero); visible h2 is 2.2-3.8rem vs 17px body"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "clients/est-rise-architecture/index.html"
+        ],
+        "createdAt": "2026-09-23T10:26:34.372Z",
+        "reason": "Claude: flagged containers are ruled drawing-table rows (spec cells, contact list, field foot) that sit flush on hairline rules by design; cells carry 10-16px padding where they meet vertical rules"
       }
     ]
   }
