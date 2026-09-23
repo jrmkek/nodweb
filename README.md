@@ -14,7 +14,7 @@ index.html               Homepage — NodWeb's own business site (English).
 ro/index.html             Romanian translation of the homepage, for
                           Bucharest-based searches. Linked via hreflang.
 portfolio.css             Layout + dark/technical theme for the homepage
-                          (Bricolage Grotesque + JetBrains Mono, blue accent).
+                          (Nohemi, with the logo in Round 8).
 blog.css                  Layout for the blog/guides section.
 blog/                     3 articles + an index, targeting long-tail local
                           search queries (pricing, "do I need a website",

@@ -1,5 +1,5 @@
 /* Layout for the blog/guides section — reuses NodWeb's tokens.css,
-   base.css, and portfolio.css (dark theme, Bricolage + JetBrains Mono). */
+   base.css, and portfolio.css (dark theme, Nohemi). */
 
 .blog-hero { padding-block: var(--space-10) var(--space-6); }
 .blog-hero .container { max-width: 760px; }
@@ -12,7 +12,6 @@
 .article-card__meta {
   display: flex;
   gap: var(--space-3);
-  font-family: "JetBrains Mono", monospace;
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   margin-bottom: var(--space-2);
@@ -28,7 +27,6 @@
 .article__meta {
   display: flex;
   gap: var(--space-3);
-  font-family: "JetBrains Mono", monospace;
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   margin-bottom: var(--space-6);

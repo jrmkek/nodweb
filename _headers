@@ -11,8 +11,11 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# CSS/JS keep their filenames when they change, so they must be revalidated
+# on every request (cheap 304 via ETag). A long max-age here let Cloudflare's
+# edge keep serving a week-old fonts-nodweb.css after a deploy.
 /shared/css/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=0, must-revalidate
 
 /shared/js/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=0, must-revalidate
