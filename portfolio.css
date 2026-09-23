@@ -85,6 +85,10 @@ body.js-motion-ready .reveal { transition: none; }
    Motion's inline final styles still win once its animation has run. */
 body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px); }
 .btn, .card--link { will-change: transform; }
+/* Not in the carousel: a permanent GPU layer per card (12 of them, most
+   blurred) made Chrome rasterize lazily, so a card sliding in could show up
+   blank for a moment. Motion still promotes a card while it animates it. */
+.work-carousel .card--link { will-change: auto; }
 
 /* ---------- Language switcher ---------- */
 .lang-switch {
