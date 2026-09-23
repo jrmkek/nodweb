@@ -23,7 +23,7 @@
 .article .container {
   max-width: 720px;
 }
-.article h1 { font-size: var(--text-2xl); }
+.article h1 { font-size: min(var(--text-2xl), 10.5vw); }
 .article__meta {
   display: flex;
   gap: var(--space-3);

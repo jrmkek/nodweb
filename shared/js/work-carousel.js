@@ -26,6 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
   track.append(copy(real[0]));
   const slides = [...track.children];
   const last = slides.length - 1;
+  // A thumbnail still downloading would otherwise pop in under an already
+  // focused card on a first visit; fade it in when it arrives instead.
+  track.querySelectorAll("img").forEach((img) => {
+    if (img.complete) return;
+    img.style.opacity = 0;
+    const show = () => { img.style.transition = "opacity 0.3s"; img.style.opacity = ""; };
+    img.addEventListener("load", show, { once: true });
+    img.addEventListener("error", show, { once: true });
+  });
   // Each copy's twin is the real card it stands in for.
   const twin = (i) => (i === 0 ? n : i === last ? 1 : i);
 
@@ -35,9 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let target = 1;
 
   const centreOf = (i) => slides[i].offsetLeft - (track.clientWidth - slides[i].offsetWidth) / 2;
+  // moving = a scroll we started (arrows, clicks, keys) is still in flight.
+  let moving = false;
   const go = (i, how = behavior) => {
     target = Math.max(0, Math.min(last, i));
+    moving = how !== "instant";
     track.scrollTo({ left: centreOf(target), behavior: how });
+    focusOn(target);
   };
 
   // Which card is nearest the middle, and how far off-centre it is (px).
@@ -90,12 +103,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const i = slides.indexOf(pending);
     if (i > -1) { target = i; focusOn(i); }
   };
-  track.addEventListener("touchstart", () => (touching = true), { passive: true });
+  track.addEventListener("touchstart", () => { touching = true; moving = false; }, { passive: true });
   track.addEventListener("touchend", () => { touching = false; applyPending(); }, { passive: true });
   track.addEventListener("scrollsnapchanging", (e) => {
+    if (moving) return;
     pending = e.snapTargetInline;
     if (!touching) applyPending();
   });
+  // The visitor grabbing the carousel mid-animation hands control back to them.
+  const release = () => (moving = false);
+  track.addEventListener("pointerdown", release, { passive: true });
+  track.addEventListener("wheel", release, { passive: true });
 
   let settle;
   let lastLeft = track.scrollLeft;
@@ -103,10 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const moved = Math.abs(track.scrollLeft - lastLeft);
     lastLeft = track.scrollLeft;
     clearTimeout(settle);
+    if (moving) { settle = setTimeout(() => { moving = false; update(); }, 250); return; }
     if (!predicts && !touching && moved < 6 && nearest().dist < 12) update();
     else settle = setTimeout(update, 80);
   }, { passive: true });
-  track.addEventListener("scrollend", () => { clearTimeout(settle); update(); });
+  track.addEventListener("scrollend", () => { clearTimeout(settle); moving = false; update(); });
 
   // The thumbnails are lazy so they don't cost anything up in the hero, but a
   // fast swipe outruns lazy loading and they pop in late. Start fetching them
@@ -147,5 +166,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Open on the first card, with the last one peeking in on its left.
   go(1, "instant");
-  focusOn(1);
 });

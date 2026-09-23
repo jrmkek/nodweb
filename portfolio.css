@@ -34,6 +34,11 @@ body {
 }
 
 h1, h2, h3 { font-weight: 800; letter-spacing: 0.01em; text-transform: uppercase; }
+/* Nohemi's extra-bold capitals are wide: on narrow phones a long word
+   ("BUSINESSES", "PRETENDING", "CHECKLIST-UL") would outgrow its heading,
+   so below ~470px heading sizes follow the screen width instead. */
+h1 { font-size: min(var(--text-3xl), 12vw); }
+h2 { font-size: min(var(--text-2xl), 10.5vw); }
 .btn { font-weight: 600; letter-spacing: 0.02em; }
 .badge { font-weight: 500; letter-spacing: 0.01em; }
 /* The logo is set in Round 8: one weight, so no faked bold. text-box trims
@@ -146,7 +151,9 @@ body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px
 
 .hero { padding-block: var(--space-12) var(--space-10); text-align: center; position: relative; overflow: hidden; }
 .hero .container { max-width: 900px; }
-.hero h1 { font-size: clamp(var(--text-3xl), 5vw + 1rem, 4.25rem); line-height: 1.02; letter-spacing: 0; }
+/* keeps a hyphenated word like "n-ar" from splitting across lines */
+.nowrap { white-space: nowrap; }
+.hero h1 { font-size: min(clamp(var(--text-3xl), 5vw + 1rem, 4.25rem), 13.5vw); line-height: 1.02; letter-spacing: 0; }
 .hero__intro { font-size: var(--text-lg); max-width: 56ch; margin-inline: auto; }
 .hero-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
 .hero .btn--primary {
@@ -343,12 +350,15 @@ body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* minmax(0, …): a text input's built-in ~20-character width would
+     otherwise stop the form shrinking on narrow phones. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-8);
   align-items: start;
 }
+.contact-grid .field input, .contact-grid .field textarea { min-width: 0; }
 @media (max-width: 860px) {
-  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ---------- Pricing page ----------
