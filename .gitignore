@@ -3,3 +3,12 @@ __pycache__/
 .DS_Store
 Thumbs.db
 node_modules/
+
+# Agent / skill tooling: local only. This repo is also the Cloudflare Pages
+# deploy root, so anything committed here is publicly served.
+.agents/
+.claude/agents/
+.claude/skills/
+.claude/settings.local.json
+skills-lock.json
+PRODUCT.md
