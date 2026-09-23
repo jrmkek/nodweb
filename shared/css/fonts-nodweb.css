@@ -1,3 +1,13 @@
+/* Round 8 (atipo): the NodWeb logo only. Webfont license covers nodweb.org
+   alone, so never reuse it on client or example sites. */
+@font-face {
+  font-family: 'Round 8';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/round8-four.woff2') format('woff2');
+}
+
 @font-face {
   font-family: 'Bricolage Grotesque';
   font-style: normal;

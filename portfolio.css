@@ -31,9 +31,26 @@ body {
 }
 
 h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
-.badge, .site-nav__brand, .btn { font-family: "JetBrains Mono", monospace; }
+.badge, .btn { font-family: "JetBrains Mono", monospace; }
 .badge { letter-spacing: 0.06em; }
-.site-nav__brand { letter-spacing: -0.02em; font-weight: 700; }
+/* The logo is set in Round 8: one weight, so no faked bold. text-box trims
+   its line box to the capitals, so the nav's flex centring centres the
+   letters themselves rather than the font's uneven ascent/descent. */
+.site-nav__brand {
+  font-family: "Round 8", "Bricolage Grotesque", sans-serif; font-weight: 400; font-synthesis: none;
+  font-size: 2rem; letter-spacing: 0.01em; line-height: 1;
+  text-box: trim-both cap alphabetic;
+  flex-shrink: 0; margin-right: var(--space-6);
+}
+.site-nav__links .btn { white-space: nowrap; }
+/* The ☰ button inherits the browser's default dark button text; match the menu. */
+.site-nav__toggle { color: var(--color-text); font-size: 1.5rem; line-height: 1; }
+/* Between the phone menu (<=780px) and a roomy desktop, tighten the menu so
+   the logo keeps its distance and "Get a quote" stays on one line. */
+@media (min-width: 781px) and (max-width: 1000px) {
+  .site-nav__links { gap: var(--space-4); }
+  .site-nav__links .btn { padding-inline: var(--space-4); }
+}
 .site-nav__links a[aria-current="page"] { color: var(--color-accent); }
 
 /* Reference style pass (clanofcreators.com): pill buttons + rounder cards,
@@ -293,7 +310,6 @@ body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px
   .work-carousel__btn:hover:not(:disabled) { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-contrast); }
 }
 .work-carousel__btn:disabled { opacity: 0.35; cursor: default; }
-.work-carousel__count { margin: 0; line-height: 1; min-width: 5ch; text-align: center; font-variant-numeric: tabular-nums; color: var(--color-text-muted); font-size: var(--text-sm); }
 @media (prefers-reduced-motion: reduce) {
   #work .work-slide { transition: none; }
   #work .work-carousel .card--link:not(.is-active-preview) { scale: 1; }
