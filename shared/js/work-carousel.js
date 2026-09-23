@@ -1,24 +1,43 @@
 // Work carousel on the homepage. Native scroll-snap does the swiping; this
-// only marks the centred card (.is-active-preview, styled in portfolio.css),
-// wires the arrow buttons, and centres a side card on click or keyboard
-// focus instead of opening it. Without JS it's still a scrollable row of links.
+// marks the centred card (.is-active-preview, styled in portfolio.css),
+// wires the arrow buttons, centres a side card on click or keyboard focus
+// instead of opening it, and makes the row loop. Without JS it's still a
+// scrollable row of links.
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.querySelector("[data-carousel]");
   if (!root) return;
   const track = root.querySelector(".work-carousel__track");
-  const slides = [...track.children];
   const count = root.querySelector("[data-count]");
   const [prev, next] = root.querySelectorAll("[data-dir]");
   const behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+
+  // Looping: a copy of the last card goes before the first and a copy of the
+  // first after the last, so both ends have a neighbour. The copies are
+  // decoration only: hidden from assistive tech and out of the tab order.
+  const real = [...track.children];
+  const n = real.length;
+  const copy = (el) => {
+    const c = el.cloneNode(true);
+    c.setAttribute("aria-hidden", "true");
+    c.tabIndex = -1;
+    return c;
+  };
+  track.prepend(copy(real[n - 1]));
+  track.append(copy(real[0]));
+  const slides = [...track.children];
+  const last = slides.length - 1;
+  // Each copy's twin is the real card it stands in for.
+  const twin = (i) => (i === 0 ? n : i === last ? 1 : i);
+
   // current = the card in focus; target = where the carousel is heading, so
   // quick repeated arrow presses keep advancing before the scroll settles.
   let current = -1;
-  let target = 0;
+  let target = 1;
 
-  const go = (i) => {
-    target = Math.max(0, Math.min(slides.length - 1, i));
-    const s = slides[target];
-    track.scrollTo({ left: s.offsetLeft - (track.clientWidth - s.offsetWidth) / 2, behavior });
+  const centreOf = (i) => slides[i].offsetLeft - (track.clientWidth - slides[i].offsetWidth) / 2;
+  const go = (i, how = behavior) => {
+    target = Math.max(0, Math.min(last, i));
+    track.scrollTo({ left: centreOf(target), behavior: how });
   };
 
   // Which card is nearest the middle, and how far off-centre it is (px).
@@ -33,18 +52,28 @@ document.addEventListener("DOMContentLoaded", () => {
     return { i: best, dist };
   };
 
+  // A copy and its real twin are always focused together, so jumping from
+  // one to the other is invisible.
   const focusOn = (i) => {
     if (i === current) return;
     current = i;
-    slides.forEach((s, n) => s.classList.toggle("is-active-preview", n === i));
-    count.textContent = `${i + 1} / ${slides.length}`;
-    prev.disabled = i === 0;
-    next.disabled = i === slides.length - 1;
+    const t = twin(i);
+    slides.forEach((s, k) => s.classList.toggle("is-active-preview", twin(k) === t));
+    count.textContent = `${t} / ${n}`;
+  };
+
+  // Resting on a copy: jump to the real card without animating.
+  const unloop = () => {
+    const t = twin(current);
+    if (t === current) return;
+    track.scrollTo({ left: track.scrollLeft + slides[t].offsetLeft - slides[current].offsetLeft, behavior: "instant" });
+    current = target = t;
   };
 
   const update = () => {
     target = nearest().i;
     focusOn(target);
+    unloop();
   };
 
   // Focus must not follow every frame (a fast swipe made each card flash
@@ -87,27 +116,36 @@ document.addEventListener("DOMContentLoaded", () => {
     track.querySelectorAll("img[loading=lazy]").forEach((img) => (img.loading = "eager"));
     io.disconnect();
   }, { rootMargin: "800px 0px" }).observe(root);
-  addEventListener("resize", () => go(target));
+  addEventListener("resize", () => go(target, "instant"));
 
   prev.addEventListener("click", () => go(target - 1));
   next.addEventListener("click", () => go(target + 1));
 
+  // A blurred side card comes into focus first; only the centred one opens.
+  // Whether a card was centred is decided at pointerdown: by click time the
+  // press has already focused the link and scrolled it towards the middle,
+  // so checking then would open cards that were blurred when clicked.
+  // Keyboard activation (detail 0) opens directly: focusing it centred it.
+  let pressedCentred = false;
   slides.forEach((s, i) => {
-    // A blurred side card comes into focus first; the centred one opens.
+    s.addEventListener("pointerdown", () => (pressedCentred = twin(i) === twin(current)));
     s.addEventListener("click", (e) => {
-      if (i !== current) { e.preventDefault(); go(i); }
+      if (e.detail === 0 || pressedCentred) return;
+      e.preventDefault();
+      go(i);
     });
-    s.addEventListener("focus", () => go(i));
+    if (twin(i) === i) s.addEventListener("focus", () => go(i));
   });
 
+  // Arrow keys step through the real cards and wrap at the ends.
   track.addEventListener("keydown", (e) => {
     const d = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-    if (d && slides[target + d]) { e.preventDefault(); slides[target + d].focus(); }
+    if (!d) return;
+    e.preventDefault();
+    slides[twin(twin(target) + d)].focus();
   });
 
-  // Open on the second card so there are blurred neighbours on both sides.
-  const start = slides[1] ?? slides[0];
-  track.scrollTo({ left: start.offsetLeft - (track.clientWidth - start.offsetWidth) / 2, behavior: "instant" });
-  target = slides.indexOf(start);
-  focusOn(target);
+  // Open on the first card, with the last one peeking in on its left.
+  go(1, "instant");
+  focusOn(1);
 });

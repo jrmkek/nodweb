@@ -20,8 +20,9 @@ blog/                     3 articles + an index, targeting long-tail local
                           search queries (pricing, "do I need a website",
                           launch checklist). Each has BlogPosting JSON-LD.
 404.html                  Custom 404 page (noindex).
-sitemap.xml               Lists every real page (home, ro, both demo
-                          templates, blog index + 3 posts).
+sitemap.xml               Lists every indexable page (home, pricing and blog,
+                          EN + RO). Example sites are noindex, so left out.
+                          lastmod = date of each page's last commit.
 robots.txt                Allows all crawlers, points to sitemap.xml.
 llms.txt                  Plain-language site summary for LLM crawlers.
 _headers                  Cloudflare Pages headers: caching for static assets/fonts,
