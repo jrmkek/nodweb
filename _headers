@@ -11,6 +11,14 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Client drafts: fonts never change; images and models may be swapped for the
+# client's own files under the same names, so a month rather than immutable.
+/clients/*/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/clients/*/assets/*
+  Cache-Control: public, max-age=2592000
+
 # CSS/JS keep their filenames when they change, so they must be revalidated
 # on every request (cheap 304 via ETag). A long max-age here let Cloudflare's
 # edge keep serving a week-old fonts-nodweb.css after a deploy.

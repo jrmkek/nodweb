@@ -4,7 +4,17 @@
 // piece of content is visible without it.
 
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const motion = reduced ? null : await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null);
+
+// Nothing third-party loads with the page: model-viewer (~1 MB) and Motion
+// arrive on the visitor's first sign of life (pointer, touch, scroll, key).
+// Until then the render photos are the carousel, which is a finished state.
+const firstInteraction = new Promise((resolve) => {
+  const events = ["pointermove", "pointerdown", "touchstart", "wheel", "scroll", "keydown"];
+  const go = () => { events.forEach((e) => removeEventListener(e, go)); resolve(); };
+  events.forEach((e) => addEventListener(e, go, { once: true, passive: true }));
+});
+let motion = null;
+if (!reduced) firstInteraction.then(() => import("https://cdn.jsdelivr.net/npm/motion@11/+esm")).then((m) => (motion = m), () => {});
 const ease = [0.16, 1, 0.3, 1];
 const play = (el, keyframes, options = {}) =>
   motion ? motion.animate(el, keyframes, { duration: 0.6, ease, ...options }) : null;
@@ -30,11 +40,7 @@ if (root) {
   // Bounding-box corners as ±1 multipliers: 0–3 bottom, 4–7 the same corners on top.
   const CORNERS = [[-1, -1, -1], [1, -1, -1], [-1, -1, 1], [1, -1, 1], [-1, 1, -1], [1, 1, -1], [-1, 1, 1], [1, 1, 1]];
 
-  // model-viewer is ~1 MB; fetch it once the page has painted, not before.
-  const loaded = document.readyState === "complete" ? Promise.resolve() : new Promise((r) => addEventListener("load", r, { once: true }));
-  const library = loaded
-    .then(() => new Promise((r) => (window.requestIdleCallback || setTimeout)(r)))
-    .then(() => import("https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"));
+  const library = firstInteraction.then(() => import("https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"));
 
   const mount = (card) => {
     let viewer = card.querySelector("model-viewer");
