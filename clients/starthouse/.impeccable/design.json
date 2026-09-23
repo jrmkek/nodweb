@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T16:00:00Z",
+  "title": "Design System: Starthouse",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Paper Ground", "canonical": "#ffffff", "tonalRamp": ["#1c1b1a", "#353331", "#4f4c49", "#6b6864", "#8a8680", "#aca8a2", "#d2cfca", "#ffffff"] },
+      "iso-top": { "role": "neutral", "displayName": "Iso Top", "canonical": "#ffffff", "tonalRamp": ["#1c1b1a", "#353331", "#4f4c49", "#6b6864", "#8a8680", "#aca8a2", "#d2cfca", "#ffffff"] },
+      "iso-left": { "role": "neutral", "displayName": "Iso Left", "canonical": "#e6e4df", "tonalRamp": ["#1f1e1b", "#383632", "#53504b", "#6f6c66", "#8d8a83", "#adaaa3", "#cfccc6", "#f3f2ef"] },
+      "iso-right": { "role": "neutral", "displayName": "Iso Right", "canonical": "#c9c6bf", "tonalRamp": ["#201f1b", "#3a3833", "#55524c", "#716e67", "#8f8c85", "#afaca5", "#c9c6bf", "#efeeea"] },
+      "ink": { "role": "neutral", "displayName": "Ink (the dark cube)", "canonical": "#171514", "tonalRamp": ["#171514", "#2e2b29", "#46423f", "#5f5a56", "#7a746f", "#98928c", "#bab5b0", "#e2dfdc"] },
+      "ink-2": { "role": "neutral", "displayName": "Ink 2", "canonical": "#57534d", "tonalRamp": ["#1d1b19", "#34312d", "#4d4944", "#57534d", "#827d76", "#a39e97", "#c8c4be", "#eeece9"] },
+      "hair": { "role": "neutral", "displayName": "Hair", "canonical": "#dcd9d3", "tonalRamp": ["#1f1e1b", "#383632", "#53504b", "#6f6c66", "#8d8a83", "#adaaa3", "#dcd9d3", "#f4f3f0"] },
+      "amber": { "role": "primary", "displayName": "Lit-Window Amber", "canonical": "#ef6a1f", "tonalRamp": ["#3a1504", "#62250a", "#8c3810", "#b84c16", "#ef6a1f", "#f68f55", "#fab58c", "#fde2d1"] },
+      "amber-hover": { "role": "primary", "displayName": "Amber Hover", "canonical": "#f47b34", "tonalRamp": ["#3a1504", "#62250a", "#8c3810", "#b84c16", "#f47b34", "#f68f55", "#fab58c", "#fde2d1"] },
+      "dark-cube-top": { "role": "neutral", "displayName": "Dark Cube Top", "canonical": "#3a3633", "tonalRamp": ["#171514", "#2a2725", "#3a3633", "#534e4a", "#6f6964", "#8e8882", "#b3aea8", "#dedbd7"] },
+      "error": { "role": "error", "displayName": "Error Brick", "canonical": "#a3300b", "tonalRamp": ["#2e0c02", "#521706", "#7a2308", "#a3300b", "#cc4a1f", "#e27a55", "#f0a98f", "#fadcd0"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only; lowercase, one clause per line, second clause 700 in ink-2." },
+      "headline": { "displayName": "Headline", "purpose": "Section heads, lowercase with a full stop." },
+      "title": { "displayName": "Title", "purpose": "Service names and process steps; inactive steps muted." },
+      "body": { "displayName": "Body", "purpose": "Running copy at a 40-52ch measure." },
+      "label": { "displayName": "Label", "purpose": "Segmented toggles, caption tags, counters." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "spring", "value": "linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1)", "purpose": "Anything moving into place: carousel cards (.9s), pager and stair markers (.7-.8s), cubes lifting on hover (.4-.6s)." },
+      { "name": "out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Fades, filters, clip-path wipes, photo hover zoom; also the Motion easing." },
+      { "name": "hop", "value": "0.6s, keyframes up-across-down, times [0, 0.45, 1], ease [easeOut, cubic-bezier(0.3, 0, 0.2, 1.4)]", "purpose": "The dark 'here' cube moving between positions in the pager and staircase." },
+      { "name": "reduced", "value": "transition-duration: 0.01ms", "purpose": "prefers-reduced-motion collapses all transitions; Motion is not loaded." }
+    ],
+    "breakpoints": [
+      { "name": "nav-collapse", "value": "1080px" },
+      { "name": "stack", "value": "900px" },
+      { "name": "compact", "value": "560px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action: amber, square, with a dark cube leading the label that springs up on hover.",
+      "html": "<button class=\"ds-btn\"><svg class=\"ds-cube\" viewBox=\"0 0 40 46\" aria-hidden=\"true\"><path class=\"t\" d=\"M20 0l20 11.5L20 23 0 11.5z\"/><path class=\"l\" d=\"M0 11.5L20 23v23L0 34.5z\"/><path class=\"r\" d=\"M20 23l20-11.5v23L20 46z\"/></svg>Let's start the house</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 22px; border: 0; border-radius: 0; background: #ef6a1f; color: #171514; font: 700 16px/1.2 'Schibsted Grotesk', system-ui, sans-serif; cursor: pointer; transition: background .2s, transform .5s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover { background: #f47b34; } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2px solid #ef6a1f; outline-offset: 3px; } .ds-cube { width: 15px; height: 17px; overflow: visible; transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1); } .ds-cube path { stroke: #171514; stroke-width: 1.4; stroke-linejoin: round; vector-effect: non-scaling-stroke; } .ds-cube .t { fill: #3a3633; } .ds-cube .l { fill: #171514; } .ds-cube .r { fill: #000; } .ds-btn:hover .ds-cube { transform: translateY(-5px); }"
+    },
+    {
+      "name": "Arrow Button",
+      "kind": "button",
+      "refersTo": "button-arrow",
+      "description": "Carousel previous/next: 44px square iso-top face that inverts to ink on hover.",
+      "html": "<button class=\"ds-arrow\" aria-label=\"Next\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M9 5l7 7-7 7\"/></svg></button>",
+      "css": ".ds-arrow { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #171514; border-radius: 0; background: #fff; color: #171514; cursor: pointer; transition: background .2s, color .2s; } .ds-arrow svg { width: 18px; height: 18px; } .ds-arrow:hover { background: #171514; color: #fff; } .ds-arrow:focus-visible { outline: 2px solid #ef6a1f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Segmented Toggle",
+      "kind": "chip",
+      "refersTo": "segmented-toggle-on",
+      "description": "RO/EN and Render/3D: ink-ruled box, pressed option filled ink.",
+      "html": "<div class=\"ds-seg\" role=\"group\"><button aria-pressed=\"true\">RO</button><button aria-pressed=\"false\">EN</button></div>",
+      "css": ".ds-seg { display: inline-flex; border: 1px solid #171514; } .ds-seg button { border: 0; background: none; color: #171514; padding: 5px 9px; font: 700 13px/1.3 'Schibsted Grotesk', system-ui, sans-serif; letter-spacing: .04em; cursor: pointer; } .ds-seg button[aria-pressed='true'] { background: #171514; color: #fff; } .ds-seg button:focus-visible { outline: 2px solid #ef6a1f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Square, ink-ruled, amber caret and amber focus outline; error brick on invalid.",
+      "html": "<label class=\"ds-field\"><span>Where is the plot?</span><input placeholder=\"Pecica, Arad\"></label>",
+      "css": ".ds-field { display: grid; gap: 7px; font: 600 14px/1.4 'Schibsted Grotesk', system-ui, sans-serif; color: #171514; } .ds-field input { padding: 13px 14px; border: 1px solid #171514; border-radius: 0; background: #fff; color: #171514; font: 400 17px/1.55 'Schibsted Grotesk', system-ui, sans-serif; caret-color: #ef6a1f; } .ds-field input::placeholder { color: #7a756e; } .ds-field input:focus { outline: 2px solid #ef6a1f; outline-offset: -1px; } .ds-field input[aria-invalid='true'] { border-color: #a3300b; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Ink-2 at rest; the current section goes ink and a small dark cube drops in beside it.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"is-here\"><svg class=\"ds-mk\" viewBox=\"0 0 40 46\"><path d=\"M20 0l20 11.5L20 23 0 11.5z\" fill=\"#3a3633\"/><path d=\"M0 11.5L20 23v23L0 34.5z\" fill=\"#171514\"/><path d=\"M20 23l20-11.5v23L20 46z\" fill=\"#000\"/></svg>Work</a><a href=\"#\"><svg class=\"ds-mk\" viewBox=\"0 0 40 46\"><path d=\"M20 0l20 11.5L20 23 0 11.5z\" fill=\"#3a3633\"/><path d=\"M0 11.5L20 23v23L0 34.5z\" fill=\"#171514\"/><path d=\"M20 23l20-11.5v23L20 46z\" fill=\"#000\"/></svg>Services</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 22px; font: 500 15px/1 'Schibsted Grotesk', system-ui, sans-serif; } .ds-nav a { display: flex; align-items: center; gap: 7px; color: #57534d; text-decoration: none; transition: color .2s; } .ds-nav a:hover, .ds-nav a.is-here { color: #171514; } .ds-mk { width: 11px; height: 13px; opacity: 0; transform: translateY(-4px); transition: opacity .3s cubic-bezier(0.16, 1, 0.3, 1), transform .4s cubic-bezier(0.34, 1.56, 0.64, 1); } .ds-nav a.is-here .ds-mk { opacity: 1; transform: none; } .ds-nav a:focus-visible { outline: 2px solid #ef6a1f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Caption Tag",
+      "kind": "chip",
+      "refersTo": "caption-tag",
+      "description": "White ink-ruled label pinned over photos.",
+      "html": "<span class=\"ds-tag\">Glass-gabled cabins</span>",
+      "css": ".ds-tag { display: inline-block; padding: 5px 9px; background: #fff; border: 1px solid #171514; color: #171514; font: 600 13px/1.3 'Schibsted Grotesk', system-ui, sans-serif; }"
+    },
+    {
+      "name": "Coverflow Card",
+      "kind": "card",
+      "refersTo": "coverflow-card",
+      "description": "4:5 square-cornered card with an ink rule and a 52px foot bar; position, depth, turn and blur derive from --d/--a.",
+      "html": "<article class=\"ds-card\" style=\"--d:0;--a:0\"><div class=\"ds-card__art\"></div><div class=\"ds-card__foot\"><b>Twin-gable house</b><span class=\"ds-card__seg\"><i aria-pressed=\"true\">Render</i><i>3D</i></span></div></article>",
+      "css": ".ds-card { position: relative; width: 240px; aspect-ratio: 4/5; background: #fff; border: 1px solid #171514; overflow: hidden; transform: translateX(calc(var(--d) * 178px)) translateZ(calc(var(--a) * -240px)) rotateY(calc(var(--d) * -34deg)); filter: blur(calc(min(var(--a), 2) * 3.5px)); transition: transform .9s cubic-bezier(0.34, 1.56, 0.64, 1), filter .6s cubic-bezier(0.16, 1, 0.3, 1); } .ds-card__art { position: absolute; inset: 0 0 52px; background: #e6e4df; } .ds-card__foot { position: absolute; left: 0; right: 0; bottom: 0; height: 52px; display: flex; align-items: center; justify-content: space-between; padding-inline: 14px; border-top: 1px solid #171514; font: 700 13px/1.3 'Schibsted Grotesk', system-ui, sans-serif; color: #171514; } .ds-card__seg { display: flex; border: 1px solid #171514; } .ds-card__seg i { font-style: normal; padding: 5px 9px; font-size: 12px; } .ds-card__seg i[aria-pressed='true'] { background: #171514; color: #fff; }"
+    },
+    {
+      "name": "Iso Cube",
+      "kind": "custom",
+      "refersTo": "cube",
+      "description": "The system's one glyph: three faces from iso tokens, ink edges; the dark variant marks 'here'. Hover lifts it on the spring.",
+      "html": "<span class=\"ds-cubes\"><svg class=\"ds-c\" viewBox=\"0 0 40 46\"><path class=\"t\" d=\"M20 0l20 11.5L20 23 0 11.5z\"/><path class=\"l\" d=\"M0 11.5L20 23v23L0 34.5z\"/><path class=\"r\" d=\"M20 23l20-11.5v23L20 46z\"/></svg><svg class=\"ds-c is-dark\" viewBox=\"0 0 40 46\"><path class=\"t\" d=\"M20 0l20 11.5L20 23 0 11.5z\"/><path class=\"l\" d=\"M0 11.5L20 23v23L0 34.5z\"/><path class=\"r\" d=\"M20 23l20-11.5v23L20 46z\"/></svg></span>",
+      "css": ".ds-cubes { display: inline-flex; gap: 16px; } .ds-c { width: 34px; height: 39px; overflow: visible; transition: transform .6s cubic-bezier(0.34, 1.56, 0.64, 1); } .ds-c path { stroke: #171514; stroke-width: 1.4; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: fill .35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-c .t { fill: #fff; } .ds-c .l { fill: #e6e4df; } .ds-c .r { fill: #c9c6bf; } .ds-c.is-dark .t, .ds-c:hover .t { fill: #3a3633; } .ds-c.is-dark .l, .ds-c:hover .l { fill: #171514; } .ds-c.is-dark .r, .ds-c:hover .r { fill: #000; } .ds-c.is-dark, .ds-c:hover { transform: translateY(-6px); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Dark Cube Means Here",
+    "overview": "The Starthouse logo, nine isometric cubes with one dark, is the operating system of the page. A single SVG cube (top, left and right faces plus an ink edge) is reused everywhere, and whichever cube is dark marks where the visitor is: the focused project in the carousel pager, the section in view in the nav, the step being read on the process staircase, the service row under the pointer, the cube inside the primary action. Everything else stays white, square and quiet.\n\nThe world is a white ground with things extruded from it in three iso face tones and drawn with 1px ink rules. Density is calm: wide section padding, a 5/7 column split, heavy tight lowercase headlines that echo the wordmark, and regular-weight body copy in ink-2. The one warm note is a lit-window amber, kept for the primary action, keyboard focus and text selection. Motion is a spring: cards, cubes and markers overshoot a touch and settle, like pieces set down on a board.\n\nThe page is bilingual (Romanian default, English toggle), with both languages present in the markup and the root `lang` choosing which shows.",
+    "keyCharacteristics": [
+      "One cube symbol, three face tones, one dark state that always means \"here\".",
+      "White ground, square corners, 1px ink rules as the only framing device.",
+      "Heavy tight lowercase display type in one family (Schibsted Grotesk, 400 to 900).",
+      "Amber is rare: primary action, focus, selection, the live-3D indicator. Nothing else.",
+      "Spring motion (a CSS `linear()` easing) for everything that moves into place."
+    ],
+    "rules": [
+      { "name": "The Lit Window Rule", "body": "Amber marks the one thing to do and where the keyboard is. If a surface has two amber things that are not the primary action and focus, one is wrong.", "section": "colors" },
+      { "name": "The Dark Cube Rule", "body": "Dark (ink faces) is a state, not a decoration. On any cube group exactly one cube is dark, and it is the current one.", "section": "colors" },
+      { "name": "The Wordmark Rule", "body": "Headlines are lowercase, heavy (800+) and tracked tight (-0.035em or tighter), like \"starthouse\". Body never goes above 400 except for emphasis in labels and links.", "section": "typography" },
+      { "name": "The Extrusion Rule", "body": "If something needs to look raised, draw it as a cube face. Never use a drop shadow for it.", "section": "elevation" }
+    ],
+    "dos": [
+      "**Do** reuse the single cube symbol and colour it through its face variables; one dark cube per group, on the current item.",
+      "**Do** frame with 1px ink rules and keep every corner square (0).",
+      "**Do** set headlines lowercase at 800 or heavier with tight negative tracking.",
+      "**Do** keep amber for the primary action, focus, selection and the caret.",
+      "**Do** move things into place with the spring easing, and honour reduced motion (transitions collapse to near-zero).",
+      "**Do** ship both languages in the markup as `lang` spans and let the root `lang` pick."
+    ],
+    "donts": [
+      "**Don't** use drop shadows for raised UI; draw iso faces instead.",
+      "**Don't** round corners on cards, buttons, inputs or tags.",
+      "**Don't** use gradient fills on surfaces or type (the carousel's edge-fade mask is the only gradient, and it is a mask).",
+      "**Don't** use amber as a section, card or text colour.",
+      "**Don't** make a cube dark as ornament; dark means \"here\"."
+    ]
+  }
+}

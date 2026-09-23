@@ -111,6 +111,24 @@
         ],
         "createdAt": "2026-09-23T10:26:34.372Z",
         "reason": "Claude: flagged containers are ruled drawing-table rows (spec cells, contact list, field foot) that sit flush on hairline rules by design; cells carry 10-16px padding where they meet vertical rules"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "clients/starthouse/index.html"
+        ],
+        "createdAt": "2026-09-23T12:27:33.879Z",
+        "reason": "Claude: flagged containers are ruled list rows (services, contact info) with 14-28px padding-block, and the ink tile/proof band whose padding sits on the inner .wrap; captures show the insets"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "clients/starthouse/index.html"
+        ],
+        "createdAt": "2026-09-23T12:35:27.205Z",
+        "reason": "Claude: flagged ratios 1.08-1.27 are display-size lines (project name 20-26px at 1.1, proof statement 22-37px at 1.15, ink-tile statement); body copy is 1.55"
       }
     ]
   }

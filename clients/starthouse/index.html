@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-ro="Starthouse: arhitectură și design în Pecica, Arad" data-en="Starthouse: architecture and design in Pecica, Arad">Starthouse: arhitectură și design în Pecica, Arad</title>
+  <meta name="description" content="Birou de arhitectură și design din Pecica, Arad. Case și cabane de munte cu forme simple și materiale sincere. Propunere de site realizată de NodWeb." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="./assets/starthouse-favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="./fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./fonts/schibsted-grotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+/* Starthouse: pitch draft by NodWeb.
+   The logo is the system: nine isometric cubes, one dark. The dark cube
+   always means "here" (focused project, current section, current step).
+   Amber is the lit window, kept for the primary action and focus. */
+
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("./fonts/schibsted-grotesk-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("./fonts/schibsted-grotesk-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --ground: #ffffff;
+  --top: #ffffff;       /* iso faces: top, left, right */
+  --left: #e6e4df;
+  --right: #c9c6bf;
+  --ink: #171514;       /* the dark cube */
+  --logo: #321a0f;      /* the brown-black of the Starthouse mark */
+  --ink-2: #57534d;
+  --line: #171514;
+  --hair: #dcd9d3;
+  --amber: #ef6a1f;     /* the lit window */
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1440px;
+  /* a spring as a CSS easing: overshoots a touch, then settles */
+  --spring: linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);
+  --out: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
+}
+
+/* Language toggle: both languages ship in the markup, the root lang picks one. */
+html[lang="ro"] [lang="en"], html[lang="en"] [lang="ro"] { display: none !important; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 17px/1.55 "Schibsted Grotesk", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+::selection { background: var(--amber); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+button { font: inherit; color: inherit; }
+h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; text-wrap: balance; }
+p { margin: 0; }
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.nw { white-space: nowrap; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- cube glyph (shared SVG symbol) ---------- */
+.cube { width: 1em; height: 1.15em; flex: none; overflow: visible; }
+#cube .t { fill: var(--c-top, var(--top)); }
+#cube .l { fill: var(--c-left, var(--left)); }
+#cube .r { fill: var(--c-right, var(--right)); }
+#cube path { stroke: var(--c-line, var(--line)); stroke-width: 1.4; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: fill .35s var(--out); }
+.is-dark { --c-top: #3a3633; --c-left: var(--ink); --c-right: #000; }
+
+/* ---------- header ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--ground) 92%, transparent);
+  backdrop-filter: saturate(1.2) blur(10px);
+  border-bottom: 1px solid var(--hair);
+}
+.bar__in { display: flex; align-items: center; gap: 28px; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.mark { width: 50px; height: auto; flex: none; overflow: visible; }
+.mark path { fill: #fff; stroke: var(--logo); stroke-width: 1px; stroke-linejoin: miter; vector-effect: non-scaling-stroke; }
+.mark .k { fill: var(--logo); }
+.brand b { font-size: 23px; font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
+.brand sup { font-size: 10px; font-weight: 500; vertical-align: 10px; margin-left: 1px; }
+.nav { display: flex; gap: 22px; margin-left: auto; }
+.nav a { display: flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 500; text-decoration: none; color: var(--ink-2); transition: color .2s; }
+.nav a .cube { --c-top: #3a3633; --c-left: var(--ink); --c-right: #000; font-size: 11px; opacity: 0; transform: translateY(-4px); transition: opacity .3s var(--out), transform .4s var(--spring); }
+.nav a:hover, .nav a.is-here { color: var(--ink); }
+.nav a.is-here .cube { opacity: 1; transform: none; }
+.lang { display: flex; border: 1px solid var(--line); }
+.lang button { border: 0; background: none; padding: 5px 9px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+.bar__tel { font-weight: 700; font-size: 15px; text-decoration: none; white-space: nowrap; }
+.bar__tel:hover { text-decoration: underline; }
+
+/* ---------- hero ---------- */
+.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); align-items: center; min-height: min(calc(100svh - 64px), 820px); padding-block: clamp(28px, 4vw, 56px); }
+.hero h1 { font-size: clamp(3rem, 6.6vw, 6rem); font-weight: 850; letter-spacing: -0.045em; line-height: 0.9; }
+.hero h1 span { display: block; }
+.hero h1 em { font-style: normal; color: var(--ink-2); font-weight: 700; }
+.lede { max-width: 40ch; margin-top: 28px; font-size: clamp(17px, 1.3vw, 19px); color: var(--ink-2); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 34px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 22px; border: 0; background: var(--amber); color: var(--ink);
+  font-weight: 700; font-size: 16px; text-decoration: none; cursor: pointer;
+  transition: background .2s, transform .5s var(--spring);
+}
+.btn .cube { font-size: 15px; --c-top: #3a3633; --c-left: var(--ink); --c-right: #000; transition: transform .5s var(--spring); }
+.btn:hover { background: #f47b34; }
+.btn:hover .cube { transform: translateY(-5px); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .55; cursor: progress; }
+.tel { font-weight: 700; font-size: 18px; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.tel small { display: block; font-size: 13px; font-weight: 500; color: var(--ink-2); border: 0; }
+
+/* ---------- 3D focus carousel ---------- */
+.show { position: relative; min-width: 0; }
+.stage {
+  --w: clamp(230px, 27vw, 400px);
+  position: relative; height: calc(var(--w) * 1.22 + 24px);
+  perspective: 1400px; perspective-origin: 50% 40%;
+  overflow: clip; touch-action: pan-y; outline: none;
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+.stage:focus-visible { outline: 2px solid var(--amber); outline-offset: -2px; }
+.card {
+  --d: 0; --a: 0;                     /* signed offset from the focused card, and its absolute value */
+  position: absolute; top: 12px; left: 50%; width: var(--w); aspect-ratio: 4 / 5;
+  margin-left: calc(var(--w) / -2);
+  background: var(--top); border: 1px solid var(--line);
+  transform: translateX(calc(var(--d) * var(--w) * 0.74)) translateZ(calc(var(--a) * -240px)) rotateY(calc(var(--d) * -34deg));
+  filter: blur(calc(min(var(--a), 2) * 3.5px)) saturate(calc(1 - min(var(--a), 1) * 0.6));
+  opacity: calc(1 - var(--a) * 0.28);
+  z-index: calc(10 - var(--a));
+  transition: transform .9s var(--spring), filter .6s var(--out), opacity .6s var(--out);
+  cursor: pointer; overflow: hidden;
+}
+.card[data-far] { opacity: 0; pointer-events: none; }
+.card.is-focus { cursor: auto; }
+.card__art { position: absolute; inset: 0 0 52px; background: var(--top); }
+.card__art img { width: 100%; height: 100%; object-fit: cover; transition: clip-path .7s var(--out); }
+.card model-viewer {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  --poster-color: transparent; background: var(--top);
+  clip-path: inset(0 0 0 100%);
+}
+.card model-viewer::part(default-progress-bar) { display: none; }
+.card.is-3d model-viewer { clip-path: inset(0 0 0 0); }
+.card__foot {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 52px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding-inline: 14px; border-top: 1px solid var(--line); background: var(--top);
+}
+.card__tag { font-size: 13px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card__tag b { color: var(--ink); font-weight: 700; }
+.toggle { display: flex; border: 1px solid var(--line); flex: none; }
+.toggle button { border: 0; background: none; padding: 5px 9px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.toggle button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+.toggle button:disabled { color: var(--ink-2); cursor: progress; }
+.card:not(.is-focus) .toggle { visibility: hidden; }
+.card__hint {
+  position: absolute; left: 14px; top: 12px; z-index: 2;
+  display: flex; align-items: center; gap: 8px; padding: 5px 8px;
+  background: var(--top); border: 1px solid var(--line);
+  font-size: 12px; font-weight: 600; pointer-events: none;
+  opacity: 0; transform: translateY(-4px); transition: opacity .4s var(--out), transform .4s var(--out);
+}
+.card.is-focus.is-3d .card__hint { opacity: 1; transform: none; }
+.card__hint i { width: 7px; height: 7px; background: var(--amber); }
+
+.dock { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 22px; margin-top: 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+.pager { position: relative; width: 120px; height: 104px; }
+.pager button { position: absolute; width: 40px; height: 46px; padding: 0; border: 0; background: none; cursor: pointer; clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.pager button .cube { width: 40px; height: 46px; }
+.pager button:hover .cube { --c-top: #fff3ea; }
+.pager button:focus-visible { outline-offset: 0; }
+.pager__here { position: absolute; left: 0; top: 0; width: 40px; height: 46px; pointer-events: none; z-index: 9; transition: transform .7s var(--spring); }
+.pager__here { overflow: visible; }
+.now { min-width: 0; }
+.now__name { font-size: clamp(20px, 1.8vw, 26px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.now__note { font-size: 12px; color: var(--ink-2); margin-top: 6px; }
+.arrows { display: flex; align-items: center; gap: 10px; }
+.arrows output { font-variant-numeric: tabular-nums; font-size: 14px; font-weight: 600; min-width: 5ch; text-align: center; }
+.arrow { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--top); cursor: pointer; transition: background .2s, color .2s; }
+.arrow:hover { background: var(--ink); color: var(--ground); }
+.arrow svg { width: 18px; height: 18px; }
+
+/* ---------- sections ---------- */
+.sec { padding-block: clamp(80px, 11vw, 150px); }
+.sec__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
+.sec__head h2 { font-size: clamp(2.4rem, 5vw, 4.6rem); }
+.sec__head p { max-width: 52ch; color: var(--ink-2); }
+
+/* work: their own photos on a modular grid */
+.work { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(150px, 16vw, 230px); gap: 10px; }
+.work figure { position: relative; margin: 0; overflow: hidden; background: var(--left); }
+.work img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--out); }
+.work figure:hover img { transform: scale(1.04); }
+.work figcaption {
+  position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px);
+  padding: 5px 9px; background: var(--top); border: 1px solid var(--line);
+  font-size: 13px; font-weight: 600; line-height: 1.3;
+}
+.w-a { grid-column: span 3; grid-row: span 2; }
+.w-b { grid-column: span 3; }
+.w-d { grid-column: span 2; }
+.w-c { grid-column: span 2; grid-row: span 2; }
+.work .w-ink { grid-column: span 4; background: var(--ink); color: var(--ground); padding: clamp(16px, 2vw, 26px); display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+.w-ink p { font-size: clamp(16px, 1.3vw, 19px); line-height: 1.35; }
+.w-ink a { font-weight: 700; color: var(--ground); display: inline-flex; align-items: center; gap: 8px; }
+.w-ink .cube { font-size: 22px; }
+.w-ink .cube { --c-line: var(--ground); }
+
+/* services: a list of cubes, the one you point at goes dark */
+.svc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.svc li { display: grid; grid-template-columns: 56px minmax(0, 6fr) minmax(0, 5fr); gap: clamp(12px, 2.5vw, 40px); align-items: center; padding-block: clamp(18px, 2.2vw, 28px); border-bottom: 1px solid var(--line); }
+.svc .cube { font-size: 34px; transition: transform .6s var(--spring); }
+.svc li:hover .cube, .svc li.is-here .cube { --c-top: #3a3633; --c-left: var(--ink); --c-right: #000; transform: translateY(-6px); }
+.svc h3 { font-size: clamp(1.9rem, 4.2vw, 3.6rem); letter-spacing: -0.04em; }
+.svc p { color: var(--ink-2); max-width: 44ch; }
+
+/* process: a staircase of cubes, the dark one climbs as you read */
+.proc { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); }
+.stair { position: sticky; top: 110px; align-self: start; }
+.stair svg { width: min(100%, 260px); height: auto; overflow: visible; margin-top: 40px; }
+.stair__here { transition: transform .8s var(--spring); }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; }
+.steps li { padding-block: clamp(28px, 4vw, 56px); border-top: 1px solid var(--line); }
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps h3 { transition: color .4s var(--out); }
+.steps li:not(.is-here) h3 { color: #8f8a83; }
+.steps h3 { display: flex; align-items: baseline; gap: 14px; font-size: clamp(1.9rem, 3.8vw, 3.2rem); }
+.steps h3 small { font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--ink-2); }
+.steps p { margin-top: 14px; max-width: 46ch; color: var(--ink-2); font-size: 18px; }
+
+/* proof */
+.proof { background: var(--ink); color: var(--ground); }
+.proof__in { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 5vw, 80px); align-items: center; padding-block: clamp(64px, 9vw, 120px); }
+.proof b { font-size: clamp(6rem, 17vw, 15rem); font-weight: 900; letter-spacing: -0.04em; line-height: 0.8; color: var(--ground); }
+.proof p { font-size: clamp(1.4rem, 2.6vw, 2.3rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; max-width: 22ch; }
+.proof small { display: block; margin-top: 16px; font-size: 15px; font-weight: 400; letter-spacing: 0; color: #b9b5ae; }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); }
+.contact h2 { font-size: clamp(2.8rem, 6vw, 5.6rem); }
+.info { list-style: none; margin: 36px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.info li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding-block: 14px; border-bottom: 1px solid var(--hair); }
+.info span { color: var(--ink-2); font-size: 15px; }
+.info a { font-weight: 600; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; align-content: start; }
+.form__row { display: grid; gap: 7px; }
+.form__row--wide { grid-column: 1 / -1; }
+.form label { font-size: 14px; font-weight: 600; }
+.form label small { font-weight: 400; color: var(--ink-2); }
+.form input, .form textarea {
+  width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 0;
+  background: var(--top); color: var(--ink); font: inherit; caret-color: var(--amber);
+}
+.form textarea { min-height: 150px; resize: vertical; }
+.form input::placeholder, .form textarea::placeholder { color: #7a756e; }
+.form input:focus, .form textarea:focus { outline: 2px solid var(--amber); outline-offset: -1px; }
+.form__err { display: none; font-size: 13px; color: #a3300b; font-weight: 600; }
+.is-invalid input, .is-invalid textarea { border-color: #a3300b; }
+.is-invalid .form__err { display: block; }
+.form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.form__status { font-weight: 600; }
+
+/* footer */
+.foot { border-top: 1px solid var(--line); padding-block: 36px 48px; font-size: 14px; color: var(--ink-2); }
+.foot__in { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: space-between; align-items: flex-start; }
+.foot .brand b { color: var(--ink); font-size: 20px; }
+.mark--foot { width: 64px; }
+.foot p { max-width: 62ch; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  .nav { display: none; }
+  .lang { margin-left: auto; }
+}
+@media (max-width: 900px) {
+  .hero, .sec__head, .proc, .contact { grid-template-columns: 1fr; }
+  .hero { min-height: 0; }
+  .stage { --w: min(72vw, 360px); }
+  .stair { position: static; }
+  .stair svg { width: 150px; margin-top: 0; }
+  .work { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(150px, 42vw, 240px); }
+  .w-a { grid-column: span 2; }
+  .w-b, .w-c, .w-d { grid-column: span 1; grid-row: span 1; }
+  .work .w-ink { grid-column: 1 / -1; }
+  .svc li { grid-template-columns: 40px minmax(0, 1fr); }
+  .svc li p { grid-column: 2; }
+  .svc .cube { font-size: 26px; }
+}
+@media (max-width: 560px) {
+  .bar__tel { display: none; }
+  .dock { grid-template-columns: auto minmax(0, 1fr); }
+  .arrows { grid-column: 1 / -1; justify-content: space-between; }
+  .pager { transform: scale(.85); transform-origin: left center; margin-right: -16px; }
+  .form { grid-template-columns: 1fr; }
+  .proof__in { grid-template-columns: 1fr; }
+  .info li { grid-template-columns: 90px minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+  </style>
+</head>
+<body>
+  <!-- One cube, reused everywhere: top, left and right faces take their fill from CSS. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="cube" viewBox="0 0 40 46" overflow="visible">
+      <path class="t" d="M20 0l20 11.5L20 23 0 11.5z" />
+      <path class="l" d="M0 11.5L20 23v23L0 34.5z" />
+      <path class="r" d="M20 23l20-11.5v23L20 46z" />
+    </symbol>
+  </svg>
+
+  <header class="bar">
+    <div class="wrap bar__in">
+      <a class="brand" href="#top" aria-label="Starthouse">
+        <svg class="mark" viewBox="0 0 174.25 147.02" aria-hidden="true"><path d="M87.12 0.50L113.08 18.38L87.12 36.26L61.17 18.38Z"/><path d="M56.79 21.16L82.74 39.04L56.79 56.92L30.84 39.04Z"/><path d="M117.46 21.16L143.41 39.04L117.46 56.92L91.51 39.04Z"/><path d="M26.45 41.82L52.40 59.70L26.45 77.58L0.50 59.70Z"/><path d="M0.50 59.70L26.45 77.58L26.45 105.20L0.50 87.32Z"/><path d="M87.12 41.82L113.08 59.70L87.12 77.58L61.17 59.70Z"/><path class="k" d="M147.80 41.82L173.75 59.70L147.80 77.58L121.85 59.70Z"/><path class="k" d="M147.80 77.58L173.75 59.70L173.75 87.32L147.80 105.20Z"/><path d="M56.79 62.48L82.74 80.36L56.79 98.23L30.84 80.36Z"/><path d="M30.84 80.36L56.79 98.23L56.79 125.86L30.84 107.98Z"/><path d="M117.46 62.48L143.41 80.36L117.46 98.23L91.51 80.36Z"/><path d="M117.46 98.23L143.41 80.36L143.41 107.98L117.46 125.86Z"/><path d="M87.12 83.14L113.08 101.02L87.12 118.89L61.17 101.02Z"/><path d="M61.17 101.02L87.12 118.89L87.12 146.52L61.17 128.64Z"/><path d="M87.12 118.89L113.08 101.02L113.08 128.64L87.12 146.52Z"/></svg>
+        <b>starthouse<sup>®</sup></b>
+      </a>
+      <nav class="nav" aria-label="Secțiuni" data-aria-ro="Secțiuni" data-aria-en="Sections">
+        <a href="#proiecte"><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><span lang="ro">Proiecte 3D</span><span lang="en">3D projects</span></a>
+        <a href="#lucrari"><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><span lang="ro">Lucrări</span><span lang="en">Work</span></a>
+        <a href="#servicii"><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><span lang="ro">Servicii</span><span lang="en">Services</span></a>
+        <a href="#proces"><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><span lang="ro">Cum lucrăm</span><span lang="en">Process</span></a>
+        <a href="#contact"><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><span lang="ro">Contact</span><span lang="en">Contact</span></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Limba / Language">
+        <button type="button" data-lang="ro" aria-pressed="true">RO</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="bar__tel" href="tel:+40746478259">0746 478 259</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero" id="proiecte" data-nav>
+      <div>
+        <h1>
+          <span lang="ro">forme curate.</span><span lang="ro"><em>materiale sincere.</em></span>
+          <span lang="en">clean forms.</span><span lang="en"><em>honest materials.</em></span>
+        </h1>
+        <p class="lede">
+          <span lang="ro">Starthouse este un birou de arhitectură și design din Pecica, Arad. Proiectăm case și cabane de munte cu forme simple, lemn, sticlă și beton lăsate să se vadă.</span>
+          <span lang="en">Starthouse is an architecture and design office in Pecica, Arad. We design homes and mountain cabins with simple forms, and timber, glass and concrete left in plain sight.</span>
+        </p>
+        <div class="actions">
+          <a class="btn" href="#contact">
+            <svg class="cube" aria-hidden="true"><use href="#cube" /></svg>
+            <span lang="ro">Hai să începem casa</span><span lang="en">Let’s start the house</span>
+          </a>
+          <a class="tel" href="tel:+40746478259">0746 478 259<small><span lang="ro">sau scrie-ne un mesaj</span><span lang="en">or send us a message</span></small></a>
+        </div>
+      </div>
+
+      <div class="show" data-carousel>
+        <!-- Placeholder 3D content: models and renders are NodWeb's demonstration set
+             (from the Apollo demo). Swap each data-model / poster for Starthouse's own exports. -->
+        <div class="stage" tabindex="0" role="region" aria-roledescription="carusel" data-aria-ro="Proiecte 3D, folosește săgețile stânga și dreapta" data-aria-en="3D projects, use the left and right arrow keys" aria-label="Proiecte 3D, folosește săgețile stânga și dreapta">
+          <article class="card" data-model="./assets/models/living-staggered.glb" data-ro="Casă cu etaj în consolă|Locuință" data-en="House with a cantilevered upper floor|Home">
+            <div class="card__art"><img src="./assets/render-living-staggered-480.webp" srcset="./assets/render-living-staggered-480.webp 480w, ./assets/render-living-staggered.webp 900w" sizes="(max-width: 900px) 72vw, 27vw" width="900" height="675" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" data-model="./assets/models/villa-gable-roof.glb" data-ro="Casă cu două frontoane|Locuință" data-en="Twin-gable house|Home">
+            <div class="card__art"><img src="./assets/render-villa-gable-roof-480.webp" srcset="./assets/render-villa-gable-roof-480.webp 480w, ./assets/render-villa-gable-roof.webp 900w" sizes="(max-width: 900px) 72vw, 27vw" width="900" height="675" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" data-model="./assets/models/villa-double-height.glb" data-ro="Vilă cu living pe dublă înălțime|Locuință" data-en="Villa with a double-height living room|Home">
+            <div class="card__art"><img src="./assets/render-villa-double-height-480.webp" srcset="./assets/render-villa-double-height-480.webp 480w, ./assets/render-villa-double-height.webp 900w" sizes="(max-width: 900px) 72vw, 27vw" width="900" height="675" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" data-model="./assets/models/kitchen-pavilion.glb" data-ro="Pavilion vitrat pentru bucătărie|Extindere" data-en="Glazed kitchen pavilion|Extension">
+            <div class="card__art"><img src="./assets/render-kitchen-pavilion-480.webp" srcset="./assets/render-kitchen-pavilion-480.webp 480w, ./assets/render-kitchen-pavilion.webp 900w" sizes="(max-width: 900px) 72vw, 27vw" width="900" height="675" alt="" loading="lazy" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" data-model="./assets/models/penthouse-terraces.glb" data-ro="Terase în trepte|Locuințe colective" data-en="Stepped terraces|Apartment building">
+            <div class="card__art"><img src="./assets/render-penthouse-terraces-480.webp" srcset="./assets/render-penthouse-terraces-480.webp 480w, ./assets/render-penthouse-terraces.webp 900w" sizes="(max-width: 900px) 72vw, 27vw" width="900" height="675" alt="" loading="lazy" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" data-model="./assets/models/bathroom-light-tower.glb" data-ro="Baie sub luminator|Interior" data-en="Bathroom under a skylight|Interior">
+            <div class="card__art"><img src="./assets/render-bathroom-light-tower-480.webp" srcset="./assets/render-bathroom-light-tower-480.webp 480w, ./assets/render-bathroom-light-tower.webp 900w" sizes="(max-width: 900px) 72vw, 27vw" width="900" height="675" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+        </div>
+
+        <div class="dock">
+          <div class="pager" role="group" data-aria-ro="Alege proiectul" data-aria-en="Choose a project" aria-label="Alege proiectul">
+            <svg class="pager__here is-dark" viewBox="0 0 40 46" aria-hidden="true"><use href="#cube" width="40" height="46" /></svg>
+          </div>
+          <div class="now" aria-live="polite">
+            <div class="now__name" data-now="name"></div>
+            <div class="now__note"><span data-now="type"></span> · <span lang="ro">model și randare demonstrative</span><span lang="en">demonstration model and render</span></div>
+          </div>
+          <div class="arrows">
+            <button class="arrow" type="button" data-dir="-1" data-aria-ro="Proiectul anterior" data-aria-en="Previous project" aria-label="Proiectul anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg></button>
+            <output data-count>01 / 06</output>
+            <button class="arrow" type="button" data-dir="1" data-aria-ro="Proiectul următor" data-aria-en="Next project" aria-label="Proiectul următor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="lucrari" data-nav>
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">din planșă pe teren.</span><span lang="en">from drawing to site.</span></h2>
+          <p><span lang="ro">Cabane cu fronton vitrat pe pantă, case cu acoperiș terasă, structuri din lemn care se ridică. Câteva dintre proiectele și șantierele Starthouse.</span><span lang="en">Glass-gabled cabins on a slope, flat-roofed family homes, timber frames going up. A few of Starthouse’s projects and building sites.</span></p>
+        </div>
+        <div class="work">
+          <figure class="w-a"><img src="./assets/photo-cabin-glass-gable.webp" width="640" height="640" alt="Două cabane din lemn cu frontoane vitrate, pe o pantă de munte" data-alt-en="Two timber cabins with glazed gables on a mountain slope" loading="lazy" /><figcaption><span lang="ro">Cabane cu fronton vitrat</span><span lang="en">Glass-gabled cabins</span></figcaption></figure>
+          <figure class="w-b"><img src="./assets/photo-house-flat-roofs.webp" width="640" height="360" alt="Casă modernă pe două niveluri, cu acoperiș terasă și grădină cu dale" data-alt-en="Two-storey modern house with flat roofs and a paved garden" loading="lazy" /><figcaption><span lang="ro">Casă cu acoperiș terasă</span><span lang="en">Flat-roofed family home</span></figcaption></figure>
+          <figure class="w-d"><img src="./assets/photo-gable-frames-site.webp" width="640" height="640" alt="Cadre din lemn în două ape ridicate pe o platformă, cu munții în spate" data-alt-en="Gabled timber frames raised on a platform with mountains behind" loading="lazy" /><figcaption><span lang="ro">Structura, în lucru</span><span lang="en">The frame, going up</span></figcaption></figure>
+          <figure><img src="./assets/photo-terrace-view.webp" width="361" height="640" alt="Terasă acoperită cu vedere spre dealuri" data-alt-en="Covered terrace looking out over the hills" loading="lazy" /><figcaption><span lang="ro">Terasa</span><span lang="en">The terrace</span></figcaption></figure>
+          <figure class="w-c"><img src="./assets/photo-a-frame-night.webp" width="640" height="640" alt="Randare: cabană A-frame luminată, noaptea, sub cerul înstelat" data-alt-en="Render: a lit A-frame cabin at night under the stars" loading="lazy" /><figcaption><span lang="ro">Randare: cabană A-frame</span><span lang="en">Render: A-frame cabin</span></figcaption></figure>
+          <figure class="w-d"><img src="./assets/photo-brick-house-render.webp" width="540" height="328" alt="Randare: casă pe parter cu volume albe și cărămidă aparentă" data-alt-en="Render: single-storey house with white volumes and exposed brick" loading="lazy" /><figcaption><span lang="ro">Randare: casă pe parter</span><span lang="en">Render: single-storey home</span></figcaption></figure>
+          <figure class="w-d"><img src="./assets/photo-house-terrace-build.webp" width="640" height="640" alt="Casă în execuție, cu parapet din cărămidă și balustradă de sticlă" data-alt-en="House under construction with a brick parapet and glass balustrade" loading="lazy" /><figcaption><span lang="ro">Execuție</span><span lang="en">On site</span></figcaption></figure>
+          <div class="w-ink">
+            <p><span lang="ro">Fotografii din proiectele și de pe șantierele Starthouse. Mai multe, pe Instagram.</span><span lang="en">Photos from Starthouse projects and sites. More on Instagram.</span></p>
+            <a href="https://www.instagram.com/starthouse_design/" rel="noopener" target="_blank"><svg class="cube" aria-hidden="true"><use href="#cube" /></svg>@starthouse_design</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="servicii" data-nav style="padding-top: 0">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">ce facem.</span><span lang="en">what we do.</span></h2>
+          <p><span lang="ro">Arhitectură și design, de la primul drum pe teren până când casa e locuită.</span><span lang="en">Architecture and design, from the first visit to the plot until the house is lived in.</span></p>
+        </div>
+        <ul class="svc">
+          <li><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><h3><span lang="ro">case</span><span lang="en">homes</span></h3><p><span lang="ro">Locuințe pentru o familie, gândite pentru terenul, orientarea și bugetul tău.</span><span lang="en">Family homes shaped around your plot, its orientation and your budget.</span></p></li>
+          <li><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><h3><span lang="ro">cabane de munte</span><span lang="en">mountain cabins</span></h3><p><span lang="ro">Case de vacanță din lemn, făcute pentru pantă, zăpadă și priveliște.</span><span lang="en">Timber holiday homes built for the slope, the snow and the view.</span></p></li>
+          <li><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><h3><span lang="ro">interioare</span><span lang="en">interiors</span></h3><p><span lang="ro">Design interior care continuă arhitectura, cu aceleași materiale și aceeași lumină.</span><span lang="en">Interiors that carry the architecture inside, with the same materials and light.</span></p></li>
+          <li class="spice is-here"><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><h3><span lang="ro">randări</span><span lang="en">renders</span></h3><p><span lang="ro">Casa, văzută fotorealist înainte de șantier, ca <span class="nw">cabana A-frame</span> de mai sus.</span><span lang="en">The house, shown photo-real before the site opens, like the <span class="nw">A-frame cabin</span> above.</span></p></li>
+          <li><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><h3><span lang="ro">pe șantier</span><span lang="en">on site</span></h3><p><span lang="ro">Rămânem aproape și după ce începe execuția, ca desenul să ajungă întocmai în beton și lemn.</span><span lang="en">We stay close once building starts, so the drawing ends up in concrete and timber exactly as drawn.</span></p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="proces" data-nav style="padding-top: 0">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">cum lucrăm.</span><span lang="en">how we work.</span></h2>
+          <p><span lang="ro">Patru pași, în ordinea în care se construiește o casă.</span><span lang="en">Four steps, in the order a house gets built.</span></p>
+        </div>
+        <div class="proc">
+          <div class="stair" aria-hidden="true">
+            <svg viewBox="-2 -130 104 178">
+              <g>
+                <use href="#cube" x="60" y="-34.5" width="40" height="46" />
+                <use href="#cube" x="60" y="-57.5" width="40" height="46" />
+                <use href="#cube" x="60" y="-80.5" width="40" height="46" />
+                <use href="#cube" x="60" y="-103.5" width="40" height="46" />
+                <use href="#cube" x="40" y="-23" width="40" height="46" />
+                <use href="#cube" x="40" y="-46" width="40" height="46" />
+                <use href="#cube" x="40" y="-69" width="40" height="46" />
+                <use href="#cube" x="20" y="-11.5" width="40" height="46" />
+                <use href="#cube" x="20" y="-34.5" width="40" height="46" />
+                <use href="#cube" x="0" y="-0" width="40" height="46" />
+              </g>
+              <g class="stair__here"><use href="#cube" class="is-dark" x="0" y="-23" width="40" height="46" /></g>
+            </svg>
+          </div>
+          <ol class="steps">
+            <li data-step="0"><h3><small>1</small><span lang="ro">terenul</span><span lang="en">the plot</span></h3><p><span lang="ro">Venim pe teren, ascultăm ce îți dorești și vedem ce permite locul: vecini, pantă, soare, acces.</span><span lang="en">We visit the plot, listen to what you want and read what the place allows: neighbours, slope, sun, access.</span></p></li>
+            <li data-step="1"><h3><small>2</small><span lang="ro">conceptul</span><span lang="en">the concept</span></h3><p><span lang="ro">Volume, orientare, lumină. Primele variante le vezi în 3D, nu doar pe hârtie.</span><span lang="en">Volumes, orientation, light. You see the first options in 3D, not only on paper.</span></p></li>
+            <li data-step="2"><h3><small>3</small><span lang="ro">proiectul</span><span lang="en">the project</span></h3><p><span lang="ro">Planșele complete, pentru autorizație și pentru constructor, fără loc de interpretări.</span><span lang="en">The full drawing set, for the permit and for the builder, with nothing left to guesswork.</span></p></li>
+            <li data-step="3"><h3><small>4</small><span lang="ro">execuția</span><span lang="en">the build</span></h3><p><span lang="ro">Urmărim șantierul până când randarea devine casă.</span><span lang="en">We follow the site until the render becomes a house.</span></p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="wrap proof__in">
+        <b>94%</b>
+        <p><span lang="ro">dintre cei care au lăsat o recenzie pe Facebook recomandă Starthouse.</span><span lang="en">of the people who reviewed Starthouse on Facebook recommend it.</span><small><span lang="ro">13 recenzii pe pagina Starthouse, septembrie 2026</span><span lang="en">13 reviews on the Starthouse page, September 2026</span></small></p>
+      </div>
+    </section>
+
+    <section class="sec" id="contact" data-nav>
+      <div class="wrap contact">
+        <div>
+          <h2><span lang="ro">hai să începem casa.</span><span lang="en">let’s start the house.</span></h2>
+          <ul class="info">
+            <li><span lang="ro">Telefon</span><span lang="en">Phone</span><a href="tel:+40746478259">0746 478 259</a></li>
+            <li><span>Email</span><a href="mailto:starthousecom@gmail.com">starthousecom@gmail.com</a></li>
+            <li><span lang="ro">Birou</span><span lang="en">Office</span><div>Str. 211, nr. 9<br />Pecica, jud. Arad</div></li>
+            <li><span lang="ro">Social</span><span lang="en">Social</span><div><a href="https://www.instagram.com/starthouse_design/" rel="noopener" target="_blank">Instagram</a> · <a href="https://www.facebook.com/starthousedesign" rel="noopener" target="_blank">Facebook</a></div></li>
+          </ul>
+        </div>
+        <!-- Demo form: no name attribute, so it validates and confirms without sending. -->
+        <form class="form" novalidate>
+          <div class="form__row">
+            <label for="f-name"><span lang="ro">Nume</span><span lang="en">Name</span></label>
+            <input id="f-name" type="text" autocomplete="name" required />
+            <span class="form__err"><span lang="ro">Spune-ne cum te cheamă.</span><span lang="en">Tell us your name.</span></span>
+          </div>
+          <div class="form__row">
+            <label for="f-contact"><span lang="ro">Telefon sau email</span><span lang="en">Phone or email</span></label>
+            <input id="f-contact" type="text" autocomplete="email" required />
+            <span class="form__err"><span lang="ro">Avem nevoie de un telefon sau un email ca să-ți răspundem.</span><span lang="en">We need a phone number or email to reply.</span></span>
+          </div>
+          <div class="form__row form__row--wide">
+            <label for="f-place"><span lang="ro">Unde e terenul?</span><span lang="en">Where is the plot?</span> <small><span lang="ro">(opțional)</span><span lang="en">(optional)</span></small></label>
+            <input id="f-place" type="text" placeholder="Pecica, Arad" />
+          </div>
+          <div class="form__row form__row--wide">
+            <label for="f-msg"><span lang="ro">Ce vrei să construim?</span><span lang="en">What would you like to build?</span></label>
+            <textarea id="f-msg" required data-ph-ro="O casă pe parter pentru o familie de patru, o cabană la munte…" data-ph-en="A single-storey home for a family of four, a cabin in the mountains…" placeholder="O casă pe parter pentru o familie de patru, o cabană la munte…"></textarea>
+            <span class="form__err"><span lang="ro">Scrie-ne câteva cuvinte despre proiect.</span><span lang="en">Write a few words about the project.</span></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn" type="submit"><svg class="cube" aria-hidden="true"><use href="#cube" /></svg><span lang="ro">Trimite mesajul</span><span lang="en">Send the message</span></button>
+            <p class="form__status" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <a class="brand" href="#top"><svg class="mark mark--foot" viewBox="0 0 174.25 147.02" aria-hidden="true"><path d="M87.12 0.50L113.08 18.38L87.12 36.26L61.17 18.38Z"/><path d="M56.79 21.16L82.74 39.04L56.79 56.92L30.84 39.04Z"/><path d="M117.46 21.16L143.41 39.04L117.46 56.92L91.51 39.04Z"/><path d="M26.45 41.82L52.40 59.70L26.45 77.58L0.50 59.70Z"/><path d="M0.50 59.70L26.45 77.58L26.45 105.20L0.50 87.32Z"/><path d="M87.12 41.82L113.08 59.70L87.12 77.58L61.17 59.70Z"/><path class="k" d="M147.80 41.82L173.75 59.70L147.80 77.58L121.85 59.70Z"/><path class="k" d="M147.80 77.58L173.75 59.70L173.75 87.32L147.80 105.20Z"/><path d="M56.79 62.48L82.74 80.36L56.79 98.23L30.84 80.36Z"/><path d="M30.84 80.36L56.79 98.23L56.79 125.86L30.84 107.98Z"/><path d="M117.46 62.48L143.41 80.36L117.46 98.23L91.51 80.36Z"/><path d="M117.46 98.23L143.41 80.36L143.41 107.98L117.46 125.86Z"/><path d="M87.12 83.14L113.08 101.02L87.12 118.89L61.17 101.02Z"/><path d="M61.17 101.02L87.12 118.89L87.12 146.52L61.17 128.64Z"/><path d="M87.12 118.89L113.08 101.02L113.08 128.64L87.12 146.52Z"/></svg><b>starthouse<sup>®</sup></b></a>
+      <p><span lang="ro">Propunere de site realizată de <a href="/ro/">NodWeb</a>. Fotografiile sunt de pe paginile Starthouse; modelele 3D și randările din carusel sunt demonstrative și se înlocuiesc cu proiectele voastre. Serviciile și etapele sunt deduse din postările voastre și le confirmăm împreună.</span><span lang="en">Website proposal by <a href="/">NodWeb</a>. Photos come from the Starthouse pages; the 3D models and renders in the carousel are demonstration material, to be replaced with your own projects. Services and steps are read from your posts and still to be confirmed together.</span></p>
+    </div>
+  </footer>
+
+  <script type="module" src="./starthouse.js"></script>
+</body>
+</html>
