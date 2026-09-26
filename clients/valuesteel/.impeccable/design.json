@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T04:00:00Z",
+  "title": "Design System: ValueSteel",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "White Ground",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b2b2b2",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Steel Ink",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b2b2b2",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "#4a4a4a",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b2b2b2",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "mute": {
+        "role": "neutral",
+        "displayName": "Unread Grey",
+        "canonical": "#858585",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b2b2b2",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "hair": {
+        "role": "neutral",
+        "displayName": "Hair",
+        "canonical": "#dedede",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b2b2b2",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "orange": {
+        "role": "primary",
+        "displayName": "Logo Orange",
+        "canonical": "#f0592a",
+        "tonalRamp": [
+          "#471505",
+          "#7c2409",
+          "#b0330c",
+          "#e54310",
+          "#f1673c",
+          "#f59070",
+          "#f9bca9",
+          "#fdece7"
+        ]
+      },
+      "orange-hi": {
+        "role": "primary",
+        "displayName": "Hot Orange",
+        "canonical": "#f46d43",
+        "tonalRamp": [
+          "#481404",
+          "#7d2307",
+          "#b2320a",
+          "#e7410e",
+          "#f36639",
+          "#f78f6e",
+          "#fabca8",
+          "#feece7"
+        ]
+      },
+      "orange-tint": {
+        "role": "primary",
+        "displayName": "Orange Wash",
+        "canonical": "#fde4da",
+        "tonalRamp": [
+          "#491804",
+          "#7e2907",
+          "#b33a0a",
+          "#e84b0d",
+          "#f46e39",
+          "#f7956e",
+          "#fabfa8",
+          "#feede7"
+        ]
+      },
+      "built": {
+        "role": "neutral",
+        "displayName": "Built Grey",
+        "canonical": "#ececec",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b2b2b2",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Error Brick",
+        "canonical": "#a3300b",
+        "tonalRamp": [
+          "#481505",
+          "#7c2508",
+          "#b1340c",
+          "#e5440f",
+          "#f2683b",
+          "#f59070",
+          "#f9bda9",
+          "#fdede7"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; uppercase, one clause per line, key phrase underlined in orange."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads, uppercase with a full stop."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Service names and process steps; unread steps in mute."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy at a 42-52ch measure, tabular numerals."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Segmented toggles, caption tags, notes."
+      },
+      "member-mark": {
+        "displayName": "Member Mark",
+        "purpose": "Member IDs (T1, D2, S3) inside member labels."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "spring",
+        "value": "linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1)",
+        "purpose": "Anything moving into place: carousel cards (.9s), pager fill clip-path (.7s), service and nav triangles (.4-.6s), button triangle turn (.5s)."
+      },
+      {
+        "name": "out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Fades, filters, triangle and tower fills, photo hover zoom (1.2s)."
+      },
+      {
+        "name": "wipe",
+        "value": "clip-path inset(0 0 0 100%) to inset(0), 0.8s",
+        "purpose": "The render-to-3D wipe on the focused card."
+      },
+      {
+        "name": "label-stagger",
+        "value": "0.45s per label, 0.12s stagger, 0.55s start delay",
+        "purpose": "Member labels landing one after another after the 3D wipe."
+      },
+      {
+        "name": "reduced",
+        "value": "transition-duration: 0.01ms",
+        "purpose": "prefers-reduced-motion collapses all transitions and stops model auto-rotate."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav-collapse",
+        "value": "1080px"
+      },
+      {
+        "name": "stack",
+        "value": "900px"
+      },
+      {
+        "name": "compact",
+        "value": "560px"
+      }
+    ],
+    "patterns": [
+      {
+        "name": "lattice",
+        "value": "url(assets/lattice.svg) 0 0 / 281px 141px",
+        "purpose": "Client truss pattern, orange 1px hairline on white: behind the carousel stage (70%) and the footer (45%, masked to the left half)."
+      },
+      {
+        "name": "lattice-white",
+        "value": "url(assets/lattice-white.svg) 0 0 / 281px 141px",
+        "purpose": "The same pattern in white at 50% on the orange proof field."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action: an orange field with ink text, led by a solid ink triangle that turns on hover.",
+      "html": "<button class=\"ds-btn\"><svg class=\"ds-tri\" viewBox=\"0 0 22 20\" aria-hidden=\"true\"><polygon points=\"11,1 21,19 1,19\"/></svg>Ask for a quote</button>",
+      "css": ".ds-tri { width: 1.1em; height: 1em; overflow: visible; } .ds-tri polygon { fill: var(--tri-fill, #fff); stroke: var(--tri-line, #111); stroke-width: 1.3; stroke-linejoin: miter; vector-effect: non-scaling-stroke; transition: fill .35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 22px; border: 0; border-radius: 0; background: #f0592a; color: #111; font: 600 16px/1.2 'Barlow', system-ui, sans-serif; cursor: pointer; transition: background .2s, transform .5s linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1); } .ds-btn .ds-tri { --tri-fill: #111; --tri-line: #111; font-size: 15px; transition: transform .5s linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1); } .ds-btn:hover { background: #f46d43; } .ds-btn:hover .ds-tri { transform: rotate(90deg); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2px solid #f0592a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Arrow Button",
+      "kind": "button",
+      "refersTo": "button-arrow",
+      "description": "44px square carousel step; inverts to ink on hover.",
+      "html": "<button class=\"ds-arrow\" aria-label=\"Next\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M9 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-arrow { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #111; border-radius: 0; background: #fff; color: #111; cursor: pointer; transition: background .2s, color .2s; } .ds-arrow svg { width: 18px; height: 18px; } .ds-arrow:hover { background: #111; color: #fff; } .ds-arrow:focus-visible { outline: 2px solid #f0592a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Segmented Toggle",
+      "kind": "chip",
+      "refersTo": "segmented-toggle-on",
+      "description": "RO/EN and Render/3D: a 1px ink box, the pressed option filled ink.",
+      "html": "<div class=\"ds-seg\"><button aria-pressed=\"true\">RO</button><button aria-pressed=\"false\">EN</button></div>",
+      "css": ".ds-seg { display: inline-flex; border: 1px solid #111; } .ds-seg button { border: 0; background: none; color: #111; padding: 5px 9px; font: 600 13px/1.3 'Barlow', system-ui, sans-serif; letter-spacing: 0.04em; cursor: pointer; } .ds-seg button[aria-pressed=\"true\"] { background: #111; color: #fff; } .ds-seg button:focus-visible { outline: 2px solid #f0592a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Square, ink-ruled field with an orange caret and an orange focus outline.",
+      "html": "<label class=\"ds-field\"><span>Name</span><input type=\"text\" /></label>",
+      "css": ".ds-field { display: grid; gap: 7px; font: 600 14px/1.3 'Barlow', system-ui, sans-serif; color: #111; } .ds-field input { padding: 13px 14px; border: 1px solid #111; border-radius: 0; background: #fff; color: #111; font: 400 17px/1.55 'Barlow', system-ui, sans-serif; caret-color: #f0592a; } .ds-field input:focus { outline: 2px solid #f0592a; outline-offset: -1px; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "15px 600 ink-2 link; the current section goes ink and gains an orange triangle.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\"><svg class=\"ds-tri\" viewBox=\"0 0 22 20\" aria-hidden=\"true\"><polygon points=\"11,1 21,19 1,19\"/></svg>Work</a><a href=\"#\" class=\"is-here\"><svg class=\"ds-tri\" viewBox=\"0 0 22 20\" aria-hidden=\"true\"><polygon points=\"11,1 21,19 1,19\"/></svg>Services</a></nav>",
+      "css": ".ds-tri { width: 1.1em; height: 1em; overflow: visible; } .ds-tri polygon { fill: var(--tri-fill, #fff); stroke: var(--tri-line, #111); stroke-width: 1.3; stroke-linejoin: miter; vector-effect: non-scaling-stroke; transition: fill .35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav { display: flex; gap: 24px; } .ds-nav a { display: flex; align-items: center; gap: 7px; font: 600 15px/1.2 'Barlow', system-ui, sans-serif; color: #4a4a4a; text-decoration: none; transition: color .2s; } .ds-nav .ds-tri { --tri-fill: #f0592a; font-size: 11px; opacity: 0; transform: translateY(-4px); transition: opacity .3s cubic-bezier(0.16, 1, 0.3, 1), transform .4s linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1); } .ds-nav a:hover, .ds-nav a.is-here { color: #111; } .ds-nav a.is-here .ds-tri { opacity: 1; transform: none; } .ds-nav a:focus-visible { outline: 2px solid #f0592a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Caption Tag",
+      "kind": "chip",
+      "refersTo": "caption-tag",
+      "description": "White ink-ruled caption pinned bottom-left over photos.",
+      "html": "<span class=\"ds-tag\">Looking up through a space frame</span>",
+      "css": ".ds-tag { display: inline-flex; padding: 5px 9px; background: #fff; border: 1px solid #111; color: #111; font: 600 13px/1.3 'Barlow', system-ui, sans-serif; }"
+    },
+    {
+      "name": "Member Label",
+      "kind": "custom",
+      "refersTo": "member-label",
+      "description": "Orange node, ink leader at -40deg, and a tag with a condensed member mark: shop-drawing annotation on models and photos.",
+      "html": "<div class=\"ds-pin-wrap\"><div class=\"ds-pin\"><span><b>T1</b>chord</span></div></div>",
+      "css": ".ds-pin-wrap { position: relative; width: 180px; height: 70px; } .ds-pin { --x: 22px; position: absolute; left: 20px; bottom: 12px; width: 9px; height: 9px; border: 1px solid #111; background: #f0592a; } .ds-pin::before { content: ''; position: absolute; left: 7px; bottom: 7px; width: var(--x); height: 1px; background: #111; transform-origin: 0 50%; transform: rotate(-40deg); } .ds-pin > span { position: absolute; left: calc(var(--x) * 0.77 + 4px); bottom: calc(var(--x) * 0.64 + 4px); padding: 2px 6px; background: #fff; border: 1px solid #111; color: #111; font: 600 11px/1.3 'Barlow', sans-serif; white-space: nowrap; } .ds-pin b { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 800; margin-right: 5px; }"
+    },
+    {
+      "name": "Warren-Truss Pager",
+      "kind": "custom",
+      "refersTo": "pager",
+      "description": "One inset triangle per item, alternating up and down; the orange fill slides to the current one via clip-path.",
+      "html": "<div class=\"ds-pager\"><div class=\"ds-pager-here\"></div><svg viewBox=\"0 0 126 36\" aria-hidden=\"true\"><polygon points=\"4.5,33.4 31.5,33.4 18,8.6\"/><polygon points=\"22.5,2.6 49.5,2.6 36,27.4\"/><polygon points=\"40.5,33.4 67.5,33.4 54,8.6\"/><polygon points=\"58.5,2.6 85.5,2.6 72,27.4\"/><polygon points=\"76.5,33.4 103.5,33.4 90,8.6\"/><polygon points=\"94.5,2.6 121.5,2.6 108,27.4\"/></svg></div>",
+      "css": ".ds-pager { position: relative; width: 126px; height: 36px; } .ds-pager-here { position: absolute; inset: 0; background: #f0592a; clip-path: polygon(22.5px 2.6px, 49.5px 2.6px, 36px 27.4px); transition: clip-path .7s linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1); } .ds-pager:hover .ds-pager-here { clip-path: polygon(58.5px 2.6px, 85.5px 2.6px, 72px 27.4px); } .ds-pager svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; } .ds-pager polygon { fill: none; stroke: #111; stroke-width: 1.3; stroke-linejoin: miter; }"
+    },
+    {
+      "name": "Proof Field",
+      "kind": "card",
+      "refersTo": "proof-field",
+      "description": "The logo turned into a field: orange ground (white lattice in the build), ink type.",
+      "html": "<section class=\"ds-proof\"><b>5,0</b><p>Five stars out of five.</p></section>",
+      "css": ".ds-proof { display: flex; align-items: center; gap: 32px; padding: 48px 32px; background: #f0592a; color: #111; } .ds-proof b { font: 800 7rem/0.78 'Barlow Condensed', 'Arial Narrow', sans-serif; } .ds-proof p { font: 700 1.9rem/1 'Barlow Condensed', 'Arial Narrow', sans-serif; text-transform: uppercase; max-width: 18ch; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Orange Triangle Means Here",
+    "overview": "The ValueSteel mark, a tapered lattice panel of steel legs and K-bracing with orange triangles between the members, is the operating system of the page. One triangle symbol is reused everywhere. Drawn as an ink outline on white it is structure; filled orange it marks where the visitor is: the section in view in the nav, the focused structure in the Warren-truss pager, the service row crossing the middle of the screen, the process level being read on the lattice tower, and the triangle leading the primary action (drawn solid ink there, because the button itself is the orange field).\n\nThe world is a white ground, 1px ink rules and heavy condensed uppercase type that echoes the VALUESTEEL wordmark. The client's own truss pattern, redrawn as a hairline orange lattice, sits behind the carousel stage and the footer and turns white on the one orange field (the proof band). Orange is committed as a field (button, proof band, pager fill, \"here\" fills) with ink text on it; it is never a text colour on white. The page reads like a shop drawing: square frames, member marks on leader lines, tabular numerals. Motion is a spring: cards, triangles and the pager fill overshoot a touch and settle.\n\nThe page is bilingual (Romanian default, English toggle), with both languages present in the markup and the root `lang` choosing which shows.",
+    "keyCharacteristics": [
+      "One triangle symbol: outlined is structure, orange-filled is \"here\", exactly one lit per group.",
+      "The client's lattice as ground texture: orange hairline on white, white hairline on orange.",
+      "Barlow Condensed 700/800 uppercase display, Barlow 400/600 body, tabular numerals throughout.",
+      "Square corners, 1px ink rules, no shadows; the traced logo's rounded panel is the only curve.",
+      "Engineering annotation: member marks (T, D, S, F...) on leader lines pinned to models and photos.",
+      "Spring motion (a CSS `linear()` easing) for everything moving into place."
+    ],
+    "rules": [
+      {
+        "name": "The Here Rule",
+        "body": "Orange fill on a triangle is a state, never ornament. In any group of triangles exactly one is lit, and it is the current one.",
+        "section": "colors"
+      },
+      {
+        "name": "The Field Rule",
+        "body": "Orange is laid down as a field with ink on it (button, proof band, pager fill). Never set orange text on white; the hero's orange is an underline under ink words, not ink turned orange.",
+        "section": "colors"
+      },
+      {
+        "name": "The Wordmark Rule",
+        "body": "Every heading is Barlow Condensed, uppercase, 700 or heavier, tracked -0.01em, line height under 1.05. Body type never goes condensed.",
+        "section": "typography"
+      },
+      {
+        "name": "The Drawn Not Cast Rule",
+        "body": "If something needs separating, give it a 1px ink rule. Never a drop shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** reuse the single triangle symbol and colour it through `--tri-fill` / `--tri-line`; one orange triangle per group, on the current item.",
+      "**Do** lay orange down as a field with ink on it, and keep the lattice orange on white or white on orange.",
+      "**Do** frame with 1px ink rules and keep every corner square (0).",
+      "**Do** set headings in Barlow Condensed uppercase at 700 or 800, with tabular numerals for counts and member IDs.",
+      "**Do** annotate structures with member marks on leader lines, the way the client's shop drawings do.",
+      "**Do** move things into place with the spring easing, and honour reduced motion (transitions collapse to near-zero).",
+      "**Do** ship both languages in the markup as `lang` spans and let the root `lang` pick."
+    ],
+    "donts": [
+      "**Don't** set orange text on white.",
+      "**Don't** light a triangle orange as decoration; orange fill means \"here\".",
+      "**Don't** use drop shadows or gradient fills (edge-fade masks are the only gradients).",
+      "**Don't** round corners on cards, buttons, inputs, tags or labels; the rounded panel belongs to the logo alone.",
+      "**Don't** redraw the client's mark from the triangle symbol, or swap the lattice for a generic grid or dot pattern."
+    ]
+  }
+}

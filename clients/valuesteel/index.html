@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-ro="ValueSteel: structuri metalice în București" data-en="ValueSteel: steel structures in Bucharest">ValueSteel: structuri metalice în București</title>
+  <meta name="description" content="Structuri metalice proiectate, fabricate și montate în București: copertine, hale, scări, pergole. De la scanare laser 3D și model BIM până la montaj. Propunere de site realizată de NodWeb." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="./assets/valuesteel-favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="./assets/render-space-frame-canopy-480.webp" imagesrcset="./assets/render-space-frame-canopy-480.webp 480w, ./assets/render-space-frame-canopy-640.webp 640w, ./assets/render-space-frame-canopy.webp 900w" imagesizes="(max-width: 900px) min(72vw, 360px), 27vw" fetchpriority="high" />
+  <link rel="preload" href="./fonts/barlow-condensed-800-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+/* ValueSteel: pitch draft by NodWeb.
+   The logo is the system: a lattice panel, steel members with orange
+   triangles between them. Outlined triangles are the structure; the one
+   filled orange means "here" (focused model, current section, current step). */
+
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url("./fonts/barlow-condensed-700-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url("./fonts/barlow-condensed-700-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; font-display: swap; src: url("./fonts/barlow-condensed-800-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; font-display: swap; src: url("./fonts/barlow-condensed-800-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Barlow"; font-weight: 400; font-display: swap; src: url("./fonts/barlow-400-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Barlow"; font-weight: 400; font-display: swap; src: url("./fonts/barlow-400-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Barlow"; font-weight: 600; font-display: swap; src: url("./fonts/barlow-600-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Barlow"; font-weight: 600; font-display: swap; src: url("./fonts/barlow-600-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+:root {
+  --ground: #ffffff;
+  --ink: #111111;
+  --ink-2: #4a4a4a;
+  --mute: #858585;        /* steps not yet read */
+  --line: #111111;
+  --hair: #dedede;
+  --orange: #f0592a;      /* the logo orange: "here", the primary action, the lattice */
+  --orange-hi: #f46d43;
+  --orange-tint: #fde4da;
+  --built: #ececec;       /* tower levels already read */
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1440px;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  /* a spring as a CSS easing: overshoots a touch, then settles */
+  --spring: linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);
+  --out: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
+}
+
+/* Language toggle: both languages ship in the markup, the root lang picks one. */
+html[lang="ro"] [lang="en"], html[lang="en"] [lang="ro"] { display: none !important; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 72px; scrollbar-color: var(--ink) var(--ground); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 17px/1.55 "Barlow", system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+::selection { background: var(--orange); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+button { font: inherit; color: inherit; }
+h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.92; text-wrap: balance; }
+p { margin: 0; }
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.nw { white-space: nowrap; }
+
+/* ---------- the lattice (client's pattern) and the triangle glyph ---------- */
+.lattice { position: relative; isolation: isolate; }
+.lattice::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url("./assets/lattice.svg") 0 0 / 281px 141px;
+}
+.tri { width: 1.1em; height: 1em; flex: none; overflow: visible; }
+#tri polygon { fill: var(--tri-fill, var(--ground)); stroke: var(--tri-line, var(--ink)); stroke-width: var(--tri-w, 1.3); stroke-linejoin: miter; vector-effect: non-scaling-stroke; transition: fill .35s var(--out); }
+.is-lit { --tri-fill: var(--orange); }
+
+/* ---------- header ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--ground) 92%, transparent);
+  backdrop-filter: saturate(1.2) blur(10px);
+  border-bottom: 1px solid var(--hair);
+}
+.bar__in { display: flex; align-items: center; gap: 28px; height: 64px; }
+.brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.mark { width: 38px; height: 38px; flex: none; }
+.brand b { font-family: var(--display); font-size: 27px; font-weight: 800; letter-spacing: 0.01em; line-height: 1; }
+.nav { display: flex; gap: 24px; margin-left: auto; }
+.nav a { display: flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 600; text-decoration: none; color: var(--ink-2); transition: color .2s; }
+.nav a .tri { --tri-fill: var(--orange); font-size: 11px; opacity: 0; transform: translateY(-4px); transition: opacity .3s var(--out), transform .4s var(--spring); }
+.nav a:hover, .nav a.is-here { color: var(--ink); }
+.nav a.is-here .tri { opacity: 1; transform: none; }
+.lang { display: flex; border: 1px solid var(--line); }
+.lang button { border: 0; background: none; padding: 5px 9px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+.bar__tel { font-weight: 600; font-size: 15px; text-decoration: none; white-space: nowrap; }
+.bar__tel:hover { text-decoration: underline; }
+
+/* ---------- hero ---------- */
+.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); align-items: center; min-height: min(calc(100svh - 64px), 820px); padding-block: clamp(28px, 4vw, 56px); }
+.hero h1 { font-size: clamp(3.2rem, 7vw, 6rem); line-height: 1.02; }
+.hero h1 span { display: block; }
+.hero h1 em { font-style: normal; text-decoration: underline var(--orange) 0.12em; text-underline-offset: 0.05em; text-decoration-skip-ink: none; }
+.lede { max-width: 42ch; margin-top: 28px; font-size: clamp(17px, 1.3vw, 19px); color: var(--ink-2); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 34px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 16px 22px; border: 0; background: var(--orange); color: var(--ink);
+  font-weight: 600; font-size: 16px; text-decoration: none; cursor: pointer;
+  transition: background .2s, transform .5s var(--spring);
+}
+.btn .tri { --tri-fill: var(--ink); font-size: 15px; transition: transform .5s var(--spring); }
+.btn:hover { background: var(--orange-hi); }
+.btn:hover .tri { transform: rotate(90deg); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .55; cursor: progress; }
+.tel { font-weight: 600; font-size: 18px; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.tel small { display: block; font-size: 13px; font-weight: 400; color: var(--ink-2); }
+
+/* ---------- 3D focus carousel ---------- */
+.show { position: relative; min-width: 0; }
+.stage {
+  --w: clamp(230px, 27vw, 400px);
+  position: relative; height: calc(var(--w) * 1.22 + 24px);
+  perspective: 1400px; perspective-origin: 50% 40%;
+  overflow: hidden; touch-action: pan-y; outline: none;
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+/* the lattice sits behind the stage, strongest in the middle, gone at the edges */
+.stage::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .7;
+  background: url("./assets/lattice.svg") 50% 12px / 281px 141px;
+}
+.stage:focus-visible { outline: 2px solid var(--orange); outline-offset: -2px; }
+.card {
+  --d: 0; --a: 0;
+  position: absolute; top: 12px; left: 50%; width: var(--w); aspect-ratio: 4 / 5;
+  margin-left: calc(var(--w) / -2);
+  background: var(--ground); border: 1px solid var(--line);
+  transform: translateX(calc(var(--d) * var(--w) * 0.74)) translateZ(calc(var(--a) * -240px)) rotateY(calc(var(--d) * -34deg));
+  filter: blur(calc(min(var(--a), 2) * 3.5px)) saturate(calc(1 - min(var(--a), 1) * 0.7));
+  opacity: calc(1 - var(--a) * 0.28);
+  z-index: calc(10 - var(--a));
+  transition: transform .9s var(--spring), filter .6s var(--out), opacity .6s var(--out);
+  cursor: pointer; overflow: hidden;
+}
+.card[data-far] { opacity: 0; pointer-events: none; }
+.card.is-focus { cursor: auto; }
+.card__art { position: absolute; inset: 0 0 52px; background: var(--ground); }
+.card__art img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+.card model-viewer {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  --poster-color: transparent; background: var(--ground);
+  clip-path: inset(0 0 0 100%);
+}
+.card model-viewer::part(default-progress-bar) { display: none; }
+.card.is-3d model-viewer { clip-path: inset(0 0 0 0); }
+.card__foot {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 52px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding-inline: 14px; border-top: 1px solid var(--line); background: var(--ground);
+}
+.card__tag { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.toggle { display: flex; border: 1px solid var(--line); flex: none; }
+.toggle button { border: 0; background: none; padding: 5px 9px; font-size: 12px; font-weight: 600; cursor: pointer; }
+.toggle button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+.toggle button:disabled { color: var(--ink-2); cursor: progress; }
+.card:not(.is-focus) .toggle { visibility: hidden; }
+.card__hint {
+  position: absolute; left: 14px; top: 12px; z-index: 2;
+  display: flex; align-items: center; gap: 8px; padding: 5px 8px;
+  background: var(--ground); border: 1px solid var(--line);
+  font-size: 12px; font-weight: 600; pointer-events: none;
+  opacity: 0; transform: translateY(-4px); transition: opacity .4s var(--out), transform .4s var(--out);
+}
+.card.is-focus.is-3d .card__hint { opacity: 1; transform: none; }
+
+/* member labels pinned to the live model: a node, a leader line, a tag */
+.pin {
+  --x: 22px;
+  position: relative; width: 9px; height: 9px; padding: 0; border: 1px solid var(--ink);
+  background: var(--orange); pointer-events: none;
+}
+.pin::before { content: ""; position: absolute; left: 7px; bottom: 7px; width: var(--x); height: 1px; background: var(--ink); transform-origin: 0 50%; transform: rotate(-40deg); }
+.pin > span {
+  position: absolute; left: calc(var(--x) * 0.77 + 4px); bottom: calc(var(--x) * 0.64 + 4px);
+  padding: 2px 6px; background: var(--ground); border: 1px solid var(--ink);
+  font: 600 11px/1.3 "Barlow", sans-serif; white-space: nowrap;
+}
+.pin > span b { font-family: var(--display); font-weight: 800; margin-right: 5px; }
+.pin i { font-style: normal; }
+.card:not(.is-3d) .pin { visibility: hidden; }
+/* near the right edge the leader turns left so the tag stays inside the card */
+.pin.is-left::before { left: auto; right: 7px; transform-origin: 100% 50%; transform: rotate(40deg); }
+.pin.is-left > span { left: auto; right: calc(var(--x) * 0.77 + 4px); }
+
+.dock { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 22px; margin-top: 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+/* pager: a Warren truss, one triangle per structure; the orange fill slides to the focused one */
+.pager { position: relative; height: 36px; }
+.pager button { position: absolute; top: 0; left: 0; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.pager button:hover { background: var(--orange-tint); }
+.pager button:focus-visible { outline: none; background: var(--orange-tint); }
+.pager__here { position: absolute; inset: 0; background: var(--orange); pointer-events: none; transition: clip-path .7s var(--spring); }
+.pager svg { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.pager svg polygon { fill: none; stroke: var(--ink); stroke-width: 1.3; stroke-linejoin: miter; }
+.now { min-width: 0; }
+.now__name { font-family: var(--display); font-size: clamp(22px, 2vw, 28px); font-weight: 800; text-transform: uppercase; line-height: 1.05; }
+.now__note { font-size: 13px; color: var(--ink-2); margin-top: 5px; }
+.arrows { display: flex; align-items: center; gap: 10px; }
+.arrows output { font-family: var(--display); font-size: 17px; font-weight: 700; min-width: 5ch; text-align: center; }
+.arrow { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--ground); cursor: pointer; transition: background .2s, color .2s; }
+.arrow:hover { background: var(--ink); color: var(--ground); }
+.arrow svg { width: 18px; height: 18px; }
+
+/* ---------- sections ---------- */
+.sec { padding-block: clamp(80px, 11vw, 150px); }
+.sec__head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
+.sec__head h2 { font-size: clamp(2.8rem, 6vw, 5.4rem); }
+.sec__head p { max-width: 52ch; color: var(--ink-2); }
+
+/* work: their own photos on a modular grid */
+.work { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(150px, 16vw, 230px); gap: 10px; }
+.work figure { position: relative; margin: 0; overflow: hidden; background: var(--built); }
+.work img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--out); }
+.work figure:hover img { transform: scale(1.04); }
+.tag {
+  position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px);
+  display: flex; align-items: center; gap: 7px;
+  padding: 5px 9px; background: var(--ground); border: 1px solid var(--line);
+  font-size: 13px; font-weight: 600; line-height: 1.3;
+}
+.w-a { grid-column: span 3; grid-row: span 2; }
+.w-b { grid-column: span 3; }
+.w-d { grid-column: span 2; }
+.w-c { grid-column: span 2; grid-row: span 2; }
+.work .w-ink { grid-column: span 4; background: var(--ink); color: var(--ground); padding: clamp(16px, 2vw, 26px); display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+.w-ink p { font-size: clamp(16px, 1.3vw, 19px); line-height: 1.4; max-width: 46ch; }
+.w-ink a { font-weight: 600; color: var(--ground); display: inline-flex; align-items: center; gap: 9px; }
+
+/* services: a list of triangles, the row you are on goes orange */
+.svc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.svc li { display: grid; grid-template-columns: 56px minmax(0, 6fr) minmax(0, 5fr); gap: clamp(12px, 2.5vw, 40px); align-items: center; padding-block: clamp(18px, 2.2vw, 28px); border-bottom: 1px solid var(--line); }
+.svc .tri { font-size: 38px; transition: transform .6s var(--spring); }
+.svc li.is-here .tri { --tri-fill: var(--orange); transform: translateY(-5px); }
+.svc h3 { font-size: clamp(2.1rem, 4.6vw, 4rem); }
+.svc p { color: var(--ink-2); max-width: 44ch; }
+.svc h3 small { display: block; margin-top: 6px; font-family: "Barlow", sans-serif; font-size: 14px; font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--ink-2); }
+
+/* the space frame from below, full bleed */
+.band { position: relative; margin: 0; height: clamp(200px, 30vw, 440px); overflow: hidden; background: var(--built); }
+.band img { width: 100%; height: 118%; object-fit: cover; will-change: transform; }
+.band .tag { left: var(--gutter); bottom: 18px; }
+
+/* process: the lattice tower, the orange panel climbs as you read */
+.proc { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); }
+.tower { position: sticky; top: 110px; align-self: start; }
+.tower svg { width: min(100%, 150px); height: auto; overflow: visible; margin-top: 30px; }
+.tower .lvl { fill: var(--ground); stroke: var(--ink); stroke-width: 1.2; stroke-linejoin: miter; transition: fill .5s var(--out); }
+.tower .lvl.is-built { fill: var(--built); }
+.tower .lvl.is-here { fill: var(--orange); }
+.steps { list-style: none; margin: 0; padding: 0; }
+.steps li { padding-block: clamp(28px, 4vw, 56px); border-top: 1px solid var(--line); }
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps h3 { display: flex; align-items: baseline; gap: 14px; font-size: clamp(2.2rem, 4.2vw, 3.6rem); transition: color .4s var(--out); }
+.steps li:not(.is-here) h3 { color: var(--mute); }
+.steps p { margin-top: 14px; max-width: 48ch; color: var(--ink-2); font-size: 18px; }
+.shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 24px; max-width: 620px; }
+.shots figure { position: relative; margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: var(--built); }
+.shots figure:only-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+.shots img { width: 100%; height: 100%; object-fit: cover; }
+.shots .pin { position: absolute; left: var(--px); top: var(--py); }
+
+/* proof: the logo turned into a field, white lattice on orange */
+.proof { position: relative; isolation: isolate; background: var(--orange); color: var(--ink); }
+.proof::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5; background: url("./assets/lattice-white.svg") 0 0 / 281px 141px; }
+.proof__in { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 5vw, 80px); align-items: center; padding-block: clamp(64px, 9vw, 120px); }
+.proof b { font-family: var(--display); font-size: clamp(7rem, 19vw, 16rem); font-weight: 800; line-height: 0.78; }
+.proof p { font-family: var(--display); font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 700; text-transform: uppercase; line-height: 1; max-width: 18ch; }
+.proof small { display: block; margin-top: 16px; font-family: "Barlow", sans-serif; font-size: 15px; font-weight: 600; text-transform: none; line-height: 1.4; }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); }
+.contact h2 { font-size: clamp(3rem, 6.4vw, 5.8rem); }
+.info { list-style: none; margin: 36px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.info li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding-block: 14px; border-bottom: 1px solid var(--hair); }
+.info li > span { color: var(--ink-2); font-size: 15px; }
+.info a { font-weight: 600; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; align-content: start; }
+.form__row { display: grid; gap: 7px; }
+.form__row--wide { grid-column: 1 / -1; }
+.form label { font-size: 14px; font-weight: 600; }
+.form label small { font-weight: 400; color: var(--ink-2); }
+.form input, .form textarea {
+  width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 0;
+  background: var(--ground); color: var(--ink); font: inherit; caret-color: var(--orange);
+}
+.form textarea { min-height: 150px; resize: vertical; }
+.form input::placeholder, .form textarea::placeholder { color: #767676; }
+.form input:focus, .form textarea:focus { outline: 2px solid var(--orange); outline-offset: -1px; }
+.form__err { display: none; font-size: 13px; color: #a3300b; font-weight: 600; }
+.is-invalid input, .is-invalid textarea { border-color: #a3300b; }
+.is-invalid .form__err { display: block; }
+.form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.form__status { font-weight: 600; }
+
+/* footer */
+.foot { border-top: 1px solid var(--line); padding-block: 36px 48px; font-size: 14px; color: var(--ink-2); }
+.foot__in { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: space-between; align-items: flex-start; }
+.foot .brand b { color: var(--ink); font-size: 24px; }
+.foot p { max-width: 64ch; }
+.foot.lattice::before { opacity: .45; mask-image: linear-gradient(90deg, #000, #000 25%, transparent 50%); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  .nav { display: none; }
+  .lang { margin-left: auto; }
+}
+@media (max-width: 900px) {
+  .hero, .sec__head, .contact { grid-template-columns: 1fr; }
+  .proc { grid-template-columns: 44px minmax(0, 1fr); gap: 16px; }
+  .hero { min-height: 0; }
+  .stage { --w: min(72vw, 360px); }
+  .tower { top: 84px; }
+  .tower svg { width: 44px; margin-top: 28px; }
+  .work { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(150px, 42vw, 240px); }
+  .w-a { grid-column: span 2; }
+  .w-b, .w-c, .w-d { grid-column: span 1; grid-row: span 1; }
+  .work .w-ink { grid-column: 1 / -1; }
+  .svc li { grid-template-columns: 40px minmax(0, 1fr); }
+  .svc li p { grid-column: 2; }
+  .svc .tri { font-size: 28px; }
+}
+@media (max-width: 560px) {
+  .bar__tel { display: none; }
+  .brand b { font-size: 24px; }
+  .dock { grid-template-columns: auto minmax(0, 1fr); }
+  .arrows { grid-column: 1 / -1; justify-content: space-between; }
+  .form { grid-template-columns: 1fr; }
+  .proof__in { grid-template-columns: 1fr; }
+  .info li { grid-template-columns: 90px minmax(0, 1fr); }
+  .shots { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+  </style>
+</head>
+<body>
+  <!-- One triangle, reused: outlined it is structure, filled orange it is "here". -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="tri" viewBox="0 0 22 20" overflow="visible"><polygon points="11,1 21,19 1,19" /></symbol>
+    <symbol id="mark" viewBox="8 4 702 704"><clipPath id="mark-clip"><rect x="8" y="4" width="702" height="704" rx="62" /></clipPath><rect x="8" y="4" width="702" height="704" rx="62" fill="#f0592a" /><g clip-path="url(#mark-clip)" fill="#fff"><path d="M184 4H256L149 708H80Z" /><path d="M467 4H536L640 708H570Z" /><path d="M430 -10H479L195 260H146Z" /><path d="M150 240H220L565 435.6 571.4 478.9Z" /><path d="M565 436 570.3 473 192.1 720H130.1Z" /></g></symbol>
+  </svg>
+
+  <header class="bar">
+    <div class="wrap bar__in">
+      <a class="brand" href="#top" aria-label="ValueSteel">
+        <svg class="mark" aria-hidden="true"><use href="#mark" /></svg>
+        <b>VALUESTEEL</b>
+      </a>
+      <nav class="nav" aria-label="Secțiuni" data-aria-ro="Secțiuni" data-aria-en="Sections">
+        <a href="#structuri"><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><span lang="ro">Structuri 3D</span><span lang="en">3D structures</span></a>
+        <a href="#lucrari"><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><span lang="ro">Lucrări</span><span lang="en">Work</span></a>
+        <a href="#servicii"><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><span lang="ro">Servicii</span><span lang="en">Services</span></a>
+        <a href="#proces"><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><span lang="ro">Cum lucrăm</span><span lang="en">Process</span></a>
+        <a href="#contact"><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><span lang="ro">Contact</span><span lang="en">Contact</span></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Limba / Language">
+        <button type="button" data-lang="ro" aria-pressed="true">RO</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="bar__tel" href="tel:+40761984388">0761 984 388</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero" id="structuri" data-nav>
+      <div>
+        <h1>
+          <span lang="ro">Desenat <em>în 3D</em>,</span><span lang="ro">apoi tăiat în oțel.</span>
+          <span lang="en">Drawn <em>in 3D</em>,</span><span lang="en">then cut in steel.</span>
+        </h1>
+        <p class="lede">
+          <span lang="ro">Structuri metalice proiectate, fabricate și montate în București.</span>
+          <span lang="en">Steel structures designed, fabricated and installed in Bucharest.</span>
+        </p>
+        <div class="actions">
+          <a class="btn" href="#contact">
+            <svg class="tri" aria-hidden="true"><use href="#tri" /></svg>
+            <span lang="ro">Cere o ofertă</span><span lang="en">Ask for a quote</span>
+          </a>
+          <a class="tel" href="tel:+40761984388">0761 984 388<small><span lang="ro">sau scrie-ne la office@valuesteel.ro</span><span lang="en">or write to office@valuesteel.ro</span></small></a>
+        </div>
+      </div>
+
+      <div class="show" data-carousel>
+        <!-- Placeholder 3D content: NodWeb's demonstration steel models (assets/models), rendered
+             for the posters. Swap each data-model / image for ValueSteel's own exports. -->
+        <div class="stage" tabindex="0" role="region" aria-roledescription="carusel" data-aria-ro="Structuri în 3D, folosește săgețile stânga și dreapta" data-aria-en="Structures in 3D, use the left and right arrow keys" aria-label="Structuri în 3D, folosește săgețile stânga și dreapta">
+          <article class="card is-focus" style="--d: 0; --a: 0" data-model="./assets/models/space-frame-canopy.glb" data-ro="Copertină space-frame|Structură spațială" data-en="Space-frame canopy|Space frame">
+            <div class="card__art"><img fetchpriority="high" src="./assets/render-space-frame-canopy-480.webp" srcset="./assets/render-space-frame-canopy-480.webp 480w, ./assets/render-space-frame-canopy-640.webp 640w, ./assets/render-space-frame-canopy.webp 900w" sizes="(max-width: 900px) min(72vw, 360px), 27vw" width="900" height="960" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" style="--d: 1; --a: 1" data-model="./assets/models/roof-trusses.glb" data-ro="Hală cu ferme de acoperiș|Structură de hală" data-en="Hall bay with roof trusses|Industrial frame">
+            <div class="card__art"><img src="./assets/render-roof-trusses-480.webp" srcset="./assets/render-roof-trusses-480.webp 480w, ./assets/render-roof-trusses-640.webp 640w, ./assets/render-roof-trusses.webp 900w" sizes="(max-width: 900px) min(72vw, 360px), 27vw" width="900" height="960" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" style="--d: 2; --a: 2" data-model="./assets/models/cantilever-canopy.glb" data-ro="Copertină în consolă, cu tiranți|Copertină" data-en="Cantilever canopy with tie rods|Canopy">
+            <div class="card__art"><img src="./assets/render-cantilever-canopy-480.webp" srcset="./assets/render-cantilever-canopy-480.webp 480w, ./assets/render-cantilever-canopy-640.webp 640w, ./assets/render-cantilever-canopy.webp 900w" sizes="(max-width: 900px) min(72vw, 360px), 27vw" width="900" height="960" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" style="--d: 3; --a: 3" data-far data-model="./assets/models/barrel-canopy.glb" data-ro="Copertină boltită|Copertină" data-en="Barrel-vault canopy|Canopy">
+            <div class="card__art"><img src="./assets/render-barrel-canopy-480.webp" srcset="./assets/render-barrel-canopy-480.webp 480w, ./assets/render-barrel-canopy-640.webp 640w, ./assets/render-barrel-canopy.webp 900w" sizes="(max-width: 900px) min(72vw, 360px), 27vw" width="900" height="960" alt="" loading="lazy" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" style="--d: -2; --a: 2" data-model="./assets/models/carport.glb" data-ro="Pergolă auto|Parcare" data-en="Carport|Parking">
+            <div class="card__art"><img src="./assets/render-carport-480.webp" srcset="./assets/render-carport-480.webp 480w, ./assets/render-carport-640.webp 640w, ./assets/render-carport.webp 900w" sizes="(max-width: 900px) min(72vw, 360px), 27vw" width="900" height="960" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+          <article class="card" style="--d: -1; --a: 1" data-model="./assets/models/steel-stair.glb" data-ro="Scară metalică cu podest|Scări" data-en="Steel stair with landing|Stairs">
+            <div class="card__art"><img src="./assets/render-steel-stair-480.webp" srcset="./assets/render-steel-stair-480.webp 480w, ./assets/render-steel-stair-640.webp 640w, ./assets/render-steel-stair.webp 900w" sizes="(max-width: 900px) min(72vw, 360px), 27vw" width="900" height="960" alt="" /></div>
+            <div class="card__foot"><span class="card__tag"></span><div class="toggle"></div></div>
+          </article>
+        </div>
+
+        <div class="dock">
+          <div class="pager" role="group" data-aria-ro="Alege structura" data-aria-en="Choose a structure" aria-label="Alege structura">
+            <div class="pager__here"></div>
+          </div>
+          <div class="now" aria-live="polite">
+            <div class="now__name" data-now="name"></div>
+            <div class="now__note"><span data-now="type"></span> · <span lang="ro">model și randare demonstrative</span><span lang="en">demonstration model and render</span></div>
+          </div>
+          <div class="arrows">
+            <button class="arrow" type="button" data-dir="-1" data-aria-ro="Structura anterioară" data-aria-en="Previous structure" aria-label="Structura anterioară"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg></button>
+            <output data-count>01 / 06</output>
+            <button class="arrow" type="button" data-dir="1" data-aria-ro="Structura următoare" data-aria-en="Next structure" aria-label="Structura următoare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="lucrari" data-nav>
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">Din atelier, pe șantier.</span><span lang="en">From the shop to the site.</span></h2>
+          <p><span lang="ro">Structuri spațiale, copertine boltite, cadre zincate între blocuri. Câteva dintre lucrările și modelele ValueSteel, așa cum le-a publicat echipa.</span><span lang="en">Space frames, barrel canopies, galvanised frames going up between apartment blocks. A few ValueSteel jobs and models, as the team shared them.</span></p>
+        </div>
+        <div class="work">
+          <figure class="w-a"><img src="./assets/photo-space-frame-underside.webp" srcset="./assets/photo-space-frame-underside-360.webp 360w, ./assets/photo-space-frame-underside.webp 640w" sizes="(max-width: 900px) 100vw, 50vw" width="640" height="639" alt="Structură spațială din țevi, văzută de dedesubt, cu nodurile ei" data-alt-en="A tubular space frame seen from below, with its nodes" loading="lazy" /><figcaption class="tag"><span lang="ro">Structură spațială</span><span lang="en">Space frame</span></figcaption></figure>
+          <figure class="w-b"><img src="./assets/photo-barrel-canopies-drone.webp" srcset="./assets/photo-barrel-canopies-drone-360.webp 360w, ./assets/photo-barrel-canopies-drone.webp 640w" sizes="(max-width: 900px) 50vw, 50vw" width="640" height="480" alt="Copertine boltite translucide între blocuri, fotografiate cu drona" data-alt-en="Translucent barrel canopies between apartment blocks, seen by drone" loading="lazy" /><figcaption class="tag"><span lang="ro">Copertine boltite, din dronă</span><span lang="en">Barrel canopies, by drone</span></figcaption></figure>
+          <figure class="w-d"><img src="./assets/photo-galvanised-frames.webp" srcset="./assets/photo-galvanised-frames-360.webp 360w, ./assets/photo-galvanised-frames.webp 640w" sizes="(max-width: 900px) 50vw, 33vw" width="640" height="480" alt="Cadre metalice zincate montate lângă un bloc de locuințe" data-alt-en="Galvanised steel frames erected next to an apartment block" loading="lazy" /><figcaption class="tag"><span lang="ro">Cadre zincate, în montaj</span><span lang="en">Galvanised frames, going up</span></figcaption></figure>
+          <figure><img src="./assets/photo-pergola-render.webp" srcset="./assets/photo-pergola-render-360.webp 360w, ./assets/photo-pergola-render.webp 640w" sizes="(max-width: 900px) 50vw, 17vw" width="640" height="360" alt="Randare: pergole metalice peste o parcare, între copaci" data-alt-en="Render: steel pergolas over a car park, among trees" loading="lazy" /><figcaption class="tag"><span lang="ro">Randare</span><span lang="en">Render</span></figcaption></figure>
+          <figure class="w-c"><img src="./assets/photo-canopy-aerial.webp" srcset="./assets/photo-canopy-aerial-360.webp 360w, ./assets/photo-canopy-aerial.webp 640w" sizes="(max-width: 900px) 50vw, 33vw" width="640" height="480" alt="Copertina terminată, văzută de sus, între blocurile din cartier" data-alt-en="The finished canopy seen from above, among the neighbourhood blocks" loading="lazy" /><figcaption class="tag"><span lang="ro">Terminată, văzută de sus</span><span lang="en">Finished, from above</span></figcaption></figure>
+          <figure class="w-d"><img src="./assets/photo-canopy-lift-dusk.webp" srcset="./assets/photo-canopy-lift-dusk-360.webp 360w, ./assets/photo-canopy-lift-dusk.webp 640w" sizes="(max-width: 900px) 50vw, 33vw" width="640" height="507" alt="Echipa montează o copertină metalică de pe o nacelă, la apus" data-alt-en="The crew installing a steel canopy from a lift at dusk" loading="lazy" /><figcaption class="tag"><span lang="ro">Montaj de pe nacelă</span><span lang="en">Installing from the lift</span></figcaption></figure>
+          <figure class="w-d"><img src="./assets/photo-bim-canopy.webp" srcset="./assets/photo-bim-canopy-360.webp 360w, ./assets/photo-bim-canopy.webp 640w" sizes="(max-width: 900px) 50vw, 33vw" width="640" height="480" alt="Model BIM al unei copertine boltite, cu toate barele" data-alt-en="A BIM model of a barrel canopy with every member" loading="lazy" /><figcaption class="tag"><span lang="ro">Copertină boltită, în BIM</span><span lang="en">Barrel canopy, in BIM</span></figcaption></figure>
+          <div class="w-ink">
+            <p><span lang="ro">Fotografii de pe șantierele și din modelele ValueSteel. Mai multe lucrări, pe pagina de Facebook.</span><span lang="en">Photos from ValueSteel’s sites and models. More work on the Facebook page.</span></p>
+            <a href="https://www.facebook.com/valuesteel.ro/" rel="noopener" target="_blank">facebook.com/valuesteel.ro</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="servicii" data-nav style="padding-top: 0">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">Ce facem.</span><span lang="en">What we do.</span></h2>
+          <p><span lang="ro">Structura întreagă, de la măsurătoare la ultimul șurub: o singură echipă răspunde de desen, de atelier și de montaj.</span><span lang="en">The whole structure, from the first measurement to the last bolt: one team answers for the drawing, the workshop and the installation.</span></p>
+        </div>
+        <ul class="svc">
+          <li><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><h3><span lang="ro">Structuri metalice</span><span lang="en">Steel structures</span></h3><p><span lang="ro">Hale, platforme, structuri spațiale. Proiectate, fabricate în atelierul nostru și montate de echipa noastră.</span><span lang="en">Halls, platforms, space frames. Designed, made in our own workshop and installed by our own crew.</span></p></li>
+          <li><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><h3><span lang="ro">Copertine și pergole</span><span lang="en">Canopies and carports</span></h3><p><span lang="ro">Copertine în consolă, boltite sau cu tiranți, pergole auto. Zincate, vopsite, cu policarbonat sau tablă.</span><span lang="en">Cantilevered, barrel or tied canopies, carports. Galvanised or painted, with polycarbonate or sheet roofing.</span></p></li>
+          <li><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><h3><span lang="ro">Scări și platforme</span><span lang="en">Stairs and platforms</span></h3><p><span lang="ro">Scări exterioare și interioare, podeste, balustrade, făcute pe măsura spațiului scanat.</span><span lang="en">Outdoor and indoor stairs, landings and railings, made to fit the space we scanned.</span></p></li>
+          <li><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><h3><span lang="ro">Scanare laser 3D</span><span lang="en">3D laser scanning</span></h3><p><span lang="ro">Măsurăm ce există cu scanerul laser, nu cu ruleta, ca structura nouă să se potrivească din prima.</span><span lang="en">We measure what is already there with a laser scanner, not a tape, so the new structure fits first time.</span></p></li>
+          <li><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><h3><span lang="ro">Modelare BIM</span><span lang="en">BIM modelling</span></h3><p><span lang="ro">Toată structura, în 3D, cu fiecare bară și fiecare prindere, înainte să intre ceva în atelier.</span><span lang="en">The whole structure in 3D, every member and every connection, before anything goes into the workshop.</span></p></li>
+          <li><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><h3><span lang="ro">Montaj și mentenanță</span><span lang="en">Installation and upkeep</span></h3><p><span lang="ro">Montăm pe șantier și revenim pentru mentenanța programată sau pentru intervenții neplanificate.</span><span lang="en">We install on site and come back for scheduled maintenance or unplanned repairs.</span></p></li>
+        </ul>
+      </div>
+    </section>
+
+    <figure class="band" aria-label="Structură spațială văzută de jos" data-aria-ro="Structură spațială văzută de jos" data-aria-en="A space frame seen from below">
+      <img src="./assets/photo-space-frame-band.webp" srcset="./assets/photo-space-frame-band-800.webp 800w, ./assets/photo-space-frame-band.webp 1400w" sizes="100vw" width="1400" height="478" alt="" loading="lazy" />
+      <figcaption class="tag"><span lang="ro">Privind în sus, printr-o structură spațială</span><span lang="en">Looking up through a space frame</span></figcaption>
+    </figure>
+
+    <section class="sec" id="proces" data-nav>
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">Cum lucrăm.</span><span lang="en">How we work.</span></h2>
+          <p><span lang="ro">Patru pași, de jos în sus, ca o structură. Pozele sunt de pe lucrările noastre.</span><span lang="en">Four steps, from the ground up, like a structure. The photos are from our own jobs.</span></p>
+        </div>
+        <div class="proc">
+          <div class="tower" aria-hidden="true">
+            <svg viewBox="0 0 119.3 478.7">
+              <path class="lvl" data-level="3" d="M80.4 3.4L54.5 3.4L84.7 32.1ZM44.7 3.4L38.4 3.4L28.5 70.7L82.9 39.8ZM86.7 45.5L31.1 77.0L90.9 116.3L97.3 116.3ZM26.8 82.3L21.8 116.3L78.5 116.3ZM115.9 3.4L87.2 3.4L104.2 116.3L115.9 116.3ZM31.5 3.4L3.4 3.4L3.4 116.3L14.9 116.3Z" />
+              <path class="lvl" data-level="2" d="M39.0 123.1L64.8 123.1L34.7 151.8ZM74.7 123.1L81.0 123.1L90.8 190.3L36.5 159.5ZM32.7 165.1L88.2 196.7L28.5 236.0L22.0 236.0ZM92.6 202.0L97.6 236.0L40.8 236.0ZM3.4 123.1L32.1 123.1L15.2 236.0L3.4 236.0ZM87.8 123.1L115.9 123.1L115.9 236.0L104.4 236.0Z" />
+              <path class="lvl" data-level="1" d="M80.4 242.8L54.5 242.8L84.7 271.5ZM44.7 242.8L38.4 242.8L28.5 310.0L82.9 279.2ZM86.7 284.8L31.1 316.4L90.9 355.6L97.3 355.6ZM26.8 321.7L21.8 355.6L78.5 355.6ZM115.9 242.8L87.2 242.8L104.2 355.6L115.9 355.6ZM31.5 242.8L3.4 242.8L3.4 355.6L14.9 355.6Z" />
+              <path class="lvl" data-level="0" d="M39.0 362.4L64.8 362.4L34.7 391.2ZM74.7 362.4L81.0 362.4L90.8 429.7L36.5 398.8ZM32.7 404.5L88.2 436.0L28.5 475.3L22.0 475.3ZM92.6 441.3L97.6 475.3L40.8 475.3ZM3.4 362.4L32.1 362.4L15.2 475.3L3.4 475.3ZM87.8 362.4L115.9 362.4L115.9 475.3L104.4 475.3Z" />
+            </svg>
+          </div>
+          <ol class="steps">
+            <li data-step="0">
+              <h3><span lang="ro">Scanăm</span><span lang="en">We scan</span></h3>
+              <p><span lang="ro">Venim cu scanerul laser și măsurăm spațiul existent: pereți, goluri, scări, tot ce trebuie să se potrivească.</span><span lang="en">We come with the laser scanner and measure the existing space: walls, openings, stairs, everything the steel has to fit.</span></p>
+              <div class="shots">
+                <figure><img src="./assets/photo-scanner-stair.webp" srcset="./assets/photo-scanner-stair-360.webp 360w, ./assets/photo-scanner-stair.webp 640w" sizes="(max-width: 560px) 100vw, 310px" width="640" height="480" alt="Scaner laser 3D pe trepied, lângă o scară interioară" data-alt-en="A 3D laser scanner on a tripod beside an indoor stair" loading="lazy" /><figcaption class="tag"><span lang="ro">Scanerul, pe teren</span><span lang="en">The scanner on site</span></figcaption></figure>
+                <figure><img src="./assets/photo-point-cloud-stair.webp" srcset="./assets/photo-point-cloud-stair-360.webp 360w, ./assets/photo-point-cloud-stair.webp 640w" sizes="(max-width: 560px) 100vw, 310px" width="640" height="480" alt="Norul de puncte al aceleiași scări, rezultat din scanare" data-alt-en="The point cloud of the same stair, from the scan" loading="lazy" /><span class="pin is-left" style="--px: 55%; --py: 42%" aria-hidden="true"><span><span lang="ro">balustrada, scanată</span><span lang="en">handrail, scanned</span></span></span><figcaption class="tag"><span lang="ro">Norul de puncte</span><span lang="en">The point cloud</span></figcaption></figure>
+              </div>
+            </li>
+            <li data-step="1">
+              <h3><span lang="ro">Modelăm</span><span lang="en">We model</span></h3>
+              <p><span lang="ro">Pe scanare desenăm structura în BIM, cu fiecare bară, placă și prindere. Tu o vezi în 3D înainte de atelier.</span><span lang="en">On top of the scan we draw the structure in BIM, every member, plate and connection. You see it in 3D before the workshop does.</span></p>
+              <div class="shots">
+                <figure><img src="./assets/photo-bim-truss.webp" srcset="./assets/photo-bim-truss-360.webp 360w, ./assets/photo-bim-truss.webp 640w" sizes="(max-width: 560px) 100vw, 620px" width="640" height="507" alt="Model BIM al unor ferme metalice, cu plăcile de prindere evidențiate" data-alt-en="A BIM model of steel roof trusses with the connection plates highlighted" loading="lazy" /><span class="pin" style="--px: 22%; --py: 34%" aria-hidden="true"><span><span lang="ro">placă de prindere</span><span lang="en">connection plate</span></span></span><figcaption class="tag"><span lang="ro">Ferme și prinderi, în BIM</span><span lang="en">Trusses and connections in BIM</span></figcaption></figure>
+              </div>
+            </li>
+            <li data-step="2">
+              <h3><span lang="ro">Fabricăm</span><span lang="en">We fabricate</span></h3>
+              <p><span lang="ro">În atelierul nostru din București tăiem și sudăm piesele după model, care pleacă apoi zincate sau vopsite.</span><span lang="en">In our Bucharest workshop we cut and weld the parts to the model; they leave galvanised or painted.</span></p>
+              <div class="shots">
+                <figure><img src="./assets/photo-welded-node.webp" srcset="./assets/photo-welded-node-360.webp 360w, ./assets/photo-welded-node.webp 640w" sizes="(max-width: 560px) 100vw, 310px" width="640" height="853" alt="Nod sudat dintr-o structură spațială" data-alt-en="A welded node from a space frame" loading="lazy" /><span class="pin" style="--px: 50%; --py: 42%" aria-hidden="true"><span><span lang="ro">cordon de sudură</span><span lang="en">weld seam</span></span></span><figcaption class="tag"><span lang="ro">Nod sudat</span><span lang="en">Welded node</span></figcaption></figure>
+                <figure><img src="./assets/photo-galvanised-delivery.webp" srcset="./assets/photo-galvanised-delivery-360.webp 360w, ./assets/photo-galvanised-delivery.webp 640w" sizes="(max-width: 560px) 100vw, 310px" width="640" height="480" alt="Profile zincate, gata de montaj, descărcate pe șantier" data-alt-en="Galvanised sections, ready to install, unloaded on site" loading="lazy" /><figcaption class="tag"><span lang="ro">Gata de montaj</span><span lang="en">Ready to install</span></figcaption></figure>
+              </div>
+            </li>
+            <li data-step="3">
+              <h3><span lang="ro">Montăm</span><span lang="en">We install</span></h3>
+              <p><span lang="ro">Echipa noastră montează pe șantier, cu macara sau nacelă, și rămâne la dispoziție pentru mentenanță.</span><span lang="en">Our crew installs on site, by crane or from a lift, and stays on call for maintenance.</span></p>
+              <div class="shots">
+                <figure><img src="./assets/photo-canopy-crane.webp" srcset="./assets/photo-canopy-crane-360.webp 360w, ./assets/photo-canopy-crane.webp 640w" sizes="(max-width: 560px) 100vw, 620px" width="640" height="507" alt="Montajul unei copertine metalice cu macaraua" data-alt-en="Installing a steel canopy with a crane" loading="lazy" /><figcaption class="tag"><span lang="ro">Montaj cu macaraua</span><span lang="en">Crane installation</span></figcaption></figure>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="wrap proof__in">
+        <b>5,0</b>
+        <p><span lang="ro">Cinci stele din cinci, la fiecare recenzie de pe Google.</span><span lang="en">Five stars out of five, in every review on Google.</span><small><span lang="ro">3 recenzii pe Google Maps, septembrie 2026</span><span lang="en">3 reviews on Google Maps, September 2026</span></small></p>
+      </div>
+    </section>
+
+    <section class="sec" id="contact" data-nav>
+      <div class="wrap contact">
+        <div>
+          <h2><span lang="ro">Hai să desenăm structura.</span><span lang="en">Let’s draw your structure.</span></h2>
+          <ul class="info">
+            <li><span lang="ro">Telefon</span><span lang="en">Phone</span><a href="tel:+40761984388">0761 984 388</a></li>
+            <li><span>Email</span><!--email_off--><a href="mailto:office@valuesteel.ro">office@valuesteel.ro</a><!--/email_off--></li>
+            <li><span lang="ro">Birou</span><span lang="en">Office</span><div>Str. Soveja 111–113, Sector 1<br />București</div></li>
+            <li><span lang="ro">Atelier</span><span lang="en">Workshop</span><div>Str. Aeroportului 4–34, Sector 1<br />București</div></li>
+            <li><span lang="ro">Program</span><span lang="en">Hours</span><div><span lang="ro">Luni de la 08:00 · restul programului, de confirmat</span><span lang="en">Monday from 8:00 · full hours to be confirmed</span></div></li>
+          </ul>
+        </div>
+        <!-- Demo form: no name attribute, so it validates and confirms without sending. -->
+        <form class="form" novalidate>
+          <div class="form__row">
+            <label for="f-name"><span lang="ro">Nume</span><span lang="en">Name</span></label>
+            <input id="f-name" type="text" autocomplete="name" required />
+            <span class="form__err"><span lang="ro">Spune-ne cum te cheamă.</span><span lang="en">Tell us your name.</span></span>
+          </div>
+          <div class="form__row">
+            <label for="f-contact"><span lang="ro">Telefon sau email</span><span lang="en">Phone or email</span></label>
+            <input id="f-contact" type="text" autocomplete="email" required />
+            <span class="form__err"><span lang="ro">Avem nevoie de un telefon sau un email ca să-ți răspundem.</span><span lang="en">We need a phone number or email to reply.</span></span>
+          </div>
+          <div class="form__row">
+            <label for="f-kind"><span lang="ro">Ce structură?</span><span lang="en">What structure?</span> <small><span lang="ro">(opțional)</span><span lang="en">(optional)</span></small></label>
+            <input id="f-kind" type="text" data-ph-ro="Copertină, scară, hală…" data-ph-en="Canopy, stair, hall…" placeholder="Copertină, scară, hală…" />
+          </div>
+          <div class="form__row">
+            <label for="f-place"><span lang="ro">Unde e lucrarea?</span><span lang="en">Where is the job?</span> <small><span lang="ro">(opțional)</span><span lang="en">(optional)</span></small></label>
+            <input id="f-place" type="text" placeholder="București, Sector 1" />
+          </div>
+          <div class="form__row form__row--wide">
+            <label for="f-msg"><span lang="ro">Spune-ne pe scurt</span><span lang="en">Tell us briefly</span></label>
+            <textarea id="f-msg" required data-ph-ro="Dimensiuni aproximative, termen, dacă ai deja un proiect sau doar o idee…" data-ph-en="Rough dimensions, deadline, whether you already have drawings or just an idea…" placeholder="Dimensiuni aproximative, termen, dacă ai deja un proiect sau doar o idee…"></textarea>
+            <span class="form__err"><span lang="ro">Scrie-ne câteva cuvinte despre lucrare.</span><span lang="en">Write a few words about the job.</span></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn" type="submit"><svg class="tri" aria-hidden="true"><use href="#tri" /></svg><span lang="ro">Trimite mesajul</span><span lang="en">Send the message</span></button>
+            <p class="form__status" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot lattice">
+    <div class="wrap foot__in">
+      <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#mark" /></svg><b>VALUESTEEL</b></a>
+      <p><span lang="ro">Propunere de site realizată de <a href="/ro/">NodWeb</a>. Fotografiile sunt de pe pagina de Facebook ValueSteel. Modelele 3D și randările din carusel sunt demonstrative, făcute de noi după tipurile de structuri din postările voastre, și se înlocuiesc cu modelele voastre. Programul, adresele și lista de servicii le confirmăm împreună.</span><span lang="en">Website proposal by <a href="/">NodWeb</a>. Photos come from the ValueSteel Facebook page. The 3D models and renders in the carousel are demonstration material we made after the kinds of structures in your posts, to be replaced with your own models. Hours, addresses and the service list are still to be confirmed together.</span></p>
+    </div>
+  </footer>
+
+  <script type="module" src="./valuesteel.js"></script>
+</body>
+</html>
