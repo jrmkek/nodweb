@@ -113,7 +113,7 @@ components:
 
 The ValueSteel mark, a tapered lattice panel of steel legs and K-bracing with orange triangles between the members, is the operating system of the page. One triangle symbol is reused everywhere. Drawn as an ink outline on white it is structure; filled orange it marks where the visitor is: the section in view in the nav, the focused structure in the Warren-truss pager, the service row crossing the middle of the screen, the process level being read on the lattice tower, and the triangle leading the primary action (drawn solid ink there, because the button itself is the orange field).
 
-The world is a white ground, 1px ink rules and heavy condensed uppercase type that echoes the VALUESTEEL wordmark. The client's own truss pattern, redrawn as a hairline orange lattice, sits behind the carousel stage and the footer and turns white on the one orange field (the proof band). Orange is committed as a field (button, proof band, pager fill, "here" fills) with ink text on it; it is never a text colour on white. The page reads like a shop drawing: square frames, member marks on leader lines, tabular numerals. Motion is a spring: cards, triangles and the pager fill overshoot a touch and settle.
+The world is a white ground, 1px ink rules and heavy condensed uppercase type that echoes the VALUESTEEL wordmark. The client's own truss pattern, used as it was supplied, a hairline orange lattice, sits behind the carousel stage and the footer and turns white on the one orange field (the proof band). Orange is committed as a field (button, proof band, pager fill, "here" fills) with ink text on it; it is never a text colour on white. The page reads like a shop drawing: square frames, member marks on leader lines, tabular numerals. Motion is a spring: cards, triangles and the pager fill overshoot a touch and settle.
 
 The page is bilingual (Romanian default, English toggle), with both languages present in the markup and the root `lang` choosing which shows.
 
@@ -184,7 +184,7 @@ Flat. There are no box-shadows and no gradient fills. Depth comes only from the 
 
 Square everywhere (0), including inputs, which reset the platform radius. Every frame is a 1px ink rule; hair rules are for internal dividers only. The non-rectangular vocabulary is triangles: the symbol (viewBox 22x20, 1.3 non-scaling stroke, miter joins), the pager triangles clipped with `clip-path: polygon()`, and the tower levels traced from the lattice. The only rounded form is the client's traced mark (a 62-unit radius panel), which is the logo's own shape and is never extended to UI.
 
-The lattice pattern is `assets/lattice.svg` (281x141 tile, 1px orange miter stroke) and `assets/lattice-white.svg` for the orange field; they are the client's pattern, not a generic grid.
+The lattice pattern is `assets/lattice.webp`, a 2x2 repeat cut straight from the client's pattern image (562.6x562px, period about 281px), recoloured to logo orange, and `assets/lattice-white.webp` for the orange field. It is the client's pattern exactly, not a redraw or a generic grid.
 
 ## Components
 

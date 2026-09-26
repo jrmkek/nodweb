@@ -226,12 +226,12 @@
     "patterns": [
       {
         "name": "lattice",
-        "value": "url(assets/lattice.svg) 0 0 / 281px 141px",
+        "value": "url(assets/lattice.webp) 0 0 / 562.6px 562px",
         "purpose": "Client truss pattern, orange 1px hairline on white: behind the carousel stage (70%) and the footer (45%, masked to the left half)."
       },
       {
         "name": "lattice-white",
-        "value": "url(assets/lattice-white.svg) 0 0 / 281px 141px",
+        "value": "url(assets/lattice-white.webp) 0 0 / 562.6px 562px",
         "purpose": "The same pattern in white at 50% on the orange proof field."
       }
     ]
