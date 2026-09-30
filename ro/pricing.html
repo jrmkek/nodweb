@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prețuri: Design Web NodWeb București</title>
-  <meta name="description" content="Prețuri transparente pentru site-uri web și prezentări interactive personalizate. Pornind de la 450€ pentru afaceri locale, oferte personalizate pentru studiouri de arhitectură și design." />
+  <meta name="description" content="Site-uri cu preț fix de la 350€ + TVA pentru afaceri locale, cu plata în 3, 6 sau 12 rate lunare. Oferte personalizate pentru studiouri de arhitectură și design." />
   <link rel="canonical" href="https://nodweb.org/ro/pricing" />
   <link rel="alternate" hreflang="en" href="https://nodweb.org/pricing" />
   <link rel="alternate" hreflang="ro" href="https://nodweb.org/ro/pricing" />
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NodWeb" />
   <meta property="og:title" content="Prețuri: Design Web NodWeb București" />
-  <meta property="og:description" content="Prețuri transparente pentru site-uri web și prezentări interactive personalizate. Pornind de la 450€ pentru afaceri locale, oferte personalizate pentru studiouri de arhitectură și design." />
+  <meta property="og:description" content="Site-uri cu preț fix de la 350€ + TVA pentru afaceri locale, cu plata în 3, 6 sau 12 rate lunare. Oferte personalizate pentru studiouri de arhitectură și design." />
   <meta property="og:url" content="https://nodweb.org/ro/pricing" />
   <meta property="og:image" content="https://nodweb.org/assets/og/home.jpg?v=2" />
   <meta property="og:image:width" content="1200" />
@@ -27,7 +27,7 @@
   <meta property="og:locale" content="ro_RO" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Prețuri: Design Web NodWeb București" />
-  <meta name="twitter:description" content="Prețuri transparente pentru site-uri web și prezentări interactive personalizate." />
+  <meta name="twitter:description" content="Site-uri cu preț fix de la 350€ + TVA pentru afaceri locale, cu plata în 3, 6 sau 12 rate lunare. Oferte personalizate pentru studiouri de arhitectură și design." />
   <meta name="twitter:image" content="https://nodweb.org/assets/og/home.jpg?v=2" />
 
   <link rel="stylesheet" href="../shared/css/fonts-nodweb.css" />
@@ -57,13 +57,18 @@
       },
       {
         "@type": "Question",
-        "name": "Ce nu este inclus în prețul de pornire?",
+        "name": "Ce nu este inclus în preț?",
         "acceptedAnswer": { "@type": "Answer", "text": "Înregistrarea domeniului și găzduirea (câțiva euro pe an, pe contul tău, ca să fie mereu al tău), plus poze stock sau fonturi plătite care nu sunt deja incluse în sistemul de design." }
       },
       {
         "@type": "Question",
         "name": "Pot începe cu nivelul Website și adaug prezentarea 3D mai târziu?",
         "acceptedAnswer": { "@type": "Answer", "text": "Da, unele studiouri încep cu un site standard pentru a se lansa rapid, apoi trec la o construcție personalizată când sunt pregătite să investească în experiența de prezentare." }
+      },
+      {
+        "@type": "Question",
+        "name": "Cum funcționează plata în rate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Alegi pachetul și plătești în 3, 6 sau 12 rate lunare. Plata în rate adaugă 24% la prețul pachetului, împărțit egal pe luni. Cererea nu te costă nimic și nu te obligă la nimic; îți răspundem în cel mult o zi lucrătoare cu contractul, iar lucrul începe după plata primei rate." }
       },
       {
         "@type": "Question",
@@ -84,7 +89,7 @@
       <div class="nav-mobile-utility">
         <div class="lang-switch">
           <a class="lang-switch__flag" href="/pricing" title="English" lang="en" hreflang="en">en<span class="visually-hidden">English</span></a>
-          <a class="lang-switch__flag is-current" href="/pricing" aria-current="page" title="Română" lang="ro">ro<span class="visually-hidden">Română (curent)</span></a>
+          <a class="lang-switch__flag is-current" href="/ro/pricing" aria-current="page" title="Română" lang="ro">ro<span class="visually-hidden">Română (curent)</span></a>
         </div>
         <button class="site-nav__toggle" aria-label="Comută meniul" aria-controls="site-nav-links" aria-expanded="false">☰</button>
       </div>
@@ -97,7 +102,7 @@
         <li><a href="/blog/">Blog</a></li>
         <li class="lang-switch">
           <a class="lang-switch__flag" href="/pricing" title="English" lang="en" hreflang="en">en<span class="visually-hidden">English</span></a>
-          <a class="lang-switch__flag is-current" href="/pricing" aria-current="page" title="Română" lang="ro">ro<span class="visually-hidden">Română (curent)</span></a>
+          <a class="lang-switch__flag is-current" href="/ro/pricing" aria-current="page" title="Română" lang="ro">ro<span class="visually-hidden">Română (curent)</span></a>
         </li>
         <li><a class="btn btn--primary" href="/#contact">Cere o ofertă</a></li>
       </ul>
@@ -120,78 +125,156 @@
     <div class="hero-glow hero-glow--b" aria-hidden="true"></div>
     <div class="container stack load-stagger">
       <h1>Prețuri, nu <span class="gradient-text">o cerere de ofertă</span></h1>
-      <p class="hero__intro">Trei tipuri de site-uri, pentru că un cabinet mic, o cafenea și un studio de arhitectură nu vând același lucru. Alege varianta potrivită pentru tine.</p>
+      <p class="hero__intro">Două pachete cu preț fix pentru afaceri locale și o ofertă personalizată pentru studiourile care au nevoie de o prezentare 3D. Plătești integral sau în rate lunare.</p>
     </div>
   </section>
 
   <!-- ===================== TIER CARDS ===================== -->
   <section class="section section--alt" id="tiers">
     <div class="container">
+      <h2 class="visually-hidden">Pachete</h2>
       <div class="pricing-table reveal">
         <div class="pricing-col">
           <p class="pricing-col__for">Abia te lansezi online, cabinete mici și afaceri solo</p>
           <h3>Starter</h3>
-          <p class="pricing-card__price">Pornind de la 450€<span class="pricing-card__price-alt">≈ 2.200 lei</span></p>
-          <ul class="pricing-list">
-            <li>O singură pagină construită personalizat, nu o temă de-a gata</li>
-            <li>Optimizat pentru mobil, rapid și accesibil din start</li>
-            <li>SEO on-page de bază, ca Google să-ți înțeleagă cu adevărat afacerea</li>
-            <li>Lansat în câteva zile, nu săptămâni</li>
+          <p class="pricing-card__price">350€<span class="pricing-card__price-alt">+ TVA · ≈ 1.740 lei</span></p>
+          <ul class="pricing-specs">
+            <li><span>Număr secțiuni / pagini</span><strong>3 secțiuni</strong></li>
+            <li><span>Design responsive</span><strong>Da</strong></li>
+            <li><span>Formular de contact</span><strong>Da</strong></li>
+            <li><span>Google Maps</span><strong>Da</strong></li>
+            <li><span>Copywriting</span><strong>De bază</strong></li>
+            <li><span>SEO</span><strong>Titluri + meta</strong></li>
+            <li><span>Optimizare imagini</span><strong>De bază</strong></li>
+            <li><span>Runde de modificări</span><strong>Nelimitate</strong></li>
+            <li class="is-no"><span>Galerie foto</span><strong><span class="visually-hidden">Nu este inclus</span>–</strong></li>
+            <li><span>Timp de livrare</span><strong>3 zile</strong></li>
+            <li class="is-no"><span>Mentenanță lunară + hosting</span><strong><span class="visually-hidden">Nu este inclus</span>–</strong></li>
           </ul>
-          <a class="btn btn--secondary btn--block" href="/#contact">Începe proiectul meu</a>
+          <a class="btn btn--secondary btn--block" href="/ro/#contact">Începe proiectul meu</a>
+          <a class="pricing-card__rate" href="#installments" data-plan-link="starter">sau 12 rate de 36,17€ pe lună</a>
         </div>
 
         <div class="pricing-col pricing-col--featured">
-          <p class="pricing-col__for">Cele mai multe studiouri încep de aici &middot; cafenele, saloane, contractori, magazine</p>
-          <h3>Website</h3>
-          <p class="pricing-card__price">Pornind de la 950€<span class="pricing-card__price-alt">≈ 4.700 lei</span></p>
-          <ul class="pricing-list">
-            <li>Până la 5 pagini, construite personalizat pe sistemul nostru de design, nu o temă de-a gata</li>
-            <li>Optimizat pentru mobil, rapid și accesibil din start</li>
-            <li>SEO on-page de bază și schema markup, ca Google să-ți înțeleagă cu adevărat afacerea</li>
-            <li>Lansat în câteva zile, nu luni</li>
+          <p class="pricing-col__for">Cele mai multe afaceri încep de aici &middot; cafenele, saloane, constructori, magazine</p>
+          <h3>Business <span class="pricing-badge">Popular</span></h3>
+          <p class="pricing-card__price">600€<span class="pricing-card__price-alt">+ TVA · ≈ 2.980 lei</span></p>
+          <ul class="pricing-specs">
+            <li><span>Număr secțiuni / pagini</span><strong>4–6 secțiuni</strong></li>
+            <li><span>Design responsive</span><strong>Premium</strong></li>
+            <li><span>Formular de contact</span><strong>Cerere de ofertă</strong></li>
+            <li><span>Google Maps</span><strong>Da</strong></li>
+            <li><span>Copywriting</span><strong>Complet</strong></li>
+            <li><span>SEO</span><strong>Complet</strong></li>
+            <li><span>Optimizare imagini</span><strong>Avansată</strong></li>
+            <li><span>Runde de modificări</span><strong>Nelimitate</strong></li>
+            <li><span>Galerie foto</span><strong>Da</strong></li>
+            <li><span>Timp de livrare</span><strong>5 zile</strong></li>
+            <li><span>Mentenanță lunară + hosting</span><strong>Gratuit (3 luni)</strong></li>
           </ul>
-          <p class="pricing-card__addon"><strong>Adaugă varianta bilingvă EN/RO + configurare blog:</strong> 1.250€ <span class="pricing-card__price-alt">≈ 6.150 lei</span></p>
-          <a class="btn btn--primary btn--block" href="/#contact">Începe proiectul meu</a>
+          <a class="btn btn--primary btn--block" href="/ro/#contact">Începe proiectul meu</a>
+          <a class="pricing-card__rate" href="#installments" data-plan-link="website">sau 12 rate de 62,00€ pe lună</a>
         </div>
 
-        <div class="pricing-col">
+      </div>
+
+      <div class="pricing-custom reveal">
+        <div class="stack">
           <p class="pricing-col__for">Studiouri de arhitectură, inginerie, design</p>
           <h3>Prezentare 3D Personalizată</h3>
           <p class="pricing-card__price">Ofertă personalizată<span class="pricing-card__price-alt">fiecare proiect este evaluat individual</span></p>
-          <ul class="pricing-list">
-            <li>Construcție complet personalizată, scrisă manual, de la zero</li>
-            <li>Vizualizator 3D interactiv pentru proiectele tale, cu suport AR</li>
-            <li>Construit în jurul modului în care un client exigent evaluează de fapt un studio</li>
-            <li>Un site care funcționează ca instrument de vânzare pentru următorul tău client, nu doar un portofoliu</li>
-          </ul>
-          <a class="btn btn--secondary btn--block" href="/#contact">Hai să discutăm proiectul tău</a>
         </div>
+        <ul class="pricing-list">
+          <li>Construcție complet personalizată, scrisă manual, de la zero</li>
+          <li>Vizualizator 3D interactiv pentru proiectele tale, cu suport AR</li>
+          <li>Construit în jurul modului în care un client exigent evaluează de fapt un studio</li>
+          <li>Un site care vinde pentru tine următorul proiect, nu doar un portofoliu</li>
+        </ul>
+        <a class="btn btn--secondary" href="/ro/#contact">Hai să discutăm proiectul tău</a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== CARE PLAN ===================== -->
-  <section class="section" id="care-plan">
-    <div class="container stack care-plan-card">
-      <div>
-        <h2 class="reveal">Un site web este un început, nu o linie de sosire.</h2>
-        <p class="reveal">Rezultatele din căutări se schimbă. Conținutul se învechește. O modificare mică nu ar trebui să însemne o factură nouă de fiecare dată. Planul de Îngrijire îți ține site-ul la zi pentru <strong>75€/lună</strong> <span class="pricing-card__price-alt">≈ 370 lei</span>: actualizări de conținut, monitorizare, backup-uri și mici retușuri, la un mesaj distanță, nu un proiect nou.</p>
+  <!-- ===================== ADD-ONS ===================== -->
+  <section class="section" id="add-ons">
+    <div class="container stack">
+      <h2 class="reveal">Opțiuni pentru orice pachet</h2>
+      <dl class="addon-list reveal">
+        <div><dt>Copywriting<span>Scriem noi textele pentru fiecare pagină, după o discuție scurtă cu tine</span></dt><dd>+75€<span>≈ 375 lei</span></dd></div>
+        <div><dt>Logo reîmprospătat<span>O variantă curată, pregătită pentru web, a logo-ului pe care îl ai deja</span></dt><dd>+120€<span>≈ 600 lei</span></dd></div>
+        <div><dt>Limbă în plus<span>Orice limbă peste cele incluse în pachetul tău</span></dt><dd>+150€<span>≈ 750 lei</span></dd></div>
+        <div><dt>GA4 + Meta Pixel<span>Vezi de unde vin vizitatorii și ce reclame îi aduc</span></dt><dd>+75€<span>≈ 375 lei</span></dd></div>
+        <div><dt>Planul de Îngrijire<span>Actualizări de conținut, monitorizare, backup-uri și mici retușuri, la un mesaj distanță, nu un proiect nou</span></dt><dd>59€/lună<span>≈ 295 lei</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===================== INSTALLMENTS ===================== -->
+  <section class="section section--alt" id="installments">
+    <div class="container contact-grid">
+      <div class="stack">
+        <h2 class="reveal">Plata în rate</h2>
+        <p class="reveal">Poți plăti orice pachet în 3, 6 sau 12 rate lunare. Plata în rate adaugă <strong>24%</strong> la prețul pachetului, împărțit egal pe luni, fără bancă și fără verificări de credit. Prețurile nu includ TVA. Alegi pachetul, vezi rata lunară și ne trimiți cererea.</p>
+        <p class="reveal rate-promise">Fără obligații &middot; Răspuns în cel mult o zi lucrătoare &middot; Nu plătești nimic acum</p>
       </div>
-      <a class="btn btn--secondary reveal" href="/#contact">Adaugă Planul de Îngrijire la proiectul tău</a>
+
+      <form class="card stack reveal" id="installments-form" action="/api/installments" method="POST" data-surcharge="0.24" novalidate>
+        <input type="hidden" name="lang" value="ro" />
+        <p class="visually-hidden" aria-hidden="true">
+          <label>Lasă acest câmp gol: <input name="botcheck" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <div class="field-row">
+          <div class="field">
+            <label for="rate-plan">Pachet</label>
+            <select id="rate-plan" name="plan">
+              <option value="starter" data-price="350">Starter · 350€ + TVA</option>
+              <option value="website" data-price="600" selected>Business · 600€ + TVA</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="rate-months">Număr de rate</label>
+            <select id="rate-months" name="months">
+              <option value="3">3 luni</option>
+              <option value="6">6 luni</option>
+              <option value="12" selected>12 luni</option>
+            </select>
+          </div>
+        </div>
+        <p class="rate-result"><output id="installments-result" for="rate-plan rate-months" aria-live="polite">12 × 62,00€ = 744,00€</output></p>
+        <div class="field">
+          <label for="rate-name">Nume</label>
+          <input id="rate-name" name="name" type="text" required autocomplete="name" aria-describedby="rate-name-error" />
+          <span class="field__error" id="rate-name-error" role="alert">Te rugăm să îți scrii numele.</span>
+        </div>
+        <div class="field">
+          <label for="rate-email">Email</label>
+          <input id="rate-email" name="email" type="email" required autocomplete="email" aria-describedby="rate-email-error" />
+          <span class="field__error" id="rate-email-error" role="alert">Te rugăm să scrii o adresă de email validă.</span>
+        </div>
+        <div class="field">
+          <label for="rate-phone">Telefon <span class="field__hint">(opțional)</span></label>
+          <input id="rate-phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="rate-business">Numele afacerii <span class="field__hint">(opțional)</span></label>
+          <input id="rate-business" name="business" type="text" autocomplete="organization" />
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Trimite cererea de plată în rate</button>
+        <p class="field__hint">Folosim aceste date doar ca să îți răspundem. <a href="/ro/privacy">Politica de confidențialitate</a></p>
+      </form>
     </div>
   </section>
 
   <!-- ===================== WHY ONE TIER HAS A PRICE ===================== -->
-  <section class="section section--alt" id="why-custom-quote">
+  <section class="section" id="why-custom-quote">
     <div class="container stack">
-      <h2 class="reveal">Prețurile oneste înseamnă să nu pretind că știu un număr pe care nu-l știu.</h2>
-      <p class="reveal">Nivelurile Starter și Website au un preț de pornire fix pentru că genul ăsta de proiect chiar se repetă. Sistemul nostru de design face asta posibil. Prezentarea 3D Personalizată nu funcționează la fel, pentru că nu există două studiouri care au nevoie de exact același lucru: complexitatea modelului, numărul de pagini și cerințele AR variază atât de mult încât un preț fix ar fi fie prea mic pentru un proiect serios, fie prea descurajant pentru unul simplu. Un apel scurt îți dă un număr real într-o zi, nu o presupunere.</p>
+      <h2 class="reveal">Prețurile oneste înseamnă să nu pretindem că știm un număr pe care nu-l știm.</h2>
+      <p class="reveal">Cele două pachete au preț fix pentru că genul ăsta de proiect chiar se repetă. Sistemul nostru de design face asta posibil. Prezentarea 3D Personalizată nu funcționează la fel, pentru că nu există două studiouri care au nevoie de exact același lucru: complexitatea modelului, numărul de pagini și cerințele AR variază atât de mult încât un preț fix ar fi fie prea mic pentru un proiect serios, fie prea descurajant pentru unul simplu. Un apel scurt îți dă un număr real într-o zi, nu o presupunere.</p>
     </div>
   </section>
 
   <!-- ===================== WHERE OUR PRICING SITS ===================== -->
-  <section class="section" id="where-we-sit">
+  <section class="section section--alt" id="where-we-sit">
     <div class="container stack">
       <h2 class="reveal">Mai puțin decât o agenție. Mai mult decât o favoare.</h2>
       <p class="reveal">O agenție full-service din București costă de obicei între 1.000€ și 3.000€ pentru un site de prezentare comparabil. O bună parte din preț e cheltuiala lor de regie, nu doar munca depusă. Un freelancer de pe partea ieftină a pieței înseamnă de obicei fără factură, fără contract și nicio garanție că-ți mai răspunde peste trei luni. NodWeb se situează intenționat între cele două: proces real, suport real și un preț care reflectă un studio care încă își construiește portofoliul de clienți, nu o soluție de mântuială.</p>
@@ -199,7 +282,7 @@
   </section>
 
   <!-- ===================== FAQ ===================== -->
-  <section class="section section--alt" id="faq">
+  <section class="section" id="faq">
     <div class="container stack">
       <h2 class="reveal">Întrebări care merită un răspuns din start</h2>
       <div>
@@ -208,12 +291,16 @@
           <p>Pe măsură ce NodWeb preia mai multe proiecte, prețurile cresc pentru a reflecta un portofoliu mai bogat, prețul pe care îl primești astăzi este prețul pe care îl plătești, indiferent ce devine el pentru clienții viitori.</p>
         </div>
         <div class="faq-item reveal">
-          <h3>Ce nu este inclus în prețul de pornire?</h3>
+          <h3>Ce nu este inclus în preț?</h3>
           <p>Înregistrarea domeniului și găzduirea (câțiva euro pe an, pe contul tău, ca să fie mereu al tău), plus poze stock sau fonturi plătite care nu sunt deja incluse în sistemul de design.</p>
         </div>
         <div class="faq-item reveal">
           <h3>Pot începe cu nivelul Website și adaug prezentarea 3D mai târziu?</h3>
           <p>Da, unele studiouri încep cu un site standard pentru a se lansa rapid, apoi trec la o construcție personalizată când sunt pregătite să investească în experiența de prezentare.</p>
+        </div>
+        <div class="faq-item reveal">
+          <h3>Cum funcționează plata în rate?</h3>
+          <p>Alegi pachetul și plătești în 3, 6 sau 12 rate lunare. Plata în rate adaugă 24% la prețul pachetului, împărțit egal pe luni. Cererea nu te costă nimic și nu te obligă la nimic; îți răspundem în cel mult o zi lucrătoare cu contractul, iar lucrul începe după plata primei rate.</p>
         </div>
         <div class="faq-item reveal">
           <h3>Este obligatoriu Planul de Îngrijire?</h3>
@@ -227,7 +314,7 @@
   <section class="section final-cta" id="get-started">
     <div class="container stack">
       <h2 class="reveal">Află cât costă înainte să întrebi.</h2>
-      <p class="reveal">Nu trebuie să completezi un formular ca să afli un preț. Alege nivelul de mai sus, sau hai să discutăm despre un proiect personalizat, oricum ar fi, știi din start în ce te bagi.</p>
+      <p class="reveal">Nu trebuie să completezi un formular ca să afli un preț. Alege un pachet de mai sus, plătește integral sau în rate, ori hai să discutăm despre un proiect personalizat, oricum ar fi, știi din start în ce te bagi.</p>
       <a class="btn btn--primary reveal" href="/#contact">Începe acum</a>
     </div>
   </section>
@@ -242,6 +329,8 @@
   </footer>
 
   <script defer src="../shared/js/site.js"></script>
+  <script defer src="../shared/js/form-validation.js"></script>
+  <script defer src="../shared/js/installments.js"></script>
   <script type="module" src="../shared/js/motion-effects.js"></script>
 </body>
 </html>

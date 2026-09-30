@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return valid;
   };
 
-  form.querySelectorAll("input, textarea").forEach((field) => {
+  form.querySelectorAll("input, textarea, select").forEach((field) => {
     field.addEventListener("blur", () => validateField(field));
     field.addEventListener("input", () => {
       if (field.closest(".field")?.classList.contains("field--invalid")) {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const fields = Array.from(form.querySelectorAll("input, textarea"));
+    const fields = Array.from(form.querySelectorAll("input, textarea, select"));
     const allValid = fields.map(validateField).every(Boolean);
     if (!allValid) {
       fields.find((f) => !f.checkValidity())?.focus();
@@ -37,14 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const button = form.querySelector("button[type=submit]");
     const original = button.textContent;
+    const ro = document.documentElement.lang === "ro";
 
-    // Forms with a `name` submit for real, via Web3Forms (api.web3forms.com).
-    // Everything else (the demo templates) has no backend to send to,
-    // so it just simulates success for preview purposes.
-    if (form.name) {
+    // Forms with an `action` post there (the pricing page's installment
+    // form → /api/installments); forms with only a `name` submit via
+    // Web3Forms (api.web3forms.com). Everything else (the demo templates)
+    // has no backend to send to, so it just simulates success for preview.
+    const endpoint = form.getAttribute("action") || (form.name && "https://api.web3forms.com/submit");
+    if (endpoint) {
       button.disabled = true;
-      button.textContent = "Sending…";
-      fetch("https://api.web3forms.com/submit", {
+      button.textContent = ro ? "Se trimite…" : "Sending…";
+      fetch(endpoint, {
         method: "POST",
         headers: { Accept: "application/json" },
         body: new FormData(form),
@@ -54,15 +57,16 @@ document.addEventListener("DOMContentLoaded", () => {
           if (!ok) throw new Error(data?.message || "Form submission failed");
         })
         .then(() => {
-          button.textContent = "Message sent";
+          button.textContent = ro ? "Mesaj trimis" : "Message sent";
           form.reset();
+          form.dispatchEvent(new Event("change"));
           setTimeout(() => {
             button.textContent = original;
             button.disabled = false;
           }, 3000);
         })
         .catch(() => {
-          button.textContent = "Couldn't send, try again";
+          button.textContent = ro ? "Nu s-a trimis, încearcă din nou" : "Couldn't send, try again";
           button.disabled = false;
           setTimeout(() => {
             button.textContent = original;
