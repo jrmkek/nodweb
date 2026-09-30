@@ -31,6 +31,9 @@
 /clients/valuesteel/assets/*
   Cache-Control: public, max-age=2592000
 
+/clients/dentini-dental/assets/*
+  Cache-Control: public, max-age=2592000
+
 # CSS/JS keep their filenames when they change, so they must be revalidated
 # on every request (cheap 304 via ETag). A long max-age here let Cloudflare's
 # edge keep serving a week-old fonts-nodweb.css after a deploy.
