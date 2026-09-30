@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pricing: NodWeb Web Design Bucharest</title>
-  <meta name="description" content="Fixed-price websites from €350 + VAT for local businesses, payable in 3, 6 or 12 monthly installments. Custom quotes for architecture and design studios." />
+  <meta name="description" content="Fixed-price websites from €350 + VAT for local businesses. Custom quotes for architecture and design studios." />
   <link rel="canonical" href="https://nodweb.org/pricing" />
   <link rel="alternate" hreflang="en" href="https://nodweb.org/pricing" />
   <link rel="alternate" hreflang="ro" href="https://nodweb.org/ro/pricing" />
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NodWeb" />
   <meta property="og:title" content="Pricing: NodWeb Web Design Bucharest" />
-  <meta property="og:description" content="Fixed-price websites from €350 + VAT for local businesses, payable in 3, 6 or 12 monthly installments. Custom quotes for architecture and design studios." />
+  <meta property="og:description" content="Fixed-price websites from €350 + VAT for local businesses. Custom quotes for architecture and design studios." />
   <meta property="og:url" content="https://nodweb.org/pricing" />
   <meta property="og:image" content="https://nodweb.org/assets/og/home.jpg?v=2" />
   <meta property="og:image:width" content="1200" />
@@ -27,7 +27,7 @@
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pricing: NodWeb Web Design Bucharest" />
-  <meta name="twitter:description" content="Fixed-price websites from €350 + VAT, payable in monthly installments." />
+  <meta name="twitter:description" content="Fixed-price websites from €350 + VAT." />
   <meta name="twitter:image" content="https://nodweb.org/assets/og/home.jpg?v=2" />
 
   <link rel="stylesheet" href="./shared/css/fonts-nodweb.css" />
@@ -64,11 +64,6 @@
         "@type": "Question",
         "name": "Can I start with the Website tier and add the 3D showcase later?",
         "acceptedAnswer": { "@type": "Answer", "text": "Yes, some studios start with a standard site to launch fast, then move to a custom build once they're ready to invest in the showcase experience." }
-      },
-      {
-        "@type": "Question",
-        "name": "How does paying in installments work?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Pick a package and 3, 6 or 12 monthly installments. Installments add 24% to the package price, split evenly across the months. Sending the request costs nothing and commits you to nothing; we reply within one business day with the agreement, and work starts once the first installment is paid." }
       },
       {
         "@type": "Question",
@@ -125,7 +120,7 @@
     <div class="hero-glow hero-glow--b" aria-hidden="true"></div>
     <div class="container stack load-stagger">
       <h1>Pricing, not <span class="gradient-text">a quote form</span></h1>
-      <p class="hero__intro">Two fixed-price packages for local businesses, and a custom quote for studios that need a 3D showcase. Pay once, or split it into monthly installments.</p>
+      <p class="hero__intro">Two fixed-price packages for local businesses, and a custom quote for studios that need a 3D showcase.</p>
     </div>
   </section>
 
@@ -152,7 +147,6 @@
             <li class="is-no"><span>Monthly maintenance + hosting</span><strong><span class="visually-hidden">Not included</span>–</strong></li>
           </ul>
           <a class="btn btn--secondary btn--block" href="/#contact">Start My Project</a>
-          <a class="pricing-card__rate" href="#installments" data-plan-link="starter">or 12 × €36.17 a month</a>
         </div>
 
         <div class="pricing-col pricing-col--featured">
@@ -173,7 +167,6 @@
             <li><span>Monthly maintenance + hosting</span><strong>Free (3 months)</strong></li>
           </ul>
           <a class="btn btn--primary btn--block" href="/#contact">Start My Project</a>
-          <a class="pricing-card__rate" href="#installments" data-plan-link="website">or 12 × €62.00 a month</a>
         </div>
 
       </div>
@@ -206,62 +199,6 @@
         <div><dt>GA4 + Meta Pixel<span>See where visitors come from and which ads bring them</span></dt><dd>+€75<span>≈ 375 lei</span></dd></div>
         <div><dt>Care Plan<span>Content updates, monitoring, backups and small changes, a quick message away, not a fresh project</span></dt><dd>€59/month<span>≈ 295 lei</span></dd></div>
       </dl>
-    </div>
-  </section>
-
-  <!-- ===================== INSTALLMENTS ===================== -->
-  <section class="section section--alt" id="installments">
-    <div class="container contact-grid">
-      <div class="stack">
-        <h2 class="reveal">Pay in installments</h2>
-        <p class="reveal">Split any package into 3, 6 or 12 monthly payments. Installments add <strong>24%</strong> to the package price, spread evenly, with no bank and no credit check. Prices exclude VAT. Pick a package, see the monthly amount, and send the request.</p>
-        <p class="reveal rate-promise">No obligation &middot; Reply within one business day &middot; You pay nothing now</p>
-      </div>
-
-      <form class="card stack reveal" id="installments-form" action="/api/installments" method="POST" data-surcharge="0.24" novalidate>
-        <input type="hidden" name="lang" value="en" />
-        <p class="visually-hidden" aria-hidden="true">
-          <label>Leave this field blank: <input name="botcheck" tabindex="-1" autocomplete="off" /></label>
-        </p>
-        <div class="field-row">
-          <div class="field">
-            <label for="rate-plan">Package</label>
-            <select id="rate-plan" name="plan">
-              <option value="starter" data-price="350">Starter · €350 + VAT</option>
-              <option value="website" data-price="600" selected>Business · €600 + VAT</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="rate-months">Installments</label>
-            <select id="rate-months" name="months">
-              <option value="3">3 months</option>
-              <option value="6">6 months</option>
-              <option value="12" selected>12 months</option>
-            </select>
-          </div>
-        </div>
-        <p class="rate-result"><output id="installments-result" for="rate-plan rate-months" aria-live="polite">12 × €62.00 = €744.00</output></p>
-        <div class="field">
-          <label for="rate-name">Name</label>
-          <input id="rate-name" name="name" type="text" required autocomplete="name" aria-describedby="rate-name-error" />
-          <span class="field__error" id="rate-name-error" role="alert">Please enter your name.</span>
-        </div>
-        <div class="field">
-          <label for="rate-email">Email</label>
-          <input id="rate-email" name="email" type="email" required autocomplete="email" aria-describedby="rate-email-error" />
-          <span class="field__error" id="rate-email-error" role="alert">Please enter a valid email address.</span>
-        </div>
-        <div class="field">
-          <label for="rate-phone">Phone <span class="field__hint">(optional)</span></label>
-          <input id="rate-phone" name="phone" type="tel" autocomplete="tel" />
-        </div>
-        <div class="field">
-          <label for="rate-business">Business name <span class="field__hint">(optional)</span></label>
-          <input id="rate-business" name="business" type="text" autocomplete="organization" />
-        </div>
-        <button class="btn btn--primary btn--block" type="submit">Request installments</button>
-        <p class="field__hint">We use these details only to reply to you. <a href="/privacy">Privacy policy</a></p>
-      </form>
     </div>
   </section>
 
@@ -299,10 +236,6 @@
           <p>Yes, some studios start with a standard site to launch fast, then move to a custom build once they're ready to invest in the showcase experience.</p>
         </div>
         <div class="faq-item reveal">
-          <h3>How does paying in installments work?</h3>
-          <p>Pick a package and 3, 6 or 12 monthly installments. Installments add 24% to the package price, split evenly across the months. Sending the request costs nothing and commits you to nothing; we reply within one business day with the agreement, and work starts once the first installment is paid.</p>
-        </div>
-        <div class="faq-item reveal">
           <h3>Do you require the Care Plan?</h3>
           <p>No. It's there for people who'd rather not think about their site again after launch.</p>
         </div>
@@ -314,7 +247,7 @@
   <section class="section final-cta" id="get-started">
     <div class="container stack">
       <h2 class="reveal">Know what this costs before you ask.</h2>
-      <p class="reveal">No quote-request wall before you can see a number. Pick a package above, pay at once or in installments, or talk through a custom project, either way, you'll know what you're getting into.</p>
+      <p class="reveal">No quote-request wall before you can see a number. Pick a package above, or talk through a custom project, either way, you'll know what you're getting into.</p>
       <a class="btn btn--primary reveal" href="/#contact">Get Started</a>
     </div>
   </section>
@@ -330,7 +263,6 @@
 
   <script defer src="./shared/js/site.js"></script>
   <script defer src="./shared/js/form-validation.js"></script>
-  <script defer src="./shared/js/installments.js"></script>
   <script type="module" src="./shared/js/motion-effects.js"></script>
 </body>
 </html>

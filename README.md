@@ -48,18 +48,9 @@ shared/
   fonts/                  The actual .woff2 files (latin + latin-ext subsets,
                           covers English and Romanian diacritics).
   js/site.js              Mobile nav toggle + scroll-reveal animation.
-  js/form-validation.js   Inline validation for every form; forms with an
-                          `action` post there, forms with a `name` submit via
-                          Web3Forms, everything else (the demo templates)
-                          fakes success.
-  js/installments.js      Pricing-page installment calculator (display only).
-
-functions/
-  api/installments.js     Cloudflare Pages Function at /api/installments:
-                          prices and stores "plată în rate" requests. Needs a
-                          KV binding INSTALLMENTS and/or RESEND_API_KEY +
-                          NOTIFY_EMAIL; ADMIN_TOKEN to list requests (GET,
-                          Bearer token). Check: node scripts/test_installments.mjs
+  js/form-validation.js   Inline validation for every form; forms with a
+                          `name` attribute submit for real via Web3Forms,
+                          everything else (the demo templates) fakes success.
 
 templates/
   architecture-studio/    Flagship template with an interactive 3D model viewer

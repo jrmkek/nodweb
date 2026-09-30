@@ -415,8 +415,6 @@ body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px
   text-transform: none;
   letter-spacing: normal;
 }
-.pricing-card__rate { font-size: var(--text-sm); text-align: center; color: var(--color-text-muted); }
-.pricing-card__rate:hover { color: var(--color-accent); }
 
 /* The custom-quote tier sits under the priced ones as one wide row: it
    isn't comparable line by line, so it doesn't get a column. */
@@ -444,9 +442,6 @@ body.js-motion-ready .reveal.is-visible { opacity: 0; transform: translateY(16px
 .addon-list dd { margin: 0; font-family: var(--font-display); font-weight: 800; white-space: nowrap; text-align: right; }
 .addon-list span { display: block; margin-top: var(--space-1); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 400; color: var(--color-text-muted); }
 
-.field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
-.rate-result { margin: 0; font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 800; color: var(--color-text); }
-.rate-promise { font-size: var(--text-sm); color: var(--color-text-muted); }
 
 .faq-item { border-bottom: 1px solid var(--color-border); padding-block: var(--space-5); }
 .faq-item:first-child { border-top: 1px solid var(--color-border); }
