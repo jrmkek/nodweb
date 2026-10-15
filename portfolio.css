@@ -114,7 +114,7 @@ p a { color: var(--color-text); text-decoration-color: var(--color-accent); text
 /* keeps a hyphenated word like "n-ar" from splitting across lines */
 .nowrap { white-space: nowrap; }
 
-.hero-plate { display: block; text-decoration: none; padding: var(--space-5) var(--space-5) var(--space-4); }
+.hero-plate { display: block; text-decoration: none; padding: var(--space-5); }
 .hero-plate img { width: 100%; height: auto; border-radius: var(--radius-sm); aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
 .plate__caption { display: block; margin-top: var(--space-4); padding-inline: var(--space-1); font-size: var(--text-sm); line-height: 1.45; }
 .plate__caption strong { display: block; font-size: var(--text-base); text-transform: uppercase; letter-spacing: 0.02em; }
