@@ -1,25 +1,30 @@
-/* Layout + brand theme for NodWeb's own site. The direction comes from
-   Bucharest itself: the blue enamel street-name plates on every corner.
-   Plaster-grey ground, ink type, enamel cobalt as the one brand colour, and
-   the plate (cobalt panel, white inset rule, rounded corners) as the single
-   signature detail, used on the hero example and the contact details only. */
+/* Layout + brand theme for NodWeb's own site. Near-black and off-white
+   with one magenta, the brand palette the user chose; the magenta is spent
+   on actions and on the plate, never washed across surfaces or gradients.
+   avoid-ai-design-ignore: SD2 (palette chosen by the user)
+   The plate (a coloured panel with a thin light rule set just inside its
+   edge, like a Bucharest enamel street sign) is the one signature detail,
+   used on the hero example and the contact details only. */
 
 :root {
-  --nod-plaster: #e4e6e8;
-  --nod-paper: #f4f4f3;
-  --nod-white: #ffffff;
-  --nod-ink: #15171a;
-  --nod-cobalt: #1f3f99;
+  --nod-black: #0b0c0f;
+  --nod-slate: #1c1f26;
+  --nod-slate-light: #2b2f38;
+  --nod-off-white: #f4f5f7;
+  --nod-magenta: #ca3282;
+  --nod-pink: #f472b6;
 
-  --color-bg: var(--nod-plaster);
-  --color-bg-alt: var(--nod-paper);
-  --color-surface: var(--nod-white);
-  --color-border: color-mix(in srgb, var(--nod-ink) 16%, var(--nod-plaster));
-  --color-text: var(--nod-ink);
-  --color-text-muted: color-mix(in srgb, var(--nod-ink) 72%, var(--nod-plaster));
-  --color-accent: var(--nod-cobalt);
-  --color-accent-hover: color-mix(in srgb, var(--nod-cobalt) 80%, var(--nod-ink));
-  --color-accent-contrast: var(--nod-white);
+  --color-bg: var(--nod-black);
+  --color-bg-alt: color-mix(in srgb, var(--nod-slate) 70%, var(--nod-black));
+  --color-surface: color-mix(in srgb, var(--nod-slate-light) 55%, var(--nod-black));
+  --color-border: color-mix(in srgb, var(--nod-slate-light) 70%, var(--nod-black));
+  /* The ruled lines (nav, services, process, footer): stronger than a border. */
+  --color-rule: color-mix(in srgb, var(--nod-off-white) 35%, var(--nod-black));
+  --color-text: var(--nod-off-white);
+  --color-text-muted: color-mix(in srgb, var(--nod-off-white) 62%, var(--nod-slate-light));
+  --color-accent: var(--nod-magenta);
+  --color-accent-hover: color-mix(in srgb, var(--nod-magenta) 85%, black);
+  --color-accent-contrast: #ffffff;
   /* Nohemi for everything; the logo alone is Round 8 (see .site-nav__brand). */
   --font-display: "Nohemi", "Segoe UI", system-ui, sans-serif;
   --font-body: "Nohemi", "Segoe UI", system-ui, sans-serif;
@@ -42,14 +47,15 @@ h1 { font-size: min(var(--text-3xl), 12vw); }
 h2 { font-size: min(var(--text-2xl), 10.5vw); }
 h3 { font-size: var(--text-lg); }
 a { text-underline-offset: 0.2em; }
-p a { color: var(--color-accent); }
+/* Magenta text on near-black is under 4.5:1, so links use the lighter pink. */
+p a { color: var(--nod-pink); }
 .btn { font-weight: 600; letter-spacing: 0.02em; box-shadow: none; }
 .btn--primary:hover { box-shadow: none; }
-.btn--secondary { border-color: var(--nod-ink); }
-.btn--secondary:hover { background: var(--nod-ink); color: var(--nod-white); }
+.btn--secondary { border-color: var(--color-text); }
+.btn--secondary:hover { background: var(--color-text); color: var(--color-bg); }
 .badge { font-weight: 500; letter-spacing: 0.01em; border-radius: var(--radius-sm); }
 .card { box-shadow: none; }
-.card--link:hover { box-shadow: none; transform: none; border-color: var(--nod-ink); }
+.card--link:hover { box-shadow: none; transform: none; border-color: var(--color-rule); }
 /* The logo is set in Round 8: one weight, so no faked bold. text-box trims
    its line box to the capitals, so the nav's flex centring centres the
    letters themselves rather than the font's uneven ascent/descent. */
@@ -59,7 +65,7 @@ p a { color: var(--color-accent); }
   text-box: trim-both cap alphabetic;
   flex-shrink: 0; margin-right: var(--space-6);
 }
-.site-nav { border-bottom-color: var(--nod-ink); }
+.site-nav { border-bottom-color: var(--color-rule); }
 .site-nav__links a:not(.btn):hover { text-decoration: underline; }
 .site-nav__links .btn { white-space: nowrap; }
 .site-nav__toggle { color: var(--color-text); font-size: 1.5rem; line-height: 1; }
@@ -72,13 +78,13 @@ p a { color: var(--color-accent); }
 .site-nav__links a[aria-current="page"] { color: var(--color-accent); }
 
 /* ---------- The plate ----------
-   An enamel street plate: cobalt panel, white text, a thin white rule set
+   An enamel street plate: magenta panel, white text, a thin white rule set
    just inside the edge. The rule is a pseudo-element, so focus outlines and
    any image inside stay untouched. */
 .plate {
   position: relative;
-  background: var(--nod-cobalt);
-  color: var(--nod-white);
+  background: var(--nod-magenta);
+  color: #ffffff;
   border-radius: 10px;
   padding: var(--space-5);
 }
@@ -86,12 +92,12 @@ p a { color: var(--color-accent); }
   content: "";
   position: absolute;
   inset: 7px;
-  border: 2px solid var(--nod-white);
+  border: 2px solid #ffffff;
   border-radius: 6px;
   pointer-events: none;
 }
-.plate p, .plate strong, .plate a { color: var(--nod-white); }
-.plate :focus-visible { outline-color: var(--nod-white); }
+.plate p, .plate strong, .plate a { color: #ffffff; }
+.plate :focus-visible { outline-color: #ffffff; }
 
 /* ---------- Hero: the pitch on the left, a real example on a plate ---------- */
 .hero { padding-block: var(--space-10); }
@@ -138,7 +144,7 @@ p a { color: var(--color-accent); }
 .work-card__trade { display: block; margin-bottom: var(--space-1); font-size: var(--text-sm); color: var(--color-text-muted); }
 .work-card h3 { margin-bottom: var(--space-2); }
 .work-card p { margin: 0; }
-.work-card:hover .work-card__media { border-color: var(--nod-ink); }
+.work-card:hover .work-card__media { border-color: var(--color-rule); }
 .work-card:hover h3 { text-decoration: underline; text-decoration-thickness: 2px; }
 .work-card--wide {
   grid-column: span 2;
@@ -162,13 +168,13 @@ p a { color: var(--color-accent); }
 }
 
 /* ---------- Services: ruled rows, the name beside what it means ---------- */
-.service-rows { border-bottom: 1px solid var(--nod-ink); }
+.service-rows { border-bottom: 1px solid var(--color-rule); }
 .service-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
   gap: var(--space-6);
   padding-block: var(--space-6);
-  border-top: 1px solid var(--nod-ink);
+  border-top: 1px solid var(--color-rule);
 }
 .service-row h3, .service-row p { margin: 0; }
 @media (max-width: 760px) {
@@ -186,7 +192,7 @@ p a { color: var(--color-accent); }
 .process-list li {
   position: relative;
   padding: var(--space-6) var(--space-6) 0 0;
-  border-top: 2px solid var(--nod-ink);
+  border-top: 2px solid var(--color-rule);
 }
 .process-list li::before {
   content: "";
@@ -196,14 +202,14 @@ p a { color: var(--color-accent); }
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--nod-cobalt);
+  background: var(--nod-magenta);
   box-shadow: 0 0 0 3px var(--color-bg-alt);
 }
 .process-list h3 { margin-bottom: var(--space-2); }
 .process-list p { margin: 0; }
 @media (max-width: 860px) {
   .process-list { grid-template-columns: 1fr; margin-left: 7px; }
-  .process-list li { border-top: none; border-left: 2px solid var(--nod-ink); padding: 0 0 var(--space-6) var(--space-6); }
+  .process-list li { border-top: none; border-left: 2px solid var(--color-rule); padding: 0 0 var(--space-6) var(--space-6); }
   .process-list li:last-child { padding-bottom: 0; }
   .process-list li::before { top: 2px; left: -8px; }
 }
@@ -218,13 +224,13 @@ p a { color: var(--color-accent); }
   align-items: start;
 }
 .contact-plate { padding: var(--space-8) var(--space-6); }
-.contact-plate h2 { color: var(--nod-white); }
+.contact-plate h2 { color: #ffffff; }
 .contact-grid .field input, .contact-grid .field textarea { min-width: 0; }
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
-.site-footer { border-top-color: var(--nod-ink); }
+.site-footer { border-top-color: var(--color-rule); }
 .site-footer a { margin-left: var(--space-4); }
 
 /* ---------- Language switcher ---------- */
