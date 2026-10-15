@@ -1,30 +1,31 @@
-/* Layout + brand theme for NodWeb's own site. Near-black and off-white
-   with one magenta, the brand palette the user chose; the magenta is spent
-   on actions and on the plate, never washed across surfaces or gradients.
-   avoid-ai-design-ignore: SD2 (palette chosen by the user)
-   The plate (a coloured panel with a thin light rule set just inside its
-   edge, like a Bucharest enamel street sign) is the one signature detail,
-   used on the hero example and the contact details only. */
+/* Layout + brand theme for NodWeb's own site. Palette: the "Vichy" swatch
+   the user picked (#FFFFFF, #BBBFBF, #878787, #05AD98). White is the ground,
+   the two greys carry surfaces and lines, teal is the one accent.
+   avoid-ai-design-ignore: SD8 (teal accent chosen by the user)
+   None of the four is dark enough for text (#878787 on white is ~3.6:1), so
+   text is #878787 deepened toward black, same grey, AA contrast. White on
+   the teal is ~2.8:1, so anything set on teal uses that ink instead.
+   The plate (a teal panel with a thin white rule just inside its edge, like
+   a Bucharest enamel street sign) is the one signature detail, used on the
+   hero example and the contact details only. */
 
 :root {
-  --nod-black: #0b0c0f;
-  --nod-slate: #1c1f26;
-  --nod-slate-light: #2b2f38;
-  --nod-off-white: #f4f5f7;
-  --nod-magenta: #ca3282;
-  --nod-pink: #f472b6;
+  --nod-white: #ffffff;
+  --nod-silver: #bbbfbf;
+  --nod-grey: #878787;
+  --nod-teal: #05ad98;
+  --nod-ink: color-mix(in srgb, var(--nod-grey) 35%, black);   /* ~#2f2f2f, 13:1 on white */
 
-  --color-bg: var(--nod-black);
-  --color-bg-alt: color-mix(in srgb, var(--nod-slate) 70%, var(--nod-black));
-  --color-surface: color-mix(in srgb, var(--nod-slate-light) 55%, var(--nod-black));
-  --color-border: color-mix(in srgb, var(--nod-slate-light) 70%, var(--nod-black));
-  /* The ruled lines (nav, services, process, footer): stronger than a border. */
-  --color-rule: color-mix(in srgb, var(--nod-off-white) 35%, var(--nod-black));
-  --color-text: var(--nod-off-white);
-  --color-text-muted: color-mix(in srgb, var(--nod-off-white) 62%, var(--nod-slate-light));
-  --color-accent: var(--nod-magenta);
-  --color-accent-hover: color-mix(in srgb, var(--nod-magenta) 85%, black);
-  --color-accent-contrast: #ffffff;
+  --color-bg: var(--nod-white);
+  --color-bg-alt: color-mix(in srgb, var(--nod-silver) 30%, var(--nod-white));
+  --color-surface: var(--nod-white);
+  --color-border: var(--nod-silver);
+  --color-rule: var(--nod-grey);
+  --color-text: var(--nod-ink);
+  --color-text-muted: color-mix(in srgb, var(--nod-grey) 75%, black); /* ~#656565 */
+  --color-accent: var(--nod-teal);
+  --color-accent-hover: color-mix(in srgb, var(--nod-teal) 85%, var(--nod-ink));
+  --color-accent-contrast: var(--nod-ink);
   /* Nohemi for everything; the logo alone is Round 8 (see .site-nav__brand). */
   --font-display: "Nohemi", "Segoe UI", system-ui, sans-serif;
   --font-body: "Nohemi", "Segoe UI", system-ui, sans-serif;
@@ -47,8 +48,8 @@ h1 { font-size: min(var(--text-3xl), 12vw); }
 h2 { font-size: min(var(--text-2xl), 10.5vw); }
 h3 { font-size: var(--text-lg); }
 a { text-underline-offset: 0.2em; }
-/* Magenta text on near-black is under 4.5:1, so links use the lighter pink. */
-p a { color: var(--nod-pink); }
+/* Teal text on white is under 4.5:1: links stay ink, the teal goes in the underline. */
+p a { color: var(--color-text); text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
 .btn { font-weight: 600; letter-spacing: 0.02em; box-shadow: none; }
 .btn--primary:hover { box-shadow: none; }
 .btn--secondary { border-color: var(--color-text); }
@@ -75,16 +76,16 @@ p a { color: var(--nod-pink); }
   .site-nav__links { gap: var(--space-4); }
   .site-nav__links .btn { padding-inline: var(--space-4); }
 }
-.site-nav__links a[aria-current="page"] { color: var(--color-accent); }
+.site-nav__links a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
 
 /* ---------- The plate ----------
-   An enamel street plate: magenta panel, white text, a thin white rule set
+   An enamel street plate: teal panel, ink text, a thin white rule set
    just inside the edge. The rule is a pseudo-element, so focus outlines and
    any image inside stay untouched. */
 .plate {
   position: relative;
-  background: var(--nod-magenta);
-  color: #ffffff;
+  background: var(--nod-teal);
+  color: var(--nod-ink);
   border-radius: 10px;
   padding: var(--space-5);
 }
@@ -96,8 +97,8 @@ p a { color: var(--nod-pink); }
   border-radius: 6px;
   pointer-events: none;
 }
-.plate p, .plate strong, .plate a { color: #ffffff; }
-.plate :focus-visible { outline-color: #ffffff; }
+.plate p, .plate strong, .plate a { color: var(--nod-ink); }
+.plate :focus-visible { outline-color: var(--nod-ink); }
 
 /* ---------- Hero: the pitch on the left, a real example on a plate ---------- */
 .hero { padding-block: var(--space-10); }
@@ -219,7 +220,7 @@ p a { color: var(--nod-pink); }
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--nod-magenta);
+  background: var(--nod-teal);
   box-shadow: 0 0 0 3px var(--color-bg-alt);
 }
 .process-list h3 { margin-bottom: var(--space-2); }
@@ -241,7 +242,7 @@ p a { color: var(--nod-pink); }
   align-items: start;
 }
 .contact-plate { padding: var(--space-8) var(--space-6); }
-.contact-plate h2 { color: #ffffff; }
+.contact-plate h2 { color: var(--nod-ink); }
 .contact-grid .field input, .contact-grid .field textarea { min-width: 0; }
 @media (max-width: 860px) {
   .contact-grid { grid-template-columns: minmax(0, 1fr); }
