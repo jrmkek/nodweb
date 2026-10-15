@@ -11,8 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const [prev, next] = root.querySelectorAll("[data-dir]");
   const behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
 
-  // Looping: a copy of the last card goes before the first and a copy of the
-  // first after the last, so both ends have a neighbour. The copies are
+  // Looping: copies of the last few cards go before the first and copies of
+  // the first few after the last, so both ends stay filled even on a wide
+  // screen. The copies are
   // decoration only: hidden from assistive tech and out of the tab order.
   const real = [...track.children];
   const n = real.length;
@@ -22,8 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     c.tabIndex = -1;
     return c;
   };
-  track.prepend(copy(real[n - 1]));
-  track.append(copy(real[0]));
+  // ponytail: fixed 3 copies a side fills screens up to ~4000px wide;
+  // derive it from track width / slide width if ultrawide matters.
+  const pad = Math.min(3, n);
+  track.prepend(...real.slice(-pad).map(copy));
+  track.append(...real.slice(0, pad).map(copy));
   const slides = [...track.children];
   const last = slides.length - 1;
   // A thumbnail still downloading would otherwise pop in under an already
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     img.addEventListener("error", show, { once: true });
   });
   // Each copy's twin is the real card it stands in for.
-  const twin = (i) => (i === 0 ? n : i === last ? 1 : i);
+  const twin = (i) => (i < pad ? i + n : i >= pad + n ? i - n : i);
 
   // current = the card in focus; target = where the carousel is heading, so
   // quick repeated arrow presses keep advancing before the scroll settles.
@@ -72,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     current = i;
     const t = twin(i);
     slides.forEach((s, k) => s.classList.toggle("is-active-preview", twin(k) === t));
-    count.textContent = `${t} / ${n}`;
+    count.textContent = `${t - pad + 1} / ${n}`;
   };
 
   // Resting on a copy: jump to the real card without animating.
@@ -165,5 +169,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Open on the first card, with the last one peeking in on its left.
-  go(1, "instant");
+  go(pad, "instant");
 });
