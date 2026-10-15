@@ -122,49 +122,66 @@ p a { color: var(--nod-pink); }
   .hero__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
 }
 
-/* ---------- Work: every example, as a grid of real screenshots ----------
-   Three columns; the two original examples run double-width with the copy
-   beside the picture, which also fills the 3x4 grid exactly. */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-8) var(--space-6);
+/* ---------- Work carousel: every example in one row ----------
+   Native scroll-snap does the swiping; work-carousel.js marks the centred
+   card (.is-active-preview), wires the arrows and loops the row. Side cards
+   stay sharp, just dimmed and a little smaller, so the centred one reads as
+   the one in focus without hiding the others. */
+#work { overflow-x: clip; }
+.work-carousel { width: 100vw; margin-inline: calc(50% - 50vw); }
+.work-carousel__track {
+  --slide: min(560px, 76vw);
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6) calc(50% - var(--slide) / 2);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
+.work-carousel__track::-webkit-scrollbar { display: none; }
 .work-card { display: block; text-decoration: none; color: inherit; }
+.work-slide {
+  flex: 0 0 var(--slide);
+  scroll-snap-align: center;
+  transition: opacity 240ms var(--ease), scale 240ms var(--ease);
+}
+.work-slide:not(.is-active-preview) { opacity: 0.45; scale: 0.92; }
+@media (hover: hover) {
+  .work-slide:not(.is-active-preview):hover { opacity: 0.75; }
+}
 .work-card__media {
   aspect-ratio: 16 / 10;
   margin-bottom: var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-bg);
+  background: var(--color-surface);
   transition: border-color var(--duration-base) var(--ease);
 }
 .work-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .work-card__trade { display: block; margin-bottom: var(--space-1); font-size: var(--text-sm); color: var(--color-text-muted); }
 .work-card h3 { margin-bottom: var(--space-2); }
 .work-card p { margin: 0; }
-.work-card:hover .work-card__media { border-color: var(--color-rule); }
-.work-card:hover h3 { text-decoration: underline; text-decoration-thickness: 2px; }
-.work-card--wide {
-  grid-column: span 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  grid-template-rows: 1fr auto auto auto;
-  column-gap: var(--space-6);
+.work-slide.is-active-preview:hover .work-card__media { border-color: var(--color-rule); }
+.work-slide.is-active-preview:hover h3 { text-decoration: underline; text-decoration-thickness: 2px; }
+.work-carousel__controls { display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-top: var(--space-2); }
+.work-carousel__btn {
+  width: 48px; height: 48px; display: inline-grid; place-items: center; cursor: pointer;
+  border: 1px solid var(--color-rule); border-radius: var(--radius-sm);
+  background: transparent; color: var(--color-text);
+  transition: background-color var(--duration-base) var(--ease), border-color var(--duration-base) var(--ease);
 }
-.work-card--wide .work-card__media { grid-row: 1 / -1; margin-bottom: 0; }
-.work-card--wide > :not(.work-card__media) { grid-column: 2; }
-.work-card--wide .work-card__trade { grid-row: 2; }
-.work-card--wide h3 { grid-row: 3; }
-.work-card--wide p { grid-row: 4; }
-@media (max-width: 960px) {
-  .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (hover: hover) {
+  .work-carousel__btn:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-contrast); }
 }
-@media (max-width: 600px) {
-  .work-grid { grid-template-columns: minmax(0, 1fr); }
-  .work-card--wide { grid-column: auto; display: block; }
-  .work-card--wide .work-card__media { margin-bottom: var(--space-4); }
+@media (max-width: 599px) {
+  .work-carousel__track { --slide: 80vw; gap: var(--space-3); }
+  .work-slide:not(.is-active-preview) { opacity: 0.6; scale: 0.95; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-slide { transition: none; }
+  .work-slide:not(.is-active-preview) { scale: 1; }
 }
 
 /* ---------- Services: ruled rows, the name beside what it means ---------- */
