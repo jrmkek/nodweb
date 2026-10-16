@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="ro" data-project="c3">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-ro="Bizoo Studio: design interior și vizualizare 3D, Târgu Mureș" data-en="Bizoo Studio: interior design and 3D visualisation, Târgu Mureș">Bizoo Studio: design interior și vizualizare 3D, Târgu Mureș</title>
+  <meta name="description" content="Studio de design interior și vizualizare 3D din Târgu Mureș. Propunere de site realizată de NodWeb." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f3f4f2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='2' width='9' height='28' fill='%23d9b77a'/%3E%3Crect x='17' y='2' width='9' height='28' fill='%235a3a24'/%3E%3C/svg%3E" />
+  <link rel="preload" as="image" href="./assets/c3-1-wide.webp" fetchpriority="high" />
+  <link rel="preload" href="./fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+/* Hallmark · macrostructure: custom (fan deck) · tone: luxury-utilitarian · anchor hue: moves with the held project
+ * theme: custom · vibe: "interior designer's colour fan deck" · display: Jost · body: Hanken Grotesk
+ * Hallmark · pre-emit critique: P5 H4 E4 S5 R4 V5
+ * Bizoo Studio: pitch draft by NodWeb.
+ * The page is a colour fan deck. Every project is a chip strip in its own
+ * palette, and the chip you hold open colours the interface (--chip). */
+
+@font-face { font-family: "Jost"; font-weight: 300 700; font-display: swap; src: url("./fonts/jost-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Jost"; font-weight: 300 700; font-display: swap; src: url("./fonts/jost-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 400 700; font-display: swap; src: url("./fonts/hanken-grotesk-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 400 700; font-display: swap; src: url("./fonts/hanken-grotesk-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+:root {
+  --ground: oklch(96.6% 0.004 160);   /* mineral white, the deck's page */
+  --paper: oklch(99.3% 0.002 160);    /* the chip stock */
+  --ink: oklch(21% 0.008 60);
+  --ink-2: oklch(43% 0.01 60);
+  --hair: oklch(85% 0.006 160);
+  --err: oklch(48% 0.16 28);
+
+  /* Each project's three shades, light → deep. Names live in the markup. */
+  --c3-1: oklch(91% 0.035 80);  --c3-2: oklch(76% 0.11 72);   --c3-3: oklch(39% 0.06 50);
+  --r4-1: oklch(80% 0.008 90);  --r4-2: oklch(63% 0.09 62);   --r4-3: oklch(31% 0.006 250);
+  --wdw-1: oklch(93% 0.012 90); --wdw-2: oklch(70% 0.05 150); --wdw-3: oklch(35% 0.065 235);
+  --cl-1: oklch(97% 0.008 210); --cl-2: oklch(81% 0.06 188);  --cl-3: oklch(47% 0.085 205);
+  --b-1: oklch(91% 0.02 85);    --b-2: oklch(67% 0.012 70);   --b-3: oklch(37% 0.075 350);
+
+  --chip: var(--c3-3);            /* the held chip: the only accent, and it moves */
+  --chip-soft: var(--c3-1);
+  --on-chip: var(--paper);
+
+  --font-display: "Jost", "Futura", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1440px;
+  --bar: 64px;
+  --spring: linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);
+  --out: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
+}
+[data-project="c3"]  { --chip: var(--c3-3);  --chip-soft: var(--c3-1); }
+[data-project="r4"]  { --chip: var(--r4-3);  --chip-soft: var(--r4-1); }
+[data-project="wdw"] { --chip: var(--wdw-3); --chip-soft: var(--wdw-1); }
+[data-project="cl"]  { --chip: var(--cl-3);  --chip-soft: var(--cl-1); }
+[data-project="b"]   { --chip: var(--b-3);   --chip-soft: var(--b-1); }
+html { transition: --chip .6s; }
+
+/* Language toggle: both languages ship in the markup, the root lang picks one. */
+html[lang="ro"] [lang="en"], html[lang="en"] [lang="ro"] { display: none !important; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: var(--bar); overflow-x: clip; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; overflow-x: clip;
+  background: var(--ground); color: var(--ink);
+  font: 400 17px/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+::selection { background: var(--chip); color: var(--on-chip); }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+button, input, select, textarea { font: inherit; color: inherit; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 500; letter-spacing: -0.025em; line-height: 1; text-wrap: balance; overflow-wrap: anywhere; min-width: 0; }
+p { margin: 0; text-wrap: pretty; }
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.todo { font-family: var(--font-body); font-weight: 600; font-size: 0.86em; color: var(--ink-2); background: color-mix(in oklch, var(--chip-soft) 70%, var(--paper)); padding: 0.05em 0.35em; white-space: nowrap; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--hair); }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-2); }
+
+/* ---------- a chip: three shade bands with their names ---------- */
+.sw { display: flex; align-items: flex-end; background: var(--s); color: var(--ink); font: 500 11px/1.2 var(--font-display); letter-spacing: 0.04em; padding: 6px 7px; min-width: 0; }
+.sw.dk { color: var(--paper); }
+
+/* ---------- header ---------- */
+.bar { position: sticky; top: 0; z-index: 50; background: var(--ground); border-bottom: 1px solid var(--hair); }
+.bar__in { display: flex; align-items: center; gap: 28px; height: var(--bar); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 500 22px/1 var(--font-display); letter-spacing: -0.02em; white-space: nowrap; }
+.brand__mark { display: flex; gap: 2px; height: 26px; }
+.brand__mark i { width: 7px; background: var(--chip-soft); transition: background .6s var(--out); }
+.brand__mark i:nth-child(2) { background: var(--chip); }
+.brand small { font-weight: 400; color: var(--ink-2); }
+.nav { display: flex; gap: 24px; margin-left: auto; }
+.nav a { position: relative; font-size: 15px; font-weight: 500; text-decoration: none; color: var(--ink-2); white-space: nowrap; transition: color .2s; padding-block: 6px; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--chip); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--out), background .6s; }
+.nav a:hover, .nav a.is-here { color: var(--ink); }
+.nav a.is-here::after { transform: none; }
+.lang { display: flex; border: 1px solid var(--ink); }
+.lang a { padding: 5px 9px; font: 600 13px/1 var(--font-display); letter-spacing: 0.06em; text-decoration: none; }
+.lang a[aria-current="true"] { background: var(--ink); color: var(--ground); }
+.bar .btn { padding: 11px 16px; font-size: 15px; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px; white-space: nowrap;
+  padding: 16px 22px; border: 0; background: var(--ink); color: var(--paper);
+  font: 500 16px/1 var(--font-display); letter-spacing: 0.01em; text-decoration: none; cursor: pointer;
+  transition: background .25s var(--out), transform .5s var(--spring);
+}
+.btn i { width: 10px; height: 18px; background: var(--chip-soft); transition: transform .5s var(--spring), background .6s; }
+.btn:hover { background: var(--chip); }
+.btn:hover i { transform: rotate(-14deg); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .55; cursor: progress; }
+.link { font: 500 16px/1.2 var(--font-display); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; background: none; border-top: 0; border-inline: 0; cursor: pointer; }
+.link:hover { color: var(--chip); }
+
+/* ---------- hero: a held fan deck over the room ---------- */
+.hero { position: relative; height: max(560px, min(calc(100svh - var(--bar)), 940px)); overflow: hidden; background: var(--chip-soft); }
+.hero__bg { position: absolute; inset: 0; }
+.hero__bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity .9s var(--out), transform 2.4s var(--out); }
+.hero__bg img.is-on { opacity: 1; transform: none; }
+.hero__card {
+  position: absolute; left: var(--gutter); bottom: 0; z-index: 3;
+  width: min(640px, calc(100% - 2 * var(--gutter)));
+  background: var(--ground); padding: clamp(24px, 3.2vw, 44px) clamp(22px, 3vw, 44px) clamp(26px, 3vw, 40px);
+}
+.hero h1 { font-size: clamp(2.6rem, 5.2vw, 4.9rem); font-weight: 500; letter-spacing: -0.035em; line-height: 0.96; }
+.hero h1 b { font-weight: 500; color: var(--chip); transition: color .6s var(--out); }
+.lede { max-width: 46ch; margin-top: 18px; font-size: clamp(16px, 1.25vw, 18px); color: var(--ink-2); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 26px; }
+.held { display: flex; align-items: baseline; gap: 10px; margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--hair); font-size: 14px; color: var(--ink-2); min-width: 0; }
+.held b { font: 500 16px/1.2 var(--font-display); color: var(--ink); white-space: nowrap; }
+.held span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.fan { --cw: clamp(62px, 6.2vw, 92px); --ch: calc(var(--cw) * 4.4); position: absolute; right: clamp(24px, 9vw, 150px); bottom: clamp(12px, 2.4vw, 36px); z-index: 2; width: var(--cw); height: var(--ch); }
+.chip {
+  --i: 0;                                    /* place in the deck, set by the script */
+  position: absolute; inset: 0; padding: 0; border: 0; cursor: pointer;
+  display: grid; grid-template-rows: 1fr 1fr 1fr calc(var(--cw) * 2.3);
+  background: var(--paper); box-shadow: 0 1px 2px oklch(20% 0.01 60 / .18), 0 10px 24px -8px oklch(20% 0.01 60 / .35);
+  transform-origin: 50% calc(100% - var(--cw) * 0.5);
+  /* a fixed spread, like a deck held open; the held chip slides out along its own axis */
+  transform: rotate(calc(var(--i) * 12deg - 46deg)) translateY(calc(var(--held, 0) * var(--ch) * -0.16));
+  transition: transform .9s var(--spring), box-shadow .4s;
+}
+.fan.is-closed .chip { transform: rotate(-2deg); transition-duration: 0s; }
+.chip[aria-pressed="true"] { --held: 1; z-index: 20; }
+.chip .sw { font-size: clamp(9px, .8vw, 11px); padding: 5px 6px; }
+.chip__foot { position: relative; display: flex; justify-content: center; padding: 8px 0 calc(var(--cw) * 0.78); }
+.chip__foot b { writing-mode: vertical-rl; transform: rotate(180deg); font: 500 clamp(12px, 1.05vw, 15px)/1 var(--font-display); letter-spacing: 0.02em; white-space: nowrap; color: var(--ink); }
+.chip__foot::after { content: ""; position: absolute; left: 50%; bottom: calc(var(--cw) * 0.5 - 6px); width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--ground); box-shadow: inset 0 1px 2px oklch(20% 0.01 60 / .35); }
+.chip:hover { box-shadow: 0 1px 2px oklch(20% 0.01 60 / .18), 0 16px 32px -8px oklch(20% 0.01 60 / .45); }
+.chip:focus-visible { outline-offset: 2px; }
+.fan__hint { position: absolute; right: calc(100% + var(--ch) * 0.62); bottom: calc(var(--ch) * 0.86); width: max-content; padding: 6px 10px; background: var(--ground); font-size: 13px; font-weight: 600; pointer-events: none; }
+.credit { position: absolute; right: 12px; top: 12px; z-index: 2; padding: 4px 8px; background: var(--ground); font-size: 12px; color: var(--ink-2); }
+
+/* ---------- sections ---------- */
+.sec { padding-block: clamp(80px, 10vw, 140px); }
+.sec__head { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(20px, 4vw, 64px); align-items: end; margin-bottom: clamp(32px, 4.5vw, 56px); }
+.sec__head h2, .h2 { font-size: clamp(2.4rem, 5vw, 4.5rem); letter-spacing: -0.035em; }
+.sec__head p { max-width: 52ch; color: var(--ink-2); }
+
+/* projects: filter tabs, then one chip card per project */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.filters button { padding: 9px 16px; border: 1px solid var(--ink); background: none; font: 500 15px/1 var(--font-display); cursor: pointer; transition: background .25s, color .25s; white-space: nowrap; }
+.filters button:hover { background: var(--chip-soft); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 24px); }
+.pcard { position: relative; display: flex; flex-direction: column; min-width: 0; background: var(--paper); text-align: left; padding: 0; border: 0; cursor: pointer; }
+.pcard[hidden] { display: none; }
+.pcard__img { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--s1); }
+.pcard__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--out); }
+.pcard:hover .pcard__img img { transform: scale(1.035); }
+.pcard__strip { display: grid; grid-template-columns: 1fr 1fr 1fr; height: 44px; }
+.pcard__strip .sw { transition: flex-grow .5s var(--out); }
+.pcard__body { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 16px 18px; }
+.pcard h3 { font-size: clamp(1.4rem, 2vw, 1.9rem); letter-spacing: -0.02em; }
+.pcard__meta { font-size: 14px; color: var(--ink-2); white-space: nowrap; }
+.pcard__open { position: absolute; right: 12px; top: 12px; padding: 6px 10px; background: var(--paper); font: 500 13px/1 var(--font-display); opacity: 0; transform: translateY(-4px); transition: opacity .3s var(--out), transform .4s var(--out); }
+.pcard:hover .pcard__open, .pcard:focus-visible .pcard__open { opacity: 1; transform: none; }
+.pcard--next { justify-content: flex-start; gap: 24px; padding: clamp(20px, 2.4vw, 32px); background: var(--chip); color: var(--on-chip); text-decoration: none; transition: background .6s var(--out); min-height: 280px; }
+.pcard--next p { font: 500 clamp(1.5rem, 2.4vw, 2.2rem)/1.08 var(--font-display); letter-spacing: -0.02em; max-width: 14ch; }
+.pcard--next span { font: 500 16px/1.2 var(--font-display); border-bottom: 1px solid currentColor; align-self: flex-start; padding-bottom: 2px; }
+.pcard--next .blank { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; height: 44px; margin-top: auto; }
+.pcard--next .blank i { border: 1px dashed color-mix(in oklch, var(--on-chip) 65%, transparent); }
+.note { margin-top: 18px; font-size: 13px; color: var(--ink-2); }
+
+/* project dialog */
+dialog.proj { width: min(1180px, calc(100vw - 24px)); max-height: calc(100svh - 24px); padding: 0; border: 0; background: var(--ground); color: var(--ink); overflow: auto; overscroll-behavior: contain; }
+dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
+.proj__in { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
+.proj__gal { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: var(--ink); min-height: 0; }
+.proj__gal img { flex: 0 0 100%; width: 100%; height: min(78svh, 760px); object-fit: cover; scroll-snap-align: start; }
+.proj__side { display: flex; flex-direction: column; gap: 18px; padding: clamp(22px, 3vw, 40px); }
+.proj__side h2 { font-size: clamp(2rem, 3.4vw, 3.2rem); }
+.proj__side .pcard__meta { white-space: normal; }
+.proj__pal { display: grid; grid-template-columns: repeat(3, 1fr); height: 92px; }
+.proj__pal .sw { font-size: 12px; }
+.proj__nav { display: flex; gap: 8px; align-items: center; margin-top: auto; padding-top: 8px; }
+.sq { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--ink); background: var(--paper); cursor: pointer; transition: background .2s, color .2s; }
+.sq:hover { background: var(--ink); color: var(--paper); }
+.sq svg { width: 18px; height: 18px; }
+.proj__count { font: 500 14px/1 var(--font-display); font-variant-numeric: tabular-nums; min-width: 5ch; text-align: center; }
+.proj__close { position: absolute; right: 12px; top: 12px; z-index: 2; }
+
+/* before / after */
+.ba { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--wdw-1); --x: 50%; user-select: none; }
+.ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ba__after { clip-path: inset(0 0 0 var(--x)); }
+.ba__line { position: absolute; top: 0; bottom: 0; left: var(--x); width: 2px; margin-left: -1px; background: var(--paper); pointer-events: none; }
+.ba__knob { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; display: grid; place-items: center; background: var(--paper); color: var(--ink); box-shadow: 0 6px 18px -6px oklch(20% 0.01 60 / .5); }
+.ba__knob svg { width: 26px; height: 26px; }
+.ba input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
+.ba:has(input:focus-visible) .ba__knob { outline: 2px solid var(--ink); outline-offset: 3px; }
+.ba__tag { position: absolute; top: 14px; padding: 6px 10px; background: var(--paper); font: 500 14px/1 var(--font-display); pointer-events: none; }
+.ba__tag--l { left: 14px; }
+.ba__tag--r { right: 14px; background: var(--wdw-3); color: var(--paper); }
+
+/* services: one row per service, its own small chip at the start */
+.svc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.svc > li { display: grid; grid-template-columns: 64px minmax(0, 5fr) minmax(0, 6fr); gap: clamp(16px, 3vw, 48px); align-items: start; padding-block: clamp(26px, 3.4vw, 44px); border-bottom: 1px solid var(--ink); }
+.mini { display: grid; grid-template-rows: repeat(3, 26px) 30px; width: 46px; background: var(--paper); box-shadow: 0 6px 14px -6px oklch(20% 0.01 60 / .35); transform: rotate(-6deg); transition: transform .7s var(--spring); }
+.mini i { background: var(--s); }
+.svc > li:hover .mini { transform: rotate(6deg) translateY(-4px); }
+.svc h3 { font-size: clamp(1.8rem, 3.6vw, 3.1rem); letter-spacing: -0.03em; }
+.svc p { color: var(--ink-2); max-width: 48ch; }
+.svc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; padding: 0; }
+.svc ul li { display: block; padding: 5px 10px; border: 1px solid var(--hair); background: var(--paper); font-size: 14px; }
+
+/* process: four chips, light to deep, tinted by the held project */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.steps li { --t: 0.14; display: flex; flex-direction: column; min-height: 420px; padding: clamp(18px, 2vw, 28px); background: color-mix(in oklch, var(--chip) calc(var(--t) * 100%), var(--paper)); transition: background .6s var(--out); }
+.steps li:nth-child(2) { --t: 0.32; }
+.steps li:nth-child(3) { --t: 0.55; }
+.steps li:nth-child(4) { --t: 1; color: var(--paper); }
+.steps h3 { margin-top: auto; font-size: clamp(1.5rem, 2.2vw, 2.1rem); letter-spacing: -0.02em; }
+.steps p { margin-top: 12px; font-size: 16px; max-width: 32ch; }
+.steps li:nth-child(-n+2) p { color: var(--ink-2); }
+
+/* 3D upgrade */
+.three { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px dashed var(--ink); font: 500 13px/1 var(--font-display); letter-spacing: 0.03em; margin-top: 20px; }
+.badge i { width: 8px; height: 14px; background: var(--chip); }
+.three p { color: var(--ink-2); max-width: 46ch; margin-top: 18px; }
+.viewer { position: relative; aspect-ratio: 4 / 3; background: var(--chip-soft); border: 1px solid var(--hair); transition: background .6s var(--out); }
+.viewer model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
+.viewer model-viewer::part(default-progress-bar) { display: none; }
+.viewer__hint { position: absolute; left: 12px; bottom: 12px; padding: 6px 10px; background: var(--paper); font-size: 13px; font-weight: 600; pointer-events: none; }
+.viewer__wait { position: absolute; inset: 0; display: grid; place-items: center; font: 500 15px/1 var(--font-display); color: var(--ink-2); pointer-events: none; }
+.viewer.is-ready .viewer__wait { display: none; }
+
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); }
+.about__lede { font: 400 clamp(1.3rem, 2vw, 1.75rem)/1.35 var(--font-display); letter-spacing: -0.01em; margin-top: 22px; max-width: 30ch; }
+.people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+.person__photo { aspect-ratio: 4 / 5; display: grid; place-items: center; padding: 16px; border: 1px dashed var(--ink-2); background: var(--paper); text-align: center; font-size: 14px; color: var(--ink-2); }
+.person h3 { margin-top: 16px; font-size: clamp(1.4rem, 2vw, 1.9rem); letter-spacing: -0.02em; }
+.person p { margin-top: 8px; font-size: 16px; color: var(--ink-2); }
+
+/* contact */
+.contact { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); }
+.info { list-style: none; margin: 30px 0 0; padding: 0; border-top: 1px solid var(--ink); }
+.info li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding-block: 14px; border-bottom: 1px solid var(--hair); }
+.info li > span:first-child, .info li > span[lang] { color: var(--ink-2); font-size: 15px; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; align-content: start; }
+.form__row { display: grid; gap: 7px; align-content: start; }
+.form__row--wide { grid-column: 1 / -1; }
+.form label { font-size: 14px; font-weight: 600; }
+.form label small { font-weight: 400; color: var(--ink-2); }
+.form input, .form textarea, .form select { width: 100%; padding: 13px 14px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); caret-color: var(--chip); }
+.form select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px; }
+.form textarea { min-height: 150px; resize: vertical; }
+.form ::placeholder { color: oklch(52% 0.01 60); }
+.form input:focus, .form textarea:focus, .form select:focus { outline: 2px solid var(--chip); outline-offset: -1px; }
+.form__err { display: none; font-size: 13px; color: var(--err); font-weight: 600; }
+.is-invalid input, .is-invalid textarea { border-color: var(--err); }
+.is-invalid .form__err { display: block; }
+.form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.form__status { font-weight: 600; }
+
+/* footer */
+.foot { border-top: 1px solid var(--ink); padding-block: 36px 48px; font-size: 14px; color: var(--ink-2); }
+.foot__in { display: flex; flex-wrap: wrap; gap: 16px 48px; justify-content: space-between; align-items: flex-start; }
+.foot .brand { color: var(--ink); }
+.foot p { max-width: 70ch; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  .nav { display: none; }
+  .lang { margin-left: auto; }
+}
+@media (max-width: 900px) {
+  .sec__head, .three, .about, .contact, .proj__in { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps li { min-height: 300px; }
+  .svc > li { grid-template-columns: 52px minmax(0, 1fr); }
+  .svc > li > div:last-child { grid-column: 2; }
+  .svc > li .mini { grid-row: span 2; }
+  .proj__gal img { height: min(56svh, 520px); }
+}
+@media (max-width: 720px) {
+  /* The room on top with the fan held over its corner, the cover card below it. */
+  .hero { height: auto; display: flex; flex-direction: column; background: var(--ground); }
+  .hero__bg { position: relative; inset: auto; height: 58svh; min-height: 340px; overflow: hidden; background: var(--chip-soft); }
+  .hero__card { position: relative; left: auto; width: 100%; padding: 26px var(--gutter) 34px; }
+  .fan { --cw: 50px; right: 34px; bottom: auto; top: calc(58svh - var(--ch) + var(--cw) * 0.6); }
+  .fan__hint { display: none; }
+  .chip .sw { font-size: 0; padding: 0; }
+  .bar .btn { display: none; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .steps, .people, .form { grid-template-columns: 1fr; }
+  .steps li { min-height: 220px; }
+  .info li { grid-template-columns: 90px minmax(0, 1fr); }
+  .ba { aspect-ratio: 4 / 5; }
+  .brand small { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <div class="wrap bar__in">
+      <a class="brand" href="#top" aria-label="Bizoo Studio"><span class="brand__mark" aria-hidden="true"><i></i><i></i></span>bizoo <small>studio</small></a>
+      <nav class="nav" data-aria-ro="Secțiuni" data-aria-en="Sections" aria-label="Secțiuni">
+        <a href="#proiecte"><span lang="ro">Proiecte</span><span lang="en">Projects</span></a>
+        <a href="#servicii"><span lang="ro">Servicii</span><span lang="en">Services</span></a>
+        <a href="#proces"><span lang="ro">Cum lucrăm</span><span lang="en">Process</span></a>
+        <a href="#despre"><span lang="ro">Despre noi</span><span lang="en">About</span></a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Limba / Language">
+        <a href="?lang=ro" data-lang="ro" hreflang="ro" aria-current="true">RO</a>
+        <a href="?lang=en" data-lang="en" hreflang="en" aria-current="false">EN</a>
+      </div>
+      <a class="btn" href="#contact"><i aria-hidden="true"></i><span lang="ro">Consultație</span><span lang="en">Consultation</span></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg">
+        <img class="is-on" data-for="c3" src="./assets/c3-1-wide.webp" alt="Cameră cu arcadă, scaun de lemn și lumină caldă de după-amiază" data-alt-en="Room with an archway, a timber chair and warm afternoon light" width="2200" height="1238" fetchpriority="high" />
+        <img data-for="r4" src="./assets/r4-1.webp" alt="Bucătărie deschisă cu mobilier din lemn și scară suspendată" data-alt-en="Open kitchen with timber units and a floating staircase" width="1600" height="1068" loading="lazy" />
+        <img data-for="wdw" src="./assets/wdw-1.webp" alt="Living cu canapea bleumarin și rafturi metalice" data-alt-en="Living room with a navy sofa and metal shelving" width="1067" height="1600" loading="lazy" />
+        <img data-for="cl" src="./assets/clinic-3.webp" alt="Cabinet stomatologic luminos, cu unit dentar alb" data-alt-en="Bright dental surgery with a white dental unit" width="1600" height="1067" loading="lazy" />
+        <img data-for="b" src="./assets/b-1.webp" alt="Cameră cu pereți gri, parchet închis și fotoliu" data-alt-en="Room with grey walls, dark floorboards and an armchair" width="1068" height="1600" loading="lazy" />
+      </div>
+      <p class="credit"><span lang="ro">Imagini demonstrative</span><span lang="en">Demonstration images</span></p>
+
+      <div class="fan is-closed" role="group" data-aria-ro="Proiecte: alege o paletă" data-aria-en="Projects: pick a palette" aria-label="Proiecte: alege o paletă">
+        <p class="fan__hint" aria-hidden="true"><span lang="ro">Răsfoiește paletarul</span><span lang="en">Fan through the deck</span></p>
+        <button class="chip" type="button" data-p="b" aria-pressed="false"><span class="sw" style="--s: var(--b-1)">In</span><span class="sw" style="--s: var(--b-2)">Fum</span><span class="sw dk" style="--s: var(--b-3)">Prună</span><span class="chip__foot"><b>Ap. B</b></span></button>
+        <button class="chip" type="button" data-p="cl" aria-pressed="false"><span class="sw" style="--s: var(--cl-1)">Porțelan</span><span class="sw" style="--s: var(--cl-2)">Mentă</span><span class="sw dk" style="--s: var(--cl-3)">Turcoaz</span><span class="chip__foot"><b>Clinica</b></span></button>
+        <button class="chip" type="button" data-p="wdw" aria-pressed="false"><span class="sw" style="--s: var(--wdw-1)">Var</span><span class="sw" style="--s: var(--wdw-2)">Salvie</span><span class="sw dk" style="--s: var(--wdw-3)">Petrol</span><span class="chip__foot"><b>Ap. WDW</b></span></button>
+        <button class="chip" type="button" data-p="r4" aria-pressed="false"><span class="sw" style="--s: var(--r4-1)">Beton</span><span class="sw" style="--s: var(--r4-2)">Stejar</span><span class="sw dk" style="--s: var(--r4-3)">Grafit</span><span class="chip__foot"><b>Casa R4</b></span></button>
+        <button class="chip" type="button" data-p="c3" aria-pressed="true"><span class="sw" style="--s: var(--c3-1)">Nisip</span><span class="sw" style="--s: var(--c3-2)">Miere</span><span class="sw dk" style="--s: var(--c3-3)">Castan</span><span class="chip__foot"><b>Casa C3</b></span></button>
+      </div>
+
+      <div class="hero__card">
+        <h1 id="hero-title">
+          <span lang="ro">Interioare gândite până la <b>ultima nuanță</b>.</span>
+          <span lang="en">Interiors considered down to <b>the last shade</b>.</span>
+        </h1>
+        <p class="lede">
+          <span lang="ro">Bizoo Studio face design interior și vizualizare 3D, din Târgu Mureș. Proiectăm case, apartamente și spații comerciale în Transilvania și oriunde în lume, și le randăm noi înainte să existe.</span>
+          <span lang="en">Bizoo Studio is an interior design and 3D visualisation studio in Târgu Mureș. We design homes, flats and commercial spaces across Transylvania and worldwide, and render them ourselves before they exist.</span>
+        </p>
+        <div class="actions">
+          <a class="btn" href="#contact"><i aria-hidden="true"></i><span lang="ro">Programează o consultație</span><span lang="en">Book a consultation</span></a>
+          <a class="link" href="#proiecte"><span lang="ro">Vezi proiectele</span><span lang="en">See the projects</span></a>
+        </div>
+        <p class="held" aria-live="polite"><b data-held="name">Casa C3</b><span data-held="meta" lang="ro">Rezidențial · Argeș</span><span data-held="meta" lang="en">Residential · Argeș</span></p>
+      </div>
+    </section>
+
+    <section class="sec" id="proiecte" data-nav>
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">Proiecte</span><span lang="en">Projects</span></h2>
+          <p><span lang="ro">Fiecare proiect pornește de la o paletă: trei nuanțe care țin camera laolaltă. Deschide unul ca să vezi imaginile și materialele.</span><span lang="en">Every project starts from a palette: three shades that hold the room together. Open one to see the images and materials.</span></p>
+        </div>
+        <div class="filters" role="group" data-aria-ro="Filtrează proiectele" data-aria-en="Filter the projects" aria-label="Filtrează proiectele">
+          <button type="button" data-filter="all" aria-pressed="true"><span lang="ro">Toate</span><span lang="en">All</span></button>
+          <button type="button" data-filter="res" aria-pressed="false"><span lang="ro">Rezidențial</span><span lang="en">Residential</span></button>
+          <button type="button" data-filter="com" aria-pressed="false"><span lang="ro">Comercial</span><span lang="en">Commercial</span></button>
+        </div>
+
+        <div class="grid">
+          <button class="pcard" type="button" data-p="c3" data-kind="res" data-imgs="c3-1,c3-2,c3-3" style="--s1: var(--c3-1)">
+            <span class="pcard__img"><img src="./assets/c3-1-card.webp" alt="" width="640" height="800" loading="lazy" /><span class="pcard__open"><span lang="ro">Deschide</span><span lang="en">Open</span></span></span>
+            <span class="pcard__strip"><span class="sw" style="--s: var(--c3-1)">Nisip</span><span class="sw" style="--s: var(--c3-2)">Miere</span><span class="sw dk" style="--s: var(--c3-3)">Castan</span></span>
+            <span class="pcard__body"><h3>Casa C3</h3><span class="pcard__meta"><span lang="ro">Rezidențial · Argeș</span><span lang="en">Residential · Argeș</span></span></span>
+            <span hidden data-desc lang="ro">O casă în care lumina de după-amiază face cea mai mare parte din treabă. Am ales tonuri de nisip și miere pentru pereți și textile și am lăsat lemnul de culoarea castanului să dea greutate camerelor.</span>
+            <span hidden data-desc lang="en">A house where the afternoon light does most of the work. We chose sand and honey tones for the walls and textiles and let chestnut-coloured timber give the rooms their weight.</span>
+          </button>
+          <button class="pcard" type="button" data-p="r4" data-kind="res" data-imgs="r4-1,r4-2,r4-3" style="--s1: var(--r4-1)">
+            <span class="pcard__img"><img src="./assets/r4-1-card.webp" alt="" width="640" height="800" loading="lazy" /><span class="pcard__open"><span lang="ro">Deschide</span><span lang="en">Open</span></span></span>
+            <span class="pcard__strip"><span class="sw" style="--s: var(--r4-1)">Beton</span><span class="sw" style="--s: var(--r4-2)">Stejar</span><span class="sw dk" style="--s: var(--r4-3)">Grafit</span></span>
+            <span class="pcard__body"><h3>Casa R4</h3><span class="pcard__meta"><span lang="ro">Rezidențial · casă</span><span lang="en">Residential · house</span></span></span>
+            <span hidden data-desc lang="ro">Beton aparent, stejar și accente de grafit, într-o casă cu spațiu de zi deschis. Scara suspendată leagă cele două niveluri fără să rupă lumina.</span>
+            <span hidden data-desc lang="en">Exposed concrete, oak and graphite accents in a house with an open living space. A floating stair links the two floors without breaking up the light.</span>
+          </button>
+          <button class="pcard" type="button" data-p="wdw" data-kind="res" data-imgs="wdw-1,wdw-2,wdw-3" style="--s1: var(--wdw-1)">
+            <span class="pcard__img"><img src="./assets/wdw-1-card.webp" alt="" width="640" height="800" loading="lazy" /><span class="pcard__open"><span lang="ro">Deschide</span><span lang="en">Open</span></span></span>
+            <span class="pcard__strip"><span class="sw" style="--s: var(--wdw-1)">Var</span><span class="sw" style="--s: var(--wdw-2)">Salvie</span><span class="sw dk" style="--s: var(--wdw-3)">Petrol</span></span>
+            <span class="pcard__body"><h3>Apartament WDW</h3><span class="pcard__meta"><span lang="ro">Rezidențial · apartament</span><span lang="en">Residential · flat</span></span></span>
+            <span hidden data-desc lang="ro">Un apartament compact în care fiecare perete lucrează: rafturi deschise, depozitare ascunsă și o canapea petrol care ține tot livingul pe loc.</span>
+            <span hidden data-desc lang="en">A compact flat where every wall does a job: open shelving, hidden storage and a petrol-blue sofa that anchors the whole living room.</span>
+          </button>
+          <button class="pcard" type="button" data-p="cl" data-kind="com" data-imgs="clinic-3,clinic-1,clinic-2" style="--s1: var(--cl-1)">
+            <span class="pcard__img"><img src="./assets/clinic-1-card.webp" alt="" width="640" height="800" loading="lazy" /><span class="pcard__open"><span lang="ro">Deschide</span><span lang="en">Open</span></span></span>
+            <span class="pcard__strip"><span class="sw" style="--s: var(--cl-1)">Porțelan</span><span class="sw" style="--s: var(--cl-2)">Mentă</span><span class="sw dk" style="--s: var(--cl-3)">Turcoaz</span></span>
+            <span class="pcard__body"><h3>Implant Dental Office</h3><span class="pcard__meta"><span lang="ro">Comercial · clinică</span><span lang="en">Commercial · clinic</span></span></span>
+            <span hidden data-desc lang="ro">O clinică stomatologică care nu arată a spital. Porțelanul și menta liniștesc pacienții, turcoazul marchează traseul de la recepție la cabinete.</span>
+            <span hidden data-desc lang="en">A dental clinic that doesn’t feel like a hospital. Porcelain and mint calm the patients; turquoise marks the route from reception to the surgeries.</span>
+          </button>
+          <button class="pcard" type="button" data-p="b" data-kind="res" data-imgs="b-1,b-2,b-3" style="--s1: var(--b-1)">
+            <span class="pcard__img"><img src="./assets/b-1-card.webp" alt="" width="640" height="800" loading="lazy" /><span class="pcard__open"><span lang="ro">Deschide</span><span lang="en">Open</span></span></span>
+            <span class="pcard__strip"><span class="sw" style="--s: var(--b-1)">In</span><span class="sw" style="--s: var(--b-2)">Fum</span><span class="sw dk" style="--s: var(--b-3)">Prună</span></span>
+            <span class="pcard__body"><h3>Apartament B</h3><span class="pcard__meta"><span lang="ro">Rezidențial · apartament</span><span lang="en">Residential · flat</span></span></span>
+            <span hidden data-desc lang="ro">Pereți în nuanțe de fum, parchet închis și un singur accent de culoarea prunei. Un apartament liniștit, gândit pentru seri lungi acasă.</span>
+            <span hidden data-desc lang="en">Smoke-toned walls, dark floorboards and a single plum accent. A quiet flat, designed for long evenings at home.</span>
+          </button>
+          <a class="pcard pcard--next" href="#contact">
+            <p><span lang="ro">Următoarea paletă poate fi a ta.</span><span lang="en">The next palette could be yours.</span></p>
+            <span><span lang="ro">Programează o consultație</span><span lang="en">Book a consultation</span></span>
+            <span class="blank" aria-hidden="true"><i></i><i></i><i></i></span>
+          </a>
+        </div>
+        <p class="note"><span lang="ro">Fotografiile sunt demonstrative (Pexels) și țin locul randărilor Bizoo. Descrierile și paletele sunt propuneri, <span class="todo">[de completat]</span> împreună cu voi.</span><span lang="en">Photos are demonstration images (Pexels) standing in for Bizoo’s renders. Descriptions and palettes are proposals, <span class="todo">[de completat]</span> together with you.</span></p>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top: 0" aria-labelledby="ba-title">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 id="ba-title"><span lang="ro">Înainte și după</span><span lang="en">Before and after</span></h2>
+          <p><span lang="ro">Apartament WDW. Trage de mâner ca să vezi cum s-a schimbat livingul.</span><span lang="en">Apartament WDW. Drag the handle to see how the living room changed.</span></p>
+        </div>
+        <div class="ba">
+          <img src="./assets/wdw-2-before.webp" alt="Livingul înainte" data-alt-en="The living room before" width="1600" height="1067" loading="lazy" />
+          <img class="ba__after" src="./assets/wdw-2.webp" alt="Livingul după amenajare" data-alt-en="The living room after the redesign" width="1600" height="1067" loading="lazy" />
+          <span class="ba__line"></span>
+          <span class="ba__knob" style="left: var(--x)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" /></svg></span>
+          <span class="ba__tag ba__tag--l"><span lang="ro">Înainte</span><span lang="en">Before</span></span>
+          <span class="ba__tag ba__tag--r"><span lang="ro">După</span><span lang="en">After</span></span>
+          <input type="range" min="0" max="100" value="50" data-aria-ro="Compară înainte și după" data-aria-en="Compare before and after" aria-label="Compară înainte și după" />
+        </div>
+        <p class="note"><span lang="ro">Demonstrativ: „înainte” e aceeași fotografie, decolorată. <span class="todo">[de completat]</span> o fotografie reală dinainte și randarea finală a aceleiași camere.</span><span lang="en">Demonstration: “before” is the same photo, desaturated. <span class="todo">[de completat]</span> a real before photo and the final render of the same room.</span></p>
+      </div>
+    </section>
+
+    <section class="sec" id="servicii" data-nav style="padding-top: 0">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">Servicii</span><span lang="en">Services</span></h2>
+          <p><span lang="ro">De la prima schiță la ultima randare, totul se face în același studio. Așa nu se pierde nimic între idee și imagine.</span><span lang="en">From the first sketch to the last render, everything happens in one studio, so nothing gets lost between the idea and the image.</span></p>
+        </div>
+        <ul class="svc">
+          <li>
+            <span class="mini" aria-hidden="true"><i style="--s: var(--c3-1)"></i><i style="--s: var(--c3-2)"></i><i style="--s: var(--c3-3)"></i></span>
+            <h3><span lang="ro">Design interior</span><span lang="en">Interior design</span></h3>
+            <div>
+              <p><span lang="ro">Case, apartamente, clinici și spații comerciale. Pornim de la felul în care folosești spațiul și ajungem la plan, materiale, mobilier și culoare.</span><span lang="en">Houses, flats, clinics and commercial spaces. We start from how you use the space and work through to layout, materials, furniture and colour.</span></p>
+              <ul><li lang="ro">Concept și paletă</li><li lang="ro">Planuri de amenajare</li><li lang="ro">Materiale și mobilier</li><li lang="en">Concept and palette</li><li lang="en">Layout plans</li><li lang="en">Materials and furniture</li></ul>
+            </div>
+          </li>
+          <li>
+            <span class="mini" aria-hidden="true"><i style="--s: var(--r4-1)"></i><i style="--s: var(--r4-2)"></i><i style="--s: var(--r4-3)"></i></span>
+            <h3><span lang="ro">Design de produs</span><span lang="en">Product design</span></h3>
+            <div>
+              <p><span lang="ro">Mobilier și obiecte desenate pentru un loc anume, atunci când nimic din magazin nu se potrivește. Le ducem până la desenele pentru atelier.</span><span lang="en">Furniture and objects drawn for one particular place, when nothing in the shops fits. We take them all the way to the workshop drawings.</span></p>
+              <ul><li lang="ro">Schițe și variante</li><li lang="ro">Model 3D</li><li lang="ro">Desene pentru producție</li><li lang="en">Sketches and options</li><li lang="en">3D model</li><li lang="en">Production drawings</li></ul>
+            </div>
+          </li>
+          <li>
+            <span class="mini" aria-hidden="true"><i style="--s: var(--wdw-1)"></i><i style="--s: var(--wdw-2)"></i><i style="--s: var(--wdw-3)"></i></span>
+            <h3><span lang="ro">Randări și vizualizare 3D</span><span lang="en">Renders and 3D visualisation</span></h3>
+            <div>
+              <p><span lang="ro">Vezi camera înainte să existe. Modelăm și randăm noi, pentru proiectele noastre și pentru arhitecți sau dezvoltatori care au nevoie de imagini convingătoare.</span><span lang="en">See the room before it exists. We model and render in-house, for our own projects and for architects or developers who need convincing images.</span></p>
+              <ul><li lang="ro">Modelare 3D</li><li lang="ro">Randări fotorealiste</li><li lang="ro">Vizualizări de arhitectură</li><li lang="en">3D modelling</li><li lang="en">Photoreal renders</li><li lang="en">Architectural visualisation</li></ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="proces" data-nav style="padding-top: 0">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2><span lang="ro">Cum lucrăm</span><span lang="en">How we work</span></h2>
+          <p><span lang="ro">Patru pași, de la prima discuție până la cheie. Știi mereu unde suntem și ce urmează.</span><span lang="en">Four steps from the first conversation to handover. You always know where we are and what comes next.</span></p>
+        </div>
+        <ol class="steps">
+          <li><h3><span lang="ro">Consultația</span><span lang="en">Consultation</span></h3><p><span lang="ro">Ne vedem la tine sau online. Ne arăți spațiul, ne spui cum trăiești sau lucrezi în el și ce buget ai în minte.</span><span lang="en">We meet on site or online. You show us the space, tell us how you live or work in it and what budget you have in mind.</span></p></li>
+          <li><h3><span lang="ro">Concept și paletă</span><span lang="en">Concept and palette</span></h3><p><span lang="ro">Venim cu o direcție: planul, materialele și nuanțele, puse una lângă alta, ca să le poți compara.</span><span lang="en">We come back with a direction: layout, materials and shades side by side, so you can compare them.</span></p></li>
+          <li><h3><span lang="ro">Proiect și randări</span><span lang="en">Design and renders</span></h3><p><span lang="ro">Desenăm proiectul în detaliu și îl randăm. Vezi fiecare cameră așa cum va arăta, înainte de prima comandă.</span><span lang="en">We draw the design in detail and render it. You see every room as it will look, before the first order is placed.</span></p></li>
+          <li><h3><span lang="ro">Execuție și predare</span><span lang="en">Build and handover</span></h3><p><span lang="ro">Rămânem aproape cât se lucrează, până când ultima lampă e la locul ei.</span><span lang="en">We stay close while the work happens, until the last lamp is in place.</span></p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" style="padding-top: 0" aria-labelledby="three-title">
+      <div class="wrap three">
+        <div>
+          <h2 class="h2" id="three-title"><span lang="ro">Rotește proiectul, direct în pagină</span><span lang="en">Turn the project, right on the page</span></h2>
+          <span class="badge"><i aria-hidden="true"></i><span lang="ro">Opțional · upgrade ulterior</span><span lang="en">Optional · later upgrade</span></span>
+          <p><span lang="ro">Pe lângă randări, site-ul poate primi oricând o prezentare 3D: clientul învârte modelul cu degetul sau cu mouse-ul, pe telefon ori pe laptop. Modelele le aveți deja, din proiectele voastre.</span><span lang="en">Next to the renders, the site can take a 3D presentation at any point: visitors turn the model with a finger or a mouse, on a phone or a laptop. You already have the models from your own projects.</span></p>
+          <p class="note"><span lang="ro">Modelul de alături e o machetă demonstrativă NodWeb, nu un proiect Bizoo.</span><span lang="en">The model alongside is a NodWeb demonstration massing, not a Bizoo project.</span></p>
+        </div>
+        <div class="viewer" data-model="./assets/models/kitchen-pavilion.glb">
+          <span class="viewer__wait"><span lang="ro">Se încarcă modelul 3D…</span><span lang="en">Loading the 3D model…</span></span>
+          <span class="viewer__hint"><span lang="ro">Trage ca să rotești</span><span lang="en">Drag to turn</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="despre" data-nav style="padding-top: 0">
+      <div class="wrap about">
+        <div>
+          <h2 class="h2"><span lang="ro">Despre noi</span><span lang="en">About us</span></h2>
+          <p class="about__lede"><span lang="ro">Bizoo Studio a pornit în 2018, la Târgu Mureș. Suntem doi oameni care desenează, modelează și randează fiecare proiect de la cap la coadă.</span><span lang="en">Bizoo Studio started in 2018 in Târgu Mureș. We are two people who draw, model and render every project from start to finish.</span></p>
+        </div>
+        <div class="people">
+          <article class="person">
+            <div class="person__photo"><span><span class="todo">[de completat]</span><br /><span lang="ro">portret Aliz</span><span lang="en">portrait of Aliz</span></span></div>
+            <h3>Aliz Bocskor</h3>
+            <p><span lang="ro">Co-fondatoare. A locuit 15 ani la Londra, așa că lucrăm la fel de firesc în română și în engleză. <span class="todo">[de completat]</span> un rând despre ce îi place să proiecteze.</span><span lang="en">Co-founder. Aliz lived in London for 15 years, so we work just as naturally in English as in Romanian. <span class="todo">[de completat]</span> a line on what she loves to design.</span></p>
+          </article>
+          <article class="person">
+            <div class="person__photo"><span><span class="todo">[de completat]</span><br /><span lang="ro">portret Silviu</span><span lang="en">portrait of Silviu</span></span></div>
+            <h3>Silviu Bleoca</h3>
+            <p><span lang="ro">Co-fondator. <span class="todo">[de completat]</span> două rânduri despre Silviu și partea lui din proiecte.</span><span lang="en">Co-founder. <span class="todo">[de completat]</span> two lines on Silviu and his part in the projects.</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="contact" data-nav style="padding-top: 0">
+      <div class="wrap contact">
+        <div>
+          <h2 class="h2"><span lang="ro">Programează o consultație</span><span lang="en">Book a consultation</span></h2>
+          <ul class="info">
+            <li><span lang="ro">Telefon</span><span lang="en">Phone</span><span class="todo">[de completat]</span></li>
+            <li><span>Email</span><span class="todo">[de completat]</span></li>
+            <li><span>Studio</span><span>Târgu Mureș, <span lang="ro">jud. Mureș</span><span lang="en">Mureș county</span></span></li>
+            <li><span>Social</span><span>Instagram <span class="todo">[de completat: link]</span></span></li>
+          </ul>
+        </div>
+        <!-- Demo form: no name attribute, so it validates and confirms without sending. -->
+        <form class="form" novalidate>
+          <div class="form__row">
+            <label for="f-name"><span lang="ro">Nume</span><span lang="en">Name</span></label>
+            <input id="f-name" type="text" autocomplete="name" required />
+            <span class="form__err"><span lang="ro">Spune-ne cum te cheamă.</span><span lang="en">Tell us your name.</span></span>
+          </div>
+          <div class="form__row">
+            <label for="f-contact"><span lang="ro">Telefon sau email</span><span lang="en">Phone or email</span></label>
+            <input id="f-contact" type="text" autocomplete="email" required />
+            <span class="form__err"><span lang="ro">Avem nevoie de un telefon sau un email ca să-ți răspundem.</span><span lang="en">We need a phone number or email to reply.</span></span>
+          </div>
+          <div class="form__row form__row--wide">
+            <label for="f-kind"><span lang="ro">Ce spațiu amenajăm?</span><span lang="en">What space are we designing?</span></label>
+            <select id="f-kind">
+              <option value="house" data-ro="Casă" data-en="House">Casă</option>
+              <option value="flat" data-ro="Apartament" data-en="Flat">Apartament</option>
+              <option value="commercial" data-ro="Spațiu comercial sau clinică" data-en="Commercial space or clinic">Spațiu comercial sau clinică</option>
+              <option value="renders" data-ro="Doar randări 3D" data-en="3D renders only">Doar randări 3D</option>
+            </select>
+          </div>
+          <div class="form__row form__row--wide">
+            <label for="f-msg"><span lang="ro">Povestește-ne pe scurt</span><span lang="en">Tell us briefly</span></label>
+            <textarea id="f-msg" required data-ph-ro="Un apartament de trei camere în Târgu Mureș, vrem să refacem livingul și bucătăria…" data-ph-en="A two-bedroom flat in Târgu Mureș, we’d like to redo the living room and kitchen…" placeholder="Un apartament de trei camere în Târgu Mureș, vrem să refacem livingul și bucătăria…"></textarea>
+            <span class="form__err"><span lang="ro">Scrie-ne câteva cuvinte despre spațiu.</span><span lang="en">Write a few words about the space.</span></span>
+          </div>
+          <div class="form__foot">
+            <button class="btn" type="submit"><i aria-hidden="true"></i><span lang="ro">Trimite cererea</span><span lang="en">Send the request</span></button>
+            <p class="form__status" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true"><i></i><i></i></span>bizoo <small>studio</small></a>
+      <p><span lang="ro">Propunere de site realizată de <a href="/ro/">NodWeb</a>. Fotografiile sunt imagini demonstrative de pe Pexels și se înlocuiesc cu randările voastre; logo-ul e provizoriu <span class="todo">[de completat]</span>. Serviciile, pașii și descrierile proiectelor le confirmăm împreună.</span><span lang="en">Website proposal by <a href="/">NodWeb</a>. Photos are Pexels demonstration images, to be replaced with your renders; the logo is a stand-in <span class="todo">[de completat]</span>. Services, steps and project descriptions are to be confirmed together.</span></p>
+    </div>
+  </footer>
+
+  <dialog class="proj" aria-labelledby="proj-title">
+    <div class="proj__in">
+      <div class="proj__gal" tabindex="0" data-aria-ro="Imaginile proiectului" data-aria-en="Project images" aria-label="Imaginile proiectului"></div>
+      <div class="proj__side">
+        <h2 id="proj-title"></h2>
+        <p class="pcard__meta" data-slot="meta"></p>
+        <div class="proj__pal" data-slot="pal"></div>
+        <p data-slot="desc"></p>
+        <p class="note" style="margin: 0"><span lang="ro">Imagini demonstrative · text <span class="todo">[de completat]</span></span><span lang="en">Demonstration images · copy <span class="todo">[de completat]</span></span></p>
+        <div class="proj__nav">
+          <button class="sq" type="button" data-step="-1" data-aria-ro="Imaginea anterioară" data-aria-en="Previous image" aria-label="Imaginea anterioară"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7" /></svg></button>
+          <output class="proj__count"></output>
+          <button class="sq" type="button" data-step="1" data-aria-ro="Imaginea următoare" data-aria-en="Next image" aria-label="Imaginea următoare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7" /></svg></button>
+        </div>
+      </div>
+    </div>
+    <button class="sq proj__close" type="button" data-close data-aria-ro="Închide" data-aria-en="Close" aria-label="Închide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18" /></svg></button>
+  </dialog>
+
+  <script type="module" src="./bizoo.js"></script>
+</body>
+</html>
