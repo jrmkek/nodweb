@@ -17,7 +17,7 @@ OWN-WORLD: Cool mineral-white ground, near-black ink, hairline rules, square cor
 
 STORY: The visitor sees a finished room, fans through five projects whose palettes recolour the page, filters and opens one, drags a before/after, reads three services and a four-chip process, sees 3D offered as an upgrade, meets the two founders, books a consultation.
 
-FIRST VIEWPORT: Full-bleed project photo. Bottom-left: large Jost headline, one-line positioning, ink CTA "Programează o consultație". Right edge: a fan of five project chips pivoting from a pin at the bottom; the held chip stands upright and its project fills the background. Mobile: the same fan, scaled down, held over the bottom-right corner of the photo, with the headline card below (changed during the build to keep the signature interaction on phones; flagged to Iero for approval).
+FIRST VIEWPORT: Full-bleed project photo. Bottom-left: large Jost headline, one-line positioning, ink CTA "Programează o consultație". Right edge: a fan of five project chips pivoting from a pin at the bottom; the held chip stands upright and its project fills the background. Mobile: the same fan, scaled down, held over the bottom-right corner of the photo, with the headline card below (changed during the build to keep the signature interaction on phones; approved by Iero on 2026-10-16: "Keep the scaled-down fan over the photo on mobile").
 
 FORM: Paint fan deck, position 5 on the ordered list (assigned), seed key 2dfefc22. Signature interaction: fanning the deck; chips spring open (Motion), background crossfades, `--chip` retints CTA, filters and rules. Raises: one accent reserved for the item in motion (from the paper menagerie); total chroma commitment inside each chip (from the indoor sun).
 

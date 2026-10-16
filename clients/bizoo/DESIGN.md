@@ -191,7 +191,7 @@ The hero is a full-bleed photo of the held project, height max(560px, min(100svh
 
 Breakpoints: at 1080px the nav hides and the language toggle moves right; at 900px every split stacks, the project grid and process go to two columns, services keep the mini chip in a narrow first column; at 720px the hero becomes a column (photo 58svh, min 340px, then the cover card below), the fan shrinks to 50px chips held over the photo's bottom-right corner with shade names hidden, and the header button hides; at 560px everything goes single column and the before/after turns 4:5.
 
-**Provisional:** the mobile hero (fan held over the photo's corner, card below) was changed during the build to keep the fan interaction on phones and is pending Iero's approval. Treat it as open, not as settled system.
+**Mobile hero:** the fan, scaled down, is held over the photo's bottom-right corner with the cover card below. It replaced the planned chip strip during the build so phones keep the fan interaction; Iero approved it on 2026-10-16.
 
 ## Elevation & Depth
 
