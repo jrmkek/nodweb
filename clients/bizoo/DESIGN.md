@@ -126,11 +126,10 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.none}"
     padding: "13px 14px"
-  tag:
-    backgroundColor: "{colors.paper}"
+  deliverable:
     textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    padding: "5px 10px"
+    marker: "5px {colors.ink-2} diamond (rotate 45deg)"
+    typography: "Jost 500 15px/1.4"
   project-card:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -176,11 +175,11 @@ A black-and-white frame with no hue at all, holding five three-shade project pal
 - **Mark Black** (ink): the header and footer, body text, the primary button, the "next palette" card, pressed filter tabs, the 1px framing rules (service rows, contact list top, filters, inputs), the dialog gallery ground, focus outline, text selection.
 - **Pressed Black** (ink-hover): hover on ink surfaces (primary button, "next palette" card); the `[de completat]` marker in the footer.
 - **Mark White** (ground): the page, the hero cover card, the project dialog, the hint and credit plates over photos, the pin hole.
-- **Chip Stock** (paper): chips, cards, inputs, tags, square buttons, text and rules on black, the header button and the active RO/EN cell.
+- **Chip Stock** (paper): chips, cards, inputs, square buttons, text and rules on black, the header button and the active RO/EN cell.
 - **Quiet Grey** (grey): filter-tab hover, header-button hover, the `[de completat]` marker, the empty hero and 3D viewer frames behind loading media.
 - **Ink 2** (ink-2): ledes, section intros, metadata, notes, dashed portrait placeholders.
 - **On-Ink 2** (on-ink-2): secondary text on black (nav links at rest, the "studio" half of the wordmark, footer copy), the dashed empty bands in the "next palette" card.
-- **Hairline** (hair): quiet dividers: the held-project line in the hero card, rows inside the contact list, tag borders, the 3D viewer frame, scrollbar thumb.
+- **Hairline** (hair): quiet dividers: the held-project line in the hero card, rows inside the contact list, the 3D viewer frame, scrollbar thumb.
 - **Error Brick** (error): form error text and invalid field borders only; the one hue outside a chip or photo.
 
 ### Project palettes (chip contents only)
@@ -285,7 +284,7 @@ Black, 44px / 56px padding, Hanken 14px in on-ink-2, links and the brand in pape
 Five chips stacked on one pin at bottom-right of the hero. Each chip gets `--i` (its place in the deck); CSS rotates it `i * 12deg - 46deg` about the pin, and the held chip (`aria-pressed="true"`) slides out 16% of its height along its own axis and comes to the top. On load the deck opens from a closed stack with the spring. Clicking or arrow keys change the held chip, which crossfades the hero photo (0.9s) and swaps the held-project line under the CTA. Chips are buttons labelled with the project name.
 
 ### Service row with mini chip
-One row per service between 1px ink rules: a 46px mini chip in that row's project palette, tilted -6deg, which springs to +6deg and lifts 4px when the row is hovered; then the name, then copy and paper tags with hairline borders.
+One row per service between 1px ink rules: a 46px mini chip in that row's project palette, tilted -6deg, which springs to +6deg and lifts 4px when the row is hovered; then the name, then copy and a plain list of deliverables, each led by a 5px ink-2 diamond (Jost 500 15px, no box or border: they are not controls, so nothing about them may read as a button).
 
 ### Before / after
 A 3:2 frame (4:5 on phones) with a native range input driving `clip-path` on the after image, a 2px paper line and a 52px paper knob. It nudges once when it first enters view so the visitor sees it moves.

@@ -231,8 +231,10 @@ dialog.proj::backdrop { background: oklch(20% 0 0 / .62); }
 .svc > li:hover .mini { transform: rotate(6deg) translateY(-4px); }
 .svc h3 { font-size: clamp(1.8rem, 3.6vw, 3.1rem); letter-spacing: -0.03em; }
 .svc p { color: var(--ink-2); max-width: 48ch; }
-.svc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; padding: 0; }
-.svc ul li { display: block; padding: 5px 10px; border: 1px solid var(--hair); background: var(--paper); font-size: 14px; }
+/* deliverables: a plain list, each item led by the mark's diamond; no box, so nothing reads as a button */
+.svc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 18px 0 0; padding: 0; }
+.svc ul li { display: flex; align-items: center; gap: 9px; font: 500 15px/1.4 var(--font-display); color: var(--ink); }
+.svc ul li::before { content: ""; width: 5px; height: 5px; flex: none; background: var(--ink-2); transform: rotate(45deg); }
 
 /* process: four chips, white to black, the mark's two tones */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }

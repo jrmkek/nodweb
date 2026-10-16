@@ -553,12 +553,12 @@
       "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-next{display:flex;flex-direction:column;gap:24px;width:280px;min-height:280px;padding:28px;background:var(--ink);color:var(--paper);text-decoration:none;transition:background .3s var(--out)} .ds-next:hover{background:var(--ink-hover)} .ds-next p{margin:0;font:500 2rem/1.08 Jost,Futura,system-ui,sans-serif;letter-spacing:-.02em;max-width:14ch} .ds-next>span:not(.ds-blank){font:500 16px/1.2 Jost,Futura,system-ui,sans-serif;border-bottom:1px solid currentColor;align-self:flex-start;padding-bottom:2px} .ds-blank{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;height:44px;margin-top:auto} .ds-blank i{border:1px dashed var(--on-ink-2)} .ds-next:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
     },
     {
-      "name": "Service Tag",
-      "kind": "chip",
-      "refersTo": "tag",
-      "description": "Deliverables listed under a service.",
-      "html": "<span class=\"ds-tag\">Concept și paletă</span>",
-      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-tag{display:inline-block;padding:5px 10px;border:1px solid var(--hair);border-radius:0;background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:14px}"
+      "name": "Service Deliverables",
+      "kind": "list",
+      "refersTo": "deliverable",
+      "description": "Deliverables listed under a service: a plain list led by the mark's diamond, deliberately unboxed so it never reads as clickable.",
+      "html": "<ul class=\"ds-dl\"><li>Concept și paletă</li><li>Planuri de amenajare</li><li>Materiale și mobilier</li></ul>",
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-dl{list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin:0;padding:0} .ds-dl li{display:flex;align-items:center;gap:9px;font:500 15px/1.4 Jost,Futura,system-ui,sans-serif;color:var(--ink)} .ds-dl li::before{content:\"\";width:5px;height:5px;flex:none;background:var(--ink-2);transform:rotate(45deg)}"
     }
   ],
   "narrative": {
