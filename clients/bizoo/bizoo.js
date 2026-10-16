@@ -1,4 +1,4 @@
-// Bizoo Studio: the fan deck (held chip recolours the page), project filter
+// Bizoo Studio: the fan deck (held chip swaps the room), project filter
 // and dialog, before/after, the optional 3D viewer, RO/EN and the demo form.
 // CSS does the resting motion (a spring written as linear()); Motion
 // (motion.dev) adds the authored moments: the deck opening, cards and steps
@@ -46,8 +46,7 @@ const metaOf = (card) => text(card, ".pcard__meta span");
 
 /* ---------- the fan deck ----------
    Each chip knows its place in the deck (--i); CSS turns that into the fan's
-   angle and slides the held chip out. Holding a chip sets data-project on <html>, which
-   moves --chip (the only accent) and swaps the room behind the deck. */
+   angle and slides the held chip out. Holding a chip swaps the room behind the deck. */
 const fan = document.querySelector(".fan");
 const chips = [...fan.querySelectorAll(".chip")];
 const bgs = [...document.querySelectorAll(".hero__bg img")];
@@ -56,7 +55,6 @@ const heldMeta = document.querySelectorAll('[data-held="meta"]');
 const hold = (p, animate = true) => {
   const i = chips.findIndex((c) => c.dataset.p === p);
   chips.forEach((c, k) => c.setAttribute("aria-pressed", String(k === i)));
-  root.dataset.project = p;
   bgs.forEach((img) => img.classList.toggle("is-on", img.dataset.for === p));
   const card = project[p];
   heldName.textContent = card.querySelector("h3").textContent;
@@ -113,7 +111,6 @@ const openProject = (card) => {
   gal.innerHTML = card.dataset.imgs.split(",").map((s, i) =>
     `<img src="./assets/${s}.webp" alt="${name}, ${lang() === "ro" ? "imagine" : "image"} ${i + 1}" ${i ? 'loading="lazy"' : ""} />`).join("");
   fill(card);
-  root.dataset.project = card.dataset.p; // the dialog holds this project's chip too
   dlg.showModal();
   gal.scrollLeft = 0;
   tally();
@@ -131,10 +128,7 @@ gal.addEventListener("keydown", (e) => {
 });
 dlg.querySelector("[data-close]").addEventListener("click", () => dlg.close());
 dlg.addEventListener("click", (e) => e.target === dlg && dlg.close()); // click on the backdrop
-dlg.addEventListener("close", () => {
-  root.dataset.project = chips.find((c) => c.getAttribute("aria-pressed") === "true").dataset.p;
-  openCard?.focus();
-});
+dlg.addEventListener("close", () => openCard?.focus());
 langListeners.push(() => dlg.open && fill(openCard));
 
 /* ---------- before / after: a native range drives the clip ---------- */

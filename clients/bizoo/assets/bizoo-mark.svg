@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.42 141.42" role="img" aria-label="Bizoo Studio">
+  <!-- Bizoo Studio mark, rebuilt as geometry from the client's logo file (97% pixel overlap).
+       Upright it is a square cut by an upper half-ring, a band to the left edge, a slot and one
+       rounded corner; the whole square stands on its point. Fill follows currentColor. -->
+  <defs>
+    <mask id="bz-cut" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120">
+      <rect x="0" y="0" width="100" height="100" fill="#fff" />
+      <path d="M21 65.2A44.6 44.6 0 0 1 110.2 65.2H98.9A33.3 33.3 0 0 0 32.3 65.2Z" />
+      <rect x="-1" y="60" width="33.3" height="12" />
+      <rect x="62.6" y="68.6" width="6" height="32.4" />
+      <path d="M44 100.5A18.6 18.6 0 0 0 62.6 81.4H63V100.5Z" />
+    </mask>
+  </defs>
+  <g transform="translate(70.71 70.71) rotate(45) translate(-50 -50)">
+    <rect width="100" height="100" fill="currentColor" mask="url(#bz-cut)" />
+  </g>
+</svg>

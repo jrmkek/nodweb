@@ -1,82 +1,127 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-16T21:00:00Z",
+  "generatedAt": "2026-10-16T23:00:00Z",
   "title": "Design System: Bizoo Studio",
   "extensions": {
     "colorMeta": {
       "ground": {
         "role": "neutral",
-        "displayName": "Mineral Ground",
-        "canonical": "oklch(96.6% 0.004 160)",
+        "displayName": "Mark White",
+        "canonical": "oklch(98.6% 0 0)",
         "tonalRamp": [
-          "oklch(15% 0.004 160)",
-          "oklch(26% 0.004 160)",
-          "oklch(37% 0.004 160)",
-          "oklch(48% 0.004 160)",
-          "oklch(59% 0.004 160)",
-          "oklch(70% 0.004 160)",
-          "oklch(82% 0.004 160)",
-          "oklch(95% 0.004 160)"
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
         ]
       },
       "paper": {
         "role": "neutral",
         "displayName": "Chip Stock",
-        "canonical": "oklch(99.3% 0.002 160)",
+        "canonical": "oklch(100% 0 0)",
         "tonalRamp": [
-          "oklch(15% 0.002 160)",
-          "oklch(26% 0.002 160)",
-          "oklch(37% 0.002 160)",
-          "oklch(48% 0.002 160)",
-          "oklch(59% 0.002 160)",
-          "oklch(70% 0.002 160)",
-          "oklch(82% 0.002 160)",
-          "oklch(95% 0.002 160)"
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "grey": {
+        "role": "neutral",
+        "displayName": "Quiet Grey",
+        "canonical": "oklch(94.5% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
         ]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Ink",
-        "canonical": "oklch(21% 0.008 60)",
+        "displayName": "Mark Black",
+        "canonical": "oklch(14% 0 0)",
         "tonalRamp": [
-          "oklch(15% 0.008 60)",
-          "oklch(26% 0.008 60)",
-          "oklch(37% 0.008 60)",
-          "oklch(48% 0.008 60)",
-          "oklch(59% 0.008 60)",
-          "oklch(70% 0.008 60)",
-          "oklch(82% 0.008 60)",
-          "oklch(95% 0.008 60)"
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "ink-hover": {
+        "role": "neutral",
+        "displayName": "Pressed Black",
+        "canonical": "oklch(30% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
         ]
       },
       "ink-2": {
         "role": "neutral",
         "displayName": "Ink 2",
-        "canonical": "oklch(43% 0.01 60)",
+        "canonical": "oklch(42% 0 0)",
         "tonalRamp": [
-          "oklch(15% 0.01 60)",
-          "oklch(26% 0.01 60)",
-          "oklch(37% 0.01 60)",
-          "oklch(48% 0.01 60)",
-          "oklch(59% 0.01 60)",
-          "oklch(70% 0.01 60)",
-          "oklch(82% 0.01 60)",
-          "oklch(95% 0.01 60)"
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "on-ink-2": {
+        "role": "neutral",
+        "displayName": "On-Ink 2",
+        "canonical": "oklch(76% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
         ]
       },
       "hair": {
         "role": "neutral",
         "displayName": "Hairline",
-        "canonical": "oklch(85% 0.006 160)",
+        "canonical": "oklch(87% 0 0)",
         "tonalRamp": [
-          "oklch(15% 0.006 160)",
-          "oklch(26% 0.006 160)",
-          "oklch(37% 0.006 160)",
-          "oklch(48% 0.006 160)",
-          "oklch(59% 0.006 160)",
-          "oklch(70% 0.006 160)",
-          "oklch(82% 0.006 160)",
-          "oklch(95% 0.006 160)"
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(48% 0 0)",
+          "oklch(59% 0 0)",
+          "oklch(70% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
         ]
       },
       "error": {
@@ -125,7 +170,7 @@
         ]
       },
       "c3-chestnut": {
-        "role": "primary",
+        "role": "project",
         "displayName": "Castan",
         "canonical": "oklch(39% 0.06 50)",
         "tonalRamp": [
@@ -137,8 +182,7 @@
           "oklch(70% 0.06 50)",
           "oklch(82% 0.06 50)",
           "oklch(95% 0.06 50)"
-        ],
-        "note": "Becomes --chip (the only accent) while its project is held."
+        ]
       },
       "r4-concrete": {
         "role": "project",
@@ -171,7 +215,7 @@
         ]
       },
       "r4-graphite": {
-        "role": "primary",
+        "role": "project",
         "displayName": "Grafit",
         "canonical": "oklch(31% 0.006 250)",
         "tonalRamp": [
@@ -183,8 +227,7 @@
           "oklch(70% 0.006 250)",
           "oklch(82% 0.006 250)",
           "oklch(95% 0.006 250)"
-        ],
-        "note": "Becomes --chip (the only accent) while its project is held."
+        ]
       },
       "wdw-lime": {
         "role": "project",
@@ -217,7 +260,7 @@
         ]
       },
       "wdw-petrol": {
-        "role": "primary",
+        "role": "project",
         "displayName": "Petrol",
         "canonical": "oklch(35% 0.065 235)",
         "tonalRamp": [
@@ -229,8 +272,7 @@
           "oklch(70% 0.065 235)",
           "oklch(82% 0.065 235)",
           "oklch(95% 0.065 235)"
-        ],
-        "note": "Becomes --chip (the only accent) while its project is held."
+        ]
       },
       "cl-porcelain": {
         "role": "project",
@@ -263,7 +305,7 @@
         ]
       },
       "cl-turquoise": {
-        "role": "primary",
+        "role": "project",
         "displayName": "Turcoaz",
         "canonical": "oklch(47% 0.085 205)",
         "tonalRamp": [
@@ -275,8 +317,7 @@
           "oklch(70% 0.085 205)",
           "oklch(82% 0.085 205)",
           "oklch(95% 0.085 205)"
-        ],
-        "note": "Becomes --chip (the only accent) while its project is held."
+        ]
       },
       "b-linen": {
         "role": "project",
@@ -309,7 +350,7 @@
         ]
       },
       "b-plum": {
-        "role": "primary",
+        "role": "project",
         "displayName": "Prună",
         "canonical": "oklch(37% 0.075 350)",
         "tonalRamp": [
@@ -321,31 +362,13 @@
           "oklch(70% 0.075 350)",
           "oklch(82% 0.075 350)",
           "oklch(95% 0.075 350)"
-        ],
-        "note": "Becomes --chip (the only accent) while its project is held."
+        ]
       }
     },
-    "dynamicTokens": [
-      {
-        "name": "chip",
-        "value": "var(--<project>-3)",
-        "purpose": "The held project's deep shade; the only accent. Set by data-project on <html>; defaults to Casa C3."
-      },
-      {
-        "name": "chip-soft",
-        "value": "var(--<project>-1)",
-        "purpose": "The held project's light shade."
-      },
-      {
-        "name": "on-chip",
-        "value": "var(--paper)",
-        "purpose": "Text on the held chip."
-      }
-    ],
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headline only; key phrase in --chip."
+        "purpose": "Hero headline only; key phrase in Jost 700."
       },
       "headline": {
         "displayName": "Headline",
@@ -363,6 +386,10 @@
         "displayName": "Label",
         "purpose": "Buttons, filter tabs, tags, counter."
       },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "'bizoo' beside the mark; 'studio' at 400 in on-ink-2."
+      },
       "shade-name": {
         "displayName": "Shade name",
         "purpose": "The name printed in each swatch band."
@@ -371,32 +398,32 @@
     "shadows": [
       {
         "name": "chip-rest",
-        "value": "0 1px 2px oklch(20% 0.01 60 / .18), 0 10px 24px -8px oklch(20% 0.01 60 / .35)",
+        "value": "0 1px 2px oklch(20% 0 0 / .18), 0 10px 24px -8px oklch(20% 0 0 / .35)",
         "purpose": "Fan chips at rest."
       },
       {
         "name": "chip-lifted",
-        "value": "0 1px 2px oklch(20% 0.01 60 / .18), 0 16px 32px -8px oklch(20% 0.01 60 / .45)",
+        "value": "0 1px 2px oklch(20% 0 0 / .18), 0 16px 32px -8px oklch(20% 0 0 / .45)",
         "purpose": "Fan chip on hover."
       },
       {
         "name": "mini-chip",
-        "value": "0 6px 14px -6px oklch(20% 0.01 60 / .35)",
+        "value": "0 6px 14px -6px oklch(20% 0 0 / .35)",
         "purpose": "Service mini chips."
       },
       {
         "name": "knob",
-        "value": "0 6px 18px -6px oklch(20% 0.01 60 / .5)",
+        "value": "0 6px 18px -6px oklch(20% 0 0 / .5)",
         "purpose": "Before/after handle."
       },
       {
         "name": "pin",
-        "value": "inset 0 1px 2px oklch(20% 0.01 60 / .35)",
+        "value": "inset 0 1px 2px oklch(20% 0 0 / .35)",
         "purpose": "The fan's pivot hole."
       },
       {
         "name": "backdrop",
-        "value": "oklch(20% 0.01 60 / .62)",
+        "value": "oklch(20% 0 0 / .62)",
         "purpose": "Dialog scrim (a background, not a shadow)."
       }
     ],
@@ -404,17 +431,12 @@
       {
         "name": "spring",
         "value": "linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1)",
-        "purpose": "Handled objects: fan chips (0.9s), mini chips (0.7s), button chip bar (0.5s)."
+        "purpose": "Handled objects: fan chips (0.9s), mini chips and the brand mark (0.7s), button diamond (0.5s)."
       },
       {
         "name": "out",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Recolour (0.6s), photo crossfade (0.9s), nav underline, Motion entrances."
-      },
-      {
-        "name": "recolour",
-        "value": "0.6s",
-        "purpose": "Every --chip-driven background or colour change."
+        "purpose": "Photo crossfade (0.9s), button and card hovers, nav underline, Motion entrances."
       },
       {
         "name": "entrance-cards",
@@ -450,16 +472,29 @@
         "name": "compact",
         "value": "560px"
       }
-    ]
+    ],
+    "brandMark": {
+      "source": "assets/bizoo-mark.svg",
+      "usage": "One <symbol id=\"bz-mark\"> in currentColor via mask; header and footer at 34px in paper, and the favicon.",
+      "geometry": "A square on its point, cut by an upper half-ring, a band to the left edge, a slot and one rounded corner; rebuilt from the client's file (97% pixel overlap)."
+    }
   },
   "components": [
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Black bar: the Bizoo mark and wordmark in paper, on-ink-2 links with a 2px paper underline, RO/EN toggle, inverted button.",
+      "html": "<header class=\"ds-bar\"><a class=\"ds-brand\" href=\"#\"><svg class=\"ds-mark\" viewBox=\"0 0 141.42 141.42\" aria-hidden=\"true\"><defs><mask id=\"ds-bz-cut\" maskUnits=\"userSpaceOnUse\" x=\"-10\" y=\"-10\" width=\"120\" height=\"120\"><rect width=\"100\" height=\"100\" fill=\"#fff\"/><path d=\"M21 65.2A44.6 44.6 0 0 1 110.2 65.2H98.9A33.3 33.3 0 0 0 32.3 65.2Z\"/><rect x=\"-1\" y=\"60\" width=\"33.3\" height=\"12\"/><rect x=\"62.6\" y=\"68.6\" width=\"6\" height=\"32.4\"/><path d=\"M44 100.5A18.6 18.6 0 0 0 62.6 81.4H63V100.5Z\"/></mask></defs><g transform=\"translate(70.71 70.71) rotate(45) translate(-50 -50)\"><rect width=\"100\" height=\"100\" fill=\"currentColor\" mask=\"url(#ds-bz-cut)\"/></g></svg>bizoo <small>studio</small></a><nav class=\"ds-nav\"><a href=\"#\" class=\"is-here\">Proiecte</a><a href=\"#\">Servicii</a><a href=\"#\">Contact</a></nav><div class=\"ds-lang\"><a href=\"#\" aria-current=\"true\">RO</a><a href=\"#\">EN</a></div><a class=\"ds-btn\" href=\"#\"><i></i>Consultație</a></header>",
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-bar{display:flex;align-items:center;gap:28px;height:64px;padding:0 24px;background:var(--ink);color:var(--paper);font-family:'Hanken Grotesk',system-ui,sans-serif} .ds-brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none;font:600 22px/1 Jost,Futura,system-ui,sans-serif;letter-spacing:-.02em;white-space:nowrap} .ds-brand small{font-size:inherit;font-weight:400;color:var(--on-ink-2)} .ds-mark{width:34px;height:34px;flex:none;transition:transform .7s var(--spring)} .ds-brand:hover .ds-mark{transform:rotate(90deg)} .ds-nav{display:flex;gap:24px;margin-left:auto} .ds-nav a{position:relative;font-size:15px;font-weight:500;text-decoration:none;color:var(--on-ink-2);padding-block:6px;transition:color .2s} .ds-nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--paper);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--out)} .ds-nav a:hover,.ds-nav a.is-here{color:var(--paper)} .ds-nav a.is-here::after{transform:none} .ds-lang{display:flex;border:1px solid var(--paper)} .ds-lang a{padding:5px 9px;font:600 13px/1 Jost,Futura,system-ui,sans-serif;letter-spacing:.06em;color:inherit;text-decoration:none} .ds-lang a[aria-current=true]{background:var(--paper);color:var(--ink)} .ds-btn{display:inline-flex;align-items:center;gap:12px;padding:11px 16px;background:var(--paper);color:var(--ink);font:500 15px/1 Jost,Futura,system-ui,sans-serif;text-decoration:none;transition:background .25s var(--out)} .ds-btn i{width:9px;height:9px;background:var(--ink);transform:rotate(45deg);transition:transform .5s var(--spring)} .ds-btn:hover{background:var(--grey)} .ds-btn:hover i{transform:rotate(135deg)} .ds-bar :focus-visible{outline:2px solid var(--paper);outline-offset:3px}"
+    },
     {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The one action; ink at rest, the held chip on hover, led by a small chip bar.",
+      "description": "The one action; ink at rest, ink-hover on hover, led by a 9px diamond that turns on the spring.",
       "html": "<button class=\"ds-btn\"><i></i>Programează o consultație</button>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-btn{display:inline-flex;align-items:center;gap:12px;padding:16px 22px;border:0;border-radius:0;background:var(--ink);color:var(--paper);font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:16px;line-height:1;letter-spacing:.01em;cursor:pointer;transition:background .25s var(--out),transform .5s var(--spring)} .ds-btn i{width:10px;height:18px;background:var(--chip-soft);transition:transform .5s var(--spring)} .ds-btn:hover{background:var(--chip)} .ds-btn:hover i{transform:rotate(-14deg)} .ds-btn:active{transform:translateY(1px)} .ds-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-btn{display:inline-flex;align-items:center;gap:12px;padding:16px 22px;border:0;border-radius:0;background:var(--ink);color:var(--paper);font:500 16px/1 Jost,Futura,system-ui,sans-serif;letter-spacing:.01em;cursor:pointer;transition:background .25s var(--out),transform .5s var(--spring)} .ds-btn i{width:9px;height:9px;background:var(--paper);transform:rotate(45deg);transition:transform .5s var(--spring)} .ds-btn:hover{background:var(--ink-hover)} .ds-btn:hover i{transform:rotate(135deg)} .ds-btn:active{transform:translateY(1px)} .ds-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
     },
     {
       "name": "Text Link",
@@ -467,7 +502,7 @@
       "refersTo": null,
       "description": "Secondary action beside the primary button.",
       "html": "<a class=\"ds-link\" href=\"#\">Vezi proiectele</a>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-link{font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:16px;line-height:1.2;color:var(--ink);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px} .ds-link:hover{color:var(--chip)} .ds-link:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-link{font:500 16px/1.2 Jost,Futura,system-ui,sans-serif;color:var(--ink);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px} .ds-link:hover{color:var(--ink-2)} .ds-link:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
     },
     {
       "name": "Square Button",
@@ -475,31 +510,23 @@
       "refersTo": "button-square",
       "description": "Dialog arrows and close.",
       "html": "<button class=\"ds-sq\" aria-label=\"Next\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M9 5l7 7-7 7\"/></svg></button>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-sq{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--ink);border-radius:0;background:var(--paper);color:var(--ink);cursor:pointer;transition:background .2s,color .2s} .ds-sq svg{width:18px;height:18px} .ds-sq:hover{background:var(--ink);color:var(--paper)} .ds-sq:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-sq{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--ink);border-radius:0;background:var(--paper);color:var(--ink);cursor:pointer;transition:background .2s,color .2s} .ds-sq svg{width:18px;height:18px} .ds-sq:hover{background:var(--ink);color:var(--paper)} .ds-sq:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
     },
     {
       "name": "Filter Tabs",
       "kind": "chip",
       "refersTo": "filter-tab-on",
-      "description": "Project filter; pressed fills ink, hover takes the held chip's light shade.",
+      "description": "Project filter; hover goes grey, pressed fills ink.",
       "html": "<div class=\"ds-filters\"><button aria-pressed=\"true\">Toate</button><button aria-pressed=\"false\">Rezidențial</button><button aria-pressed=\"false\">Comercial</button></div>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-filters{display:flex;gap:8px;flex-wrap:wrap} .ds-filters button{padding:9px 16px;border:1px solid var(--ink);border-radius:0;background:none;color:var(--ink);font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:15px;line-height:1;cursor:pointer;transition:background .25s,color .25s} .ds-filters button:hover{background:var(--chip-soft)} .ds-filters button[aria-pressed=true]{background:var(--ink);color:var(--paper)} .ds-filters button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-filters{display:flex;gap:8px;flex-wrap:wrap} .ds-filters button{padding:9px 16px;border:1px solid var(--ink);border-radius:0;background:none;color:var(--ink);font:500 15px/1 Jost,Futura,system-ui,sans-serif;cursor:pointer;transition:background .25s,color .25s} .ds-filters button:hover{background:var(--grey)} .ds-filters button[aria-pressed=true]{background:var(--ink);color:var(--paper)} .ds-filters button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
     },
     {
       "name": "Text Field",
       "kind": "input",
       "refersTo": "input",
-      "description": "Contact form field; focus outline and caret take the held chip.",
+      "description": "Contact form field; 1px ink rule, 2px ink focus outline inside the edge.",
       "html": "<label class=\"ds-field\"><span>Nume</span><input type=\"text\" /></label>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-field{display:grid;gap:7px;font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--ink)} .ds-field span{font-size:14px;font-weight:600} .ds-field input{padding:13px 14px;border:1px solid var(--ink);border-radius:0;background:var(--paper);font:inherit;font-size:17px;caret-color:var(--chip)} .ds-field input:focus{outline:2px solid var(--chip);outline-offset:-1px}"
-    },
-    {
-      "name": "Nav Link",
-      "kind": "nav",
-      "refersTo": null,
-      "description": "Header link; the section in view draws a 3px held-chip underline.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"is-here\">Proiecte</a><a href=\"#\">Servicii</a><a href=\"#\">Contact</a></nav>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-nav{display:flex;gap:24px;font-family:'Hanken Grotesk',system-ui,sans-serif;} .ds-nav a{position:relative;font-size:15px;font-weight:500;text-decoration:none;color:var(--ink-2);padding-block:6px;transition:color .2s} .ds-nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--chip);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--out)} .ds-nav a:hover,.ds-nav a.is-here{color:var(--ink)} .ds-nav a.is-here::after{transform:none} .ds-nav a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-field{display:grid;gap:7px;font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--ink)} .ds-field span{font-size:14px;font-weight:600} .ds-field input{padding:13px 14px;border:1px solid var(--ink);border-radius:0;background:var(--paper);font:inherit;font-size:17px;caret-color:var(--ink)} .ds-field input:focus{outline:2px solid var(--ink);outline-offset:-1px}"
     },
     {
       "name": "Paint Chip",
@@ -507,7 +534,7 @@
       "refersTo": null,
       "description": "Signature: three named shades over a foot carrying the project name and the pin hole.",
       "html": "<button class=\"ds-chip\"><span style=\"--s:oklch(91% 0.035 80)\">Nisip</span><span style=\"--s:oklch(76% 0.11 72)\">Miere</span><span class=\"dk\" style=\"--s:oklch(39% 0.06 50)\">Castan</span><span class=\"ds-foot\"><b>Casa C3</b></span></button>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-chip{--cw:84px;width:var(--cw);height:calc(var(--cw)*4.4);display:grid;grid-template-rows:1fr 1fr 1fr calc(var(--cw)*2.3);padding:0;border:0;border-radius:0;background:var(--paper);cursor:pointer;box-shadow:0 1px 2px oklch(20% 0.01 60 / .18),0 10px 24px -8px oklch(20% 0.01 60 / .35);transform:rotate(-6deg);transition:transform .9s var(--spring),box-shadow .4s} .ds-chip:hover{transform:rotate(0) translateY(-12px);box-shadow:0 1px 2px oklch(20% 0.01 60 / .18),0 16px 32px -8px oklch(20% 0.01 60 / .45)} .ds-chip:focus-visible{outline:2px solid var(--ink);outline-offset:2px} .ds-chip>span:not(.ds-foot){display:flex;align-items:flex-end;background:var(--s);color:var(--ink);font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:11px;line-height:1.2;letter-spacing:.04em;padding:6px 7px} .ds-chip .dk{color:var(--paper)} .ds-foot{position:relative;display:flex;justify-content:center;padding:8px 0 calc(var(--cw)*.78)} .ds-foot b{writing-mode:vertical-rl;transform:rotate(180deg);font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:15px;line-height:1;color:var(--ink)} .ds-foot::after{content:'';position:absolute;left:50%;bottom:calc(var(--cw)*.5 - 6px);width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--ground);box-shadow:inset 0 1px 2px oklch(20% 0.01 60 / .35)}"
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-chip{--cw:84px;width:var(--cw);height:calc(var(--cw)*4.4);display:grid;grid-template-rows:1fr 1fr 1fr calc(var(--cw)*2.3);padding:0;border:0;border-radius:0;background:var(--paper);cursor:pointer;box-shadow:0 1px 2px oklch(20% 0 0 / .18),0 10px 24px -8px oklch(20% 0 0 / .35);transform:rotate(-6deg);transition:transform .9s var(--spring),box-shadow .4s} .ds-chip:hover{transform:rotate(0) translateY(-12px);box-shadow:0 1px 2px oklch(20% 0 0 / .18),0 16px 32px -8px oklch(20% 0 0 / .45)} .ds-chip:focus-visible{outline:2px solid var(--ink);outline-offset:2px} .ds-chip>span:not(.ds-foot){display:flex;align-items:flex-end;background:var(--s);color:var(--ink);font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:11px;line-height:1.2;letter-spacing:.04em;padding:6px 7px} .ds-chip .dk{color:var(--paper)} .ds-foot{position:relative;display:flex;justify-content:center;padding:8px 0 calc(var(--cw)*.78)} .ds-foot b{writing-mode:vertical-rl;transform:rotate(180deg);font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:15px;line-height:1;color:var(--ink)} .ds-foot::after{content:'';position:absolute;left:50%;bottom:calc(var(--cw)*.5 - 6px);width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--ground);box-shadow:inset 0 1px 2px oklch(20% 0 0 / .35)}"
     },
     {
       "name": "Project Card",
@@ -515,7 +542,15 @@
       "refersTo": "project-card",
       "description": "Photo, three-band strip, name and metadata on paper; no shadow.",
       "html": "<button class=\"ds-pcard\"><span class=\"ds-img\"></span><span class=\"ds-strip\"><i style=\"--s:oklch(80% 0.008 90)\">Beton</i><i style=\"--s:oklch(63% 0.09 62)\">Stejar</i><i class=\"dk\" style=\"--s:oklch(31% 0.006 250)\">Grafit</i></span><span class=\"ds-body\"><b>Casa R4</b><small>Rezidențial · casă</small></span></button>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-pcard{display:flex;flex-direction:column;width:280px;padding:0;border:0;border-radius:0;background:var(--paper);text-align:left;cursor:pointer;color:var(--ink)} .ds-img{aspect-ratio:4/5;background:oklch(80% 0.008 90)} .ds-strip{display:grid;grid-template-columns:1fr 1fr 1fr;height:44px} .ds-strip i{display:flex;align-items:flex-end;font-style:normal;background:var(--s);font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:11px;letter-spacing:.04em;padding:6px 7px} .ds-strip .dk{color:var(--paper)} .ds-body{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 16px 18px} .ds-body b{font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:1.6rem;letter-spacing:-.02em;line-height:1} .ds-body small{font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:14px;color:var(--ink-2)} .ds-pcard:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-pcard{display:flex;flex-direction:column;width:280px;padding:0;border:0;border-radius:0;background:var(--paper);text-align:left;cursor:pointer;color:var(--ink)} .ds-img{aspect-ratio:4/5;background:oklch(80% 0.008 90)} .ds-strip{display:grid;grid-template-columns:1fr 1fr 1fr;height:44px} .ds-strip i{display:flex;align-items:flex-end;font-style:normal;background:var(--s);font-family:Jost,Futura,system-ui,sans-serif;font-weight:500;font-size:11px;letter-spacing:.04em;padding:6px 7px} .ds-strip .dk{color:var(--paper)} .ds-body{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 16px 18px} .ds-body b{font-family:Jost,Futura,system-ui,sans-serif;font-weight:600;font-size:1.6rem;letter-spacing:-.02em;line-height:1} .ds-body small{font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:14px;color:var(--ink-2)} .ds-pcard:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
+    },
+    {
+      "name": "Next Palette Card",
+      "kind": "card",
+      "refersTo": "next-palette-card",
+      "description": "The closing card of the project grid: ink, a Jost line, an underlined call and three dashed empty bands.",
+      "html": "<a class=\"ds-next\" href=\"#\"><p>Următoarea paletă poate fi a voastră.</p><span>Programează o consultație</span><span class=\"ds-blank\"><i></i><i></i><i></i></span></a>",
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-next{display:flex;flex-direction:column;gap:24px;width:280px;min-height:280px;padding:28px;background:var(--ink);color:var(--paper);text-decoration:none;transition:background .3s var(--out)} .ds-next:hover{background:var(--ink-hover)} .ds-next p{margin:0;font:500 2rem/1.08 Jost,Futura,system-ui,sans-serif;letter-spacing:-.02em;max-width:14ch} .ds-next>span:not(.ds-blank){font:500 16px/1.2 Jost,Futura,system-ui,sans-serif;border-bottom:1px solid currentColor;align-self:flex-start;padding-bottom:2px} .ds-blank{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;height:44px;margin-top:auto} .ds-blank i{border:1px dashed var(--on-ink-2)} .ds-next:focus-visible{outline:2px solid var(--ink);outline-offset:3px}"
     },
     {
       "name": "Service Tag",
@@ -523,28 +558,29 @@
       "refersTo": "tag",
       "description": "Deliverables listed under a service.",
       "html": "<span class=\"ds-tag\">Concept și paletă</span>",
-      "css": ":host{--ground:oklch(96.6% 0.004 160);--paper:oklch(99.3% 0.002 160);--ink:oklch(21% 0.008 60);--ink-2:oklch(43% 0.01 60);--hair:oklch(85% 0.006 160);--chip:oklch(39% 0.06 50);--chip-soft:oklch(91% 0.035 80);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-tag{display:inline-block;padding:5px 10px;border:1px solid var(--hair);border-radius:0;background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:14px}"
+      "css": ":host{--ground:oklch(98.6% 0 0);--paper:oklch(100% 0 0);--grey:oklch(94.5% 0 0);--ink:oklch(14% 0 0);--ink-hover:oklch(30% 0 0);--ink-2:oklch(42% 0 0);--on-ink-2:oklch(76% 0 0);--hair:oklch(87% 0 0);--spring:linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.089 24.8%, 1.084 27.6%, 1.061 30.9%, 0.996 41.1%, 0.982 46.5%, 0.985 52.6%, 1.001 71.2%, 1);--out:cubic-bezier(0.16, 1, 0.3, 1)} .ds-tag{display:inline-block;padding:5px 10px;border:1px solid var(--hair);border-radius:0;background:var(--paper);color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;font-size:14px}"
     }
   ],
   "narrative": {
-    "northStar": "The Held Chip",
-    "overview": "The page is an interior designer's colour fan deck. Every project is a paint chip: a tall strip of three named shades, light to deep, with the project's name at its foot. The chip the visitor holds open decides the interface's one accent (`--chip`, the held project's deep shade, with `--chip-soft`, its light shade). Choosing a chip in the hero fan, or opening a project, sets `data-project` on the root and the primary button hover, nav underline, headline emphasis, process strip, \"next palette\" card, input focus, selection and brand mark all retint together. The accent belongs to whichever project is in hand, never to the studio.\n\nAround the chips the world is quiet and mineral: a cool off-white ground, slightly brighter chip stock (paper), near-black ink, hairline rules and square corners. Colour is total inside a chip and nearly absent outside it. Type is Jost at a medium 500 with tight tracking for everything that names or labels, and Hanken Grotesk for reading. Motion is a spring: chips fan open and slide out of the deck, mini chips tilt, and the recolour crossfades over 0.6s.\n\nThe page is bilingual (Romanian default, English toggle, `?lang=en` deep link), with both languages in the markup and the root `lang` choosing which shows. It is a pitch draft: photos are labelled Pexels stand-ins, the two-bar brand mark is a provisional logo, and missing client facts show as `[de completat]` markers.",
+    "northStar": "The Mark Holds the Deck",
+    "overview": "The frame is the Bizoo mark: pure black and white, square geometry, 45° diamonds. The mark itself is a white square standing on its point, cut by an upper half-ring, a band to the left edge, a slot and one rounded corner. It is drawn as SVG geometry in `currentColor` through a mask, used once as a `<symbol>` in the black header and black footer, and served as the favicon. Every neutral in the frame has zero chroma.\n\nInside that frame the page is an interior designer's colour fan deck. Every project is a paint chip: a tall strip of three named shades, light to deep, with the project's name at its foot. Holding a chip in the hero fan swaps the room photo behind it; it does not recolour the interface. Colour lives only in the chips and the photos, at full strength, and nowhere else.\n\nType is Jost: 600 for headings and the wordmark, 500 for anything that labels, and a light 400 hero headline whose key phrase steps up to 700. Hanken Grotesk carries the reading. Motion is a spring for handled things (chips fan open and slide out, mini chips tilt, the mark turns a quarter on hover) and an out-curve for crossfades.\n\nThe page is bilingual (Romanian default, English toggle, `?lang=en` deep link), with both languages in the markup and the root `lang` choosing which shows. It is a pitch draft: photos are labelled Pexels stand-ins, and missing client facts show as `[de completat]` markers.",
     "keyCharacteristics": [
-      "Three named shades per project, light to deep, always shown together as a chip.",
-      "One accent, and it moves: `--chip` is the held project's deep shade.",
-      "Mineral-white ground, paper chip stock, ink, hairlines, square corners.",
-      "Jost 500 for names and labels, Hanken Grotesk 400 for reading.",
+      "A zero-chroma frame: black header and footer, white ground and paper, greys between.",
+      "The real Bizoo mark, in `currentColor`, in the header, the footer and the favicon.",
+      "Three named shades per project, light to deep, always shown together as a chip; chips and photos are the only colour.",
+      "Square corners, 1px rules, 45° diamonds as the inline glyph.",
+      "Jost 600 headings, Jost 500 labels, Hanken Grotesk 400 for reading.",
       "Spring motion for things that are handled; soft cast shadow only on physical chips."
     ],
     "rules": [
       {
-        "name": "The Held Chip Rule",
-        "body": "The interface has one accent and it is `--chip`. Never hard-code a project shade as a UI colour; read it through `--chip` / `--chip-soft` (or `color-mix` of them) so it moves when the visitor picks another project. The one exception is content that belongs to a single project (the before/after \"After\" tag wears wdw-petrol because the slider shows Apartament WDW).",
+        "name": "The Black and White Frame Rule",
+        "body": "Every interface colour is a zero-chroma OKLCH neutral. There is no accent: hover, focus, selection, pressed and emphasis states are carried by ink, ink-hover, grey and paper. Error brick is the only exception.",
         "section": "colors"
       },
       {
-        "name": "The Full Chroma Inside the Chip Rule",
-        "body": "Project shades appear at full strength only inside chips: hero fan chips, project-card strips, the dialog palette, the service mini chips, and as the photo-loading fill behind a project's own image. Outside a chip, colour reaches the page only through the held chip.",
+        "name": "The Colour Lives in the Chip Rule",
+        "body": "Project shades appear only inside chips (hero fan, project-card strips, the dialog palette, service mini chips), as the photo-loading fill behind a project's own image, and in content that belongs to a single project (the before/after \"After\" tag wears wdw-petrol because the slider shows Apartament WDW). They never become a UI colour, a section background or a text colour.",
         "section": "colors"
       },
       {
@@ -553,29 +589,32 @@
         "section": "colors"
       },
       {
-        "name": "The Chip Label Rule",
-        "body": "Anything that names a thing (a project, a shade, a service, a step, a button) is set in Jost 500. Body copy never goes into Jost except the single about lede; nav links, hints and form labels stay in Hanken Grotesk.",
+        "name": "The Weight Ladder Rule",
+        "body": "Headings and the wordmark are Jost 600; labels and actions are Jost 500; the hero headline alone is 400 with a 700 emphasis. Emphasis is weight, never colour.",
         "section": "typography"
       },
       {
         "name": "The Held Object Rule",
-        "body": "Only a chip, or a handle you drag, casts a shadow. If a card, panel or button needs separation, use paper on ground or a rule.",
+        "body": "Only a chip, or a handle you drag, casts a shadow. If a card, panel or button needs separation, use black on white, paper on ground, or a rule.",
         "section": "elevation"
       }
     ],
     "dos": [
+      "Do keep every interface colour a zero-chroma neutral; carry state with ink, ink-hover, grey and paper.",
       "Do show every palette as a chip: three named shades, light to deep, ink text on the light two and paper text on the deep one.",
-      "Do route every interface accent through `--chip` / `--chip-soft` so it follows the held project.",
-      "Do keep corners square and frame with 1px ink rules; hairlines for internal dividers; dashed rules only for what is still to come.",
-      "Do set names, labels and actions in Jost 500 with tight tracking on large sizes; read in Hanken Grotesk 400.",
-      "Do move handled things on the spring and recolour on the 0.6s out-curve; honour reduced motion.",
+      "Do draw the Bizoo mark from the one `<symbol>` in `currentColor`; paper on black, ink on white.",
+      "Do keep interface corners square and frame with 1px rules; hairlines for internal dividers; dashed rules only for what is still to come.",
+      "Do use the 45° diamond as the inline glyph.",
+      "Do set headings in Jost 600, labels and actions in Jost 500, reading in Hanken Grotesk 400.",
+      "Do move handled things on the spring and crossfade on the out-curve; honour reduced motion.",
       "Do ship both languages in the markup as `lang` spans and let the root `lang` pick."
     ],
     "donts": [
-      "Don't introduce a fixed brand accent beside `--chip`; the studio's colour is whichever palette is in hand.",
-      "Don't spread project shades across sections, type or backgrounds outside a chip, except through the held chip.",
+      "Don't introduce an interface accent; colour belongs to the chips and the photos.",
+      "Don't use project shades for buttons, rules, type or section backgrounds outside a chip.",
+      "Don't redraw, recolour or re-proportion the mark; it stays the client's geometry.",
       "Don't cast shadows from cards, panels, buttons or the header; only chips and the drag knob are objects.",
-      "Don't round corners; the pin hole is the only circle.",
+      "Don't round interface corners; curves belong to the mark and the pin hole.",
       "Don't number steps, cards or sections."
     ]
   }

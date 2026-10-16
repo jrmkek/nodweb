@@ -1,22 +1,24 @@
 <!doctype html>
-<html lang="ro" data-project="c3">
+<html lang="ro">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-ro="Bizoo Studio: design interior și vizualizare 3D, Târgu Mureș" data-en="Bizoo Studio: interior design and 3D visualisation, Târgu Mureș">Bizoo Studio: design interior și vizualizare 3D, Târgu Mureș</title>
   <meta name="description" content="Studio de design interior și vizualizare 3D din Târgu Mureș. Propunere de site realizată de NodWeb." />
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#f3f4f2" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='2' width='9' height='28' fill='%23d9b77a'/%3E%3Crect x='17' y='2' width='9' height='28' fill='%235a3a24'/%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="icon" href="./assets/bizoo-mark.svg" type="image/svg+xml" />
   <link rel="preload" as="image" href="./assets/c3-1-wide.webp" fetchpriority="high" />
   <link rel="preload" href="./fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
-/* Hallmark · macrostructure: custom (fan deck) · tone: luxury-utilitarian · anchor hue: moves with the held project
- * theme: custom · vibe: "interior designer's colour fan deck" · display: Jost · body: Hanken Grotesk
- * Hallmark · pre-emit critique: P5 H4 E4 S5 R4 V5
+/* Hallmark · macrostructure: custom (fan deck) · tone: austere · anchor hue: neutral (colour lives only in chips and photos)
+ * theme: custom · vibe: "black-and-white diamond mark framing a colour fan deck" · display: Jost 600 · body: Hanken Grotesk
+ * axes: light / geometric-sans / neutral
+ * Hallmark · pre-emit critique: P5 H4 E4 S5 R5 V4
  * Bizoo Studio: pitch draft by NodWeb.
- * The page is a colour fan deck. Every project is a chip strip in its own
- * palette, and the chip you hold open colours the interface (--chip). */
+ * The frame is the Bizoo mark: pure black and white, square geometry, 45 degree diamonds.
+ * Inside it the page is a colour fan deck: every project is a chip strip in its own
+ * palette, and those chips and the photos are the only colour on the page. */
 
 @font-face { font-family: "Jost"; font-weight: 300 700; font-display: swap; src: url("./fonts/jost-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: "Jost"; font-weight: 300 700; font-display: swap; src: url("./fonts/jost-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
@@ -24,11 +26,14 @@
 @font-face { font-family: "Hanken Grotesk"; font-weight: 400 700; font-display: swap; src: url("./fonts/hanken-grotesk-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 :root {
-  --ground: oklch(96.6% 0.004 160);   /* mineral white, the deck's page */
-  --paper: oklch(99.3% 0.002 160);    /* the chip stock */
-  --ink: oklch(21% 0.008 60);
-  --ink-2: oklch(43% 0.01 60);
-  --hair: oklch(85% 0.006 160);
+  --ground: oklch(98.6% 0 0);         /* the mark's white */
+  --paper: oklch(100% 0 0);           /* chip stock, cards */
+  --grey: oklch(94.5% 0 0);           /* quiet fills: markers, empty frames */
+  --ink: oklch(14% 0 0);              /* the mark's black */
+  --ink-hover: oklch(30% 0 0);
+  --ink-2: oklch(42% 0 0);
+  --on-ink-2: oklch(76% 0 0);         /* secondary text on black */
+  --hair: oklch(87% 0 0);
   --err: oklch(48% 0.16 28);
 
   /* Each project's three shades, light → deep. Names live in the markup. */
@@ -37,10 +42,6 @@
   --wdw-1: oklch(93% 0.012 90); --wdw-2: oklch(70% 0.05 150); --wdw-3: oklch(35% 0.065 235);
   --cl-1: oklch(97% 0.008 210); --cl-2: oklch(81% 0.06 188);  --cl-3: oklch(47% 0.085 205);
   --b-1: oklch(91% 0.02 85);    --b-2: oklch(67% 0.012 70);   --b-3: oklch(37% 0.075 350);
-
-  --chip: var(--c3-3);            /* the held chip: the only accent, and it moves */
-  --chip-soft: var(--c3-1);
-  --on-chip: var(--paper);
 
   --font-display: "Jost", "Futura", system-ui, sans-serif;
   --font-body: "Hanken Grotesk", system-ui, sans-serif;
@@ -51,11 +52,6 @@
   --out: cubic-bezier(0.16, 1, 0.3, 1);
   color-scheme: light;
 }
-[data-project="c3"]  { --chip: var(--c3-3);  --chip-soft: var(--c3-1); }
-[data-project="r4"]  { --chip: var(--r4-3);  --chip-soft: var(--r4-1); }
-[data-project="wdw"] { --chip: var(--wdw-3); --chip-soft: var(--wdw-1); }
-[data-project="cl"]  { --chip: var(--cl-3);  --chip-soft: var(--cl-1); }
-[data-project="b"]   { --chip: var(--b-3);   --chip-soft: var(--b-1); }
 
 /* Language toggle: both languages ship in the markup, the root lang picks one. */
 html[lang="ro"] [lang="en"], html[lang="en"] [lang="ro"] { display: none !important; }
@@ -71,14 +67,14 @@ body {
 }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
-::selection { background: var(--chip); color: var(--on-chip); }
+::selection { background: var(--ink); color: var(--paper); }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 button, input, select, textarea { font: inherit; color: inherit; }
-h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 500; letter-spacing: -0.025em; line-height: 1; text-wrap: balance; overflow-wrap: anywhere; min-width: 0; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 600; letter-spacing: -0.03em; line-height: 1; text-wrap: balance; overflow-wrap: anywhere; min-width: 0; }
 p { margin: 0; text-wrap: pretty; }
 .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.todo { font-family: var(--font-body); font-weight: 600; font-size: 0.86em; color: var(--ink-2); background: color-mix(in oklch, var(--chip-soft) 70%, var(--paper)); padding: 0.05em 0.35em; white-space: nowrap; }
+.todo { font-family: var(--font-body); font-weight: 600; font-size: 0.86em; color: var(--ink-2); background: var(--grey); padding: 0.05em 0.35em; white-space: nowrap; }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: var(--hair); }
 ::-webkit-scrollbar-thumb:hover { background: var(--ink-2); }
@@ -88,22 +84,24 @@ p { margin: 0; text-wrap: pretty; }
 .sw.dk { color: var(--paper); }
 
 /* ---------- header ---------- */
-.bar { position: sticky; top: 0; z-index: 50; background: var(--ground); border-bottom: 1px solid var(--hair); }
+.bar { position: sticky; top: 0; z-index: 50; background: var(--ink); color: var(--paper); }
 .bar__in { display: flex; align-items: center; gap: 28px; height: var(--bar); }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 500 22px/1 var(--font-display); letter-spacing: -0.02em; white-space: nowrap; }
-.brand__mark { display: flex; gap: 2px; height: 26px; }
-.brand__mark i { width: 7px; background: var(--chip-soft); transition: background .6s var(--out); }
-.brand__mark i:nth-child(2) { background: var(--chip); }
-.brand small { font-weight: 400; color: var(--ink-2); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 600 22px/1 var(--font-display); letter-spacing: -0.02em; white-space: nowrap; }
+.brand__mark { width: 34px; height: 34px; flex: none; transition: transform .7s var(--spring); }
+.brand:hover .brand__mark { transform: rotate(90deg); }
+.brand small { font-weight: 400; color: var(--on-ink-2); }
 .nav { display: flex; gap: 24px; margin-left: auto; }
-.nav a { position: relative; font-size: 15px; font-weight: 500; text-decoration: none; color: var(--ink-2); white-space: nowrap; transition: color .2s; padding-block: 6px; }
-.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--chip); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--out), background .6s; }
-.nav a:hover, .nav a.is-here { color: var(--ink); }
+.nav a { position: relative; font-size: 15px; font-weight: 500; text-decoration: none; color: var(--on-ink-2); white-space: nowrap; transition: color .2s; padding-block: 6px; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--paper); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--out); }
+.nav a:hover, .nav a.is-here { color: var(--paper); }
 .nav a.is-here::after { transform: none; }
-.lang { display: flex; border: 1px solid var(--ink); }
+.lang { display: flex; border: 1px solid var(--paper); }
 .lang a { padding: 5px 9px; font: 600 13px/1 var(--font-display); letter-spacing: 0.06em; text-decoration: none; }
-.lang a[aria-current="true"] { background: var(--ink); color: var(--ground); }
-.bar .btn { padding: 11px 16px; font-size: 15px; }
+.lang a[aria-current="true"] { background: var(--paper); color: var(--ink); }
+.bar :focus-visible { outline-color: var(--paper); }
+.bar .btn { padding: 11px 16px; font-size: 15px; background: var(--paper); color: var(--ink); }
+.bar .btn i { background: var(--ink); }
+.bar .btn:hover { background: var(--grey); }
 
 /* ---------- buttons ---------- */
 .btn {
@@ -112,16 +110,16 @@ p { margin: 0; text-wrap: pretty; }
   font: 500 16px/1 var(--font-display); letter-spacing: 0.01em; text-decoration: none; cursor: pointer;
   transition: background .25s var(--out), transform .5s var(--spring);
 }
-.btn i { width: 10px; height: 18px; background: var(--chip-soft); transition: transform .5s var(--spring), background .6s; }
-.btn:hover { background: var(--chip); }
-.btn:hover i { transform: rotate(-14deg); }
+.btn i { width: 9px; height: 9px; background: var(--paper); transform: rotate(45deg); transition: transform .5s var(--spring); }
+.btn:hover { background: var(--ink-hover); }
+.btn:hover i { transform: rotate(135deg); }
 .btn:active { transform: translateY(1px); }
 .btn:disabled { opacity: .55; cursor: progress; }
 .link { font: 500 16px/1.2 var(--font-display); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; background: none; border-top: 0; border-inline: 0; cursor: pointer; }
-.link:hover { color: var(--chip); }
+.link:hover { color: var(--ink-2); }
 
 /* ---------- hero: a held fan deck over the room ---------- */
-.hero { position: relative; height: max(560px, min(calc(100svh - var(--bar)), 940px)); overflow: hidden; background: var(--chip-soft); }
+.hero { position: relative; height: max(560px, min(calc(100svh - var(--bar)), 940px)); overflow: hidden; background: var(--grey); }
 .hero__bg { position: absolute; inset: 0; }
 .hero__bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity .9s var(--out), transform 2.4s var(--out); }
 .hero__bg img.is-on { opacity: 1; transform: none; }
@@ -130,12 +128,12 @@ p { margin: 0; text-wrap: pretty; }
   width: min(640px, calc(100% - 2 * var(--gutter)));
   background: var(--ground); padding: clamp(24px, 3.2vw, 44px) clamp(22px, 3vw, 44px) clamp(26px, 3vw, 40px);
 }
-.hero h1 { font-size: clamp(2.6rem, 5.2vw, 4.9rem); font-weight: 500; letter-spacing: -0.035em; line-height: 0.96; }
-.hero h1 b { font-weight: 500; color: var(--chip); transition: color .6s var(--out); }
+.hero h1 { font-size: clamp(2.6rem, 5.2vw, 4.9rem); font-weight: 400; letter-spacing: -0.035em; line-height: 0.96; }
+.hero h1 b { font-weight: 700; }
 .lede { max-width: 46ch; margin-top: 18px; font-size: clamp(16px, 1.25vw, 18px); color: var(--ink-2); }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 26px; }
 .held { display: flex; align-items: baseline; gap: 10px; margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--hair); font-size: 14px; color: var(--ink-2); min-width: 0; }
-.held b { font: 500 16px/1.2 var(--font-display); color: var(--ink); white-space: nowrap; }
+.held b { font: 600 16px/1.2 var(--font-display); color: var(--ink); white-space: nowrap; }
 .held span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .fan { --cw: clamp(62px, 6.2vw, 92px); --ch: calc(var(--cw) * 4.4); position: absolute; right: clamp(24px, 9vw, 150px); bottom: clamp(12px, 2.4vw, 36px); z-index: 2; width: var(--cw); height: var(--ch); }
@@ -143,7 +141,7 @@ p { margin: 0; text-wrap: pretty; }
   --i: 0;                                    /* place in the deck, set by the script */
   position: absolute; inset: 0; padding: 0; border: 0; cursor: pointer;
   display: grid; grid-template-rows: 1fr 1fr 1fr calc(var(--cw) * 2.3);
-  background: var(--paper); box-shadow: 0 1px 2px oklch(20% 0.01 60 / .18), 0 10px 24px -8px oklch(20% 0.01 60 / .35);
+  background: var(--paper); box-shadow: 0 1px 2px oklch(20% 0 0 / .18), 0 10px 24px -8px oklch(20% 0 0 / .35);
   transform-origin: 50% calc(100% - var(--cw) * 0.5);
   /* a fixed spread, like a deck held open; the held chip slides out along its own axis */
   transform: rotate(calc(var(--i) * 12deg - 46deg)) translateY(calc(var(--held, 0) * var(--ch) * -0.16));
@@ -154,8 +152,8 @@ p { margin: 0; text-wrap: pretty; }
 .chip .sw { font-size: clamp(9px, .8vw, 11px); padding: 5px 6px; }
 .chip__foot { position: relative; display: flex; justify-content: center; padding: 8px 0 calc(var(--cw) * 0.78); }
 .chip__foot b { writing-mode: vertical-rl; transform: rotate(180deg); font: 500 clamp(12px, 1.05vw, 15px)/1 var(--font-display); letter-spacing: 0.02em; white-space: nowrap; color: var(--ink); }
-.chip__foot::after { content: ""; position: absolute; left: 50%; bottom: calc(var(--cw) * 0.5 - 6px); width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--ground); box-shadow: inset 0 1px 2px oklch(20% 0.01 60 / .35); }
-.chip:hover { box-shadow: 0 1px 2px oklch(20% 0.01 60 / .18), 0 16px 32px -8px oklch(20% 0.01 60 / .45); }
+.chip__foot::after { content: ""; position: absolute; left: 50%; bottom: calc(var(--cw) * 0.5 - 6px); width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--ground); box-shadow: inset 0 1px 2px oklch(20% 0 0 / .35); }
+.chip:hover { box-shadow: 0 1px 2px oklch(20% 0 0 / .18), 0 16px 32px -8px oklch(20% 0 0 / .45); }
 .chip:focus-visible { outline-offset: 2px; }
 .fan__hint { position: absolute; right: calc(100% + var(--ch) * 0.62); bottom: calc(var(--ch) * 0.86); width: max-content; padding: 6px 10px; background: var(--ground); font-size: 13px; font-weight: 600; pointer-events: none; }
 .credit { position: absolute; right: 12px; top: 12px; z-index: 2; padding: 4px 8px; background: var(--ground); font-size: 12px; color: var(--ink-2); }
@@ -169,7 +167,7 @@ p { margin: 0; text-wrap: pretty; }
 /* projects: filter tabs, then one chip card per project */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .filters button { padding: 9px 16px; border: 1px solid var(--ink); background: none; font: 500 15px/1 var(--font-display); cursor: pointer; transition: background .25s, color .25s; white-space: nowrap; }
-.filters button:hover { background: var(--chip-soft); }
+.filters button:hover { background: var(--grey); }
 .filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 1.6vw, 24px); }
 .pcard { position: relative; display: flex; flex-direction: column; min-width: 0; background: var(--paper); text-align: left; padding: 0; border: 0; cursor: pointer; }
@@ -184,16 +182,17 @@ p { margin: 0; text-wrap: pretty; }
 .pcard__meta { font-size: 14px; color: var(--ink-2); white-space: nowrap; }
 .pcard__open { position: absolute; right: 12px; top: 12px; padding: 6px 10px; background: var(--paper); font: 500 13px/1 var(--font-display); opacity: 0; transform: translateY(-4px); transition: opacity .3s var(--out), transform .4s var(--out); }
 .pcard:hover .pcard__open, .pcard:focus-visible .pcard__open { opacity: 1; transform: none; }
-.pcard--next { justify-content: flex-start; gap: 24px; padding: clamp(20px, 2.4vw, 32px); background: var(--chip); color: var(--on-chip); text-decoration: none; transition: background .6s var(--out); min-height: 280px; }
+.pcard--next { justify-content: flex-start; gap: 24px; padding: clamp(20px, 2.4vw, 32px); background: var(--ink); color: var(--paper); text-decoration: none; transition: background .3s var(--out); min-height: 280px; }
+.pcard--next:hover { background: var(--ink-hover); }
 .pcard--next p { font: 500 clamp(1.5rem, 2.4vw, 2.2rem)/1.08 var(--font-display); letter-spacing: -0.02em; max-width: 14ch; }
-.pcard--next span { font: 500 16px/1.2 var(--font-display); border-bottom: 1px solid currentColor; align-self: flex-start; padding-bottom: 2px; }
+.pcard--next > span:not(.blank) { font: 500 16px/1.2 var(--font-display); border-bottom: 1px solid currentColor; align-self: flex-start; padding-bottom: 2px; }
 .pcard--next .blank { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; height: 44px; margin-top: auto; }
-.pcard--next .blank i { border: 1px dashed color-mix(in oklch, var(--on-chip) 65%, transparent); }
+.pcard--next .blank i { border: 1px dashed var(--on-ink-2); }
 .note { margin-top: 18px; font-size: 13px; color: var(--ink-2); }
 
 /* project dialog */
 dialog.proj { width: min(1180px, calc(100vw - 24px)); max-height: calc(100svh - 24px); padding: 0; border: 0; background: var(--ground); color: var(--ink); overflow: auto; overscroll-behavior: contain; }
-dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
+dialog.proj::backdrop { background: oklch(20% 0 0 / .62); }
 .proj__in { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
 .proj__gal { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; background: var(--ink); min-height: 0; }
 .proj__gal img { flex: 0 0 100%; width: 100%; height: min(78svh, 760px); object-fit: cover; scroll-snap-align: start; }
@@ -214,7 +213,7 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
 .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .ba__after { clip-path: inset(0 0 0 var(--x)); }
 .ba__line { position: absolute; top: 0; bottom: 0; left: var(--x); width: 2px; margin-left: -1px; background: var(--paper); pointer-events: none; }
-.ba__knob { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; display: grid; place-items: center; background: var(--paper); color: var(--ink); box-shadow: 0 6px 18px -6px oklch(20% 0.01 60 / .5); }
+.ba__knob { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; display: grid; place-items: center; background: var(--paper); color: var(--ink); box-shadow: 0 6px 18px -6px oklch(20% 0 0 / .5); }
 .ba__knob svg { width: 26px; height: 26px; }
 .ba input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
 .ba:has(input:focus-visible) .ba__knob { outline: 2px solid var(--ink); outline-offset: 3px; }
@@ -225,7 +224,7 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
 /* services: one row per service, its own small chip at the start */
 .svc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
 .svc > li { display: grid; grid-template-columns: 64px minmax(0, 5fr) minmax(0, 6fr); gap: clamp(16px, 3vw, 48px); align-items: start; padding-block: clamp(26px, 3.4vw, 44px); border-bottom: 1px solid var(--ink); }
-.mini { display: grid; grid-template-rows: repeat(3, 26px) 30px; width: 46px; background: var(--paper); box-shadow: 0 6px 14px -6px oklch(20% 0.01 60 / .35); transform: rotate(-6deg); transition: transform .7s var(--spring); }
+.mini { display: grid; grid-template-rows: repeat(3, 26px) 30px; width: 46px; background: var(--paper); box-shadow: 0 6px 14px -6px oklch(20% 0 0 / .35); transform: rotate(-6deg); transition: transform .7s var(--spring); }
 .mini i { background: var(--s); }
 .svc > li:hover .mini { transform: rotate(6deg) translateY(-4px); }
 .svc h3 { font-size: clamp(1.8rem, 3.6vw, 3.1rem); letter-spacing: -0.03em; }
@@ -233,11 +232,11 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
 .svc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; padding: 0; }
 .svc ul li { display: block; padding: 5px 10px; border: 1px solid var(--hair); background: var(--paper); font-size: 14px; }
 
-/* process: four chips, light to deep, tinted by the held project */
+/* process: four chips, white to black, the mark's two tones */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.steps li { --t: 0.14; display: flex; flex-direction: column; min-height: 420px; padding: clamp(18px, 2vw, 28px); background: color-mix(in oklch, var(--chip) calc(var(--t) * 100%), var(--paper)); transition: background .6s var(--out); }
-.steps li:nth-child(2) { --t: 0.32; }
-.steps li:nth-child(3) { --t: 0.55; }
+.steps li { --t: 0.05; display: flex; flex-direction: column; min-height: 420px; padding: clamp(18px, 2vw, 28px); background: color-mix(in oklch, var(--ink) calc(var(--t) * 100%), var(--paper)); }
+.steps li:nth-child(2) { --t: 0.14; }
+.steps li:nth-child(3) { --t: 0.72; color: var(--paper); }
 .steps li:nth-child(4) { --t: 1; color: var(--paper); }
 .steps h3 { margin-top: auto; font-size: clamp(1.5rem, 2.2vw, 2.1rem); letter-spacing: -0.02em; }
 .steps p { margin-top: 12px; font-size: 16px; max-width: 32ch; }
@@ -246,9 +245,9 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
 /* 3D upgrade */
 .three { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
 .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px dashed var(--ink); font: 500 13px/1 var(--font-display); letter-spacing: 0.03em; margin-top: 20px; }
-.badge i { width: 8px; height: 14px; background: var(--chip); }
+.badge i { width: 8px; height: 8px; background: var(--ink); transform: rotate(45deg); }
 .three p { color: var(--ink-2); max-width: 46ch; margin-top: 18px; }
-.viewer { position: relative; aspect-ratio: 4 / 3; background: var(--chip-soft); border: 1px solid var(--hair); transition: background .6s var(--out); }
+.viewer { position: relative; aspect-ratio: 4 / 3; background: var(--grey); border: 1px solid var(--hair); }
 .viewer model-viewer { width: 100%; height: 100%; --poster-color: transparent; }
 .viewer model-viewer::part(default-progress-bar) { display: none; }
 .viewer__hint { position: absolute; left: 12px; bottom: 12px; padding: 6px 10px; background: var(--paper); font-size: 13px; font-weight: 600; pointer-events: none; }
@@ -273,11 +272,11 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
 .form__row--wide { grid-column: 1 / -1; }
 .form label { font-size: 14px; font-weight: 600; }
 .form label small { font-weight: 400; color: var(--ink-2); }
-.form input, .form textarea, .form select { width: 100%; padding: 13px 14px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); caret-color: var(--chip); }
+.form input, .form textarea, .form select { width: 100%; padding: 13px 14px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); caret-color: var(--ink); }
 .form select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px; }
 .form textarea { min-height: 150px; resize: vertical; }
-.form ::placeholder { color: oklch(52% 0.01 60); }
-.form input:focus, .form textarea:focus, .form select:focus { outline: 2px solid var(--chip); outline-offset: -1px; }
+.form ::placeholder { color: oklch(52% 0 0); }
+.form input:focus, .form textarea:focus, .form select:focus { outline: 2px solid var(--ink); outline-offset: -1px; }
 .form__err { display: none; font-size: 13px; color: var(--err); font-weight: 600; }
 .is-invalid input, .is-invalid textarea { border-color: var(--err); }
 .is-invalid .form__err { display: block; }
@@ -285,9 +284,12 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
 .form__status { font-weight: 600; }
 
 /* footer */
-.foot { border-top: 1px solid var(--ink); padding-block: 36px 48px; font-size: 14px; color: var(--ink-2); }
+.foot { background: var(--ink); padding-block: 44px 56px; font-size: 14px; color: var(--on-ink-2); }
 .foot__in { display: flex; flex-wrap: wrap; gap: 16px 48px; justify-content: space-between; align-items: flex-start; }
-.foot .brand { color: var(--ink); }
+.foot .brand { color: var(--paper); }
+.foot a { color: var(--paper); }
+.foot :focus-visible { outline-color: var(--paper); }
+.foot .todo { background: var(--ink-hover); color: var(--paper); }
 .foot p { max-width: 70ch; }
 
 /* ---------- responsive ---------- */
@@ -308,7 +310,7 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
 @media (max-width: 720px) {
   /* The room on top with the fan held over its corner, the cover card below it. */
   .hero { height: auto; display: flex; flex-direction: column; background: var(--ground); }
-  .hero__bg { position: relative; inset: auto; height: 58svh; min-height: 340px; overflow: hidden; background: var(--chip-soft); }
+  .hero__bg { position: relative; inset: auto; height: 58svh; min-height: 340px; overflow: hidden; background: var(--grey); }
   .hero__card { position: relative; left: auto; width: 100%; padding: 26px var(--gutter) 34px; }
   .fan { --cw: 50px; right: 34px; bottom: auto; top: calc(58svh - var(--ch) + var(--cw) * 0.6); }
   .fan__hint { display: none; }
@@ -329,9 +331,22 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
   </style>
 </head>
 <body>
+  <!-- The Bizoo mark, rebuilt from the client's logo file; also at ./assets/bizoo-mark.svg. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <mask id="bz-cut" maskUnits="userSpaceOnUse" x="-10" y="-10" width="120" height="120">
+        <rect width="100" height="100" fill="#fff" />
+        <path d="M21 65.2A44.6 44.6 0 0 1 110.2 65.2H98.9A33.3 33.3 0 0 0 32.3 65.2Z" />
+        <rect x="-1" y="60" width="33.3" height="12" />
+        <rect x="62.6" y="68.6" width="6" height="32.4" />
+        <path d="M44 100.5A18.6 18.6 0 0 0 62.6 81.4H63V100.5Z" />
+      </mask>
+      <symbol id="bz-mark" viewBox="0 0 141.42 141.42"><g transform="translate(70.71 70.71) rotate(45) translate(-50 -50)"><rect width="100" height="100" fill="currentColor" mask="url(#bz-cut)" /></g></symbol>
+    </defs>
+  </svg>
   <header class="bar">
     <div class="wrap bar__in">
-      <a class="brand" href="#top" aria-label="Bizoo Studio"><span class="brand__mark" aria-hidden="true"><i></i><i></i></span>bizoo <small>studio</small></a>
+      <a class="brand" href="#top" aria-label="Bizoo Studio"><svg class="brand__mark" aria-hidden="true"><use href="#bz-mark" /></svg>bizoo <small>studio</small></a>
       <nav class="nav" data-aria-ro="Secțiuni" data-aria-en="Sections" aria-label="Secțiuni">
         <a href="#proiecte"><span lang="ro">Proiecte</span><span lang="en">Projects</span></a>
         <a href="#servicii"><span lang="ro">Servicii</span><span lang="en">Services</span></a>
@@ -348,7 +363,7 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" id="sus" data-nav aria-labelledby="hero-title">
       <div class="hero__bg">
         <img class="is-on" data-for="c3" src="./assets/c3-1-wide.webp" alt="Cameră cu arcadă, scaun de lemn și lumină caldă de după-amiază" data-alt-en="Room with an archway, a timber chair and warm afternoon light" width="2200" height="1238" fetchpriority="high" />
         <img data-for="r4" src="./assets/r4-1.webp" alt="Bucătărie deschisă cu mobilier din lemn și scară suspendată" data-alt-en="Open kitchen with timber units and a floating staircase" width="1600" height="1068" loading="lazy" />
@@ -595,8 +610,8 @@ dialog.proj::backdrop { background: oklch(20% 0.01 60 / .62); }
 
   <footer class="foot">
     <div class="wrap foot__in">
-      <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true"><i></i><i></i></span>bizoo <small>studio</small></a>
-      <p><span lang="ro">Propunere de site realizată de <a href="/ro/">NodWeb</a>. Fotografiile sunt imagini demonstrative de pe Pexels și se înlocuiesc cu randările voastre; logo-ul e provizoriu <span class="todo">[de completat]</span>. Serviciile, pașii și descrierile proiectelor le confirmăm împreună.</span><span lang="en">Website proposal by <a href="/">NodWeb</a>. Photos are Pexels demonstration images, to be replaced with your renders; the logo is a stand-in <span class="todo">[de completat]</span>. Services, steps and project descriptions are to be confirmed together.</span></p>
+      <a class="brand" href="#top"><svg class="brand__mark" aria-hidden="true"><use href="#bz-mark" /></svg>bizoo <small>studio</small></a>
+      <p><span lang="ro">Propunere de site realizată de <a href="/ro/">NodWeb</a>. Fotografiile sunt imagini demonstrative de pe Pexels și se înlocuiesc cu randările voastre. Serviciile, pașii și descrierile proiectelor le confirmăm împreună.</span><span lang="en">Website proposal by <a href="/">NodWeb</a>. Photos are Pexels demonstration images, to be replaced with your renders. Services, steps and project descriptions are to be confirmed together.</span></p>
     </div>
   </footer>
 
