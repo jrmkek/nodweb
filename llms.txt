@@ -23,6 +23,6 @@ NodWeb is a freelance web design practice based in Bucharest. This site includes
 
 ## Contact
 
-- Email: ierostanescu@gmail.com
+- Email: iero@nodweb.org
 - Phone: +40 731 431 633
 - Location: Bucharest, Romania
