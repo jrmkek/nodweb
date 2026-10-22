@@ -2,7 +2,7 @@
 
 > NodWeb designs and builds fast, modern websites for local businesses in Bucharest, Romania — including interactive 3D model showcases for architecture and design studios.
 
-NodWeb is a freelance web design practice based in Bucharest. This site includes live, fully-functional example sites that demonstrate the kind of fully custom site a client would receive; NodWeb has not yet delivered a real client project.
+NodWeb is a freelance web design practice based in Bucharest. This site includes concept sites (fictional businesses) that demonstrate the kind of fully custom site a client would receive; NodWeb has not yet delivered a real client project.
 
 ## Pages
 

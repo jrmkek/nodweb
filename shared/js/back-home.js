@@ -3,11 +3,13 @@
 // Motion drives three things: a springy entrance, a magnetic pull toward the
 // cursor, and a circular wipe out of the pill on click before navigating.
 // Without JS/Motion (or with reduced motion) it's still a plain fixed link.
+// Also adds a small bottom-right note that the page is a concept, not a real
+// business; data-note / data-note-ro override the default wording.
 // Dynamic import so a blocked CDN leaves the plain link instead of no link.
 const animate = (await import("https://cdn.jsdelivr.net/npm/motion@11/+esm").catch(() => null))?.animate;
 
 // currentScript is null in modules, so find our own tag.
-const { href = "/", label = "Back to NodWeb" } =
+const { href = "/", label = "Back to NodWeb", note: noteEn, noteRo } =
   document.querySelector("script[data-href][src*='back-home']")?.dataset ?? {};
 
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -22,6 +24,11 @@ document.head.insertAdjacentHTML("beforeend", `<style>
 .bh-dot{width:34px;height:34px;border-radius:50%;background:#b5502f;display:grid;place-items:center;overflow:hidden}
 .bh-dot svg{width:18px;height:18px}
 .bh-txt{white-space:nowrap}
+.bh-note{position:fixed;right:16px;bottom:16px;z-index:9998;max-width:min(320px,calc(100vw - 96px));
+  padding:8px 12px;border-radius:12px;background:rgba(23,23,26,.88);color:#fff;text-decoration:none;
+  font:500 12px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 0 0 1px rgba(255,255,255,.12) inset}
+.bh-note:hover{text-decoration:underline}
+.bh-note:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .bh-wipe{position:fixed;z-index:10000;border-radius:50%;background:#17171a;pointer-events:none}
 @media(max-width:520px){.bh-txt{display:none}.bh{padding:6px}}
 </style>`);
@@ -32,6 +39,18 @@ a.href = href;
 a.setAttribute("aria-label", label);
 a.innerHTML = `<span class="bh-dot"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span><span class="bh-txt">${label}</span>`;
 document.body.append(a);
+
+const note = document.createElement("a");
+note.className = "bh-note";
+note.href = href;
+document.body.append(note);
+const setNote = () => {
+  const ro = document.documentElement.lang.startsWith("ro");
+  note.textContent = (ro ? noteRo : noteEn) ??
+    (ro ? "Site demonstrativ realizat de NodWeb: nu este o afacere reală." : "Concept site by NodWeb: not a real business.");
+};
+setNote();
+new MutationObserver(setNote).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 
 if (!reduced && animate) {
   const dot = a.querySelector(".bh-dot svg");

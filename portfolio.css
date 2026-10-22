@@ -162,6 +162,8 @@ p a { color: var(--color-text); text-decoration-color: var(--color-accent); text
 }
 .work-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .work-card__trade { display: block; margin-bottom: var(--space-1); font-size: var(--text-sm); color: var(--color-text-muted); }
+.work-card__badge { display: inline-block; margin-right: var(--space-1); padding: 0 0.5em; border: 1px solid var(--color-rule); border-radius: var(--radius-sm); font-size: var(--text-xs, 0.75rem); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.6; vertical-align: 0.05em; color: var(--color-text); }
+.plate__caption .work-card__badge { margin-left: var(--space-2); }
 .work-card h3 { margin-bottom: var(--space-2); }
 .work-card p { margin: 0; }
 .work-slide.is-active-preview:hover .work-card__media { border-color: var(--color-rule); }
